@@ -11,7 +11,7 @@ const SUBSCRIBE_URL =
 
 export default function Home() {
   return (
-    <div className="relative z-10 mx-auto flex min-h-screen max-w-lg flex-col gap-8 px-4 pb-20 sm:pb-8">
+    <div className="relative z-10 mx-auto flex min-h-screen max-w-lg flex-col gap-6 px-4 pb-20 sm:pb-8">
       <Hero />
 
       {/* Read the Magazine */}
