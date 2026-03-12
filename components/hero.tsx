@@ -38,7 +38,7 @@ export function Hero() {
         </svg>
       </a>
 
-      <div className="flex flex-wrap justify-center gap-2">
+      <div className="flex flex-nowrap justify-center gap-2 overflow-x-auto">
         {COUNTIES.map((county) => (
           <span key={county} className="app-chip">
             {county}
