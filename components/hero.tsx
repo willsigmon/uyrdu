@@ -38,12 +38,21 @@ export function Hero() {
         </svg>
       </a>
 
-      <div className="flex flex-nowrap justify-center gap-2 overflow-x-auto">
-        {COUNTIES.map((county) => (
-          <span key={county} className="app-chip">
-            {county}
-          </span>
-        ))}
+      <div className="flex flex-col items-center gap-2">
+        <div className="flex justify-center gap-2">
+          {COUNTIES.slice(0, 3).map((county) => (
+            <span key={county} className="app-chip">
+              {county}
+            </span>
+          ))}
+        </div>
+        <div className="flex justify-center gap-2">
+          {COUNTIES.slice(3).map((county) => (
+            <span key={county} className="app-chip">
+              {county}
+            </span>
+          ))}
+        </div>
       </div>
 
       <p className="text-sm text-muted-foreground">
