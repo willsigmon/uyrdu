@@ -1,5 +1,3 @@
-import { TriangleMap } from "./triangle-map";
-
 const SUBSCRIBE_URL =
   "https://docs.google.com/forms/d/e/1FAIpQLSeN2iwnRxln-1J6yIbN3_wlYqg133j2ITOige94Yw24e2bYsA/viewform";
 
@@ -20,8 +18,6 @@ export function Hero() {
       <p className="max-w-md text-lg leading-relaxed text-muted-foreground sm:text-xl">
         Celebrating the disability community in the Triangle
       </p>
-
-      <TriangleMap />
 
       <a
         href={SUBSCRIBE_URL}
