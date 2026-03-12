@@ -1,0 +1,225 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-archivo-black);
+  --radius-sm: calc(var(--radius) - 6px);
+  --radius-md: calc(var(--radius) - 4px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 14px);
+}
+
+:root {
+  --radius: 1.15rem;
+  --background: #fff7f1;
+  --foreground: #2c0b5a;
+  --card: #fffdf7;
+  --card-foreground: #2c0b5a;
+  --primary: #ff6b6b;
+  --primary-foreground: #fffdf7;
+  --secondary: #ffe5d1;
+  --secondary-foreground: #2c0b5a;
+  --muted: #f5e9ff;
+  --muted-foreground: #6f4f94;
+  --accent: #12d6a0;
+  --accent-foreground: #15382d;
+  --border: #b99fd5;
+  --ring: #2c0b5a;
+  --poster-shadow: rgba(44, 11, 90, 0.12);
+  --poster-shadow-strong: rgba(44, 11, 90, 0.34);
+  --poster-shell: rgba(255, 253, 247, 0.96);
+  --poster-panel: rgba(255, 252, 246, 0.98);
+  --poster-panel-muted: rgba(245, 233, 255, 0.9);
+}
+
+.dark {
+  --background: #140925;
+  --foreground: #fff4ea;
+  --card: #251345;
+  --card-foreground: #fff4ea;
+  --primary: #ff6b6b;
+  --primary-foreground: #fff7f1;
+  --secondary: #3b255f;
+  --secondary-foreground: #fff4ea;
+  --muted: #301d54;
+  --muted-foreground: #d9c7f0;
+  --accent: #12d6a0;
+  --accent-foreground: #082b21;
+  --border: #65488f;
+  --ring: #ffcc00;
+  --poster-shadow: rgba(9, 4, 18, 0.5);
+  --poster-shadow-strong: rgba(9, 4, 18, 0.82);
+  --poster-shell: rgba(31, 16, 56, 0.94);
+  --poster-panel: rgba(39, 20, 70, 0.96);
+  --poster-panel-muted: rgba(48, 29, 84, 0.94);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply min-h-screen bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
+    background-image:
+      radial-gradient(circle at 18% -4%, rgba(18, 214, 160, 0.42) 0, transparent 14rem),
+      radial-gradient(circle at 92% 10%, rgba(94, 168, 255, 0.32) 0, transparent 17rem),
+      radial-gradient(circle at 16% 100%, rgba(255, 204, 0, 0.34) 0, transparent 14rem),
+      linear-gradient(160deg, #fffdf7 0%, #fff7f1 48%, #ffe8de 100%);
+    background-attachment: fixed;
+  }
+
+  .dark body {
+    background-image:
+      radial-gradient(circle at 14% -4%, rgba(18, 214, 160, 0.18) 0, transparent 15rem),
+      radial-gradient(circle at 94% 8%, rgba(94, 168, 255, 0.2) 0, transparent 16rem),
+      radial-gradient(circle at 22% 100%, rgba(255, 204, 0, 0.14) 0, transparent 14rem),
+      linear-gradient(160deg, #1d0c34 0%, #140925 52%, #0d0417 100%);
+  }
+
+  body::before,
+  body::after {
+    content: "";
+    position: fixed;
+    pointer-events: none;
+    inset: auto;
+    z-index: 0;
+    border-radius: 999px;
+    filter: blur(0.5px);
+  }
+
+  body::before {
+    top: -4rem;
+    left: 18%;
+    width: 22rem;
+    height: 5rem;
+    background: rgba(18, 214, 160, 0.95);
+    transform: rotate(-8deg);
+  }
+
+  body::after {
+    right: -3rem;
+    top: 6rem;
+    width: 7rem;
+    height: 20rem;
+    background: rgba(155, 69, 255, 0.82);
+    transform: rotate(16deg);
+  }
+
+  .dark body::before {
+    background: rgba(18, 214, 160, 0.72);
+  }
+
+  .dark body::after {
+    background: rgba(155, 69, 255, 0.62);
+  }
+
+  ::selection {
+    background: rgba(255, 107, 107, 0.3);
+    color: var(--foreground);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.05em;
+  }
+
+  .text-brand-gradient {
+    color: #fff9f2;
+    -webkit-text-stroke: 1.5px #2c0b5a;
+    text-shadow: 4px 4px 0 #2c0b5a;
+  }
+
+  .dark .text-brand-gradient {
+    color: #fff4ea;
+    -webkit-text-stroke: 1px #fff4ea;
+    text-shadow: 4px 4px 0 #ff6b6b;
+  }
+
+  .app-shell {
+    position: relative;
+    overflow: hidden;
+    border-radius: 2.2rem;
+    border: 3px solid var(--foreground);
+    background: linear-gradient(180deg, rgba(255, 253, 247, 0.98) 0%, rgba(255, 247, 241, 0.98) 100%);
+    box-shadow: 0 14px 0 0 var(--poster-shadow), 0 34px 60px -34px var(--poster-shadow-strong);
+  }
+
+  .app-shell::before {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    top: 0;
+    height: 0.75rem;
+    background: linear-gradient(90deg, #12d6a0 0%, #ffcc00 26%, #ff6b6b 58%, #5ea8ff 100%);
+  }
+
+  .dark .app-shell {
+    background: linear-gradient(180deg, rgba(37, 19, 69, 0.96) 0%, rgba(24, 10, 43, 0.98) 100%);
+  }
+
+  .app-panel {
+    border-radius: 1.9rem;
+    border: 2px solid var(--border);
+    background: var(--poster-panel);
+    box-shadow: 0 8px 0 0 var(--poster-shadow), 0 26px 50px -32px var(--poster-shadow-strong);
+  }
+
+  .app-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 999px;
+    border: 2px solid var(--foreground);
+    background: rgba(255, 253, 247, 0.98);
+    padding: 0.5rem 0.9rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--foreground);
+    box-shadow: 0 4px 0 0 var(--poster-shadow);
+  }
+
+  .dark .app-chip {
+    background: rgba(39, 20, 70, 0.98);
+  }
+
+  .glass-surface {
+    background: var(--poster-panel-muted);
+    border: 2px solid var(--border);
+    border-radius: 1.5rem;
+    box-shadow: 0 6px 0 0 var(--poster-shadow), 0 20px 32px -24px var(--poster-shadow-strong);
+  }
+}
