@@ -19,10 +19,13 @@ const archivoBlack = Archivo_Black({
   weight: "400",
 });
 
+const siteUrl = "https://uyrdu.com";
+
 export const metadata: Metadata = {
   title: "Uniquely You! Raleigh Metro",
   description:
     "Celebrating the disability community in NC's Triangle region. A free monthly magazine connecting families, advocates, and businesses across Wake, Durham, Orange, Johnston, and Chatham counties.",
+  metadataBase: new URL(siteUrl),
   keywords: [
     "disability community",
     "Raleigh",
@@ -41,13 +44,23 @@ export const metadata: Metadata = {
       "Celebrating the disability community in NC's Triangle region.",
     type: "website",
     locale: "en_US",
+    url: siteUrl,
     siteName: "Uniquely You! Raleigh Metro",
+    images: [
+      {
+        url: "/api/og",
+        width: 1200,
+        height: 630,
+        alt: "Uniquely You! Raleigh Metro — Celebrating the disability community in NC's Triangle region",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Uniquely You! Raleigh Metro",
     description:
       "Celebrating the disability community in NC's Triangle region.",
+    images: ["/api/og"],
   },
 };
 
