@@ -636,7 +636,7 @@ h1, h2, h3, h4 {
 .s3-pillar p {
   font-size: 0.91rem;
   color: #666;
-  line-height: 1.6;
+  line-height: 1.45;
   max-width: 30ch;
 }
 
@@ -1144,17 +1144,17 @@ h1, h2, h3, h4 {
 
 /* CTA breathing text */
 .s8-cta-wrap {
-  padding: 28px 36px;
+  padding: 18px 24px;
   background: rgba(255,107,107,0.1);
   border: 1px solid rgba(255,107,107,0.2);
   border-radius: 16px;
   text-align: center;
 }
 .s8-cta-text {
-  font-size: 1.3rem;
+  font-size: 0.98rem;
   font-style: italic;
   color: var(--coral);
-  line-height: 1.6;
+  line-height: 1.35;
   font-weight: 500;
   animation: breathe 4s ease-in-out infinite;
 }
@@ -1171,6 +1171,339 @@ h1, h2, h3, h4 {
   background-size: 200% 100%;
   animation: shimmer 4s linear infinite;
   z-index: 10;
+}
+
+
+/* ================================================================
+   SLIDES 8–10 — CLOSE FLOW
+   ================================================================ */
+.s8-prompt-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 28px;
+  align-items: stretch;
+  position: relative;
+  z-index: 2;
+}
+.s8-question-card,
+.s8-preview-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 28px;
+  padding: 24px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.18);
+}
+.s8-card-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(18,214,160,0.12);
+  border: 1px solid rgba(18,214,160,0.2);
+  color: var(--teal);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 18px;
+}
+.s8-prompt-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.s8-prompt-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: rgba(255,247,241,0.82);
+  line-height: 1.6;
+  font-size: 0.98rem;
+}
+.s8-prompt-dot {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: var(--gold);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-top: 1px;
+}
+.s8-preview-shell {
+  max-width: 240px;
+  margin: 0 auto 18px;
+}
+.s8-preview-mag {
+  aspect-ratio: 8.5 / 11;
+  border-radius: 24px;
+  background: linear-gradient(160deg, rgba(255,255,255,0.97) 0%, rgba(255,247,241,0.92) 100%);
+  border: 1px solid rgba(255,255,255,0.45);
+  box-shadow: 0 24px 50px rgba(0,0,0,0.24);
+  padding: 22px 20px;
+  position: relative;
+  overflow: hidden;
+}
+.s8-preview-mag::after {
+  content: '';
+  position: absolute;
+  inset: auto -30px -30px auto;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(18,214,160,0.18), transparent 70%);
+}
+.s8-preview-kicker {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--purple-sec);
+  margin-bottom: 16px;
+}
+.s8-preview-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--coral);
+  color: #fff;
+  font-family: var(--display);
+  font-size: 1.45rem;
+  line-height: 1;
+  padding: 10px 16px;
+  border-radius: 14px;
+  margin-bottom: 18px;
+  box-shadow: 0 12px 24px rgba(255,107,107,0.28);
+}
+.s8-preview-title {
+  font-family: var(--display);
+  font-size: 1.35rem;
+  line-height: 1.1;
+  color: var(--dark);
+  margin-bottom: 12px;
+}
+.s8-preview-copy {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: #555;
+  max-width: 20ch;
+}
+.s8-preview-stripes {
+  display: grid;
+  gap: 10px;
+  margin-top: 20px;
+}
+.s8-preview-stripes span {
+  display: block;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(44,11,90,0.08);
+}
+.s8-preview-stripes span:nth-child(2) { width: 86%; background: rgba(18,214,160,0.15); }
+.s8-preview-stripes span:nth-child(3) { width: 64%; background: rgba(255,199,45,0.18); }
+.s8-preview-note {
+  color: rgba(255,247,241,0.74);
+  line-height: 1.65;
+  text-align: center;
+  max-width: 32ch;
+  margin: 0 auto;
+}
+
+.s9-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  align-items: stretch;
+}
+.s9-plan {
+  position: relative;
+  background: #fff;
+  border: 1px solid rgba(44,11,90,0.08);
+  border-radius: 28px;
+  padding: 24px;
+  box-shadow: 0 18px 40px rgba(44,11,90,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.s9-plan--featured {
+  border-color: rgba(18,214,160,0.32);
+  box-shadow: 0 26px 54px rgba(18,214,160,0.14);
+  transform: translateY(-10px);
+}
+.s9-plan-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+.s9-plan-kicker {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #7d7392;
+}
+.s9-plan-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: rgba(44,11,90,0.06);
+  color: var(--dark);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+.s9-plan--featured .s9-plan-badge {
+  background: rgba(18,214,160,0.12);
+  color: #0d8d6c;
+}
+.s9-bar {
+  height: 188px;
+  display: flex;
+  align-items: flex-end;
+}
+.s9-bar-fill {
+  width: 100%;
+  border-radius: 24px 24px 14px 14px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 14px 16px;
+  color: #fff;
+  font-family: var(--display);
+  font-size: 1.4rem;
+  letter-spacing: -0.03em;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.3);
+}
+.s9-rate {
+  font-family: var(--display);
+  color: var(--dark);
+  font-size: 2rem;
+  line-height: 1;
+}
+.s9-rate span {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #6d6580;
+  margin-left: 4px;
+}
+.s9-total {
+  font-size: 0.95rem;
+  color: #6d6580;
+  font-weight: 600;
+}
+.s9-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 4px;
+}
+.s9-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--dark);
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+.s9-list li::before {
+  content: '•';
+  color: var(--teal);
+  font-weight: 900;
+}
+.s9-note {
+  margin-top: 26px;
+  padding: 18px 22px;
+  border-radius: 18px;
+  background: rgba(44,11,90,0.04);
+  border: 1px solid rgba(44,11,90,0.08);
+  color: #5c5571;
+  line-height: 1.65;
+}
+
+.s10-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px;
+  align-items: stretch;
+}
+.s10-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 28px;
+  padding: 24px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.18);
+}
+.s10-card-label {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255,199,45,0.12);
+  border: 1px solid rgba(255,199,45,0.24);
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 18px;
+}
+.s10-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.s10-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: rgba(255,247,241,0.82);
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+.s10-num {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 10px;
+  background: rgba(18,214,160,0.12);
+  border: 1px solid rgba(18,214,160,0.2);
+  color: var(--teal);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--display);
+  font-size: 0.84rem;
+}
+.s10-note {
+  margin-top: 20px;
+  padding: 18px 22px;
+  border-radius: 18px;
+  background: rgba(255,107,107,0.12);
+  border: 1px solid rgba(255,107,107,0.22);
+  color: rgba(255,247,241,0.84);
+  line-height: 1.65;
+  text-align: center;
+}
+.s10-contact {
+  margin-top: 18px;
+  color: rgba(255,247,241,0.6);
+  text-align: center;
+  font-size: 0.95rem;
 }
 
 /* ================================================================
@@ -1241,6 +1574,7 @@ h1, h2, h3, h4 {
   .s7-staircase { grid-template-columns: 1fr; gap: 16px; }
   .s7-step--1, .s7-step--2, .s7-step--3 { max-width: 400px; margin: 0 auto; width: 100%; }
   .s8-layout { grid-template-columns: 1fr; }
+  .s8-prompt-grid, .s9-grid, .s10-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 768px) {
@@ -1290,7 +1624,9 @@ h1, h2, h3, h4 {
   <a href="#audience" data-slide="4" data-label="Audience Fit" aria-label="Audience Fit"></a>
   <a href="#geography" data-slide="5" data-label="Geography" aria-label="Geography"></a>
   <a href="#partnership" data-slide="6" data-label="Partnership" aria-label="Partnership"></a>
-  <a href="#close" data-slide="7" data-label="Close" aria-label="Close"></a>
+  <a href="#questions" data-slide="7" data-label="Questions" aria-label="Questions"></a>
+  <a href="#pricing" data-slide="8" data-label="Pricing" aria-label="Pricing"></a>
+  <a href="#start" data-slide="9" data-label="Start" aria-label="Start"></a>
 </nav>
 
 
@@ -1398,12 +1734,12 @@ h1, h2, h3, h4 {
 <section class="slide slide--cream" id="why" data-slide-index="1" data-theme="light">
   <div class="slide-inner">
     <div class="section-eyebrow" data-reveal="up" data-delay="0">Why Modern Apotheca</div>
-    <h2 class="section-title" data-reveal="up" data-delay="100" style="text-align:center;margin-left:auto;margin-right:auto;">Why I thought of you</h2>
+    <h2 class="section-title" data-reveal="up" data-delay="100" style="text-align:center;margin-left:auto;margin-right:auto;">Why this fit stands out</h2>
     <p class="section-subtitle" data-reveal="up" data-delay="200" style="text-align:center;margin-left:auto;margin-right:auto;">The strongest fit is values first, audience second, geography third.</p>
 
     <!-- Cinematic full-width quote -->
     <div class="s2-quote" data-reveal="scale" data-delay="300">
-      "We believe the body has an innate ability to heal when given the right support. Our role is to guide you to the right tools -- <span class="s2-quote-em">not sell you something you don't need.</span>"
+      "Modern Apotheca centers the body's innate ability to heal when given the right support. The goal is guidance toward the right tools -- <span class="s2-quote-em">not a hard sell.</span>"
     </div>
     <p class="s2-author" data-reveal="fade" data-delay="500">-- Corey Stahl, Modern Apotheca</p>
 
@@ -1417,7 +1753,7 @@ h1, h2, h3, h4 {
           </svg>
         </div>
         <div class="s2-tl-title">Personal health journey</div>
-        <div class="s2-tl-desc">Your customers navigate chronic conditions daily. So does our audience. This is lived experience on both sides.</div>
+        <div class="s2-tl-desc">The same chronic-condition realities show up on both sides of this partnership. This is lived experience meeting lived experience.</div>
       </div>
 
       <div class="s2-tl-item" data-reveal="up" data-delay="800">
@@ -1610,7 +1946,7 @@ h1, h2, h3, h4 {
       </div>
       <div class="s4-context-card s4-context-card--aside" data-reveal="right" data-delay="1000">
         <h3>Why Raleigh Metro matters</h3>
-        <p>RDU is one of the fastest-growing metros in the country -- and disability services haven't kept pace. UY! fills a real information gap, and early partners get the most visibility as we scale.</p>
+        <p>RDU is one of the fastest-growing metros in the country -- and disability services have not kept pace. UY! fills a real information gap, and early partners capture the most visibility as the publication grows.</p>
       </div>
     </div>
   </div>
@@ -1624,7 +1960,7 @@ h1, h2, h3, h4 {
   <div class="slide-inner">
     <div class="section-eyebrow" data-reveal="up" data-delay="0">Audience Fit</div>
     <h2 class="section-title" data-reveal="up" data-delay="100">Why the audience fit is real</h2>
-    <p class="section-subtitle" data-reveal="up" data-delay="200">Your customers and our readers share more than a zip code.</p>
+    <p class="section-subtitle" data-reveal="up" data-delay="200">Modern Apotheca customers and UY! readers share more than a zip code.</p>
 
     <div class="s5-fit-layout">
       <article class="s5-fit-panel s5-fit-panel--left" data-reveal="left" data-delay="300">
@@ -1715,7 +2051,7 @@ h1, h2, h3, h4 {
     </div>
 
     <div class="s6-callout" data-reveal="up" data-delay="500">
-      <strong>Every Modern Apotheca location sits inside a UY! distribution zone.</strong> Your storefronts and our readers are already in the same places -- this partnership just makes the connection visible.
+      <strong>Every Modern Apotheca location sits inside a UY! distribution zone.</strong> Modern Apotheca storefronts and UY! readers are already in the same places -- this partnership simply makes the connection visible.
     </div>
   </div>
 </section>
@@ -1801,65 +2137,169 @@ h1, h2, h3, h4 {
         </svg>
       </div>
       <div class="s7-price-text">
-        <strong>$450/month</strong> -- 36-issue partners receive a <strong>20% discount</strong> plus <strong>two feature stories</strong> per year. Long-term partners get the best value and the deepest community presence.
+        <strong>Recommended starting point:</strong> consistent issue-to-issue presence first, then deeper editorial storytelling once the right rhythm and message are clear.
       </div>
     </div>
   </div>
 </section>
 
 
-<!-- ============================================================
-     SLIDE 8: CLOSE
-     ============================================================ -->
-<section class="slide slide--dark" id="close" data-slide-index="7" data-theme="dark">
-  <!-- Background -->
-  <div class="s8-diagonal"></div>
 
-  <!-- Orbs -->
+<!-- ============================================================
+     SLIDE 8: QUESTIONS / PREVIEW
+     ============================================================ -->
+<section class="slide slide--dark" id="questions" data-slide-index="7" data-theme="dark">
+  <div class="s8-diagonal"></div>
   <div class="orb" style="width:400px;height:400px;top:-120px;right:-80px;background:var(--coral);opacity:0.06;"></div>
   <div class="orb" style="width:300px;height:300px;bottom:-80px;left:-60px;background:var(--teal);opacity:0.04;"></div>
 
   <div class="slide-inner" style="display:flex;flex-direction:column;height:calc(100vh - 120px);justify-content:space-between;">
-    <h2 class="s8-title" data-reveal="up" data-delay="100" style="text-align:center;margin-bottom:16px;">Why I'm bringing this to you</h2>
+    <div>
+      <div class="section-eyebrow" data-reveal="up" data-delay="50" style="color:rgba(255,247,241,0.58);">Transition</div>
+      <h2 class="s8-title" data-reveal="up" data-delay="100" style="margin-bottom:14px;">Questions, then a quick look at the publication</h2>
+      <p class="section-subtitle" data-reveal="up" data-delay="180" style="color:rgba(255,247,241,0.74);max-width:760px;margin-bottom:0;">Fit, timing, and creative questions belong here. If a current issue would help, this is the clean moment to open it.</p>
+    </div>
 
-    <div class="s8-layout" style="flex:1;">
-      <!-- Left: Personal message -->
-      <div class="s8-left">
-        <h3 style="font-size:1.2rem;color:var(--teal);margin-bottom:14px;" data-reveal="up" data-delay="200">What matters to me</h3>
-        <p class="s8-personal" data-reveal="up" data-delay="250">I don't pitch businesses that don't belong in this publication. Modern Apotheca belongs -- because your values, your customers, and your community footprint align with exactly what Uniquely You! was built to serve. This is a partnership I'd be proud of.</p>
-        <div class="s8-contact" data-reveal="up" data-delay="350">
-          <strong>Will Sigmon</strong>, Area Director<br>
-          Let's talk -- I'm here when you're ready.
-        </div>
+    <div class="s8-prompt-grid" style="flex:1;align-items:center;">
+      <div class="s8-question-card" data-reveal="left" data-delay="260">
+        <div class="s8-card-label">Good questions to surface now</div>
+        <ul class="s8-prompt-list">
+          <li class="s8-prompt-item"><span class="s8-prompt-dot">1</span><span>Which audience segment matters most right now?</span></li>
+          <li class="s8-prompt-item"><span class="s8-prompt-dot">2</span><span>What kind of placement feels most natural: brand story, offer, or resource-led education?</span></li>
+          <li class="s8-prompt-item"><span class="s8-prompt-dot">3</span><span>What timing matters most for the first issue?</span></li>
+          <li class="s8-prompt-item"><span class="s8-prompt-dot">4</span><span>What would make the partnership easiest to evaluate after launch?</span></li>
+        </ul>
       </div>
 
-      <!-- Right: Next steps -->
-      <div class="s8-right">
-        <h3 style="font-size:1.2rem;color:#fff;margin-bottom:16px;" data-reveal="up" data-delay="300">Suggested next steps</h3>
-        <ul class="s8-steps">
-          <li class="s8-step-item" data-reveal="right" data-delay="400">
-            <div class="s8-step-arrow">1</div>
-            <div class="s8-step-text">A 20-minute call to hear your perspective and priorities</div>
-          </li>
-          <li class="s8-step-item" data-reveal="right" data-delay="500">
-            <div class="s8-step-arrow">2</div>
-            <div class="s8-step-text">I'll share sample layouts and content ideas tailored to MA</div>
-          </li>
-          <li class="s8-step-item" data-reveal="right" data-delay="600">
-            <div class="s8-step-arrow">3</div>
-            <div class="s8-step-text">We agree on a format and timeline that works for you</div>
-          </li>
-          <li class="s8-step-item" data-reveal="right" data-delay="700">
-            <div class="s8-step-arrow">4</div>
-            <div class="s8-step-text">Your first feature goes live within 60 days of signing</div>
-          </li>
+      <div class="s8-preview-card" data-reveal="right" data-delay="340">
+        <div class="s8-card-label">Current issue preview</div>
+        <div class="s8-preview-shell">
+          <div class="s8-preview-mag">
+            <div class="s8-preview-kicker">Free monthly publication</div>
+            <div class="s8-preview-mark">UY!</div>
+            <div class="s8-preview-title">Real local stories.<br>Real local partners.</div>
+            <div class="s8-preview-copy">Use one live issue to ground tone, layout, and placement quality before pricing.</div>
+            <div class="s8-preview-stripes"><span></span><span></span><span></span></div>
+          </div>
+        </div>
+        <p class="s8-preview-note">Open a current issue, show one placement example, then return for pricing.</p>
+      </div>
+    </div>
+
+    <div class="s8-cta-wrap" data-reveal="scale" data-delay="420" style="margin-top:18px;">
+      <p class="s8-cta-text">Current issue preview first. Pricing next.</p>
+    </div>
+  </div>
+
+  <div class="s8-rainbow"></div>
+</section>
+
+
+<!-- ============================================================
+     SLIDE 9: PRICING
+     ============================================================ -->
+<section class="slide slide--cream" id="pricing" data-slide-index="8" data-theme="light">
+  <div class="orb" style="width:360px;height:360px;top:-120px;right:-120px;background:var(--gold);opacity:0.12;"></div>
+  <div class="orb" style="width:320px;height:320px;bottom:-120px;left:-120px;background:var(--teal);opacity:0.08;"></div>
+
+  <div class="slide-inner" style="justify-content:center;">
+    <div class="section-eyebrow" data-reveal="up" data-delay="50">Pricing</div>
+    <h2 class="section-title" data-reveal="up" data-delay="100" style="max-width:none;">Simple partner pricing</h2>
+    <p class="section-subtitle" data-reveal="up" data-delay="180" style="max-width:760px;">Issue count, monthly rate, and total commitment — shown in one place so the conversation can stay inside the deck.</p>
+
+    <div class="s9-grid">
+      <div class="s9-plan" data-reveal="up" data-delay="260">
+        <div class="s9-plan-top">
+          <div class="s9-plan-kicker">Starter</div>
+          <div class="s9-plan-badge">6 issues</div>
+        </div>
+        <div class="s9-bar"><div class="s9-bar-fill" style="height:72px;background:linear-gradient(180deg, rgba(255,107,107,0.88) 0%, var(--coral) 100%);">6</div></div>
+        <div class="s9-rate">$450<span>/month</span></div>
+        <div class="s9-total">$2,700 total</div>
+        <ul class="s9-list">
+          <li>Six consecutive issues</li>
+          <li>Clean test of message and placement</li>
+          <li>Enough repetition to measure response</li>
+        </ul>
+      </div>
+
+      <div class="s9-plan" data-reveal="up" data-delay="340">
+        <div class="s9-plan-top">
+          <div class="s9-plan-kicker">Consistency</div>
+          <div class="s9-plan-badge">12 issues</div>
+        </div>
+        <div class="s9-bar"><div class="s9-bar-fill" style="height:112px;background:linear-gradient(180deg, rgba(18,214,160,0.88) 0%, var(--teal) 100%);">12</div></div>
+        <div class="s9-rate">$450<span>/month</span></div>
+        <div class="s9-total">$5,400 total</div>
+        <ul class="s9-list">
+          <li>Year-round visibility</li>
+          <li>Stronger frequency across households</li>
+          <li>Room for seasonal creative rotation</li>
+        </ul>
+      </div>
+
+      <div class="s9-plan s9-plan--featured" data-reveal="up" data-delay="420">
+        <div class="s9-plan-top">
+          <div class="s9-plan-kicker">Best value</div>
+          <div class="s9-plan-badge">36 issues</div>
+        </div>
+        <div class="s9-bar"><div class="s9-bar-fill" style="height:180px;background:linear-gradient(180deg, rgba(255,199,45,0.92) 0%, var(--gold) 100%);">36</div></div>
+        <div class="s9-rate">$360<span>/month</span></div>
+        <div class="s9-total">$12,960 total</div>
+        <ul class="s9-list">
+          <li>20% monthly discount built in</li>
+          <li>Two feature stories per year</li>
+          <li>Deepest long-term community presence</li>
         </ul>
       </div>
     </div>
 
-    <div class="s8-cta-wrap" data-reveal="scale" data-delay="850" style="margin-top:16px;">
-      <p class="s8-cta-text">"If there's a fit, I'd rather build creative around your real story than drop in a canned ad."</p>
+    <div class="s9-note" data-reveal="up" data-delay="520">
+      <strong>Quick read:</strong> 6 and 12 issues hold the same monthly rate. The 36-issue path lowers the monthly rate to $360 and adds two annual feature stories.
     </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SLIDE 10: AUTHORIZATION / START
+     ============================================================ -->
+<section class="slide slide--dark" id="start" data-slide-index="9" data-theme="dark">
+  <div class="s8-diagonal"></div>
+  <div class="orb" style="width:400px;height:400px;top:-140px;left:-120px;background:var(--gold);opacity:0.06;"></div>
+  <div class="orb" style="width:320px;height:320px;bottom:-100px;right:-80px;background:var(--coral);opacity:0.05;"></div>
+
+  <div class="slide-inner" style="display:flex;flex-direction:column;height:calc(100vh - 120px);justify-content:space-between;">
+    <div>
+      <div class="section-eyebrow" data-reveal="up" data-delay="50" style="color:rgba(255,247,241,0.58);">Ready to start</div>
+      <h2 class="s8-title" data-reveal="up" data-delay="100" style="margin-bottom:14px;">A clean next step, without leaving the deck</h2>
+      <p class="section-subtitle" data-reveal="up" data-delay="180" style="color:rgba(255,247,241,0.74);max-width:780px;margin-bottom:0;">Choose the scope, handle authorization, then move straight into creative kickoff.</p>
+    </div>
+
+    <div class="s10-grid" style="flex:1;align-items:center;">
+      <div class="s10-card" data-reveal="left" data-delay="260">
+        <div class="s10-card-label">If decision-ready today</div>
+        <ul class="s10-list">
+          <li class="s10-item"><span class="s10-num">1</span><span>Choose 6, 12, or 36 issues</span></li>
+          <li class="s10-item"><span class="s10-num">2</span><span>Confirm billing name, email, and best payment contact</span></li>
+          <li class="s10-item"><span class="s10-num">3</span><span>Complete credit card authorization while this slide stays open</span></li>
+          <li class="s10-item"><span class="s10-num">4</span><span>Lock the target issue and creative kickoff timing</span></li>
+        </ul>
+      </div>
+
+      <div class="s10-card" data-reveal="right" data-delay="340">
+        <div class="s10-card-label">Creative steps next</div>
+        <ul class="s10-list">
+          <li class="s10-item"><span class="s10-num">1</span><span>Share logo, store priority, and any required brand guardrails</span></li>
+          <li class="s10-item"><span class="s10-num">2</span><span>Approve the first ad or story direction</span></li>
+          <li class="s10-item"><span class="s10-num">3</span><span>Reserve future feature-story timing if the 36-issue path is selected</span></li>
+          <li class="s10-item"><span class="s10-num">4</span><span>Move from approval to production without a second sales conversation</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="s10-note" data-reveal="scale" data-delay="420">Same-day authorization protects momentum and keeps production timing simple.</div>
+    <div class="s10-contact" data-reveal="fade" data-delay="480">Will Sigmon · Area Director · will.sigmon@n2co.com</div>
   </div>
 
   <div class="s8-rainbow"></div>
