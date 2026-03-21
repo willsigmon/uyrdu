@@ -7,10 +7,7 @@ export function Hero() {
   return (
     <section className="relative z-10 flex flex-col items-center gap-4 px-4 pt-14 pb-8 text-center sm:pt-20 sm:pb-10">
       <div className="flex flex-col items-center gap-1 animate-fade-in-up stagger-1">
-        <h1
-          className="font-display text-shimmer text-5xl leading-tight sm:text-7xl"
-          style={{ textShadow: '4px 4px 0 #2c0b5a' }}
-        >
+        <h1 className="font-display text-brand-gradient text-5xl leading-tight sm:text-7xl">
           Uniquely You!
         </h1>
         <p className="font-display text-2xl tracking-tight text-foreground sm:text-3xl">
