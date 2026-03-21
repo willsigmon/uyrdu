@@ -54,7 +54,7 @@ export function LinkCard({
   );
 
   const className =
-    "group flex items-center gap-4 rounded-2xl border-2 border-border bg-card p-4 transition-all hover:border-foreground/30 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0";
+    "group flex items-center gap-4 rounded-2xl border-2 border-border bg-card p-4 transition-all hover:border-foreground/30 hover:shadow-lg active:translate-y-0 hover-lift";
 
   if (comingSoon) {
     return (

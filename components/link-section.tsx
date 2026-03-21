@@ -6,7 +6,7 @@ interface LinkSectionProps {
 
 export function LinkSection({ icon, title, children }: LinkSectionProps) {
   return (
-    <section className="flex flex-col gap-3">
+    <section className="flex flex-col gap-3 animate-fade-in-up">
       <h2 className="flex items-center gap-2 font-display text-lg tracking-tight text-foreground">
         <span role="img" aria-hidden="true">
           {icon}

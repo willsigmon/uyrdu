@@ -6,8 +6,11 @@ const COUNTIES = ["Wake", "Durham", "Orange", "Johnston", "Chatham"];
 export function Hero() {
   return (
     <section className="relative z-10 flex flex-col items-center gap-4 px-4 pt-14 pb-8 text-center sm:pt-20 sm:pb-10">
-      <div className="flex flex-col items-center gap-1">
-        <h1 className="font-display text-brand-gradient text-5xl leading-tight sm:text-7xl">
+      <div className="flex flex-col items-center gap-1 animate-fade-in-up stagger-1">
+        <h1
+          className="font-display text-shimmer text-5xl leading-tight sm:text-7xl"
+          style={{ textShadow: '4px 4px 0 #2c0b5a' }}
+        >
           Uniquely You!
         </h1>
         <p className="font-display text-2xl tracking-tight text-foreground sm:text-3xl">
@@ -15,7 +18,7 @@ export function Hero() {
         </p>
       </div>
 
-      <p className="max-w-md text-base leading-relaxed text-muted-foreground sm:text-lg">
+      <p className="max-w-md text-base leading-relaxed text-muted-foreground sm:text-lg animate-fade-in-up stagger-2">
         Celebrating the disability community in the Triangle and surrounding areas
       </p>
 
@@ -23,7 +26,7 @@ export function Hero() {
         href={SUBSCRIBE_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="group flex items-center gap-3 rounded-2xl border-3 border-foreground bg-primary px-8 py-4 font-semibold text-primary-foreground shadow-lg transition-all hover:scale-105 hover:brightness-110 active:scale-95"
+        className="group flex items-center gap-3 rounded-2xl border-3 border-foreground bg-primary px-8 py-4 font-semibold text-primary-foreground shadow-lg transition-all hover:scale-105 hover:brightness-110 active:scale-95 animate-fade-in-up stagger-3 animate-pulse-glow"
       >
         <span className="text-2xl">📬</span>
         <span className="text-lg">Subscribe FREE</span>
@@ -38,24 +41,24 @@ export function Hero() {
         </svg>
       </a>
 
-      <div className="flex flex-col items-center gap-2">
+      <div className="flex flex-col items-center gap-2 animate-fade-in-up stagger-4">
         <div className="flex justify-center gap-2">
           {COUNTIES.slice(0, 3).map((county) => (
-            <span key={county} className="app-chip">
+            <span key={county} className="app-chip hover-lift">
               {county}
             </span>
           ))}
         </div>
         <div className="flex justify-center gap-2">
           {COUNTIES.slice(3).map((county) => (
-            <span key={county} className="app-chip">
+            <span key={county} className="app-chip hover-lift">
               {county}
             </span>
           ))}
         </div>
       </div>
 
-      <p className="text-sm text-muted-foreground">
+      <p className="text-sm text-muted-foreground animate-fade-in-up stagger-5">
         A free monthly magazine by{" "}
         <span className="font-semibold text-foreground">N2 Company</span>
       </p>

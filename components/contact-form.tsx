@@ -51,7 +51,7 @@ export function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col gap-3 rounded-2xl border-2 border-border bg-card p-4"
+      className="flex flex-col gap-3 rounded-2xl border-2 border-border bg-card p-4 animate-scale-in"
     >
       <div className="flex items-center gap-2">
         <span className="text-2xl" role="img" aria-hidden="true">
@@ -105,7 +105,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === "loading"}
-        className="rounded-xl bg-primary px-6 py-2.5 font-semibold text-primary-foreground transition-all hover:brightness-110 active:scale-95 disabled:opacity-60"
+        className="rounded-xl bg-primary px-6 py-2.5 font-semibold text-primary-foreground transition-all hover:brightness-110 active:scale-95 disabled:opacity-60 hover-lift animate-pulse-glow"
       >
         {status === "loading" ? "Sending..." : "Send Inquiry"}
       </button>

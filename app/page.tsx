@@ -15,88 +15,98 @@ export default function Home() {
       <Hero />
 
       {/* Read the Magazine */}
-      <LinkSection icon="📖" title="Read the Magazine">
-        <LinkCard
-          icon="📬"
-          label="Subscribe FREE"
-          description="Get every issue delivered — it's free!"
-          href={SUBSCRIBE_URL}
-        />
-        <LinkCard
-          icon="📱"
-          label="Read Current Issue"
-          description="Digital flipbook"
-          comingSoon
-        />
-        <LinkCard
-          icon="📚"
-          label="Past Issues"
-          description="Issue archive"
-          comingSoon
-        />
-      </LinkSection>
+      <div className="animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+        <LinkSection icon="📖" title="Read the Magazine">
+          <LinkCard
+            icon="📬"
+            label="Subscribe FREE"
+            description="Get every issue delivered — it's free!"
+            href={SUBSCRIBE_URL}
+          />
+          <LinkCard
+            icon="📱"
+            label="Read Current Issue"
+            description="Digital flipbook"
+            comingSoon
+          />
+          <LinkCard
+            icon="📚"
+            label="Past Issues"
+            description="Issue archive"
+            comingSoon
+          />
+        </LinkSection>
+      </div>
 
       {/* Know Someone? */}
-      <LinkSection icon="⭐" title="Know Someone Amazing?">
-        <LinkCard
-          icon="✨"
-          label="Nominate a Story or Refer a Business"
-          description="Shining Bright, Abilities in Action, Nonprofit Spotlight, and more"
-          href="https://uyraleighmetro.vercel.app/refer"
-        />
-      </LinkSection>
+      <div className="animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+        <LinkSection icon="⭐" title="Know Someone Amazing?">
+          <LinkCard
+            icon="✨"
+            label="Nominate a Story or Refer a Business"
+            description="Shining Bright, Abilities in Action, Nonprofit Spotlight, and more"
+            href="https://uyraleighmetro.vercel.app/refer"
+          />
+        </LinkSection>
+      </div>
 
       {/* Resources */}
-      <LinkSection icon="📋" title="Resources">
-        <LinkCard
-          icon="🗺️"
-          label="Triangle Disability Resources"
-          description="Local services, programs, and organizations across 5 counties"
-          href="/resources"
-        />
-      </LinkSection>
+      <div className="animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+        <LinkSection icon="📋" title="Resources">
+          <LinkCard
+            icon="🗺️"
+            label="Triangle Disability Resources"
+            description="Local services, programs, and organizations across 5 counties"
+            href="/resources"
+          />
+        </LinkSection>
+      </div>
 
       {/* For Businesses */}
-      <LinkSection icon="📢" title="For Businesses">
-        <ContactForm />
-        <LinkCard
-          icon="📅"
-          label="Schedule a Meeting"
-          description="Book a time with Will"
-          href="https://calendar.app.google/oTFXRmKDFUDPcvmj6"
-        />
-      </LinkSection>
+      <div className="animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
+        <LinkSection icon="📢" title="For Businesses">
+          <ContactForm />
+          <LinkCard
+            icon="📅"
+            label="Schedule a Meeting"
+            description="Book a time with Will"
+            href="https://calendar.app.google/oTFXRmKDFUDPcvmj6"
+          />
+        </LinkSection>
+      </div>
 
       {/* Connect */}
-      <LinkSection icon="🤝" title="Connect">
-        <LinkCard
-          icon="📘"
-          label="Facebook"
-          description="Uniquely You! Raleigh Metro"
-          comingSoon
-        />
-        <LinkCard
-          icon="📸"
-          label="Instagram"
-          description="@uniquelyyouraleigh"
-          comingSoon
-        />
-        <LinkCard
-          icon="✉️"
-          label="Email Will"
-          description="will.sigmon@n2co.com"
-          href="mailto:will.sigmon@n2co.com"
-        />
-        <LinkCard
-          icon="🌐"
-          label="Uniquely You! National"
-          description="uniquelyyoumag.com"
-          href="https://www.uniquelyyoumag.com"
-        />
-      </LinkSection>
+      <div className="animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+        <LinkSection icon="🤝" title="Connect">
+          <LinkCard
+            icon="📘"
+            label="Facebook"
+            description="Uniquely You! Raleigh Metro"
+            comingSoon
+          />
+          <LinkCard
+            icon="📸"
+            label="Instagram"
+            description="@uniquelyyouraleigh"
+            comingSoon
+          />
+          <LinkCard
+            icon="✉️"
+            label="Email Will"
+            description="will.sigmon@n2co.com"
+            href="mailto:will.sigmon@n2co.com"
+          />
+          <LinkCard
+            icon="🌐"
+            label="Uniquely You! National"
+            description="uniquelyyoumag.com"
+            href="https://www.uniquelyyoumag.com"
+          />
+        </LinkSection>
+      </div>
 
       {/* About */}
-      <section className="glass-surface p-6">
+      <section className="glass-surface p-6 animate-fade-in-up" style={{ animationDelay: '0.7s' }}>
         <h2 className="mb-3 font-display text-lg tracking-tight text-foreground">
           About Uniquely You!
         </h2>
