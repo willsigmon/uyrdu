@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uniquely You! — Free Magazine for the Disability Community</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --cream: #FFF7F1;
+  --dark: #2C0B5A;
+  --dark-mid: #3D1275;
+  --coral: #FF6B6B;
+  --teal: #12D6A0;
+  --gold: #FFC72D;
+  --purple-sec: #6E268E;
+  --blue: #5EA8FF;
+  --lavender: #F5E9FF;
+  --display: 'Archivo Black', sans-serif;
+  --sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+html, body {
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+  background: #1a0640;
+  color: #fff;
+  min-height: 100vh;
+}
+
+/* ── Download bar (hidden in print) ── */
+.download-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(26, 6, 64, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+.download-bar p {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.7);
+}
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--coral);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 22px;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.download-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(255,107,107,0.4);
+}
+.download-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ── Flyer page ── */
+.flyer-page {
+  width: 8.5in;
+  height: 11in;
+  margin: 64px auto 40px;
+  background: linear-gradient(160deg, #1a0640 0%, var(--dark) 35%, var(--dark-mid) 70%, #4a1a8a 100%);
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr auto;
+  padding: 0.55in 0.6in 0.5in;
+  gap: 0;
+  border-radius: 8px;
+  box-shadow: 0 20px 80px rgba(0,0,0,0.5);
+}
+
+/* Decorative orbs */
+.flyer-page::before {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: var(--coral);
+  opacity: 0.06;
+  top: -100px;
+  right: -80px;
+  filter: blur(80px);
+  pointer-events: none;
+}
+.flyer-page::after {
+  content: '';
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  background: var(--teal);
+  opacity: 0.05;
+  bottom: -80px;
+  left: -60px;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+/* ── Rainbow bar ── */
+.rainbow-bar {
+  grid-column: 1 / -1;
+  height: 5px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #12D6A0, #FFC72D, #FF6B6B, #5EA8FF, #12D6A0);
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+  margin-bottom: 0.35in;
+}
+@keyframes shimmer {
+  0% { background-position: 0% 0%; }
+  100% { background-position: -200% 0%; }
+}
+
+/* ── Left column ── */
+.left-col {
+  grid-column: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding-right: 0.4in;
+  position: relative;
+  z-index: 2;
+}
+
+.kicker {
+  display: inline-block;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 6px;
+  padding: 5px 14px;
+  font-family: var(--sans);
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 16px;
+  width: fit-content;
+}
+
+.flyer-title {
+  font-family: var(--display);
+  font-size: 3.2rem;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, var(--coral) 0%, #ff8e8e 50%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 18px;
+}
+
+.flyer-subtitle {
+  font-family: var(--sans);
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #fff;
+  margin-bottom: 6px;
+}
+.flyer-subtitle span {
+  color: var(--teal);
+}
+
+.flyer-tagline {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-style: italic;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.5;
+  margin-bottom: 28px;
+}
+
+.inside-heading {
+  font-family: var(--display);
+  font-size: 1.55rem;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+.inside-heading span {
+  color: var(--teal);
+}
+
+.feature-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+.feature-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.82);
+  line-height: 1.4;
+}
+.feature-list li::before {
+  content: '';
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--coral);
+}
+
+.divider {
+  width: 70%;
+  height: 1px;
+  background: rgba(255,255,255,0.12);
+  margin-bottom: 16px;
+}
+
+.footer-info {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.5;
+}
+.footer-info a {
+  color: var(--teal);
+  text-decoration: none;
+  font-weight: 600;
+}
+.footer-info strong {
+  color: rgba(255,255,255,0.75);
+}
+
+/* ── Right column ── */
+.right-col {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 28px;
+  padding-top: 10px;
+  position: relative;
+  z-index: 2;
+}
+
+/* CTA card */
+.cta-card {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 28px 26px;
+  width: 100%;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.cta-card-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(18,214,160,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+.cta-card-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: var(--teal);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.cta-title {
+  font-family: var(--display);
+  font-size: 1.4rem;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+.cta-desc {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.68);
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+.cta-desc a {
+  color: var(--teal);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: 600;
+}
+.cta-mail {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.68);
+}
+
+/* QR code */
+.qr-wrap {
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+}
+.qr-wrap canvas,
+.qr-wrap img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.qr-label {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.45);
+  text-align: center;
+  margin-top: -8px;
+}
+
+/* ── Covers collage ── */
+.covers-row {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 20px;
+  position: relative;
+  z-index: 2;
+}
+.cover-thumb {
+  width: 110px;
+  height: 142px;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  border: 2px solid rgba(255,255,255,0.08);
+}
+.cover-thumb:nth-child(2),
+.cover-thumb:nth-child(4) {
+  transform: translateY(-8px);
+}
+
+/* ── Print styles ── */
+@media print {
+  .download-bar { display: none !important; }
+
+  html, body {
+    background: #fff;
+    margin: 0;
+    padding: 0;
+  }
+
+  .flyer-page {
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+    width: 100%;
+    height: 100%;
+    page-break-after: avoid;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  @page {
+    size: 8.5in 11in;
+    margin: 0;
+  }
+
+  .rainbow-bar {
+    animation: none;
+    background: linear-gradient(90deg, #12D6A0, #FFC72D, #FF6B6B, #5EA8FF);
+  }
+}
+
+/* ── Responsive (screen only) ── */
+@media screen and (max-width: 700px) {
+  .flyer-page {
+    width: 100%;
+    height: auto;
+    min-height: auto;
+    grid-template-columns: 1fr;
+    padding: 32px 24px 28px;
+    margin: 52px 0 0;
+    border-radius: 0;
+    gap: 8px;
+  }
+  .left-col, .right-col { grid-column: 1; padding: 0; }
+  .right-col { align-items: flex-start; gap: 20px; padding-top: 24px; }
+  .flyer-title { font-size: 2.4rem; }
+  .covers-row { grid-column: 1; flex-wrap: wrap; }
+  .cover-thumb { width: 80px; height: 103px; }
+  .qr-wrap { width: 160px; height: 160px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Download bar -->
+<div class="download-bar">
+  <p>Print this flyer and share it at your facility</p>
+  <button class="download-btn" onclick="window.print()">
+    <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    Download PDF
+  </button>
+</div>
+
+<div class="flyer-page">
+
+  <!-- Rainbow bar -->
+  <div class="rainbow-bar"></div>
+
+  <!-- Left column -->
+  <div class="left-col">
+    <div class="kicker">Free monthly publication</div>
+
+    <h1 class="flyer-title">Uniquely<br>You!</h1>
+
+    <h2 class="flyer-subtitle">A Free <span>Magazine</span> for the<br>Disability Community</h2>
+
+    <p class="flyer-tagline">Celebrating the disability community<br>through stories, connection, and local resources.</p>
+
+    <h3 class="inside-heading">What's <span>Inside</span><br>Every Issue</h3>
+
+    <ul class="feature-list">
+      <li>Real Family Stories</li>
+      <li>Community Spotlights</li>
+      <li>Local Resources</li>
+      <li>Adaptive Programs</li>
+      <li>Event Listings</li>
+    </ul>
+
+    <div class="divider"></div>
+
+    <p class="footer-info">
+      <a href="https://uniquelyyoumag.com">uniquelyyoumag.com</a> &nbsp;|&nbsp; Serving
+      <strong>Wake</strong> &middot; <strong>Durham</strong> &middot; <strong>Orange</strong> &middot; <strong>Chatham</strong> &middot; <strong>Johnston</strong> Counties
+    </p>
+  </div>
+
+  <!-- Right column -->
+  <div class="right-col">
+    <div class="cta-card">
+      <div class="cta-card-icon">
+        <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+      </div>
+      <h3 class="cta-title">Sign Up FREE &mdash;<br>It's Completely Free!</h3>
+      <p class="cta-desc">Scan the QR code or visit<br><a href="https://uyrdu.com">uyrdu.com</a></p>
+      <p class="cta-mail">Mailed directly to your door</p>
+    </div>
+
+    <div class="qr-wrap">
+      <img id="qrImg" alt="QR code — scan to visit uyrdu.com" src="https://api.qrserver.com/v1/create-qr-code/?size=232x232&data=https%3A%2F%2Fuyrdu.com&margin=4&format=svg">
+    </div>
+    <p class="qr-label">Scan to sign up at uyrdu.com</p>
+  </div>
+
+  <!-- Cover thumbnails -->
+  <div class="covers-row">
+    <img class="cover-thumb" src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=220&h=284&fit=crop&crop=faces" alt="UY Cover" loading="lazy">
+    <img class="cover-thumb" src="https://images.unsplash.com/photo-1491013516836-7db643ee125a?w=220&h=284&fit=crop&crop=faces" alt="UY Cover" loading="lazy">
+    <img class="cover-thumb" src="https://images.unsplash.com/photo-1609220136736-443140cffec6?w=220&h=284&fit=crop&crop=faces" alt="UY Cover" loading="lazy">
+    <img class="cover-thumb" src="https://images.unsplash.com/photo-1594608661623-aa0bd3a69d98?w=220&h=284&fit=crop&crop=faces" alt="UY Cover" loading="lazy">
+    <img class="cover-thumb" src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=220&h=284&fit=crop&crop=faces" alt="UY Cover" loading="lazy">
+  </div>
+
+</div>
+
+
+</body>
+</html>
