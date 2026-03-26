@@ -957,42 +957,46 @@ h1, h2, h3, h4 {
    ================================================================ */
 .pricing-intro {
   text-align: center;
-  max-width: 700px;
-  margin: 0 auto 8px;
-  font-size: 0.95rem;
+  max-width: 920px;
+  margin: 0 auto 6px;
+  font-size: 0.88rem;
   color: #666;
   line-height: 1.6;
 }
 
 .rate-table-wrap {
-  overflow-x: auto;
-  border-radius: 16px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  overflow: visible;
+  border-radius: 20px;
+  box-shadow: 0 14px 36px rgba(44,11,90,0.08);
+  position: relative;
 }
 
 .rate-table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   font-family: var(--sans);
   background: #fff;
-  border-radius: 16px;
+  border-radius: 20px;
   overflow: hidden;
 }
 
 .rate-table thead th {
-  padding: 18px 20px;
+  padding: 14px 16px 12px;
   font-family: var(--display);
-  font-size: 0.85rem;
+  font-size: 0.84rem;
   letter-spacing: 0.04em;
   text-align: center;
   border-bottom: 2px solid rgba(44,11,90,0.08);
+  position: relative;
+  vertical-align: top;
 }
 .rate-table thead th:first-child {
   text-align: left;
-  width: 28%;
+  width: 26%;
 }
 .rate-table thead .th-term {
-  font-size: 0.8rem;
+  font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--purple-sec);
@@ -1003,23 +1007,40 @@ h1, h2, h3, h4 {
 }
 .rate-table thead .th-issues {
   font-family: var(--display);
-  font-size: 1.15rem;
+  font-size: 1.08rem;
   color: var(--dark);
 }
 .rate-table thead .th-savings {
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   color: #999;
-  font-weight: 500;
+  font-weight: 600;
   display: block;
   margin-top: 2px;
 }
+.th-save-badge {
+  display: inline-block;
+  background: var(--teal);
+  color: #fff;
+  font-family: var(--sans);
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 2px 8px;
+  border-radius: 20px;
+  margin-top: 4px;
+}
+.th-save-badge--gold {
+  background: linear-gradient(135deg, var(--teal), var(--gold));
+}
 
 .rate-table tbody td {
-  padding: 18px 20px;
+  padding: 11px 16px;
   text-align: center;
   border-bottom: 1px solid rgba(0,0,0,0.04);
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   color: var(--body);
+  transition: background 0.2s ease;
 }
 .rate-table tbody td:first-child {
   text-align: left;
@@ -1028,24 +1049,24 @@ h1, h2, h3, h4 {
 .rate-table tbody tr:last-child td {
   border-bottom: none;
 }
-.rate-table tbody tr:hover {
+.rate-table tbody tr:hover td {
   background: rgba(245,233,255,0.45);
 }
-.rate-table tbody tr:nth-child(odd) {
-  background: rgba(245,233,255,0.08);
+.rate-table tbody tr:nth-child(odd) td {
+  background: rgba(245,233,255,0.05);
 }
-.rate-table tbody tr:nth-child(odd):hover {
+.rate-table tbody tr:nth-child(odd):hover td {
   background: rgba(245,233,255,0.45);
 }
 
 .td-size-name {
   font-family: var(--display);
-  font-size: 1.05rem;
+  font-size: 1rem;
   color: var(--dark);
   display: block;
 }
 .td-size-desc {
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   color: #999;
   font-weight: 400;
   display: block;
@@ -1054,53 +1075,97 @@ h1, h2, h3, h4 {
 
 .td-price {
   font-family: var(--display);
-  font-size: 1.3rem;
+  font-size: 1.22rem;
   color: var(--dark);
+  display: block;
+}
+.td-per {
+  display: block;
+  font-family: var(--sans);
+  font-size: 0.64rem;
+  color: #aaa;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  margin-top: 1px;
 }
 .td-total {
   display: block;
   font-family: var(--sans);
-  font-size: 0.8rem;
-  color: #777;
+  font-size: 0.7rem;
+  color: #999;
   font-weight: 500;
-  margin-top: 3px;
+  margin-top: 2px;
+}
+
+.rate-table .popular-col {
+  background: rgba(245,233,255,0.4);
+  border-left: 2px solid rgba(110,38,142,0.15);
+  border-right: 2px solid rgba(110,38,142,0.15);
+  position: relative;
+}
+.rate-table thead .popular-col {
+  background: rgba(110,38,142,0.1);
+}
+.rate-table thead .popular-col::before {
+  content: 'Recommended';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--purple-sec);
+  color: #fff;
+  font-family: var(--sans);
+  font-size: 0.58rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 2px 12px;
+  border-radius: 10px;
+  white-space: nowrap;
+  z-index: 2;
+}
+.rate-table .popular-col .td-price {
+  color: var(--purple-sec);
+  font-size: 1.3rem;
 }
 
 .rate-table .best-value {
-  background: linear-gradient(90deg, rgba(18,214,160,0.06) 0%, rgba(255,199,45,0.06) 100%);
+  background: rgba(18,214,160,0.04);
 }
 .rate-table .best-value .td-price {
   color: var(--teal);
   font-weight: 700;
 }
-
-.rate-table .popular-col {
-  background: rgba(245,233,255,0.35);
-  border-left: 2px solid rgba(110,38,142,0.12);
-  border-right: 2px solid rgba(110,38,142,0.12);
+.rate-table thead .best-value-head {
+  background: rgba(18,214,160,0.08);
 }
 
 .pricing-notes {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin-top: 20px;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  margin-top: 12px;
 }
 .pricing-note {
-  background: #fff;
-  border-radius: 10px;
-  padding: 16px 20px;
-  font-size: 0.82rem;
+  background: rgba(255,255,255,0.92);
+  border: 1px solid rgba(44,11,90,0.06);
+  border-radius: 16px;
+  padding: 12px 14px;
+  font-size: 0.74rem;
   color: var(--body);
   line-height: 1.5;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
 }
 .pricing-note strong {
   display: block;
   font-family: var(--display);
-  font-size: 0.9rem;
+  font-size: 0.78rem;
   color: var(--dark);
   margin-bottom: 4px;
+}
+.pricing-note--highlight {
+  background: linear-gradient(135deg, rgba(18,214,160,0.06), rgba(255,199,45,0.06));
+  border-color: rgba(18,214,160,0.15);
 }
 
 /* ================================================================
@@ -1611,9 +1676,9 @@ h1, h2, h3, h4 {
   <div class="orb" style="width:320px;height:320px;bottom:-120px;left:-120px;background:var(--teal);opacity:0.08;"></div>
 
   <div class="slide-inner" style="justify-content:center;">
-    <div class="section-eyebrow" data-reveal="up" data-delay="50">Full rate card</div>
-    <h2 class="section-title" data-reveal="up" data-delay="100" style="max-width:none;">Every size. Every term. No hidden math.</h2>
-    <p class="pricing-intro" data-reveal="up" data-delay="180">All ad sizes use the same rate card. Pick your size, pick your term. Longer commitments lock in a lower monthly rate. Billed monthly — never a lump sum. Your rate is locked for the full term.</p>
+    <div class="section-eyebrow" data-reveal="up" data-delay="50">Investment</div>
+    <h2 class="section-title" data-reveal="up" data-delay="100" style="max-width:none;">Simple pricing. Longer commitments save more.</h2>
+    <p class="pricing-intro" data-reveal="up" data-delay="180">Every ad size, every term length, billed monthly. Pick the placement and runway that fit best — no upfront lump sum required.</p>
 
     <div class="rate-table-wrap" data-reveal="up" data-delay="260">
       <table class="rate-table">
@@ -1624,19 +1689,21 @@ h1, h2, h3, h4 {
               <span class="th-issues" style="color:#fff;">Monthly rate by term</span>
             </th>
             <th style="background:rgba(255,107,107,0.08);">
-              <span class="th-term" style="color:var(--coral);">Short run</span>
+              <span class="th-term" style="color:var(--coral);">Try it</span>
               <span class="th-issues">6 issues</span>
               <span class="th-savings">6-month commitment</span>
             </th>
-            <th class="popular-col" style="background:rgba(110,38,142,0.08);">
+            <th class="popular-col">
               <span class="th-term">Most popular</span>
               <span class="th-issues">12 issues</span>
               <span class="th-savings">12-month commitment</span>
+              <span class="th-save-badge">Save 18%</span>
             </th>
-            <th style="background:rgba(18,214,160,0.08);border-radius:0 16px 0 0;">
+            <th class="best-value-head" style="border-radius:0 16px 0 0;">
               <span class="th-term" style="color:var(--teal);">Best value</span>
               <span class="th-issues">36 issues</span>
               <span class="th-savings">36-month commitment</span>
+              <span class="th-save-badge th-save-badge--gold">Save 31%</span>
             </th>
           </tr>
         </thead>
@@ -1648,15 +1715,15 @@ h1, h2, h3, h4 {
             </td>
             <td>
               <span class="td-price">$275</span>
-              <span class="td-total">$1,650 total</span>
+              <span class="td-per">/ month</span>
             </td>
             <td class="popular-col">
               <span class="td-price">$225</span>
-              <span class="td-total">$2,700 total</span>
+              <span class="td-per">/ month</span>
             </td>
             <td class="best-value">
               <span class="td-price">$190</span>
-              <span class="td-total">$6,840 total</span>
+              <span class="td-per">/ month</span>
             </td>
           </tr>
           <tr>
@@ -1666,15 +1733,15 @@ h1, h2, h3, h4 {
             </td>
             <td>
               <span class="td-price">$395</span>
-              <span class="td-total">$2,370 total</span>
+              <span class="td-per">/ month</span>
             </td>
             <td class="popular-col">
               <span class="td-price">$350</span>
-              <span class="td-total">$4,200 total</span>
+              <span class="td-per">/ month</span>
             </td>
             <td class="best-value">
               <span class="td-price">$295</span>
-              <span class="td-total">$10,620 total</span>
+              <span class="td-per">/ month</span>
             </td>
           </tr>
           <tr>
@@ -1684,15 +1751,15 @@ h1, h2, h3, h4 {
             </td>
             <td>
               <span class="td-price">$495</span>
-              <span class="td-total">$2,970 total</span>
+              <span class="td-per">/ month</span>
             </td>
             <td class="popular-col">
               <span class="td-price">$450</span>
-              <span class="td-total">$5,400 total</span>
+              <span class="td-per">/ month</span>
             </td>
             <td class="best-value">
               <span class="td-price">$395</span>
-              <span class="td-total">$14,220 total</span>
+              <span class="td-per">/ month</span>
             </td>
           </tr>
           <tr>
@@ -1702,15 +1769,15 @@ h1, h2, h3, h4 {
             </td>
             <td>
               <span class="td-price">$695</span>
-              <span class="td-total">$4,170 total</span>
+              <span class="td-per">/ month</span>
             </td>
             <td class="popular-col">
               <span class="td-price">$650</span>
-              <span class="td-total">$7,800 total</span>
+              <span class="td-per">/ month</span>
             </td>
             <td class="best-value">
               <span class="td-price">$595</span>
-              <span class="td-total">$21,420 total</span>
+              <span class="td-per">/ month</span>
             </td>
           </tr>
           <tr>
@@ -1720,37 +1787,33 @@ h1, h2, h3, h4 {
             </td>
             <td>
               <span class="td-price">$795</span>
-              <span class="td-total">$4,770 total</span>
+              <span class="td-per">/ month</span>
             </td>
             <td class="popular-col">
               <span class="td-price">$750</span>
-              <span class="td-total">$9,000 total</span>
+              <span class="td-per">/ month</span>
             </td>
             <td class="best-value">
               <span class="td-price">$695</span>
-              <span class="td-total">$25,020 total</span>
+              <span class="td-per">/ month</span>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <div class="pricing-notes" data-reveal="up" data-delay="380">
+    <div class="pricing-notes" data-reveal="up" data-delay="360">
       <div class="pricing-note">
-        <strong>We design your ad</strong>
-        Professional ad design included at no extra cost. You see a proof before anything goes to print. Change it anytime.
+        <strong>Always billed monthly</strong>
+        No upfront lump sum. The commitment length lowers the monthly rate — you pay less per issue, not more up front.
       </div>
       <div class="pricing-note">
-        <strong>What's included</strong>
-        Every placement includes print ad, interactive digital edition with clickable links, partner directory listing, and ad design — all included.
+        <strong>Every payment method</strong>
+        Credit card, ACH, e-check, or invoice. Whatever works for your organization's process.
       </div>
-      <div class="pricing-note">
-        <strong>Billing details</strong>
-        Billed monthly via Stripe — credit card, ACH, or e-check accepted. Payment due ~30 days before each issue. Rate locked for full term.
-      </div>
-      <div class="pricing-note">
-        <strong>36-issue partners</strong>
-        Two feature stories per year included at no additional charge — the kind of storytelling that builds real community trust.
+      <div class="pricing-note pricing-note--highlight">
+        <strong>Included at every tier</strong>
+        Print placement, digital-edition exposure, directory listing, ad design support, and a feature story bonus at 36 issues.
       </div>
     </div>
   </div>

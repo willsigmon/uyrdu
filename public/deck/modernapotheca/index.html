@@ -1339,6 +1339,24 @@ h1, h2, h3, h4 {
   box-shadow: 0 26px 54px rgba(18,214,160,0.14);
   transform: translateY(-10px);
 }
+.s9-plan--featured::before {
+  content: 'Best value';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--teal), var(--gold));
+  color: #fff;
+  font-family: var(--sans);
+  font-size: 0.58rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 3px 14px;
+  border-radius: 10px;
+  white-space: nowrap;
+  z-index: 2;
+}
 .s9-plan-top {
   display: flex;
   align-items: flex-start;
@@ -1399,9 +1417,9 @@ h1, h2, h3, h4 {
   margin-left: 4px;
 }
 .s9-total {
-  font-size: 0.95rem;
-  color: #6d6580;
-  font-weight: 600;
+  font-size: 0.78rem;
+  color: #aaa;
+  font-weight: 500;
 }
 .s9-list {
   list-style: none;
@@ -1431,6 +1449,22 @@ h1, h2, h3, h4 {
   border: 1px solid rgba(44,11,90,0.08);
   color: #5c5571;
   line-height: 1.65;
+}
+.s9-save-tag {
+  display: inline-block;
+  background: var(--teal);
+  color: #fff;
+  font-family: var(--sans);
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 2px 8px;
+  border-radius: 20px;
+  margin-top: 2px;
+}
+.s9-save-tag--gold {
+  background: linear-gradient(135deg, var(--teal), var(--gold));
 }
 
 .s10-grid {
@@ -2078,9 +2112,9 @@ h1, h2, h3, h4 {
   <div class="orb" style="width:320px;height:320px;bottom:-120px;left:-120px;background:var(--teal);opacity:0.08;"></div>
 
   <div class="slide-inner" style="justify-content:center;">
-    <div class="section-eyebrow" data-reveal="up" data-delay="50">Rate card</div>
-    <h2 class="section-title" data-reveal="up" data-delay="100" style="max-width:none;">Consistent rate-card pricing</h2>
-    <p class="section-subtitle" data-reveal="up" data-delay="180" style="max-width:760px;">Three issue-count paths. The decision is fit, frequency, and timing — not discounting. All billed monthly.</p>
+    <div class="section-eyebrow" data-reveal="up" data-delay="50">Investment</div>
+    <h2 class="section-title" data-reveal="up" data-delay="100" style="max-width:none;">Simple pricing. Longer commitments save more.</h2>
+    <p class="section-subtitle" data-reveal="up" data-delay="180" style="max-width:760px;">Three paths, all billed monthly. Pick the fit and runway that make sense — no upfront lump sum required.</p>
 
     <div class="s9-grid">
       <div class="s9-plan" data-reveal="up" data-delay="260">
@@ -2115,8 +2149,9 @@ h1, h2, h3, h4 {
 
       <div class="s9-plan s9-plan--featured" data-reveal="up" data-delay="420">
         <div class="s9-plan-top">
-          <div class="s9-plan-kicker">Long-term rate</div>
+          <div class="s9-plan-kicker">Best value</div>
           <div class="s9-plan-badge">36 issues</div>
+          <span class="s9-save-tag s9-save-tag--gold">Save 20%</span>
         </div>
         <div class="s9-bar"><div class="s9-bar-fill" style="height:180px;background:linear-gradient(180deg, rgba(255,199,45,0.92) 0%, var(--gold) 100%);">36</div></div>
         <div class="s9-rate">$360<span>/month</span></div>
@@ -2130,7 +2165,7 @@ h1, h2, h3, h4 {
     </div>
 
     <div class="s9-note" data-reveal="up" data-delay="520">
-      <strong>Quick read:</strong> 6 and 12 issues hold the same monthly rate. The 36-issue path uses the standard long-term rate of $360 per month and includes two feature stories each year. Billed monthly — never a lump sum. Credit card, ACH, or e-check via Stripe. Your rate is locked for the full term. Ad design included at no extra cost.
+      <strong>Always billed monthly.</strong> No upfront lump sum. Credit card, ACH, or e-check via Stripe. Your rate is locked for the full term. Ad design included at no extra cost. The 36-issue path includes two feature stories each year.
     </div>
   </div>
 </section>
