@@ -312,6 +312,27 @@
     box-shadow: 0 12px 24px -8px var(--poster-shadow-strong);
   }
 
+  /* ═══ Focus Rings ═══ */
+  :focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+  }
+
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: 1rem;
+    z-index: 100;
+    padding: 0.75rem 1.5rem;
+    background: var(--primary);
+    color: var(--primary-foreground);
+    font-weight: 700;
+    border-radius: var(--radius-lg);
+    transition: top 0.2s;
+  }
+  .skip-link:focus { top: 1rem; }
+
   /* ═══ Reduced Motion ═══ */
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {

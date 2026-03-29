@@ -75,6 +75,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${archivoBlack.variable} font-sans antialiased`}
       >
+        <a href="#main-content" className="skip-link">Skip to main content</a>
         <OrganizationJsonLd />
         <ThemeToggle />
         {children}
