@@ -1,5 +1,7 @@
 "use client";
 
+import { tap } from "@/lib/haptics";
+
 interface LinkCardProps {
   readonly icon: string;
   readonly label: string;
@@ -64,7 +66,7 @@ export function LinkCard({
 
   if (onClick) {
     return (
-      <button type="button" className={className} onClick={onClick}>
+      <button type="button" className={className} onClick={() => { tap(); onClick(); }}>
         {content}
       </button>
     );
@@ -76,6 +78,7 @@ export function LinkCard({
       className={className}
       target={href?.startsWith("http") ? "_blank" : undefined}
       rel={href?.startsWith("http") ? "noopener noreferrer" : undefined}
+      onClick={() => tap()}
     >
       {content}
     </a>

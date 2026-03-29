@@ -5,6 +5,7 @@ import { ContactForm } from "@/components/contact-form";
 import { SubscribeBanner } from "@/components/subscribe-banner";
 import { QrSlideout } from "@/components/qr-slideout";
 import { Footer } from "@/components/footer";
+import { FadeIn } from "@/components/fade-in";
 
 const SUBSCRIBE_URL =
   "https://docs.google.com/forms/d/e/1FAIpQLSeN2iwnRxln-1J6yIbN3_wlYqg133j2ITOige94Yw24e2bYsA/viewform";
@@ -15,7 +16,7 @@ export default function Home() {
       <Hero />
 
       {/* Read the Magazine */}
-      <div className="animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+      <FadeIn delay={0.1}>
         <LinkSection icon="📖" title="Read the Magazine">
           <LinkCard
             icon="📬"
@@ -36,10 +37,10 @@ export default function Home() {
             comingSoon
           />
         </LinkSection>
-      </div>
+      </FadeIn>
 
       {/* Know Someone? */}
-      <div className="animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+      <FadeIn delay={0.15}>
         <LinkSection icon="⭐" title="Know Someone Amazing?">
           <LinkCard
             icon="✨"
@@ -48,10 +49,10 @@ export default function Home() {
             href="https://uyraleighmetro.vercel.app/refer"
           />
         </LinkSection>
-      </div>
+      </FadeIn>
 
       {/* Resources */}
-      <div className="animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+      <FadeIn delay={0.05}>
         <LinkSection icon="📋" title="Resources">
           <LinkCard
             icon="🗺️"
@@ -60,10 +61,10 @@ export default function Home() {
             href="/resources"
           />
         </LinkSection>
-      </div>
+      </FadeIn>
 
       {/* For Businesses */}
-      <div className="animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
+      <FadeIn>
         <LinkSection icon="📢" title="For Businesses">
           <ContactForm />
           <LinkCard
@@ -73,10 +74,10 @@ export default function Home() {
             href="https://calendar.app.google/oTFXRmKDFUDPcvmj6"
           />
         </LinkSection>
-      </div>
+      </FadeIn>
 
       {/* Connect */}
-      <div className="animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+      <FadeIn>
         <LinkSection icon="🤝" title="Connect">
           <LinkCard
             icon="📘"
@@ -103,10 +104,11 @@ export default function Home() {
             href="https://www.uniquelyyoumag.com"
           />
         </LinkSection>
-      </div>
+      </FadeIn>
 
       {/* About */}
-      <section className="glass-surface p-6 animate-fade-in-up" style={{ animationDelay: '0.7s' }}>
+      <FadeIn>
+      <section className="glass-surface p-6">
         <h2 className="mb-3 font-display text-lg tracking-tight text-foreground">
           About Uniquely You!
         </h2>
@@ -143,6 +145,7 @@ export default function Home() {
           </p>
         </div>
       </section>
+      </FadeIn>
 
       <Footer />
       <SubscribeBanner />
