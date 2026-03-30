@@ -27,9 +27,11 @@ export function Footer() {
           Serving Wake, Durham, Orange, Johnston &amp; Chatham counties
         </p>
 
-        <p className="text-xs text-muted-foreground/60">
-          &copy; {year} Uniquely You! Raleigh Metro. All rights reserved.
-        </p>
+        <div className="flex items-center gap-3 text-xs text-muted-foreground/60">
+          <span>&copy; {year} Uniquely You! Raleigh Metro</span>
+          <span>&middot;</span>
+          <a href="/privacy" className="hover:text-foreground underline decoration-border">Privacy</a>
+        </div>
       </div>
     </footer>
   );
