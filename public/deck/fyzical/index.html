@@ -224,33 +224,57 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 .s7-step-items li { padding-left: 18px; position: relative; }
 .s7-step-items li::before { content: '\2713'; position: absolute; left: 0; color: var(--teal); font-weight: 700; }
 
-/* SLIDE 6 — PRICING */
+/* SLIDE 6 — PRICING (accordion cards) */
 .pricing-intro { font-size: 1rem; color: #666; max-width: 680px; line-height: 1.6; }
-.rate-table-wrap { overflow-x: auto; border-radius: 20px; box-shadow: 0 8px 40px rgba(44,11,90,0.08); }
-.rate-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; background: #fff; }
-.rate-table thead th {
-  padding: 16px 18px; text-align: center; vertical-align: bottom; font-family: var(--sans); font-weight: 600;
-  border-bottom: 2px solid rgba(44,11,90,0.06);
+.pricing-cards { display: flex; flex-direction: column; gap: 0; }
+.pricing-card {
+  background: #fff; border-radius: 16px; margin-bottom: 10px; overflow: hidden;
+  box-shadow: 0 2px 12px rgba(44,11,90,0.05); border-left: 4px solid transparent;
+  transition: box-shadow 0.3s ease;
 }
-.rate-table thead th:first-child { text-align: left; }
-.th-term { display: block; font-size: 1rem; font-weight: 700; margin-bottom: 2px; }
-.th-issues { display: block; font-size: 0.8rem; color: #999; font-weight: 500; }
-.th-savings { display: block; font-size: 0.75rem; color: #aaa; font-weight: 400; }
-.th-save-badge {
-  display: inline-block; margin-top: 4px; padding: 2px 10px; border-radius: 20px;
-  background: rgba(18,214,160,0.12); color: var(--teal); font-size: 0.72rem; font-weight: 700;
+.pricing-card:nth-child(1) { border-left-color: var(--coral); }
+.pricing-card:nth-child(2) { border-left-color: var(--teal); }
+.pricing-card:nth-child(3) { border-left-color: var(--blue); }
+.pricing-card:nth-child(4) { border-left-color: var(--gold); }
+.pricing-card.pc-open { box-shadow: 0 4px 24px rgba(44,11,90,0.1); }
+.pc-header {
+  display: flex; align-items: center; gap: 16px; padding: 18px 24px; cursor: pointer;
+  user-select: none; transition: background 0.2s ease;
 }
-.best-value-head { background: rgba(18,214,160,0.04) !important; }
-.best-value { background: rgba(18,214,160,0.03); }
-.popular-col { background: rgba(255,199,45,0.04); }
-.rate-table tbody td {
-  padding: 14px 18px; text-align: center; border-bottom: 1px solid rgba(44,11,90,0.04);
+.pc-header:hover { background: rgba(44,11,90,0.02); }
+.pc-size { font-family: var(--display); font-size: 1.15rem; color: var(--dark); flex: 1; }
+.pc-range { font-family: var(--sans); font-size: 0.9rem; color: #999; font-weight: 500; }
+.pc-arrow {
+  width: 20px; height: 20px; color: var(--purple-sec); transition: transform 0.3s ease;
 }
-.rate-table tbody td:first-child { text-align: left; }
-.td-size-name { display: block; font-weight: 700; color: var(--dark); font-size: 1rem; }
-.td-size-desc { display: block; font-size: 0.78rem; color: #999; margin-top: 2px; }
-.td-price { font-family: var(--display); font-size: 1.3rem; color: var(--dark); }
-.td-per { font-size: 0.78rem; color: #999; }
+.pricing-card.pc-open .pc-arrow { transform: rotate(180deg); }
+.pc-body {
+  max-height: 0; overflow: hidden; transition: max-height 0.45s ease, padding 0.3s ease;
+  padding: 0 24px;
+}
+.pricing-card.pc-open .pc-body { max-height: 300px; padding: 0 24px 20px; }
+.pc-desc { font-size: 0.85rem; color: #888; margin-bottom: 14px; }
+.pc-terms { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+.pc-term {
+  background: var(--cream); border-radius: 12px; padding: 14px 16px; text-align: center;
+  border: 2px solid transparent; transition: border-color 0.2s ease;
+}
+.pc-term--popular { border-color: var(--gold); position: relative; }
+.pc-term--popular::before {
+  content: 'Most popular'; position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+  background: var(--gold); color: var(--dark); font-family: var(--sans); font-size: 0.65rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.08em; padding: 2px 10px; border-radius: 20px;
+}
+.pc-term--story { border-color: var(--teal); position: relative; }
+.pc-term--story::before {
+  content: '+ 1 story'; position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+  background: var(--teal); color: #fff; font-family: var(--sans); font-size: 0.65rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.08em; padding: 2px 10px; border-radius: 20px;
+}
+.pc-term-length { display: block; font-size: 0.78rem; color: #999; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+.pc-term-price { display: block; font-family: var(--display); font-size: 1.5rem; color: var(--dark); }
+.pc-term-per { font-size: 0.75rem; color: #aaa; }
+.pc-term-save { display: block; font-size: 0.7rem; color: var(--teal); font-weight: 700; margin-top: 4px; }
 .pricing-notes { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-top: 16px; }
 .pricing-note {
   background: #fff; border-radius: 12px; padding: 16px 18px; font-size: 0.85rem; color: #555; line-height: 1.5;
@@ -745,62 +769,132 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
     <h2 class="section-title" data-reveal="up" data-delay="100" style="max-width:none;">Simple pricing. Longer commitments save more.</h2>
     <p class="pricing-intro" data-reveal="up" data-delay="180">Every ad size, every term length, billed monthly. Pick the placement and runway that fit best — no upfront lump sum required.</p>
 
-    <div class="rate-table-wrap" data-reveal="up" data-delay="260">
-      <table class="rate-table">
-        <thead>
-          <tr>
-            <th style="background:var(--dark);color:#fff;border-radius:16px 0 0 0;">
-              <span class="th-term">Ad size</span>
-              <span class="th-issues" style="color:#fff;">Monthly rate by term</span>
-            </th>
-            <th>
-              <span class="th-term">Standard</span>
-              <span class="th-issues">12 issues</span>
-              <span class="th-savings">12-month commitment</span>
-            </th>
-            <th class="best-value-head">
-              <span class="th-term">Add a story</span>
-              <span class="th-issues">24 issues</span>
-              <span class="th-savings">24-month commitment</span>
-              <span class="th-save-badge">Save ~11%</span>
-              <span class="th-savings">+ 1 feature story</span>
-            </th>
-            <th class="popular-col">
-              <span class="th-term">Most popular</span>
-              <span class="th-issues">36 issues</span>
-              <span class="th-savings">36-month commitment</span>
-              <span class="th-save-badge">Save ~25%</span>
-              <span class="th-savings">+ 2 feature stories</span>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><span class="td-size-name">1/4 Page</span><span class="td-size-desc">3.5" &times; 4.875" — strong presence</span></td>
-            <td><span class="td-price">$395</span><span class="td-per">/ month</span></td>
-            <td class="best-value"><span class="td-price">$350</span><span class="td-per">/ month</span></td>
-            <td class="popular-col"><span class="td-price">$295</span><span class="td-per">/ month</span></td>
-          </tr>
-          <tr>
-            <td><span class="td-size-name">1/2 Page</span><span class="td-size-desc">7.25" &times; 4.875" — dominant layout</span></td>
-            <td><span class="td-price">$495</span><span class="td-per">/ month</span></td>
-            <td class="best-value"><span class="td-price">$450</span><span class="td-per">/ month</span></td>
-            <td class="popular-col"><span class="td-price">$395</span><span class="td-per">/ month</span></td>
-          </tr>
-          <tr>
-            <td><span class="td-size-name">Full Page</span><span class="td-size-desc">8.75" &times; 11.5" — maximum impact</span></td>
-            <td><span class="td-price">$695</span><span class="td-per">/ month</span></td>
-            <td class="best-value"><span class="td-price">$650</span><span class="td-per">/ month</span></td>
-            <td class="popular-col"><span class="td-price">$595</span><span class="td-per">/ month</span></td>
-          </tr>
-          <tr>
-            <td><span class="td-size-name">Back Cover</span><span class="td-size-desc">9" &times; 7.25" — premium, first thing seen</span></td>
-            <td><span class="td-price">$795</span><span class="td-per">/ month</span></td>
-            <td class="best-value"><span class="td-price">$750</span><span class="td-per">/ month</span></td>
-            <td class="popular-col"><span class="td-price">$695</span><span class="td-per">/ month</span></td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="pricing-cards" data-reveal="up" data-delay="260">
+
+      <!-- 1/4 PAGE -->
+      <div class="pricing-card" id="pc1" data-reveal="up" data-delay="280">
+        <div class="pc-header" onclick="togglePrice('pc1')">
+          <span class="pc-size">1/4 Page</span>
+          <span class="pc-range">from $190/mo</span>
+          <svg class="pc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="pc-body">
+          <div class="pc-desc">3.5" &times; 4.875" — strong presence on the page</div>
+          <div class="pc-terms">
+            <div class="pc-term">
+              <span class="pc-term-length">12 months</span>
+              <span class="pc-term-price">$295</span>
+              <span class="pc-term-per">/ month</span>
+            </div>
+            <div class="pc-term pc-term--story">
+              <span class="pc-term-length">24 months</span>
+              <span class="pc-term-price">$240</span>
+              <span class="pc-term-per">/ month</span>
+              <span class="pc-term-save">Save ~19%</span>
+            </div>
+            <div class="pc-term pc-term--popular">
+              <span class="pc-term-length">36 months</span>
+              <span class="pc-term-price">$190</span>
+              <span class="pc-term-per">/ month</span>
+              <span class="pc-term-save">Save ~36%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1/2 PAGE -->
+      <div class="pricing-card" id="pc2" data-reveal="up" data-delay="340">
+        <div class="pc-header" onclick="togglePrice('pc2')">
+          <span class="pc-size">1/2 Page</span>
+          <span class="pc-range">from $295/mo</span>
+          <svg class="pc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="pc-body">
+          <div class="pc-desc">7.25" &times; 4.875" — dominant layout, hard to miss</div>
+          <div class="pc-terms">
+            <div class="pc-term">
+              <span class="pc-term-length">12 months</span>
+              <span class="pc-term-price">$445</span>
+              <span class="pc-term-per">/ month</span>
+            </div>
+            <div class="pc-term pc-term--story">
+              <span class="pc-term-length">24 months</span>
+              <span class="pc-term-price">$370</span>
+              <span class="pc-term-per">/ month</span>
+              <span class="pc-term-save">Save ~17%</span>
+            </div>
+            <div class="pc-term pc-term--popular">
+              <span class="pc-term-length">36 months</span>
+              <span class="pc-term-price">$295</span>
+              <span class="pc-term-per">/ month</span>
+              <span class="pc-term-save">Save ~34%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FULL PAGE -->
+      <div class="pricing-card" id="pc3" data-reveal="up" data-delay="400">
+        <div class="pc-header" onclick="togglePrice('pc3')">
+          <span class="pc-size">Full Page</span>
+          <span class="pc-range">from $395/mo</span>
+          <svg class="pc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="pc-body">
+          <div class="pc-desc">8.75" &times; 11.5" — maximum impact, full bleed</div>
+          <div class="pc-terms">
+            <div class="pc-term">
+              <span class="pc-term-length">12 months</span>
+              <span class="pc-term-price">$595</span>
+              <span class="pc-term-per">/ month</span>
+            </div>
+            <div class="pc-term pc-term--story">
+              <span class="pc-term-length">24 months</span>
+              <span class="pc-term-price">$495</span>
+              <span class="pc-term-per">/ month</span>
+              <span class="pc-term-save">Save ~17%</span>
+            </div>
+            <div class="pc-term pc-term--popular">
+              <span class="pc-term-length">36 months</span>
+              <span class="pc-term-price">$395</span>
+              <span class="pc-term-per">/ month</span>
+              <span class="pc-term-save">Save ~34%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BACK COVER -->
+      <div class="pricing-card" id="pc4" data-reveal="up" data-delay="460">
+        <div class="pc-header" onclick="togglePrice('pc4')">
+          <span class="pc-size">Back Cover</span>
+          <span class="pc-range">from $595/mo</span>
+          <svg class="pc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="pc-body">
+          <div class="pc-desc">9" &times; 7.25" — premium placement, first thing seen when picked up</div>
+          <div class="pc-terms">
+            <div class="pc-term">
+              <span class="pc-term-length">12 months</span>
+              <span class="pc-term-price">$795</span>
+              <span class="pc-term-per">/ month</span>
+            </div>
+            <div class="pc-term pc-term--story">
+              <span class="pc-term-length">24 months</span>
+              <span class="pc-term-price">$695</span>
+              <span class="pc-term-per">/ month</span>
+              <span class="pc-term-save">Save ~13%</span>
+            </div>
+            <div class="pc-term pc-term--popular">
+              <span class="pc-term-length">36 months</span>
+              <span class="pc-term-price">$595</span>
+              <span class="pc-term-per">/ month</span>
+              <span class="pc-term-save">Save ~25%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
 
     <div class="pricing-notes" data-reveal="up" data-delay="360">
@@ -1003,6 +1097,13 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
     }, { threshold: 0.25 });
     s4Observer.observe(s4Chart);
   }
+
+  /* ---- Pricing accordion ---- */
+  window.togglePrice = function(id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.classList.toggle('pc-open');
+  };
 
   /* ---- Decision accordion ---- */
   var openedSteps = {};
