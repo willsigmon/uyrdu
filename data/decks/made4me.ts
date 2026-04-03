@@ -1,13 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Help Center NC × Uniquely You! — Partnership Conversation</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
-<style>
+import type { DeckData } from "@/lib/deck/types";
+
+const data: DeckData = {
+  title: "Made4Me × Uniquely You! — Partnership Pitch",
+  navClass: "dot-nav",
+  navItems: [
+    { href: "#cover", label: "Cover" },
+    { href: "#why", label: "Why it fits" },
+    { href: "#what", label: "What they build" },
+    { href: "#credibility", label: "Amplify" },
+    { href: "#partnership", label: "Pilot Plan" },
+    { href: "#pricing", label: "Pricing" },
+    { href: "#start", label: "Start" },
+  ],
+  css: `
 /* ================================================================
    RESET & CUSTOM PROPERTIES
    ================================================================ */
@@ -304,8 +309,8 @@ h1, h2, h3, h4 {
   gap: 8px;
 }
 
-/* Leaf SVG icon for MA logo */
-.ma-leaf-icon { width: 22px; height: 22px; flex-shrink: 0; }
+/* Tool SVG icon for M4M logo */
+.m4m-tool-icon { width: 22px; height: 22px; flex-shrink: 0; }
 
 .cover-title {
   font-size: clamp(2.8rem, 5.5vw, 4.8rem);
@@ -1171,6 +1176,7 @@ h1, h2, h3, h4 {
   display: block;
   margin-top: 2px;
 }
+/* "Save X%" badges on column headers */
 .th-save-badge {
   display: inline-block;
   background: var(--teal);
@@ -1251,6 +1257,7 @@ h1, h2, h3, h4 {
   margin-top: 2px;
 }
 
+/* Popular column — elevated, purple tint */
 .rate-table .popular-col {
   background: rgba(245,233,255,0.4);
   border-left: 2px solid rgba(110,38,142,0.15);
@@ -1283,6 +1290,7 @@ h1, h2, h3, h4 {
   font-size: 1.3rem;
 }
 
+/* Best value column — teal accent */
 .rate-table .best-value {
   background: rgba(18,214,160,0.04);
 }
@@ -1294,6 +1302,7 @@ h1, h2, h3, h4 {
   background: rgba(18,214,160,0.08);
 }
 
+/* Pricing notes */
 .pricing-notes {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -1629,36 +1638,8 @@ h1, h2, h3, h4 {
 @media(max-width:768px){.cover-lottie{display:none}}
 .cover-illustration{position:absolute;right:-2%;bottom:5%;width:320px;height:auto;opacity:0.08;pointer-events:none;z-index:0;filter:grayscale(0.3)}
 @media(max-width:768px){.cover-illustration{display:none}}
-</style>
-</head>
-<body>
-
-<!-- Rainbow bar -->
-<div class="rainbow-bar"></div>
-
-<!-- Portrait warning -->
-<div id="portrait-warning">
-  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="rgba(255,247,241,0.5)" stroke-width="2" stroke-linecap="round" style="margin-bottom:24px;">
-    <rect x="14" y="6" width="20" height="36" rx="3"/>
-    <path d="M14 6l20 36M34 6L14 42" stroke-width="1" opacity="0.3"/>
-    <path d="M8 32l4-4 4 4" stroke="var(--teal)" stroke-width="2.5"/>
-  </svg>
-  <div class="pw-title">Rotate for the full experience</div>
-  <p class="pw-body">This pitch deck is built for landscape or desktop viewing.</p>
-</div>
-
-<!-- Dot navigation -->
-<nav class="dot-nav" id="dotNav" aria-label="Slide navigation">
-  <a href="#cover" data-slide="0" data-label="Cover" class="active" aria-label="Cover"></a>
-  <a href="#why" data-slide="1" data-label="Why it fits" aria-label="Why it fits"></a>
-  <a href="#what" data-slide="2" data-label="What they do" aria-label="What they do"></a>
-  <a href="#credibility" data-slide="3" data-label="Amplify" aria-label="Amplify"></a>
-  <a href="#partnership" data-slide="4" data-label="Pilot Plan" aria-label="Pilot Plan"></a>
-  <a href="#pricing" data-slide="5" data-label="Pricing" aria-label="Pricing"></a>
-  <a href="#start" data-slide="6" data-label="Start" aria-label="Start"></a>
-</nav>
-
-
+`,
+  slidesHtml: `
 <!-- ============================================================
      SLIDE 1: COVER
      ============================================================ -->
@@ -1691,32 +1672,29 @@ h1, h2, h3, h4 {
           <span class="uy-mark">UY!</span>
           <span class="logo-divider"></span>
           <span class="ma-logotype">
-            <svg class="ma-leaf-icon" viewBox="0 0 24 24" fill="none" stroke="rgba(18,214,160,0.8)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 3v18"/>
-              <path d="M12 8c-2.5 0-4.5 2-4.5 4.5S9.5 17 12 17"/>
-              <path d="M12 8c2.5 0 4.5 2 4.5 4.5S14.5 17 12 17"/>
-              <path d="M5 21h14"/>
+            <svg class="m4m-tool-icon" viewBox="0 0 24 24" fill="none" stroke="rgba(18,214,160,0.8)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z"/>
             </svg>
-            The Help Center NC
+            Made4Me
           </span>
         </div>
 
         <!-- Title with creative typography -->
         <h1 class="cover-title">
-          <span class="line-modern" data-reveal="up" data-delay="200">The Help Center</span>
-          <span class="line-apotheca" data-reveal="up" data-delay="300">NC</span>
+          <span class="line-modern" data-reveal="up" data-delay="200">Made4Me</span>
+          <span class="line-apotheca" data-reveal="up" data-delay="300">Inc.</span>
           <span class="line-cross" data-reveal="fade" data-delay="500">- - - conversation with - - -</span>
           <span class="line-uy" data-reveal="up" data-delay="600">Uniquely You!</span>
         </h1>
 
         <p data-reveal="up" data-delay="420" style="max-width:760px;font-size:1rem;line-height:1.55;color:rgba(255,255,255,0.82);margin-top:6px;">
-          <strong>The Help Center NC has served families since 2016</strong> through food support, housing referrals, community resources, and Gospel-centered crisis care.
+          <strong>Made4Me has served families since 2017</strong> by building free, custom adaptive furniture and equipment from industrial-strength cardboard for children and adults with disabilities.
         </p>
 
         <!-- Subtitle with text reveal -->
         <p class="cover-subtitle">
           <span class="text-reveal-mask">
-            <span class="text-reveal-inner">A mission-aligned storytelling partnership to help more North Carolina families discover trusted food support, crisis resources, and community care sooner.</span>
+            <span class="text-reveal-inner">A mission-aligned storytelling partnership to help more North Carolina families discover custom adaptive equipment that is designed around each person's needs, built at no cost, and delivered with care.</span>
           </span>
         </p>
 
@@ -1728,7 +1706,7 @@ h1, h2, h3, h4 {
                 <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z"/>
               </svg>
             </div>
-            <span class="cover-pillar-label cover-pillar-label--coral">Welcome</span>
+            <span class="cover-pillar-label cover-pillar-label--coral">Create</span>
           </div>
           <div class="cover-pillar">
             <div class="cover-pillar-icon cover-pillar-icon--teal">
@@ -1746,26 +1724,26 @@ h1, h2, h3, h4 {
                 <polyline points="17 6 23 6 23 12"/>
               </svg>
             </div>
-            <span class="cover-pillar-label cover-pillar-label--gold">Activate</span>
+            <span class="cover-pillar-label cover-pillar-label--gold">Impact</span>
           </div>
         </div>
       </div>
 
       <div class="cover-lottie lottie-anim" data-src="https://assets-v2.lottiefiles.com/a/46ef1528-a41b-11ee-a79c-6b92c18b54d9/7il9RR8XbU.json" aria-hidden="true"></div>
-      <img class="cover-illustration" src="https://cdni.iconscout.com/illustration/free/preview/free-community-service-and-social-support-for-public-welfare-illustration-svg-download-png-13926039.png" alt="" aria-hidden="true" loading="lazy"/>
+      <img class="cover-illustration" src="https://cdni.iconscout.com/illustration/free/preview/free-stakeholder-management-with-partnership-and-collaboration-in-business-illustration-svg-download-png-13926063.png" alt="" aria-hidden="true" loading="lazy"/>
       <aside class="cover-aside" data-reveal="left" data-delay="760" aria-label="Conversation focus">
         <div class="cover-aside-kicker">Why this could help</div>
-        <h2 class="cover-aside-title">Make The Help Center NC easier to find, understand, and support.</h2>
-        <p class="cover-aside-copy">Trusted, recurring storytelling can help more families, donors, volunteers, and referral partners understand how The Help Center NC shows up in moments of crisis.</p>
+        <h2 class="cover-aside-title">Make Made4Me easier to find, understand, and support.</h2>
+        <p class="cover-aside-copy">Trusted, recurring storytelling can help more families, therapists, school systems, and donors understand how Made4Me builds custom solutions for people with disabilities — at no cost.</p>
         <ul class="cover-aside-list">
-          <li>Mission-first framing that respects the work The Help Center NC is already doing.</li>
-          <li>Editorial visibility that helps families and referral partners understand services before a crisis hits.</li>
+          <li>Mission-first framing that respects the hands-on work Made4Me is already doing.</li>
+          <li>Editorial visibility that helps families and therapists discover custom adaptive equipment before the need becomes urgent.</li>
           <li>A low-lift pilot path instead of an oversized partnership ask.</li>
         </ul>
         <div class="cover-aside-meta">
           <div class="cover-meta-pill">
             <span class="cover-meta-label">Geography</span>
-            <span class="cover-meta-value">Wake + surrounding counties</span>
+            <span class="cover-meta-value">Wake + Triangle</span>
           </div>
           <div class="cover-meta-pill">
             <span class="cover-meta-label">Approach</span>
@@ -1773,7 +1751,7 @@ h1, h2, h3, h4 {
           </div>
           <div class="cover-meta-pill">
             <span class="cover-meta-label">Audience</span>
-            <span class="cover-meta-value">Families + partners</span>
+            <span class="cover-meta-value">Families + therapists</span>
           </div>
           <div class="cover-meta-pill">
             <span class="cover-meta-label">Start</span>
@@ -1786,7 +1764,7 @@ h1, h2, h3, h4 {
 
     <!-- Footer -->
     <div class="cover-footer" data-reveal="fade" data-delay="1100">
-      <span>Prepared for Twanna Jones &amp; The Help Center NC</span>
+      <span>Prepared for Jim McAgy &amp; Made4Me</span>
       <span>Will Sigmon, Area Director · Uniquely You! Raleigh Metro</span>
     </div>
   </div>
@@ -1798,13 +1776,13 @@ h1, h2, h3, h4 {
      ============================================================ -->
 <section class="slide slide--cream" id="why" data-slide-index="1" data-theme="light">
   <div class="slide-inner">
-    <div class="section-eyebrow" data-reveal="up" data-delay="0">Why Help Center NC</div>
+    <div class="section-eyebrow" data-reveal="up" data-delay="0">Why Made4Me</div>
     <h2 class="section-title" data-reveal="up" data-delay="100" style="text-align:center;margin-left:auto;margin-right:auto;">Why this conversation makes sense</h2>
     <p class="section-subtitle" data-reveal="up" data-delay="200" style="text-align:center;margin-left:auto;margin-right:auto;">Mission fit, audience fit, and a real awareness gap.</p>
 
     <!-- Cinematic full-width quote -->
     <div class="s2-quote" data-reveal="scale" data-delay="300">
-      "The opportunity is not to change the mission. <span class="s2-quote-em">It is to help the right families, donors, and referral partners discover The Help Center NC sooner and trust it faster.</span>"
+      "The opportunity is not to change the mission. <span class="s2-quote-em">It is to help the right families, therapists, and school systems discover Made4Me sooner and trust it faster.</span>"
     </div>
     <p class="s2-author" data-reveal="fade" data-delay="500">Mission-first awareness, not promotional noise.</p>
 
@@ -1818,7 +1796,7 @@ h1, h2, h3, h4 {
           </svg>
         </div>
         <div class="s2-tl-title">Mission alignment</div>
-        <div class="s2-tl-desc">The Help Center NC serves families facing hunger, poverty, and crisis. UY! reaches family-centered readers who respond to trusted local resources and nonprofit stories in the same geography.</div>
+        <div class="s2-tl-desc">Made4Me serves children and adults with disabilities by building free custom adaptive furniture. UY! reaches family-centered readers who respond to trusted local resources and disability-community stories in the same geography.</div>
       </div>
 
       <div class="s2-tl-item" data-reveal="up" data-delay="800">
@@ -1832,7 +1810,7 @@ h1, h2, h3, h4 {
           </svg>
         </div>
         <div class="s2-tl-title">Right audience, right county</div>
-        <div class="s2-tl-desc">Families, caregivers, older adults, volunteers, and community partners across Wake and surrounding counties are already in the readership and referral ecosystem The Help Center NC wants to reach.</div>
+        <div class="s2-tl-desc">Families, caregivers, therapists, school OTs, and community partners across Wake and surrounding counties are already in the readership and referral ecosystem Made4Me wants to reach.</div>
       </div>
 
       <div class="s2-tl-item" data-reveal="up" data-delay="1000">
@@ -1846,7 +1824,7 @@ h1, h2, h3, h4 {
           </svg>
         </div>
         <div class="s2-tl-title">Storytelling lowers friction</div>
-        <div class="s2-tl-desc">When people see mobile feeding, resource referrals, youth enrichment, and family impact stories in plain language, The Help Center NC feels more familiar before the next urgent need or giving decision.</div>
+        <div class="s2-tl-desc">When people see custom chairs, standing frames, and activity tables being designed and built for real families, Made4Me feels more familiar before the next referral or giving decision.</div>
       </div>
     </div>
   </div>
@@ -1858,9 +1836,9 @@ h1, h2, h3, h4 {
      ============================================================ -->
 <section class="slide slide--cream" id="what" data-slide-index="2" data-theme="light">
   <div class="slide-inner">
-    <div class="section-eyebrow" data-reveal="up" data-delay="0">What Help Center NC already does</div>
-    <h2 class="section-title" data-reveal="up" data-delay="100">A mission families can feel</h2>
-    <p class="section-subtitle" data-reveal="up" data-delay="200">Food support, referral help, and community care that already matter to families -- before promotion ever enters the picture.</p>
+    <div class="section-eyebrow" data-reveal="up" data-delay="0">What Made4Me already does</div>
+    <h2 class="section-title" data-reveal="up" data-delay="100">A mission families can hold</h2>
+    <p class="section-subtitle" data-reveal="up" data-delay="200">Custom adaptive furniture, built free for families — before promotion ever enters the picture.</p>
 
     <!-- Infographic row: Donut + Calendar + Map -->
     <div class="s3-infographic">
@@ -1871,13 +1849,13 @@ h1, h2, h3, h4 {
             <circle cx="80" cy="80" r="65" fill="none" stroke="#e8e0f0" stroke-width="18"/>
             <circle class="donut-ring" id="donutRing" cx="80" cy="80" r="65" fill="none" stroke="var(--coral)" stroke-width="18" stroke-linecap="round"/>
           </svg>
-          <div class="donut-center-text" id="donutText" aria-label="Since 2016">
+          <div class="donut-center-text" id="donutText" aria-label="Since 2017">
             <span class="donut-kicker">Since</span>
-            <span class="donut-value">2016</span>
+            <span class="donut-value">2017</span>
           </div>
         </div>
-        <div class="s3-viz-label">Founded in 2016</div>
-        <div class="s3-viz-desc">Established to share the Gospel and help families move toward self-sufficiency.</div>
+        <div class="s3-viz-label">Founded in 2017</div>
+        <div class="s3-viz-desc">Started in Jim McAgy's garage to build adaptive furniture that actually fits each person.</div>
       </div>
 
       <!-- Inclusion -->
@@ -1901,8 +1879,8 @@ h1, h2, h3, h4 {
             </svg>
           </div>
         </div>
-        <div class="s3-viz-label">Resource Referrals</div>
-        <div class="s3-viz-desc">Food, housing, and community-resource navigation for families in crisis.</div>
+        <div class="s3-viz-label">Custom Builds</div>
+        <div class="s3-viz-desc">Each piece designed with the client, family, and therapist for exact fit and function.</div>
       </div>
 
       <!-- Camps -->
@@ -1914,8 +1892,8 @@ h1, h2, h3, h4 {
           </svg>
           <div class="s3-hero-number" style="color:var(--gold);">3</div>
         </div>
-        <div class="s3-viz-label">Core support lanes</div>
-        <div class="s3-viz-desc">Mobile feeding, youth enrichment, and support for seniors and families.</div>
+        <div class="s3-viz-label">Core build categories</div>
+        <div class="s3-viz-desc">Seating, standing frames, and activity/play equipment — all from industrial-strength cardboard.</div>
       </div>
     </div>
 
@@ -1928,8 +1906,8 @@ h1, h2, h3, h4 {
             <path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/>
           </svg>
         </div>
-        <h3>Crisis Relief</h3>
-        <p>Emergency food assistance and practical help for households facing immediate pressure.</p>
+        <h3>Adaptive Seating</h3>
+        <p>Custom chairs, floor sitters, and positioning devices built to each person's dimensions and preferences.</p>
       </div>
       <div class="s3-pillar s3-pillar--teal" data-reveal="up" data-delay="850">
         <div class="s3-pillar-icon" style="background:rgba(18,214,160,0.1);">
@@ -1939,8 +1917,8 @@ h1, h2, h3, h4 {
             <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
           </svg>
         </div>
-        <h3>Resource Navigation</h3>
-        <p>Housing referrals, community information, and partner-agency connections that reduce confusion and duplication.</p>
+        <h3>Standing & Mobility</h3>
+        <p>Standing frames and support equipment that help children and adults participate in daily activities.</p>
       </div>
       <div class="s3-pillar s3-pillar--gold" data-reveal="up" data-delay="1000">
         <div class="s3-pillar-icon" style="background:rgba(255,199,45,0.1);">
@@ -1951,8 +1929,8 @@ h1, h2, h3, h4 {
             <line x1="12" y1="2" x2="12" y2="4"/>
           </svg>
         </div>
-        <h3>Community Care</h3>
-        <p>Mobile feeding, youth enrichment, elderly support, and spiritual encouragement that stay rooted in real neighborhoods.</p>
+        <h3>Activity & Play</h3>
+        <p>Activity tables, desks, and play equipment personalized with favorite colors and characters.</p>
       </div>
     </div>
   </div>
@@ -1966,7 +1944,7 @@ h1, h2, h3, h4 {
   <div class="slide-inner">
     <div class="section-eyebrow" data-reveal="up" data-delay="0">What UY can amplify</div>
     <h2 class="section-title" data-reveal="up" data-delay="100">Awareness that feels useful, not promotional</h2>
-    <p class="section-subtitle" data-reveal="up" data-delay="200">The goal is simple: make The Help Center NC easier to discover, easier to understand, and easier to support.</p>
+    <p class="section-subtitle" data-reveal="up" data-delay="200">The goal is simple: make Made4Me easier to discover, easier to understand, and easier to support.</p>
 
     <!-- Animated bar chart -->
     <div class="s4-chart" id="s4Chart">
@@ -1975,7 +1953,7 @@ h1, h2, h3, h4 {
         <div class="s4-bar-track" style="height:200px;background:rgba(255,107,107,0.08);">
           <div class="s4-bar-fill" style="background:linear-gradient(to top,var(--coral),rgba(255,107,107,0.9));position:absolute;bottom:0;width:100%;height:180px;"></div>
         </div>
-        <div class="s4-bar-label">Family and community impact stories</div>
+        <div class="s4-bar-label">Family build stories and adaptive equipment journeys</div>
       </div>
 
       <div class="s4-bar-col" data-reveal="up" data-delay="450">
@@ -1983,7 +1961,7 @@ h1, h2, h3, h4 {
         <div class="s4-bar-track" style="height:200px;background:rgba(18,214,160,0.08);">
           <div class="s4-bar-fill" style="background:linear-gradient(to top,var(--teal),rgba(18,214,160,0.9));position:absolute;bottom:0;width:100%;height:160px;"></div>
         </div>
-        <div class="s4-bar-label">Plain-English explainers on food support, referrals, and how to get help</div>
+        <div class="s4-bar-label">Plain-English explainers on custom builds, referral process, and how to request equipment</div>
       </div>
 
       <div class="s4-bar-col" data-reveal="up" data-delay="600">
@@ -1991,7 +1969,7 @@ h1, h2, h3, h4 {
         <div class="s4-bar-track" style="height:200px;background:rgba(255,199,45,0.08);">
           <div class="s4-bar-fill" style="background:linear-gradient(to top,var(--gold),rgba(255,199,45,0.9));position:absolute;bottom:0;width:100%;height:120px;"></div>
         </div>
-        <div class="s4-bar-label">Mobile pantry dates, volunteer opportunities, and donation drives</div>
+        <div class="s4-bar-label">Build events, volunteer build days, and Bowl-A-Thon fundraising</div>
       </div>
 
       <div class="s4-bar-col" data-reveal="up" data-delay="750">
@@ -1999,7 +1977,7 @@ h1, h2, h3, h4 {
         <div class="s4-bar-track" style="height:200px;background:rgba(110,38,142,0.06);">
           <div class="s4-bar-fill" style="background:linear-gradient(to top,var(--purple-sec),rgba(110,38,142,0.85));position:absolute;bottom:0;width:100%;height:140px;"></div>
         </div>
-        <div class="s4-bar-label">Recurring visibility that keeps The Help Center NC top of mind</div>
+        <div class="s4-bar-label">Recurring visibility that keeps Made4Me top of mind</div>
       </div>
     </div>
 
@@ -2007,11 +1985,11 @@ h1, h2, h3, h4 {
     <div class="s4-context">
       <div class="s4-context-card s4-context-card--quote" data-reveal="left" data-delay="900">
         <h3>What that means</h3>
-        <p>UY! can help turn meaningful but easy-to-miss community work into something human, clear, and shareable -- without making The Help Center NC feel like a generic ad.</p>
+        <p>UY! can help turn meaningful but easy-to-miss community work into something human, clear, and shareable — without making Made4Me feel like a generic ad.</p>
       </div>
       <div class="s4-context-card s4-context-card--aside" data-reveal="right" data-delay="1000">
         <h3>Why timing matters</h3>
-        <p>Families and donors often act when a crisis, event, or giving window is already here. Repetition builds familiarity before food support, referral, or volunteer needs become urgent.</p>
+        <p>Families and therapists often discover adaptive equipment options only after a crisis or transition. Repetition builds familiarity before the next referral, school IEP meeting, or equipment need becomes urgent.</p>
       </div>
     </div>
   </div>
@@ -2021,7 +1999,7 @@ h1, h2, h3, h4 {
 
 
 <!-- ============================================================
-     SLIDE 5: PARTNERSHIP (staircase)
+     SLIDE 7: PARTNERSHIP (staircase)
      ============================================================ -->
 <section class="slide slide--cream" id="partnership" data-slide-index="4" data-theme="light">
   <div class="slide-inner">
@@ -2043,10 +2021,10 @@ h1, h2, h3, h4 {
           </svg>
         </div>
         <h3>Be Discoverable</h3>
-        <p>Introduce The Help Center NC with one clean, accessible feature that feels useful from the first read.</p>
+        <p>Introduce Made4Me with one clean, accessible feature that feels useful from the first read.</p>
         <ul class="s7-step-items">
           <li>One nonprofit spotlight</li>
-          <li>Clear help / donate / volunteer path</li>
+          <li>Clear request / donate / volunteer path</li>
           <li>Resource listing visibility in print + digital</li>
         </ul>
       </div>
@@ -2061,11 +2039,11 @@ h1, h2, h3, h4 {
           </svg>
         </div>
         <h3>Be Useful</h3>
-        <p>Turn complex community support into plain-English resource content families and referral partners can actually act on.</p>
+        <p>Turn specialized adaptive-equipment work into plain-English content families and therapists can actually act on.</p>
         <ul class="s7-step-items">
-          <li>Food + referral resource corner</li>
-          <li>Partner-agency explainer</li>
-          <li>Seasonal outreach spotlight</li>
+          <li>Equipment request explainer</li>
+          <li>Therapist referral guide</li>
+          <li>Seasonal build spotlight</li>
         </ul>
       </div>
 
@@ -2081,8 +2059,8 @@ h1, h2, h3, h4 {
         <h3>Be Consistent</h3>
         <p>Repeat visibility around the calendar moments that actually drive referrals, giving, and volunteer action.</p>
         <ul class="s7-step-items">
-          <li>Summer feeding coverage</li>
-          <li>Holiday / back-to-school drives</li>
+          <li>Back-to-school equipment stories</li>
+          <li>Bowl-A-Thon coverage</li>
           <li>Family impact stories</li>
         </ul>
       </div>
@@ -2109,7 +2087,7 @@ h1, h2, h3, h4 {
 
 
 <!-- ============================================================
-     SLIDE 6: PRICING
+     SLIDE 9: PRICING
      ============================================================ -->
 <section class="slide slide--cream" id="pricing" data-slide-index="5" data-theme="light">
   <div class="orb" style="width:360px;height:360px;top:-120px;right:-120px;background:var(--gold);opacity:0.12;"></div>
@@ -2128,7 +2106,7 @@ h1, h2, h3, h4 {
               <span class="th-term">Ad size</span>
               <span class="th-issues" style="color:#fff;">Monthly rate by term</span>
             </th>
-            <th style="background:rgba(255,107,107,0.08);">
+            <th style="background:rgba(255,107,107,0.06);">
               <span class="th-term">Standard</span>
               <span class="th-issues">12 issues</span>
               <span class="th-savings">12-month commitment</span>
@@ -2245,7 +2223,7 @@ h1, h2, h3, h4 {
 
 
 <!-- ============================================================
-     SLIDE 7: APPROVAL / START
+     SLIDE 10: APPROVAL / START
      ============================================================ -->
 <section class="slide slide--dark" id="start" data-slide-index="6" data-theme="dark">
   <div class="s8-diagonal"></div>
@@ -2294,238 +2272,7 @@ h1, h2, h3, h4 {
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie_light.min.js"></script>
-<script>
-(function() {
-  'use strict';
-  document.body.classList.add('js-ready');
+`,
+};
 
-  // ================================================================
-  // INTERSECTION OBSERVER — entrance animations
-  // ================================================================
-  const revealObserver = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        var delay = parseInt(entry.target.dataset.delay || '0', 10);
-        setTimeout(function() {
-          entry.target.classList.add('visible');
-        }, delay);
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.05, rootMargin: '50px' });
-
-  document.querySelectorAll('[data-reveal]').forEach(function(el) {
-    revealObserver.observe(el);
-  });
-
-  // Immediately reveal elements in the active/visible slide on load
-  setTimeout(function() {
-    var activeSlide = document.querySelector('.slide');
-    if (activeSlide) {
-      activeSlide.querySelectorAll('[data-reveal]').forEach(function(el) {
-        var delay = parseInt(el.dataset.delay || '0', 10);
-        setTimeout(function() { el.classList.add('visible'); }, delay);
-      });
-    }
-  }, 100);
-
-  // Reveal ALL elements in a slide when it becomes visible
-  function revealSlide(slide) {
-    slide.querySelectorAll('[data-reveal]:not(.visible)').forEach(function(el) {
-      var delay = parseInt(el.dataset.delay || '0', 10);
-      setTimeout(function() { el.classList.add('visible'); }, delay);
-    });
-  }
-
-  var slideRevealObserver = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        revealSlide(entry.target);
-      }
-    });
-  }, { threshold: 0.01 });
-  document.querySelectorAll('.slide').forEach(function(s) {
-    slideRevealObserver.observe(s);
-  });
-
-  // Force-reveal the first visible slide immediately on load
-  revealSlide(document.querySelector('.slide'));
-
-  // ================================================================
-  // SLIDE TRACKING — dot nav, theme, hash routing
-  // ================================================================
-  var slides = document.querySelectorAll('.slide');
-  var dots = document.querySelectorAll('.dot-nav a');
-  var dotNav = document.getElementById('dotNav');
-  var currentSlide = 0;
-
-  var slideObserver = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
-        var idx = parseInt(entry.target.dataset.slideIndex);
-        currentSlide = idx;
-        updateDots(idx);
-        updateDotTheme(entry.target.dataset.theme);
-        // Update URL hash
-        var id = entry.target.id;
-        if (id && location.hash !== '#' + id) {
-          history.replaceState(null, '', '#' + id);
-        }
-      }
-    });
-  }, { threshold: 0.5 });
-
-  slides.forEach(function(slide) { slideObserver.observe(slide); });
-
-  function updateDots(activeIdx) {
-    dots.forEach(function(dot, i) {
-      dot.classList.toggle('active', i === activeIdx);
-    });
-  }
-
-  function updateDotTheme(theme) {
-    dotNav.classList.toggle('on-dark', theme === 'dark');
-  }
-
-  // Dot click navigation
-  dots.forEach(function(dot) {
-    dot.addEventListener('click', function(e) {
-      e.preventDefault();
-      var idx = parseInt(dot.dataset.slide);
-      slides[idx].scrollIntoView({ behavior: 'smooth' });
-    });
-  });
-
-  // ================================================================
-  // KEYBOARD NAVIGATION
-  // ================================================================
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ') {
-      e.preventDefault();
-      var next = Math.min(currentSlide + 1, slides.length - 1);
-      slides[next].scrollIntoView({ behavior: 'smooth' });
-    } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
-      e.preventDefault();
-      var prev = Math.max(currentSlide - 1, 0);
-      slides[prev].scrollIntoView({ behavior: 'smooth' });
-    }
-  });
-
-  // Count-up disabled — values are set in HTML. No animation glitches.
-
-  // Safe motion: transform/opacity only so charts stay stable.
-  var s3Infographic = document.querySelector('.s3-infographic');
-  if (s3Infographic) {
-    var s3Observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting && !s3Infographic.dataset.animated) {
-          s3Infographic.dataset.animated = 'true';
-          s3Infographic.querySelectorAll('.s3-viz-mark').forEach(function(mark, i) {
-            setTimeout(function() { mark.classList.add('animate'); }, i * 120);
-          });
-        }
-      });
-    }, { threshold: 0.25 });
-    s3Observer.observe(s3Infographic);
-  }
-
-  var s4Chart = document.getElementById('s4Chart');
-  if (s4Chart) {
-    var s4Observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting && !s4Chart.dataset.animated) {
-          s4Chart.dataset.animated = 'true';
-          s4Chart.querySelectorAll('.s4-bar-fill').forEach(function(bar, i) {
-            setTimeout(function() { bar.classList.add('animate'); }, i * 120);
-          });
-        }
-      });
-    }, { threshold: 0.25 });
-    s4Observer.observe(s4Chart);
-  }
-
-  // ================================================================
-  // S2 TIMELINE — draw connecting line on scroll
-  // ================================================================
-  var s2Timeline = document.getElementById('s2Timeline');
-  if (s2Timeline) {
-    var s2Observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          s2Timeline.classList.add('line-drawn');
-        }
-      });
-    }, { threshold: 0.3 });
-    s2Observer.observe(s2Timeline);
-  }
-
-  // ================================================================
-  // S6 MAP — animated path drawing and dots
-  // ================================================================
-  var geoMap = document.getElementById('geoMap');
-  if (geoMap) {
-    var geoObserver = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting && !geoMap.dataset.animated) {
-          geoMap.dataset.animated = 'true';
-
-          // Animate lines
-          var lines = geoMap.querySelectorAll('.s6-map-line');
-          lines.forEach(function(line, i) {
-            setTimeout(function() {
-              line.classList.add('animate');
-            }, i * 150);
-          });
-
-          // Animate dots
-          var mapDots = geoMap.querySelectorAll('.s6-map-dot');
-          mapDots.forEach(function(dot, i) {
-            setTimeout(function() {
-              dot.classList.add('animate');
-              dot.setAttribute('r', '10');
-            }, 300 + i * 120);
-          });
-
-          // Show labels
-          var labels = geoMap.querySelectorAll('.s6-map-label');
-          labels.forEach(function(lbl, i) {
-            setTimeout(function() {
-              lbl.classList.add('animate');
-            }, 500 + i * 120);
-          });
-        }
-      });
-    }, { threshold: 0.3 });
-    geoObserver.observe(geoMap);
-  }
-
-  // ================================================================
-  // URL HASH ROUTING — navigate to hash on load
-  // ================================================================
-  if (location.hash) {
-    var target = document.querySelector(location.hash);
-    if (target) {
-      setTimeout(function() {
-        target.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
-    }
-  }
-
-  // Presentation stability: parallax disabled to avoid blurred-element artifacting.
-
-  document.querySelectorAll('.lottie-anim').forEach(function(el){
-    var anim=null;
-    new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(e.isIntersecting){
-          if(!anim){anim=lottie.loadAnimation({container:el,renderer:'svg',loop:true,autoplay:true,path:el.dataset.src})}
-          else{anim.play()}
-        }else if(anim){anim.pause()}
-      });
-    },{threshold:0.2}).observe(el);
-  });
-
-})();
-</script>
-</body>
-</html>
+export default data;

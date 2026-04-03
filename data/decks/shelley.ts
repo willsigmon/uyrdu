@@ -1,13 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shelley Welch × Uniquely You! — Partnership Pitch</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
-<style>
+import type { DeckData } from "@/lib/deck/types";
+
+const data: DeckData = {
+  title: "Shelley Welch × Uniquely You! — Partnership Pitch",
+  navClass: "dot-nav on-dark",
+  navItems: [
+    { href: "#cover", label: "Cover" },
+    { href: "#why", label: "Why" },
+    { href: "#what", label: "Platform" },
+    { href: "#credibility", label: "Credibility" },
+    { href: "#partnership", label: "Partnership" },
+    { href: "#pricing", label: "Pricing" },
+    { href: "#start", label: "Start" },
+  ],
+  css: `
 /* ================================================================
    RESET & CUSTOM PROPERTIES
    ================================================================ */
@@ -1068,25 +1073,8 @@ h1, h2, h3, h4 {
 @media(max-width:768px){.cover-lottie{display:none}}
 .cover-illustration{position:absolute;right:-2%;bottom:5%;width:320px;height:auto;opacity:0.08;pointer-events:none;z-index:0;filter:grayscale(0.3)}
 @media(max-width:768px){.cover-illustration{display:none}}
-</style>
-</head>
-<body>
-
-<!-- Rainbow top bar -->
-<div class="rainbow-bar"></div>
-
-<!-- Dot navigation -->
-<nav class="dot-nav on-dark" id="dotNav">
-  <a href="#cover" data-slide="0" data-label="Cover" class="active"></a>
-  <a href="#why" data-slide="1" data-label="Why"></a>
-  <a href="#what" data-slide="2" data-label="Platform"></a>
-  <a href="#credibility" data-slide="3" data-label="Credibility"></a>
-  <a href="#partnership" data-slide="4" data-label="Partnership"></a>
-  <a href="#pricing" data-slide="5" data-label="Pricing"></a>
-  <a href="#start" data-slide="6" data-label="Start"></a>
-</nav>
-
-
+`,
+  slidesHtml: `
 <!-- ============================================================
      SLIDE 1: COVER
      ============================================================ -->
@@ -1641,181 +1629,7 @@ h1, h2, h3, h4 {
 
   <div class="s8-rainbow"></div>
 </section>
+`,
+};
 
-
-<script>
-(function() {
-  'use strict';
-  document.body.classList.add('js-ready');
-
-  var revealObserver = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        var delay = parseInt(entry.target.dataset.delay || '0', 10);
-        setTimeout(function() {
-          entry.target.classList.add('visible');
-        }, delay);
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.05, rootMargin: '50px' });
-
-  document.querySelectorAll('[data-reveal]').forEach(function(el) {
-    revealObserver.observe(el);
-  });
-
-  setTimeout(function() {
-    var activeSlide = document.querySelector('.slide');
-    if (activeSlide) {
-      activeSlide.querySelectorAll('[data-reveal]').forEach(function(el) {
-        var delay = parseInt(el.dataset.delay || '0', 10);
-        setTimeout(function() { el.classList.add('visible'); }, delay);
-      });
-    }
-  }, 100);
-
-  function revealSlide(slide) {
-    slide.querySelectorAll('[data-reveal]:not(.visible)').forEach(function(el) {
-      var delay = parseInt(el.dataset.delay || '0', 10);
-      setTimeout(function() { el.classList.add('visible'); }, delay);
-    });
-  }
-
-  var slideRevealObserver = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        revealSlide(entry.target);
-      }
-    });
-  }, { threshold: 0.01 });
-  document.querySelectorAll('.slide').forEach(function(s) {
-    slideRevealObserver.observe(s);
-  });
-
-  revealSlide(document.querySelector('.slide'));
-
-  var slides = document.querySelectorAll('.slide');
-  var dots = document.querySelectorAll('.dot-nav a');
-  var dotNav = document.getElementById('dotNav');
-  var currentSlide = 0;
-
-  var slideObserver = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
-        var idx = parseInt(entry.target.dataset.slideIndex);
-        currentSlide = idx;
-        updateDots(idx);
-        updateDotTheme(entry.target.dataset.theme);
-        var id = entry.target.id;
-        if (id && location.hash !== '#' + id) {
-          history.replaceState(null, '', '#' + id);
-        }
-      }
-    });
-  }, { threshold: 0.5 });
-
-  slides.forEach(function(slide) { slideObserver.observe(slide); });
-
-  function updateDots(activeIdx) {
-    dots.forEach(function(dot, i) {
-      dot.classList.toggle('active', i === activeIdx);
-    });
-  }
-
-  function updateDotTheme(theme) {
-    dotNav.classList.toggle('on-dark', theme === 'dark');
-  }
-
-  dots.forEach(function(dot) {
-    dot.addEventListener('click', function(e) {
-      e.preventDefault();
-      var idx = parseInt(dot.dataset.slide);
-      slides[idx].scrollIntoView({ behavior: 'smooth' });
-    });
-  });
-
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ') {
-      e.preventDefault();
-      var next = Math.min(currentSlide + 1, slides.length - 1);
-      slides[next].scrollIntoView({ behavior: 'smooth' });
-    } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
-      e.preventDefault();
-      var prev = Math.max(currentSlide - 1, 0);
-      slides[prev].scrollIntoView({ behavior: 'smooth' });
-    }
-  });
-
-  var s2Timeline = document.getElementById('s2Timeline');
-  if (s2Timeline) {
-    var s2Observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          s2Timeline.classList.add('line-drawn');
-        }
-      });
-    }, { threshold: 0.3 });
-    s2Observer.observe(s2Timeline);
-  }
-
-  var s4Chart = document.getElementById('s4Chart');
-  if (s4Chart) {
-    var s4Observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting && !s4Chart.dataset.animated) {
-          s4Chart.dataset.animated = 'true';
-          s4Chart.querySelectorAll('.s4-bar-fill').forEach(function(bar, i) {
-            setTimeout(function() { bar.classList.add('animate'); }, i * 120);
-          });
-        }
-      });
-    }, { threshold: 0.25 });
-    s4Observer.observe(s4Chart);
-  }
-
-  if (location.hash) {
-    var target = document.querySelector(location.hash);
-    if (target) {
-      setTimeout(function() {
-        target.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
-    }
-  }
-
-  if (!matchMedia('(pointer: coarse)').matches) {
-    var allOrbs = document.querySelectorAll('.orb');
-    var ticking = false;
-
-    window.addEventListener('scroll', function() {
-      if (!ticking) {
-        requestAnimationFrame(function() {
-          var scrollY = window.scrollY;
-          allOrbs.forEach(function(orb, i) {
-            var speed = 0.02 + (i % 4) * 0.015;
-            orb.style.transform = 'translateY(' + (scrollY * speed) + 'px)';
-          });
-          ticking = false;
-        });
-        ticking = true;
-      }
-    });
-  }
-
-})();
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie_light.min.js"></script>
-<script>
-document.querySelectorAll('.lottie-anim').forEach(function(el){
-  var anim=null;
-  new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){
-        if(!anim){anim=lottie.loadAnimation({container:el,renderer:'svg',loop:true,autoplay:true,path:el.dataset.src})}
-        else{anim.play()}
-      }else if(anim){anim.pause()}
-    });
-  },{threshold:0.2}).observe(el);
-});
-</script>
-</body>
-</html>
+export default data;

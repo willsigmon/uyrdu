@@ -1,13 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Floor Coverings International × Uniquely You! — Partnership Conversation</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
-<style>
+import type { DeckData } from "@/lib/deck/types";
+
+const data: DeckData = {
+  title: "FYZICAL × Uniquely You! — Partnership Conversation",
+  navClass: "dot-nav on-dark",
+  navItems: [
+    { href: "#cover", label: "Cover" },
+    { href: "#why", label: "The Opportunity" },
+    { href: "#what", label: "Publication" },
+    { href: "#credibility", label: "Credibility" },
+    { href: "#partnership", label: "Partnership" },
+    { href: "#pricing", label: "Pricing" },
+    { href: "#start", label: "Next Steps" },
+  ],
+  css: `
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
@@ -222,7 +227,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 .s7-step p { font-size: 0.88rem; color: #666; line-height: 1.5; max-width: 260px; margin-bottom: 10px; }
 .s7-step-items { list-style: none; text-align: left; font-size: 0.85rem; color: #555; line-height: 1.7; }
 .s7-step-items li { padding-left: 18px; position: relative; }
-.s7-step-items li::before { content: '\2713'; position: absolute; left: 0; color: var(--teal); font-weight: 700; }
+.s7-step-items li::before { content: '\\2713'; position: absolute; left: 0; color: var(--teal); font-weight: 700; }
 
 /* SLIDE 6 — PRICING (accordion cards) */
 .pricing-intro { font-size: 1rem; color: #666; max-width: 680px; line-height: 1.6; }
@@ -381,34 +386,8 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
   .s7-step--1, .s7-step--2, .s7-step--3 { margin-top: 0; }
   .rate-table { font-size: 0.85rem; }
 }
-</style>
-</head>
-<body>
-
-<div class="rainbow-bar"></div>
-
-<!-- Portrait warning -->
-<div id="portrait-warning">
-  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="rgba(255,247,241,0.5)" stroke-width="2" stroke-linecap="round" style="margin-bottom:24px;">
-    <rect x="14" y="6" width="20" height="36" rx="3"/>
-    <path d="M14 6l20 36M34 6L14 42" stroke-width="1" opacity="0.3"/>
-    <path d="M8 32l4-4 4 4" stroke="var(--teal)" stroke-width="2.5"/>
-  </svg>
-  <div class="pw-title">Rotate for the full experience</div>
-  <p class="pw-body">This pitch deck is built for landscape or desktop viewing.</p>
-</div>
-
-<nav class="dot-nav on-dark" id="dotNav">
-  <a href="#cover" data-slide="0" data-label="Cover" class="active"></a>
-  <a href="#why" data-slide="1" data-label="The Opportunity"></a>
-  <a href="#what" data-slide="2" data-label="Publication"></a>
-  <a href="#credibility" data-slide="3" data-label="Credibility"></a>
-  <a href="#partnership" data-slide="4" data-label="Partnership"></a>
-  <a href="#pricing" data-slide="5" data-label="Pricing"></a>
-  <a href="#start" data-slide="6" data-label="Next Steps"></a>
-</nav>
-
-
+`,
+  slidesHtml: `
 <!-- ============================================================
      SLIDE 1: COVER
      ============================================================ -->
@@ -432,22 +411,22 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
       <span class="logo-divider"></span>
       <span class="partner-logotype">
         <svg class="partner-icon" viewBox="0 0 24 24" fill="none" stroke="rgba(18,214,160,0.8)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+          <path d="M18 20V10M12 20V4M6 20v-6"/>
         </svg>
-        Floor Coverings International
+        FYZICAL Therapy &amp; Balance Centers
       </span>
     </div>
 
     <h1 class="cover-title">
-      <span class="line-1" data-reveal="up" data-delay="200">Floor Coverings</span>
-      <span class="line-2" data-reveal="up" data-delay="300">International</span>
+      <span class="line-1" data-reveal="up" data-delay="200">FYZICAL</span>
+      <span class="line-2" data-reveal="up" data-delay="300">Therapy &amp; Balance</span>
       <span class="line-cross" data-reveal="fade" data-delay="500">- - - partnership with - - -</span>
       <span class="line-uy" data-reveal="up" data-delay="600">Uniquely You!</span>
     </h1>
 
     <p class="cover-subtitle">
       <span class="text-reveal-mask">
-        <span class="text-reveal-inner">3,000+ products brought to someone's living room, not a warehouse. For families navigating wheelchairs and walkers, that's not a convenience — it's the only way this works. Your concierge model and our readership are a natural fit.</span>
+        <span class="text-reveal-inner">The families who need balance therapy, vestibular rehab, and neurological PT are in our readership every month. A consistent presence in the disability community's own magazine means they find you before the fall, not after.</span>
       </span>
     </p>
 
@@ -463,10 +442,11 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
       <div class="cover-pillar">
         <div class="cover-pillar-icon cover-pillar-icon--teal">
           <svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
           </svg>
         </div>
-        <span class="cover-pillar-label cover-pillar-label--teal">In-Home Service</span>
+        <span class="cover-pillar-label cover-pillar-label--teal">Referrals</span>
       </div>
       <div class="cover-pillar">
         <div class="cover-pillar-icon cover-pillar-icon--gold">
@@ -475,12 +455,12 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
             <polyline points="17 6 23 6 23 12"/>
           </svg>
         </div>
-        <span class="cover-pillar-label cover-pillar-label--gold">Growth</span>
+        <span class="cover-pillar-label cover-pillar-label--gold">Patient Volume</span>
       </div>
     </div>
 
     <div class="cover-footer" data-reveal="fade" data-delay="1100">
-      <span>Prepared for Jason Clark, FCI Chapel Hill &nbsp;|&nbsp; April 2026</span>
+      <span>Prepared for FYZICAL Therapy &amp; Balance Centers &nbsp;|&nbsp; April 2026</span>
       <span>Will Sigmon, Area Director &middot; Uniquely You! Raleigh Metro</span>
     </div>
   </div>
@@ -493,23 +473,26 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 <section class="slide slide--cream" id="why" data-slide-index="1" data-theme="light">
   <div class="slide-inner">
     <div class="section-eyebrow" data-reveal="up" data-delay="0">The Opportunity</div>
-    <h2 class="section-title" data-reveal="up" data-delay="100" style="text-align:center;margin-left:auto;margin-right:auto;">Trip hazards are a top safety concern for families with disabilities. You eliminate them.</h2>
-    <p class="section-subtitle" data-reveal="up" data-delay="200" style="text-align:center;margin-left:auto;margin-right:auto;">Trip hazards, high thresholds, slippery surfaces — these aren't cosmetic problems. For families adapting a home for a wheelchair or walker, the right flooring is the difference between independence and a fall. And they need someone who handles design, selection, and installation as one managed experience — exactly what FCI does.</p>
+    <h2 class="section-title" data-reveal="up" data-delay="100" style="text-align:center;margin-left:auto;margin-right:auto;">Falls are the #1 injury for people with disabilities. You prevent them.</h2>
+    <p class="section-subtitle" data-reveal="up" data-delay="200" style="text-align:center;margin-left:auto;margin-right:auto;">Families navigating mobility challenges, neurological conditions, and aging-related balance issues are actively looking for providers they can trust. They're in our readership every month.</p>
 
     <div class="s2-quote" data-reveal="scale" data-delay="300">
-      "FCI corporately talks about <span class="s2-quote-em">transforming homes for accessibility and comfort</span> — and Jason's Chapel Hill team lives that mission every day. The families reading our magazine are the ones making those calls."
+      "Physical therapy isn't just rehab after something goes wrong. <span class="s2-quote-em">For the disability community, it's the difference between independence and dependence — and the families who know that are looking for providers who understand their world.</span>"
     </div>
-    <p class="s2-author" data-reveal="fade" data-delay="500">-- On why in-home flooring + the disability community is a natural fit</p>
+    <p class="s2-author" data-reveal="fade" data-delay="500">-- On why specialized PT visibility matters</p>
 
     <div class="s2-timeline" id="s2Timeline">
       <div class="s2-tl-item" data-reveal="up" data-delay="600">
         <div class="s2-tl-dot s2-tl-dot--coral">
           <svg viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
           </svg>
         </div>
-        <div class="s2-tl-title">Mobile showroom, 3,000+ options</div>
-        <div class="s2-tl-desc">You bring 3,000+ products to their living room — hardwood, carpet, LVP, tile. For a family managing a wheelchair or mobility aid, not having to visit a warehouse isn't a perk, it's the only way this works. Nobody else in the Triangle is marketing that to this community.</div>
+        <div class="s2-tl-title">Underserved demand</div>
+        <div class="s2-tl-desc">Families with disabilities need balance and vestibular therapy but struggle to find providers who specialize in their needs. You're already the expert — they just need to find you.</div>
       </div>
 
       <div class="s2-tl-item" data-reveal="up" data-delay="800">
@@ -519,8 +502,8 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
             <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
           </svg>
         </div>
-        <div class="s2-tl-title">Same families, same counties</div>
-        <div class="s2-tl-desc">FCI Chapel Hill serves Chapel Hill, Durham, Hillsborough, Pittsboro, and surrounding areas. We mail to 10,000+ households across Wake, Durham, Orange, Johnston, and Chatham. Your service area and our readership overlap almost perfectly.</div>
+        <div class="s2-tl-title">Right geography</div>
+        <div class="s2-tl-desc">10,000+ households across Wake, Durham, Orange, Johnston, and Chatham counties. Families already navigating therapies, adaptive equipment, and mobility decisions every month.</div>
       </div>
 
       <div class="s2-tl-item" data-reveal="up" data-delay="1000">
@@ -530,8 +513,8 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
             <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
           </svg>
         </div>
-        <div class="s2-tl-title">The referral you can't buy</div>
-        <div class="s2-tl-desc">We're building a network of OTs, home modification specialists, adaptive equipment vendors, and home health agencies. When an OT tells a family "you need to replace that carpet" — FCI is the name they see in the magazine they already trust. That referral can't be bought; it's earned through consistent presence.</div>
+        <div class="s2-tl-title">Referral ecosystem</div>
+        <div class="s2-tl-desc">We're building a network of OTs, neurologists, adaptive equipment providers, and home health agencies. FYZICAL becomes the PT anchor in that referral chain.</div>
       </div>
     </div>
   </div>
@@ -679,11 +662,11 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
     <div class="s4-context">
       <div class="s4-context-card s4-context-card--quote" data-reveal="left" data-delay="900">
         <h3>Proven infrastructure</h3>
-        <p>N2 has 20+ years of operational infrastructure, editorial standards, and a proven advertising model refined across 36 cities. The Raleigh Metro edition benefits from all of it on day one — not a startup experiment.</p>
+        <p>This isn't a startup experiment. N2 has 20+ years of operational infrastructure, editorial standards, and a proven advertising model refined across 36 cities. The Raleigh Metro edition benefits from all of it on day one.</p>
       </div>
       <div class="s4-context-card s4-context-card--aside" data-reveal="right" data-delay="1000">
-        <h3>Jason's reputation precedes him</h3>
-        <p>Chapel Hill neighbors recommend FCI by name. Reviews highlight communication, professionalism, and follow-through — exactly the kind of business our readers trust. A veteran-owned, concierge-style flooring company that genuinely cares about its customers is a perfect editorial fit.</p>
+        <h3>Why PT &amp; Balance is Tier 1</h3>
+        <p>Physical therapy and balance services are among our highest-priority advertiser categories. Every family navigating a disability encounters PT at some point — the providers who are already visible in trusted community channels get the referral first.</p>
       </div>
     </div>
   </div>
@@ -725,11 +708,11 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
           </svg>
         </div>
         <h3>Be Useful</h3>
-        <p>Value-first content that helps families make smart flooring decisions before the project starts.</p>
+        <p>Value-first content that helps families understand PT and balance therapy before they ever call.</p>
         <ul class="s7-step-items">
-          <li>"Which flooring is safest?" — LVP vs. hardwood vs. tile for accessibility</li>
-          <li>Threshold &amp; transition checklist for wheelchairs and walkers</li>
-          <li>Low-maintenance, non-slip options for bathrooms and kitchens</li>
+          <li>Fall prevention checklists for families</li>
+          <li>Vestibular therapy explainer guides</li>
+          <li>PT milestone trackers for parents</li>
         </ul>
       </div>
 
@@ -741,7 +724,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
           </svg>
         </div>
         <h3>Be Remembered</h3>
-        <p>Feature stories that put real homeowners and families front and center — professionally photographed, editorially written, the kind of content people keep.</p>
+        <p>Feature stories that put real patients and families front and center — professionally photographed, editorially written, the kind of content people keep.</p>
         <ul class="s7-step-items">
           <li>Two feature stories per year</li>
           <li>Professional photography included</li>
@@ -921,8 +904,8 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 
   <div class="slide-inner" style="display:flex;flex-direction:column;justify-content:center;">
     <div class="section-eyebrow" data-reveal="up" data-delay="50" style="color:rgba(255,247,241,0.58);">Next steps</div>
-    <h2 class="s8-title" data-reveal="up" data-delay="100" style="margin-bottom:8px;">Jason, here's how we'd get started</h2>
-    <p class="section-subtitle" data-reveal="up" data-delay="180" style="color:rgba(255,247,241,0.74);max-width:900px;margin-bottom:16px;">If this feels like a fit, we can walk through it right now. If you need to think on it, no pressure — I'll send you this deck to review.</p>
+    <h2 class="s8-title" data-reveal="up" data-delay="100" style="margin-bottom:8px;">Here's how we move forward</h2>
+    <p class="section-subtitle" data-reveal="up" data-delay="180" style="color:rgba(255,247,241,0.74);max-width:900px;margin-bottom:16px;">Walk through each step at your pace. Click to open.</p>
 
     <div class="decision-accordion" data-reveal="up" data-delay="260">
       <div class="decision-step" id="step1">
@@ -983,141 +966,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 
   <div class="s8-rainbow"></div>
 </section>
+`,
+};
 
-
-<script>
-(function() {
-  'use strict';
-  document.body.classList.add('js-ready');
-
-  /* ---- Reveal observer ---- */
-  var revealObserver = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        var delay = parseInt(entry.target.dataset.delay || '0', 10);
-        setTimeout(function() { entry.target.classList.add('visible'); }, delay);
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.05, rootMargin: '50px' });
-
-  document.querySelectorAll('[data-reveal]').forEach(function(el) { revealObserver.observe(el); });
-
-  setTimeout(function() {
-    var activeSlide = document.querySelector('.slide');
-    if (activeSlide) {
-      activeSlide.querySelectorAll('[data-reveal]').forEach(function(el) {
-        var delay = parseInt(el.dataset.delay || '0', 10);
-        setTimeout(function() { el.classList.add('visible'); }, delay);
-      });
-    }
-  }, 100);
-
-  function revealSlide(slide) {
-    slide.querySelectorAll('[data-reveal]:not(.visible)').forEach(function(el) {
-      var delay = parseInt(el.dataset.delay || '0', 10);
-      setTimeout(function() { el.classList.add('visible'); }, delay);
-    });
-  }
-
-  var slideRevealObserver = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) { if (entry.isIntersecting) { revealSlide(entry.target); } });
-  }, { threshold: 0.01 });
-  document.querySelectorAll('.slide').forEach(function(s) { slideRevealObserver.observe(s); });
-  revealSlide(document.querySelector('.slide'));
-
-  /* ---- Dot nav ---- */
-  var slides = document.querySelectorAll('.slide');
-  var dots = document.querySelectorAll('.dot-nav a');
-  var dotNav = document.getElementById('dotNav');
-  var currentSlide = 0;
-
-  var slideObserver = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
-        var idx = parseInt(entry.target.dataset.slideIndex);
-        currentSlide = idx;
-        updateDots(idx);
-        updateDotTheme(entry.target.dataset.theme);
-        var id = entry.target.id;
-        if (id && location.hash !== '#' + id) { history.replaceState(null, '', '#' + id); }
-      }
-    });
-  }, { threshold: 0.5 });
-  slides.forEach(function(slide) { slideObserver.observe(slide); });
-
-  function updateDots(activeIdx) { dots.forEach(function(dot, i) { dot.classList.toggle('active', i === activeIdx); }); }
-  function updateDotTheme(theme) { dotNav.classList.toggle('on-dark', theme === 'dark'); }
-
-  dots.forEach(function(dot) {
-    dot.addEventListener('click', function(e) {
-      e.preventDefault();
-      var idx = parseInt(dot.dataset.slide);
-      slides[idx].scrollIntoView({ behavior: 'smooth' });
-    });
-  });
-
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ') {
-      e.preventDefault();
-      var next = Math.min(currentSlide + 1, slides.length - 1);
-      slides[next].scrollIntoView({ behavior: 'smooth' });
-    } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
-      e.preventDefault();
-      var prev = Math.max(currentSlide - 1, 0);
-      slides[prev].scrollIntoView({ behavior: 'smooth' });
-    }
-  });
-
-  /* ---- Timeline line draw ---- */
-  var s2Timeline = document.getElementById('s2Timeline');
-  if (s2Timeline) {
-    var s2Observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) { if (entry.isIntersecting) { s2Timeline.classList.add('line-drawn'); } });
-    }, { threshold: 0.3 });
-    s2Observer.observe(s2Timeline);
-  }
-
-  /* ---- Bar chart animation ---- */
-  var s4Chart = document.getElementById('s4Chart');
-  if (s4Chart) {
-    var s4Observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting && !s4Chart.dataset.animated) {
-          s4Chart.dataset.animated = 'true';
-          s4Chart.querySelectorAll('.s4-bar-fill').forEach(function(bar, i) {
-            setTimeout(function() { bar.classList.add('animate'); }, i * 120);
-          });
-        }
-      });
-    }, { threshold: 0.25 });
-    s4Observer.observe(s4Chart);
-  }
-
-  /* ---- Pricing accordion ---- */
-  window.togglePrice = function(id) {
-    var el = document.getElementById(id);
-    if (!el) return;
-    el.classList.toggle('pc-open');
-  };
-
-  /* ---- Decision accordion ---- */
-  var openedSteps = {};
-  window.toggleStep = function(id) {
-    var el = document.getElementById(id);
-    if (!el) return;
-    el.classList.toggle('open');
-    openedSteps[id] = el.classList.contains('open');
-
-    // Show CTA links after any 2 steps have been opened
-    var openCount = Object.keys(openedSteps).filter(function(k) { return openedSteps[k]; }).length;
-    var totalOpened = Object.keys(openedSteps).length;
-    var ctaReveal = document.getElementById('ctaReveal');
-    if (totalOpened >= 2 && ctaReveal) {
-      ctaReveal.classList.add('cta-visible');
-    }
-  };
-})();
-</script>
-</body>
-</html>
+export default data;

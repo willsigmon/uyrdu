@@ -1,13 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jenna × Uniquely You! — Partnership Conversation</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
-<style>
+import type { DeckData } from "@/lib/deck/types";
+
+const data: DeckData = {
+  title: "Jenna × Uniquely You! — Partnership Conversation",
+  navClass: "dot-nav on-dark",
+  navItems: [
+    { href: "#cover", label: "Cover" },
+    { href: "#why", label: "The Opportunity" },
+    { href: "#what", label: "Publication" },
+    { href: "#credibility", label: "Credibility" },
+    { href: "#partnership", label: "Partnership" },
+    { href: "#pricing", label: "Pricing" },
+    { href: "#start", label: "Next Steps" },
+  ],
+  css: `
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
@@ -222,7 +227,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 .s7-step p { font-size: 0.88rem; color: #666; line-height: 1.5; max-width: 260px; margin-bottom: 10px; }
 .s7-step-items { list-style: none; text-align: left; font-size: 0.85rem; color: #555; line-height: 1.7; }
 .s7-step-items li { padding-left: 18px; position: relative; }
-.s7-step-items li::before { content: '\2713'; position: absolute; left: 0; color: var(--teal); font-weight: 700; }
+.s7-step-items li::before { content: '\\2713'; position: absolute; left: 0; color: var(--teal); font-weight: 700; }
 
 /* SLIDE 6 — PRICING */
 .pricing-intro { font-size: 1rem; color: #666; max-width: 680px; line-height: 1.6; }
@@ -314,34 +319,8 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
   .s7-step--1, .s7-step--2, .s7-step--3 { margin-top: 0; }
   .rate-table { font-size: 0.85rem; }
 }
-</style>
-</head>
-<body>
-
-<div class="rainbow-bar"></div>
-
-<!-- Portrait warning -->
-<div id="portrait-warning">
-  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="rgba(255,247,241,0.5)" stroke-width="2" stroke-linecap="round" style="margin-bottom:24px;">
-    <rect x="14" y="6" width="20" height="36" rx="3"/>
-    <path d="M14 6l20 36M34 6L14 42" stroke-width="1" opacity="0.3"/>
-    <path d="M8 32l4-4 4 4" stroke="var(--teal)" stroke-width="2.5"/>
-  </svg>
-  <div class="pw-title">Rotate for the full experience</div>
-  <p class="pw-body">This pitch deck is built for landscape or desktop viewing.</p>
-</div>
-
-<nav class="dot-nav on-dark" id="dotNav">
-  <a href="#cover" data-slide="0" data-label="Cover" class="active"></a>
-  <a href="#why" data-slide="1" data-label="The Opportunity"></a>
-  <a href="#what" data-slide="2" data-label="Publication"></a>
-  <a href="#credibility" data-slide="3" data-label="Credibility"></a>
-  <a href="#partnership" data-slide="4" data-label="Partnership"></a>
-  <a href="#pricing" data-slide="5" data-label="Pricing"></a>
-  <a href="#start" data-slide="6" data-label="Next Steps"></a>
-</nav>
-
-
+`,
+  slidesHtml: `
 <!-- ============================================================
      SLIDE 1: COVER
      ============================================================ -->
@@ -822,113 +801,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 
   <div class="s8-rainbow"></div>
 </section>
+`,
+};
 
-
-<script>
-(function() {
-  'use strict';
-  document.body.classList.add('js-ready');
-
-  var revealObserver = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        var delay = parseInt(entry.target.dataset.delay || '0', 10);
-        setTimeout(function() { entry.target.classList.add('visible'); }, delay);
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.05, rootMargin: '50px' });
-
-  document.querySelectorAll('[data-reveal]').forEach(function(el) { revealObserver.observe(el); });
-
-  setTimeout(function() {
-    var activeSlide = document.querySelector('.slide');
-    if (activeSlide) {
-      activeSlide.querySelectorAll('[data-reveal]').forEach(function(el) {
-        var delay = parseInt(el.dataset.delay || '0', 10);
-        setTimeout(function() { el.classList.add('visible'); }, delay);
-      });
-    }
-  }, 100);
-
-  function revealSlide(slide) {
-    slide.querySelectorAll('[data-reveal]:not(.visible)').forEach(function(el) {
-      var delay = parseInt(el.dataset.delay || '0', 10);
-      setTimeout(function() { el.classList.add('visible'); }, delay);
-    });
-  }
-
-  var slideRevealObserver = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) { if (entry.isIntersecting) { revealSlide(entry.target); } });
-  }, { threshold: 0.01 });
-  document.querySelectorAll('.slide').forEach(function(s) { slideRevealObserver.observe(s); });
-  revealSlide(document.querySelector('.slide'));
-
-  var slides = document.querySelectorAll('.slide');
-  var dots = document.querySelectorAll('.dot-nav a');
-  var dotNav = document.getElementById('dotNav');
-  var currentSlide = 0;
-
-  var slideObserver = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
-        var idx = parseInt(entry.target.dataset.slideIndex);
-        currentSlide = idx;
-        updateDots(idx);
-        updateDotTheme(entry.target.dataset.theme);
-        var id = entry.target.id;
-        if (id && location.hash !== '#' + id) { history.replaceState(null, '', '#' + id); }
-      }
-    });
-  }, { threshold: 0.5 });
-  slides.forEach(function(slide) { slideObserver.observe(slide); });
-
-  function updateDots(activeIdx) { dots.forEach(function(dot, i) { dot.classList.toggle('active', i === activeIdx); }); }
-  function updateDotTheme(theme) { dotNav.classList.toggle('on-dark', theme === 'dark'); }
-
-  dots.forEach(function(dot) {
-    dot.addEventListener('click', function(e) {
-      e.preventDefault();
-      var idx = parseInt(dot.dataset.slide);
-      slides[idx].scrollIntoView({ behavior: 'smooth' });
-    });
-  });
-
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ') {
-      e.preventDefault();
-      var next = Math.min(currentSlide + 1, slides.length - 1);
-      slides[next].scrollIntoView({ behavior: 'smooth' });
-    } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
-      e.preventDefault();
-      var prev = Math.max(currentSlide - 1, 0);
-      slides[prev].scrollIntoView({ behavior: 'smooth' });
-    }
-  });
-
-  var s2Timeline = document.getElementById('s2Timeline');
-  if (s2Timeline) {
-    var s2Observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) { if (entry.isIntersecting) { s2Timeline.classList.add('line-drawn'); } });
-    }, { threshold: 0.3 });
-    s2Observer.observe(s2Timeline);
-  }
-
-  var s4Chart = document.getElementById('s4Chart');
-  if (s4Chart) {
-    var s4Observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting && !s4Chart.dataset.animated) {
-          s4Chart.dataset.animated = 'true';
-          s4Chart.querySelectorAll('.s4-bar-fill').forEach(function(bar, i) {
-            setTimeout(function() { bar.classList.add('animate'); }, i * 120);
-          });
-        }
-      });
-    }, { threshold: 0.25 });
-    s4Observer.observe(s4Chart);
-  }
-})();
-</script>
-</body>
-</html>
+export default data;
