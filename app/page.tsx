@@ -6,9 +6,7 @@ import { SubscribeBanner } from "@/components/subscribe-banner";
 import { QrSlideout } from "@/components/qr-slideout";
 import { Footer } from "@/components/footer";
 import { FadeIn } from "@/components/fade-in";
-
-const SUBSCRIBE_URL =
-  "https://docs.google.com/forms/d/e/1FAIpQLSeN2iwnRxln-1J6yIbN3_wlYqg133j2ITOige94Yw24e2bYsA/viewform";
+import { URLS } from "@/lib/constants";
 
 export default function Home() {
   return (
@@ -22,19 +20,19 @@ export default function Home() {
             icon="📬"
             label="Subscribe FREE"
             description="Get every issue delivered — it's free!"
-            href={SUBSCRIBE_URL}
+            href={URLS.subscribe}
           />
           <LinkCard
             icon="📱"
             label="Read Current Issue"
             description="Digital flipbook"
-            comingSoon
+            href="/read"
           />
           <LinkCard
             icon="📚"
             label="Past Issues"
             description="Issue archive"
-            comingSoon
+            href="/archive"
           />
         </LinkSection>
       </FadeIn>
@@ -46,7 +44,7 @@ export default function Home() {
             icon="✨"
             label="Nominate a Story or Refer a Business"
             description="Shining Bright, Abilities in Action, Nonprofit Spotlight, and more"
-            href="https://uyraleighmetro.vercel.app/refer"
+            href={URLS.nominate}
           />
         </LinkSection>
       </FadeIn>
@@ -71,7 +69,7 @@ export default function Home() {
             icon="📅"
             label="Schedule a Meeting"
             description="Book a time with Will"
-            href="https://calendar.app.google/oTFXRmKDFUDPcvmj6"
+            href={URLS.calendar}
           />
         </LinkSection>
       </FadeIn>
@@ -83,25 +81,25 @@ export default function Home() {
             icon="📘"
             label="Facebook"
             description="Uniquely You! Raleigh Metro"
-            comingSoon
+            href={URLS.facebook}
           />
           <LinkCard
             icon="📸"
             label="Instagram"
             description="@uniquelyyouraleigh"
-            comingSoon
+            href={URLS.instagram}
           />
           <LinkCard
             icon="✉️"
             label="Email Will"
             description="will.sigmon@n2co.com"
-            href="mailto:will.sigmon@n2co.com"
+            href={URLS.email}
           />
           <LinkCard
             icon="🌐"
             label="Uniquely You! National"
             description="uniquelyyoumag.com"
-            href="https://www.uniquelyyoumag.com"
+            href={URLS.national}
           />
         </LinkSection>
       </FadeIn>
@@ -134,7 +132,7 @@ export default function Home() {
           <p className="pt-1 text-xs text-muted-foreground/70">
             Uniquely You! is a publication of{" "}
             <a
-              href="https://n2co.com/salute-and-uniquely-you/"
+              href={URLS.n2}
               target="_blank"
               rel="noopener noreferrer"
               className="underline decoration-border hover:text-foreground"

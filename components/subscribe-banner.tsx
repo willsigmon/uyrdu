@@ -1,10 +1,9 @@
-const SUBSCRIBE_URL =
-  "https://docs.google.com/forms/d/e/1FAIpQLSeN2iwnRxln-1J6yIbN3_wlYqg133j2ITOige94Yw24e2bYsA/viewform";
+import { URLS } from "@/lib/constants";
 
 export function SubscribeBanner() {
   return (
     <a
-      href={SUBSCRIBE_URL}
+      href={URLS.subscribe}
       target="_blank"
       rel="noopener noreferrer"
       className="fixed inset-x-0 bottom-0 z-50 flex items-center justify-center gap-2 border-t-2 border-foreground bg-primary px-4 py-3.5 font-semibold text-primary-foreground shadow-[0_-4px_20px_rgba(0,0,0,0.15)] transition-all hover:brightness-110 sm:hidden"

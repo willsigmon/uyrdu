@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { addContact, sendNotification } from "@/lib/resend";
 
 const RATE_LIMIT_WINDOW = 60_000;
 const MAX_REQUESTS = 5;
@@ -95,26 +96,13 @@ export async function POST(request: Request) {
 
     const { subject, body } = formatEmail(data);
 
-    const RESEND_API_KEY = process.env.RESEND_API_KEY;
+    const tasks: Promise<Response | null>[] = [sendNotification(subject, body)];
 
-    if (RESEND_API_KEY) {
-      await fetch("https://api.resend.com/emails", {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${RESEND_API_KEY}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          from: "Uniquely You! <noreply@updates.uyrdu.com>",
-          to: process.env.NOTIFY_EMAIL ?? "will.sigmon@n2co.com",
-          subject: `[UY Raleigh Metro] ${subject}`,
-          text: body,
-        }),
-      });
-    } else {
-      // eslint-disable-next-line no-console
-      console.log(`[Form Submission] ${subject}\n${body}`);
+    if (data.type === "subscribe") {
+      tasks.push(addContact(data.email));
     }
+
+    await Promise.allSettled(tasks);
 
     return NextResponse.json({ success: true });
   } catch {
