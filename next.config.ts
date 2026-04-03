@@ -17,15 +17,12 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-  async rewrites() {
+  async redirects() {
     return [
       {
         source: "/refer",
         destination: `${CRM_ORIGIN}/refer`,
-      },
-      {
-        source: "/api/recommendation-sheet",
-        destination: `${CRM_ORIGIN}/api/recommendation-sheet`,
+        permanent: false,
       },
     ];
   },
