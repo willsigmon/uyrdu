@@ -495,12 +495,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
       </div>
     </div>
 
-    <div style="text-align:center;margin-top:12px;" data-reveal="up" data-delay="350">
-      <a class="pub-preview-link" href="https://pubmanager.n2pub.com/flipbooks/publications/uniquely-you-mideastern-ohio-oh/current" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-        Preview a recent issue
-      </a>
-    </div>
+
   </div>
 </section>
 
@@ -603,6 +598,13 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
         <p>Our team handles everything. You review proofs before print. Keep all designs.</p>
         <div class="price-tag">$499</div>
       </div>
+    </div>
+
+    <div style="text-align:center;margin-top:16px;" data-reveal="up" data-delay="500">
+      <a class="pub-preview-link" href="https://pubmanager.n2pub.com/flipbooks/publications/uniquely-you-mideastern-ohio-oh/current" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        Preview a recent issue
+      </a>
     </div>
   </div>
 </section>
