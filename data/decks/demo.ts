@@ -9,6 +9,7 @@ const data: DeckData = {
     { href: "#publication", label: "Not better, different" },
     { href: "#credibility", label: "Ask: current marketing?" },
     { href: "#partnership", label: "Show publication here" },
+    { href: "#blueprint", label: "Walk through ad sizes" },
     { href: "#pricing", label: "Drop-down: ask 5-7x" },
     { href: "#start", label: "Close: size > directory > design > card" },
   ],
@@ -222,6 +223,78 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 .design-option:last-child h4::before { content: '\\2728'; margin-right: 6px; opacity: 0.5; }
 .design-option p { font-size: 0.85rem; color: #666; line-height: 1.5; }
 .design-option .price-tag { font-family: var(--display); font-size: 1.4rem; color: var(--purple-sec); margin-top: 6px; }
+
+
+/* BLUEPRINT LAYOUT */
+.blueprint-wrap { display: flex; gap: 32px; align-items: flex-start; justify-content: center; width: 100%; }
+.blueprint-mag { position: relative; width: 520px; flex-shrink: 0; }
+.blueprint-spread {
+  display: grid; grid-template-columns: 1fr 1fr; border: 2px solid var(--dark);
+  border-radius: 4px; aspect-ratio: 1.55 / 1; overflow: hidden;
+  background: repeating-linear-gradient(0deg, transparent, transparent 19px, rgba(44,11,90,0.04) 19px, rgba(44,11,90,0.04) 20px),
+              repeating-linear-gradient(90deg, transparent, transparent 19px, rgba(44,11,90,0.04) 19px, rgba(44,11,90,0.04) 20px);
+}
+.blueprint-spread::after {
+  content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px;
+  background: var(--dark); opacity: 0.25; transform: translateX(-50%);
+}
+.bp-page { position: relative; border: 1px dashed rgba(44,11,90,0.12); display: flex; flex-direction: column; }
+.bp-zone {
+  position: absolute; border: 2px solid; border-radius: 4px; display: flex; align-items: center; justify-content: center;
+  font-family: var(--sans); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+  transition: all 0.3s ease; cursor: default; opacity: 0.85;
+}
+.bp-zone:hover { opacity: 1; transform: scale(1.02); z-index: 5; }
+.bp-zone--spread { left: 2%; top: 4%; width: 96%; height: 92%; border-color: var(--coral); background: rgba(255,107,107,0.08); color: var(--coral); }
+.bp-zone--backcover { left: 4%; top: 4%; width: 92%; height: 92%; border-color: var(--gold); background: rgba(255,199,45,0.1); color: var(--gold); }
+.bp-zone--inside { left: 4%; top: 4%; width: 92%; height: 92%; border-color: var(--purple-sec); background: rgba(110,38,142,0.06); color: var(--purple-sec); }
+.bp-zone--fullpage { left: 4%; top: 4%; width: 92%; height: 92%; border-color: var(--purple-sec); background: rgba(110,38,142,0.06); color: var(--purple-sec); }
+.bp-zone--half { left: 4%; bottom: 4%; width: 92%; height: 44%; border-color: var(--blue); background: rgba(94,168,255,0.08); color: var(--blue); }
+.bp-zone--quarter-sponsor { left: 4%; top: 4%; width: 44%; height: 44%; border-color: var(--blue); background: rgba(94,168,255,0.08); color: var(--blue); }
+.bp-zone--third { left: 4%; bottom: 4%; width: 92%; height: 30%; border-color: var(--teal); background: rgba(18,214,160,0.08); color: var(--teal); }
+.bp-zone--quarter { left: 4%; bottom: 4%; width: 44%; height: 30%; border-color: var(--teal); background: rgba(18,214,160,0.08); color: var(--teal); }
+.bp-zone-label { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.bp-zone-price { font-size: 0.85rem; font-weight: 800; }
+.bp-legend { display: flex; flex-direction: column; gap: 10px; flex: 1; min-width: 200px; }
+.bp-legend-item {
+  display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 10px;
+  background: #fff; box-shadow: 0 1px 4px rgba(0,0,0,0.04); font-family: var(--sans); font-size: 0.8rem;
+  transition: all 0.25s ease; cursor: default;
+}
+.bp-legend-item:hover { box-shadow: 0 2px 10px rgba(0,0,0,0.08); transform: translateX(4px); }
+.bp-legend-swatch { width: 14px; height: 14px; border-radius: 4px; flex-shrink: 0; border: 2px solid; }
+.bp-legend-name { font-weight: 700; color: var(--dark); }
+.bp-legend-price { margin-left: auto; font-weight: 800; }
+.bp-legend-item--coral .bp-legend-swatch { border-color: var(--coral); background: rgba(255,107,107,0.15); }
+.bp-legend-item--coral .bp-legend-price { color: var(--coral); }
+.bp-legend-item--gold .bp-legend-swatch { border-color: var(--gold); background: rgba(255,199,45,0.2); }
+.bp-legend-item--gold .bp-legend-price { color: var(--gold); }
+.bp-legend-item--purple .bp-legend-swatch { border-color: var(--purple-sec); background: rgba(110,38,142,0.1); }
+.bp-legend-item--purple .bp-legend-price { color: var(--purple-sec); }
+.bp-legend-item--blue .bp-legend-swatch { border-color: var(--blue); background: rgba(94,168,255,0.15); }
+.bp-legend-item--blue .bp-legend-price { color: var(--blue); }
+.bp-legend-item--teal .bp-legend-swatch { border-color: var(--teal); background: rgba(18,214,160,0.15); }
+.bp-legend-item--teal .bp-legend-price { color: var(--teal); }
+.bp-page-label {
+  position: absolute; bottom: -22px; left: 50%; transform: translateX(-50%);
+  font-family: var(--sans); font-size: 0.6rem; color: rgba(44,11,90,0.4);
+  text-transform: uppercase; letter-spacing: 0.1em; white-space: nowrap;
+}
+.bp-spine {
+  position: absolute; left: 50%; top: -18px; transform: translateX(-50%);
+  font-family: var(--sans); font-size: 0.55rem; color: rgba(44,11,90,0.35);
+  text-transform: uppercase; letter-spacing: 0.12em;
+}
+.bp-tab-row { display: flex; gap: 6px; justify-content: center; margin-bottom: 16px; }
+.bp-tab {
+  font-family: var(--sans); font-size: 0.7rem; font-weight: 600; padding: 6px 14px;
+  border-radius: 8px; border: 1.5px solid rgba(44,11,90,0.15); background: transparent;
+  color: var(--dark); cursor: pointer; transition: all 0.2s ease; letter-spacing: 0.02em;
+}
+.bp-tab:hover { background: rgba(44,11,90,0.04); }
+.bp-tab.active { background: var(--dark); color: #fff; border-color: var(--dark); }
+.bp-view { display: none; }
+.bp-view.active { display: grid; }
 
 /* SLIDE 6 — PRICING REVEAL */
 .pricing-runway { display: flex; flex-wrap: wrap; gap: 16px; align-items: stretch; min-height: 260px; }
@@ -624,10 +697,123 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 </section>
 
 
+
+<!-- ============================================================
+     SLIDE 5.5: BLUEPRINT AD LAYOUT
+     ============================================================ -->
+<section class="slide slide--cream" id="blueprint" data-slide-index="5" data-theme="light">
+  <div class="orb" style="width:300px;height:300px;top:-100px;left:-100px;background:var(--purple-sec);opacity:0.06;"></div>
+  <div class="slide-inner" style="justify-content:center;">
+    <div class="section-eyebrow" data-reveal="up" data-delay="50">Ad Placement Guide</div>
+    <h2 class="section-title" data-reveal="up" data-delay="100" style="max-width:none;">Where Your Ad Lives in the Publication</h2>
+
+    <div class="bp-tab-row" data-reveal="up" data-delay="150">
+      <button class="bp-tab active" data-bp="premium">Premium</button>
+      <button class="bp-tab" data-bp="fullpage">Full Page</button>
+      <button class="bp-tab" data-bp="popular">Popular</button>
+      <button class="bp-tab" data-bp="entry">Entry</button>
+    </div>
+
+    <div class="blueprint-wrap" data-reveal="up" data-delay="200">
+
+      <div class="blueprint-mag">
+        <span class="bp-spine">&laquo; spine &raquo;</span>
+
+        <!-- PREMIUM VIEW -->
+        <div class="blueprint-spread bp-view active" id="bpPremium">
+          <div class="bp-page" style="position:relative;">
+            <div class="bp-zone bp-zone--spread" style="left:2%;top:4%;width:196%;height:92%;z-index:3;">
+              <div class="bp-zone-label"><span>2-Page Spread</span><span class="bp-zone-price">$795/mo</span></div>
+            </div>
+            <span class="bp-page-label">Left Page</span>
+          </div>
+          <div class="bp-page" style="position:relative;">
+            <span class="bp-page-label">Right Page</span>
+          </div>
+        </div>
+
+        <!-- BACK COVER (single page) -->
+        <div class="blueprint-spread bp-view" id="bpBackcover" style="grid-template-columns:1fr;">
+          <div class="bp-page" style="position:relative;">
+            <div class="bp-zone bp-zone--backcover">
+              <div class="bp-zone-label"><span>Back Cover</span><span class="bp-zone-price">$765/mo</span></div>
+            </div>
+            <span class="bp-page-label">Outside Back Cover</span>
+          </div>
+        </div>
+
+        <!-- FULL PAGE VIEW -->
+        <div class="blueprint-spread bp-view" id="bpFullpage">
+          <div class="bp-page" style="position:relative;">
+            <div class="bp-zone bp-zone--inside">
+              <div class="bp-zone-label"><span>Inside Cover / Pg 2-3</span><span class="bp-zone-price">$675/mo</span></div>
+            </div>
+            <span class="bp-page-label">Premium Position</span>
+          </div>
+          <div class="bp-page" style="position:relative;">
+            <div class="bp-zone bp-zone--fullpage">
+              <div class="bp-zone-label"><span>Full Page Standard</span><span class="bp-zone-price">$575/mo</span></div>
+            </div>
+            <span class="bp-page-label">Body Placement</span>
+          </div>
+        </div>
+
+        <!-- POPULAR VIEW -->
+        <div class="blueprint-spread bp-view" id="bpPopular">
+          <div class="bp-page" style="position:relative;">
+            <div class="bp-zone bp-zone--half">
+              <div class="bp-zone-label"><span>1/2 Page</span><span class="bp-zone-price">$330/mo</span></div>
+            </div>
+            <div style="position:absolute;top:8%;left:8%;right:8%;height:40%;border:1px dashed rgba(44,11,90,0.08);border-radius:3px;display:flex;align-items:center;justify-content:center;font-family:var(--sans);font-size:0.55rem;color:rgba(44,11,90,0.2);text-transform:uppercase;letter-spacing:0.1em;">Editorial Content</div>
+            <span class="bp-page-label">Vertical or Horizontal</span>
+          </div>
+          <div class="bp-page" style="position:relative;">
+            <div class="bp-zone bp-zone--quarter-sponsor">
+              <div class="bp-zone-label" style="font-size:0.55rem;"><span>1/4-Page Sponsorship</span><span class="bp-zone-price">$330/mo</span></div>
+            </div>
+            <div style="position:absolute;top:4%;right:4%;width:48%;height:92%;border:1px dashed rgba(44,11,90,0.08);border-radius:3px;display:flex;align-items:center;justify-content:center;font-family:var(--sans);font-size:0.55rem;color:rgba(44,11,90,0.2);text-transform:uppercase;letter-spacing:0.1em;">Issue Preview</div>
+            <span class="bp-page-label">Near Contents Page</span>
+          </div>
+        </div>
+
+        <!-- ENTRY VIEW -->
+        <div class="blueprint-spread bp-view" id="bpEntry">
+          <div class="bp-page" style="position:relative;">
+            <div class="bp-zone bp-zone--third">
+              <div class="bp-zone-label"><span>1/3 Page</span><span class="bp-zone-price">$255/mo</span></div>
+            </div>
+            <div style="position:absolute;top:6%;left:6%;right:6%;height:58%;border:1px dashed rgba(44,11,90,0.08);border-radius:3px;display:flex;align-items:center;justify-content:center;font-family:var(--sans);font-size:0.55rem;color:rgba(44,11,90,0.2);text-transform:uppercase;letter-spacing:0.1em;">Editorial Content</div>
+            <span class="bp-page-label">Full-Width Ad</span>
+          </div>
+          <div class="bp-page" style="position:relative;">
+            <div class="bp-zone bp-zone--quarter">
+              <div class="bp-zone-label"><span>1/4 Page</span><span class="bp-zone-price">$190/mo</span></div>
+            </div>
+            <div style="position:absolute;top:6%;left:6%;right:6%;height:62%;border:1px dashed rgba(44,11,90,0.08);border-radius:3px;display:flex;align-items:center;justify-content:center;font-family:var(--sans);font-size:0.55rem;color:rgba(44,11,90,0.2);text-transform:uppercase;letter-spacing:0.1em;">Editorial Content</div>
+            <span class="bp-page-label">Body Placement</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="bp-legend">
+        <div class="bp-legend-item bp-legend-item--coral"><div class="bp-legend-swatch"></div><span class="bp-legend-name">2-Page Spread</span><span class="bp-legend-price">$795</span></div>
+        <div class="bp-legend-item bp-legend-item--gold"><div class="bp-legend-swatch"></div><span class="bp-legend-name">Back Cover</span><span class="bp-legend-price">$765</span></div>
+        <div class="bp-legend-item bp-legend-item--purple"><div class="bp-legend-swatch"></div><span class="bp-legend-name">Inside Cover / Pg 2-3</span><span class="bp-legend-price">$675</span></div>
+        <div class="bp-legend-item bp-legend-item--purple"><div class="bp-legend-swatch"></div><span class="bp-legend-name">Full Page Standard</span><span class="bp-legend-price">$575</span></div>
+        <div class="bp-legend-item bp-legend-item--blue"><div class="bp-legend-swatch"></div><span class="bp-legend-name">1/2-Page Standard</span><span class="bp-legend-price">$330</span></div>
+        <div class="bp-legend-item bp-legend-item--blue"><div class="bp-legend-swatch"></div><span class="bp-legend-name">1/4-Page Sponsorship</span><span class="bp-legend-price">$330</span></div>
+        <div class="bp-legend-item bp-legend-item--teal"><div class="bp-legend-swatch"></div><span class="bp-legend-name">1/3 Page</span><span class="bp-legend-price">$255</span></div>
+        <div class="bp-legend-item bp-legend-item--teal"><div class="bp-legend-swatch"></div><span class="bp-legend-name">1/4 Page</span><span class="bp-legend-price">$190</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============================================================
      SLIDE 6: PRICING — HORIZONTAL TIER REVEAL
      ============================================================ -->
-<section class="slide slide--cream" id="pricing" data-slide-index="5" data-theme="light" data-has-tier-reveal="true">
+<section class="slide slide--cream" id="pricing" data-slide-index="6" data-theme="light" data-has-tier-reveal="true">
   <div class="orb" style="width:360px;height:360px;top:-120px;right:-120px;background:var(--gold);opacity:0.12;"></div>
   <div class="orb" style="width:320px;height:320px;bottom:-120px;left:-120px;background:var(--teal);opacity:0.08;"></div>
 
@@ -836,8 +1022,9 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
         2: '<strong>WHY IT WORKS</strong> &mdash; Core phrase: <em>"Marketing only works when it\\'s seen &mdash; and only valuable when it\\'s seen by the right people."</em> Let this land, then ask: <em>"Tell me about your current marketing &mdash; what\\'s working for you right now?"</em> Listen. Connect their answer to what makes UY different.',
         3: '<strong>CREDIBILITY</strong> &mdash; Reinforce that N2 has 800+ publications, $163M in revenue, and 20+ years of track record. Key phrase: <em>"Magazines written by the community, for the community."</em> Transition: <em>"Based on what you\\'ve seen so far, does this potentially make sense for your company?"</em> Gauge interest before moving on.',
         4: '<strong>PARTNERSHIP OPTIONS</strong> &mdash; Now walk through the publication. <em>"We would never put a business on the front cover &mdash; this audience deserves to shine."</em> Show the sponsor spotlight, featured stories, and ad placements. Emphasize that readers opt in &mdash; you can\\'t buy this audience. End with design options, then: <em>"Would you like us to take care of the ad design for you?"</em>',
-        5: '<strong>INVESTMENT</strong> &mdash; Start at the two-page spread ($795). Describe it fully. Ask: <em>"Do you like the idea of being on one of those options?"</em> If no, move to the next tier. Ask for the sale 5&ndash;7 times through the drop-down. Whatever you spend the most time describing is what you\\'ll sell &mdash; keep premium descriptions rich and brief on smaller sizes.',
-        6: '<strong>NEXT STEPS</strong> &mdash; Once they say yes to a size, pivot smoothly &mdash; no re-asking, no hesitation. <em>"Great &mdash; you\\'ll land in our resource directory. What category fits best?"</em> Then ad design, then credit card: <em>"This just holds your reservation &mdash; nothing is charged until we\\'re ready to go."</em> Close with: <em>"You\\'re locked in. You\\'re ready to roll."</em>'
+        5: '<strong>AD PLACEMENT GUIDE</strong> &mdash; Walk through the blueprint. Click the tabs to show each ad size inside the magazine. <em>"Let me show you what each option actually looks like in the publication."</em> Make the sizes tangible before talking price. Let them absorb the visual &mdash; don\\'t rush past this.',
+        6: '<strong>INVESTMENT</strong> &mdash; Start at the two-page spread ($795). Describe it fully. Ask: <em>"Do you like the idea of being on one of those options?"</em> If no, move to the next tier. Ask for the sale 5&ndash;7 times through the drop-down. Whatever you spend the most time describing is what you\\'ll sell &mdash; keep premium descriptions rich and brief on smaller sizes.',
+        7: '<strong>NEXT STEPS</strong> &mdash; Once they say yes to a size, pivot smoothly &mdash; no re-asking, no hesitation. <em>"Great &mdash; you\\'ll land in our resource directory. What category fits best?"</em> Then ad design, then credit card: <em>"This just holds your reservation &mdash; nothing is charged until we\\'re ready to go."</em> Close with: <em>"You\\'re locked in. You\\'re ready to roll."</em>'
       };
       var bar = document.createElement('div');
       bar.className = 'presenter-bar';
@@ -861,6 +1048,27 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
             }
           });
         }, { threshold: 0.5 }).observe(s);
+      });
+    })();
+
+    (function() {
+      var tabs = document.querySelectorAll('.bp-tab');
+      var views = {
+        premium: [document.getElementById('bpPremium')],
+        fullpage: [document.getElementById('bpFullpage')],
+        popular: [document.getElementById('bpPopular')],
+        entry: [document.getElementById('bpEntry')]
+      };
+      // Also show backcover with premium tab
+      var bcView = document.getElementById('bpBackcover');
+      tabs.forEach(function(tab) {
+        tab.addEventListener('click', function() {
+          tabs.forEach(function(t) { t.classList.remove('active'); });
+          tab.classList.add('active');
+          document.querySelectorAll('.bp-view').forEach(function(v) { v.classList.remove('active'); });
+          var key = tab.dataset.bp;
+          if (views[key]) views[key].forEach(function(v) { if (v) v.classList.add('active'); });
+        });
       });
     })();
     (function() {
