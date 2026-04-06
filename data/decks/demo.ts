@@ -640,7 +640,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 
       <!-- TIER 1: PREMIUM -->
       <div class="tier-panel tier-panel--premium" id="tier1">
-        <div class="tier-label">Premium Placement <span style="font-family:var(--sans);font-size:0.6rem;background:rgba(255,199,45,0.2);color:var(--gold);padding:2px 8px;border-radius:10px;margin-left:8px;letter-spacing:0.04em;">+2 stories + spotlight</span></div>
+        <div class="tier-label">Premium Placement</div>
         <div class="tier-cards">
           <div class="tier-card">
             <div class="tier-card-name">2-Page Spread</div>
@@ -660,7 +660,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 
       <!-- TIER 2: FULL PAGE -->
       <div class="tier-panel tier-panel--fullpage" id="tier2">
-        <div class="tier-label">Full Page Options <span style="font-family:var(--sans);font-size:0.6rem;background:rgba(110,38,142,0.12);color:var(--purple-sec);padding:2px 8px;border-radius:10px;margin-left:8px;letter-spacing:0.04em;">+1 featured story</span></div>
+        <div class="tier-label">Full Page Options</div>
         <div class="tier-cards">
           <div class="tier-card">
             <div class="tier-card-name">Inside Cover / Page 2-3</div>
