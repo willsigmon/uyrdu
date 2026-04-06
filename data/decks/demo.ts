@@ -272,7 +272,9 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 .bp-zone--inside { left: 4%; top: 4%; width: 92%; height: 92%; border-color: var(--purple-sec); background: rgba(110,38,142,0.06); color: var(--purple-sec); }
 .bp-zone--fullpage { left: 4%; top: 4%; width: 92%; height: 92%; border-color: var(--purple-sec); background: rgba(110,38,142,0.06); color: var(--purple-sec); }
 .bp-zone--half { left: 4%; bottom: 4%; width: 92%; height: 44%; border-color: var(--blue); background: rgba(94,168,255,0.08); color: var(--blue); }
-.bp-zone--quarter-sponsor { left: 8%; top: 8%; width: 84%; height: 40%; border-color: var(--blue); background: rgba(94,168,255,0.08); color: var(--blue); }
+.bp-zone--quarter-sponsor { left: 4%; top: 4%; width: 44%; height: 44%; border-color: var(--blue); background: rgba(94,168,255,0.08); color: var(--blue); font-size: 0.5rem; }
+.bp-zone--quarter-sponsor .bp-zone-price { font-size: 0.7rem; }
+.bp-zone--quarter-sponsor .bp-zone-label { gap: 1px; }
 .bp-zone--third { left: 4%; bottom: 4%; width: 92%; height: 30%; border-color: var(--teal); background: rgba(18,214,160,0.08); color: var(--teal); }
 .bp-zone--quarter { left: 4%; bottom: 4%; width: 44%; height: 30%; border-color: var(--teal); background: rgba(18,214,160,0.08); color: var(--teal); }
 .bp-zone-label { display: flex; flex-direction: column; align-items: center; gap: 2px; }
