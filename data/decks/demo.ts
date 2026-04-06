@@ -140,7 +140,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 }
 .slide-inner[style*=text-align:center] .section-eyebrow::after,
 .slide-inner[style*=align-items:center] .section-eyebrow::after { margin-left: auto; margin-right: auto; }
-.section-title { font-size: clamp(1.8rem, 3vw, 2.5rem); color: var(--dark); max-width: 700px; line-height: 1.15; margin-bottom: 4px; }
+.section-title { font-size: clamp(1.8rem, 3vw, 2.5rem); color: var(--dark); max-width: 700px; line-height: 1.15; margin-bottom: 4px; text-wrap: balance; }
 .section-subtitle { font-size: 1.05rem; color: #666; max-width: 640px; line-height: 1.6; }
 
 /* SLIDE 2 — ABOUT US / OPPORTUNITY */
@@ -176,7 +176,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 
 /* SLIDE 4 — CREDIBILITY */
 .s4-chart { display: flex; gap: 36px; justify-content: center; align-items: flex-end; margin-bottom: 28px; }
-.s4-bar-col { display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1; max-width: 180px; }
+.s4-bar-col { display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1; max-width: 200px; }
 .s4-bar-value { font-family: var(--display); font-size: 1.6rem; }
 .s4-bar-track { width: 100%; border-radius: 12px; position: relative; overflow: hidden; }
 .s4-bar-fill { border-radius: 12px; position: absolute; bottom: 0; width: 100%; transform: scaleY(0); transform-origin: bottom; transition: transform 0.8s var(--ease-out-expo); }
@@ -189,6 +189,11 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 .s4-context-card h3 { font-size: 1.1rem; color: var(--dark); margin-bottom: 8px; }
 .s4-context-card--quote h3::before { content: '\\201C'; font-family: var(--display); font-size: 1.6rem; color: var(--purple-sec); opacity: 0.3; margin-right: 6px; line-height: 1; vertical-align: -0.1em; }
 .s4-context-card p { font-size: 0.92rem; color: #555; line-height: 1.6; max-width: 44ch; }
+#credibility .slide-inner { align-items: center; text-align: center; }
+#credibility .section-title { max-width: 900px; text-wrap: balance; }
+#credibility .section-subtitle { max-width: 700px; margin-left: auto; margin-right: auto; }
+#credibility .s4-context { max-width: 900px; margin: 0 auto; }
+#credibility .section-eyebrow::after { margin-left: auto; margin-right: auto; }
 
 /* SLIDE 5 — PARTNERSHIP OPTIONS */
 .partner-features { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; margin-bottom: 16px; }
@@ -268,6 +273,14 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 .tier-panel--fullpage .tier-skip:hover { background: rgba(110,38,142,0.14); transform: translateY(-2px); }
 .tier-panel--standard .tier-skip { color: var(--blue); background: rgba(94,168,255,0.1); }
 .tier-panel--standard .tier-skip:hover { background: rgba(94,168,255,0.18); transform: translateY(-2px); }
+.tier-panel--entry { background: linear-gradient(135deg, #e8f8f0, #d1f0e3); color: var(--body); border: 1px solid rgba(18,214,160,0.2); }
+.tier-panel--entry .tier-label { color: var(--teal); }
+.tier-panel--entry .tier-card { background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+.tier-panel--entry .tier-card-price { color: var(--teal); }
+.tier-panel--entry .tier-card-desc { color: #888; }
+.tier-panel--entry .tier-term-badge { background: rgba(18,214,160,0.1); color: var(--teal); }
+.tier-panel--entry .tier-skip { color: var(--teal); background: rgba(18,214,160,0.1); }
+.tier-panel--entry .tier-skip:hover { background: rgba(18,214,160,0.18); transform: translateY(-2px); }
 
 #tierNextBtn {
   display: inline-block; margin: 16px auto 0; padding: 12px 32px; border: none; border-radius: 40px; cursor: pointer;
@@ -669,6 +682,26 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
         <a class="tier-skip" href="#start">Ready? Let's go &rarr;</a>
       </div>
 
+      <!-- TIER 4: ENTRY -->
+      <div class="tier-panel tier-panel--entry" id="tier4">
+        <div class="tier-label">Entry Options</div>
+        <div class="tier-cards">
+          <div class="tier-card">
+            <div class="tier-card-name">1/3 Page</div>
+            <div class="tier-card-price">$255<span>/mo</span></div>
+            <div class="tier-card-desc">Full-width ad &mdash; sharp, professional look at an affordable rate</div>
+            <span class="tier-term-badge">36 months</span>
+          </div>
+          <div class="tier-card">
+            <div class="tier-card-name">1/4 Page</div>
+            <div class="tier-card-price">$190<span>/mo</span></div>
+            <div class="tier-card-desc">Our entry point &mdash; a great way to get started and build community presence</div>
+            <span class="tier-term-badge">36 months</span>
+          </div>
+        </div>
+        <a class="tier-skip" href="#start">Ready? Let&#39;s go &rarr;</a>
+      </div>
+
     </div>
 
     <div style="text-align:center;">
@@ -693,6 +726,8 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
           <tr><td>Full Page Standard</td><td>$720</td><td>$645</td><td class="popular-col"><strong>$575</strong></td></tr>
           <tr><td>1/2-Page Standard</td><td>$415</td><td>$370</td><td class="popular-col"><strong>$330</strong></td></tr>
           <tr><td>1/4-Page Sponsorship</td><td>$415</td><td>$370</td><td class="popular-col"><strong>$330</strong></td></tr>
+          <tr><td>1/3 Page</td><td>$320</td><td>$285</td><td class="popular-col"><strong>$255</strong></td></tr>
+          <tr><td>1/4 Page</td><td>$240</td><td>$215</td><td class="popular-col"><strong>$190</strong></td></tr>
         </tbody>
       </table>
     </div>
