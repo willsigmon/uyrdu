@@ -298,6 +298,8 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
   opacity: 0; max-height: 0; overflow: hidden; transition: opacity 0.6s ease, max-height 0.6s var(--ease-out-expo); margin-top: 0;
 }
 #tierSummary.summary-visible { opacity: 1; max-height: 500px; margin-top: 20px; }
+#pricing { min-height: 100vh; height: auto; max-height: none; overflow: visible; scroll-snap-align: start; }
+#pricing .slide-inner { height: auto; min-height: 100vh; padding-bottom: 48px; }
 .rate-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; background: #fff; border-radius: 14px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
 .rate-table th { background: var(--dark); color: #fff; padding: 10px 14px; font-weight: 600; text-align: center; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; }
 .rate-table td { padding: 10px 14px; text-align: center; border-bottom: 1px solid rgba(0,0,0,0.05); }
