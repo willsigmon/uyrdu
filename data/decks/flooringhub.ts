@@ -153,10 +153,8 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 .s2-tl-item:hover .s2-tl-dot { transform: scale(1.15); box-shadow: 0 6px 24px rgba(0,0,0,0.12); }
 .s4-context-card { transition: transform 0.3s var(--spring); }
 .s4-context-card:hover { transform: translateY(-4px); }
-.pricing-card { transition: transform 0.3s var(--spring), box-shadow 0.3s ease; }
-.pricing-card:hover { transform: translateY(-3px); box-shadow: 0 6px 24px rgba(44,11,90,0.1); }
-.pricing-note { transition: transform 0.3s var(--spring); }
-.pricing-note:hover { transform: translateY(-3px); }
+.tier-panel { transition: transform 0.3s var(--spring), box-shadow 0.3s ease; }
+.tier-panel:hover { transform: translateY(-3px); box-shadow: 0 6px 24px rgba(44,11,90,0.1); }
 .decision-step { transition: transform 0.3s var(--spring), background 0.3s ease; }
 .decision-step:hover { transform: translateY(-2px); background: rgba(255,255,255,0.08); }
 .s10-cta { animation: subtleBounce 2.5s ease-in-out infinite; }
@@ -257,64 +255,72 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 .s7-step-items li { padding-left: 18px; position: relative; }
 .s7-step-items li::before { content: '\\2713'; position: absolute; left: 0; color: var(--teal); font-weight: 700; }
 
-/* SLIDE 6 — PRICING (accordion cards) */
-.pricing-intro { font-size: 1rem; color: #666; max-width: 680px; line-height: 1.6; }
-.pricing-cards { display: flex; flex-direction: column; gap: 0; }
-.pricing-card {
-  background: #fff; border-radius: 16px; margin-bottom: 10px; overflow: hidden;
-  box-shadow: 0 2px 12px rgba(44,11,90,0.05); border-left: 4px solid transparent;
-  transition: box-shadow 0.3s ease;
+/* SLIDE 6 — PRICING REVEAL */
+.pricing-runway { display: flex; gap: 16px; align-items: stretch; min-height: 260px; }
+.tier-panel {
+  flex: 0; min-width: 0; max-width: 0; opacity: 0; overflow: hidden; border-radius: 20px;
+  padding: 0; display: flex; flex-direction: column; gap: 16px;
+  transition: flex 0.6s var(--ease-out-expo), max-width 0.6s var(--ease-out-expo),
+              opacity 0.5s ease 0.1s, padding 0.4s ease;
 }
-.pricing-card:nth-child(1) { border-left-color: var(--coral); }
-.pricing-card:nth-child(2) { border-left-color: var(--teal); }
-.pricing-card:nth-child(3) { border-left-color: var(--blue); }
-.pricing-card:nth-child(4) { border-left-color: var(--gold); }
-.pricing-card.pc-open { box-shadow: 0 4px 24px rgba(44,11,90,0.1); }
-.pc-header {
-  display: flex; align-items: center; gap: 16px; padding: 18px 24px; cursor: pointer;
-  user-select: none; transition: background 0.2s ease;
+.tier-panel.tier-visible { flex: 1; max-width: 100%; opacity: 1; padding: 28px; }
+.tier-panel--premium { background: linear-gradient(135deg, #3d1275, #2c0b5a); color: #fff; }
+.tier-panel--fullpage { background: linear-gradient(135deg, #fff8e1, #fff3cd); color: var(--body); border: 1px solid rgba(255,199,45,0.25); }
+.tier-panel--standard { background: linear-gradient(135deg, #e8f4fd, #d1e9f8); color: var(--body); border: 1px solid rgba(94,168,255,0.2); }
+.tier-label { font-family: var(--display); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 4px; }
+.tier-panel--premium .tier-label { color: rgba(255,247,241,0.5); }
+.tier-panel--fullpage .tier-label { color: var(--purple-sec); }
+.tier-panel--standard .tier-label { color: var(--blue); }
+.tier-cards { display: flex; gap: 14px; flex: 1; }
+.tier-card {
+  flex: 1; border-radius: 14px; padding: 22px 18px; text-align: center; display: flex; flex-direction: column; justify-content: center;
 }
-.pc-header:hover { background: rgba(44,11,90,0.02); }
-.pc-size { font-family: var(--display); font-size: 1.15rem; color: var(--dark); flex: 1; }
-.pc-range { display: none; }
-.pc-arrow {
-  width: 20px; height: 20px; color: var(--purple-sec); transition: transform 0.3s ease;
+.tier-panel--premium .tier-card { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); }
+.tier-panel--fullpage .tier-card { background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+.tier-panel--standard .tier-card { background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+.tier-card-name { font-family: var(--display); font-size: 1.05rem; margin-bottom: 4px; }
+.tier-panel--premium .tier-card-name { color: #fff; }
+.tier-card-price { font-family: var(--display); font-size: 2rem; line-height: 1; margin: 6px 0; }
+.tier-panel--premium .tier-card-price { color: var(--gold); }
+.tier-panel--fullpage .tier-card-price { color: var(--purple-sec); }
+.tier-panel--standard .tier-card-price { color: var(--blue); }
+.tier-card-price span { font-size: 0.85rem; font-family: var(--sans); font-weight: 500; opacity: 0.7; }
+.tier-card-desc { font-size: 0.8rem; line-height: 1.45; margin-top: 6px; }
+.tier-panel--premium .tier-card-desc { color: rgba(255,247,241,0.6); }
+.tier-panel--fullpage .tier-card-desc, .tier-panel--standard .tier-card-desc { color: #888; }
+.tier-term-badge { display: inline-block; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 3px 10px; border-radius: 20px; margin-top: 8px; }
+.tier-panel--premium .tier-term-badge { background: rgba(255,199,45,0.15); color: var(--gold); }
+.tier-panel--fullpage .tier-term-badge { background: rgba(110,38,142,0.08); color: var(--purple-sec); }
+.tier-panel--standard .tier-term-badge { background: rgba(94,168,255,0.1); color: var(--blue); }
+.tier-skip {
+  display: inline-block; align-self: center; margin-top: auto; padding: 8px 20px; border-radius: 30px;
+  font-family: var(--sans); font-size: 0.8rem; font-weight: 600; text-decoration: none;
+  transition: transform 0.3s var(--spring), background 0.3s ease;
 }
-.pricing-card.pc-open .pc-arrow { transform: rotate(180deg); }
-.pc-body {
-  max-height: 0; overflow: hidden; transition: max-height 0.45s ease, padding 0.3s ease;
-  padding: 0 24px;
+.tier-panel--premium .tier-skip { color: var(--gold); background: rgba(255,199,45,0.12); }
+.tier-panel--premium .tier-skip:hover { background: rgba(255,199,45,0.22); transform: translateY(-2px); }
+.tier-panel--fullpage .tier-skip { color: var(--purple-sec); background: rgba(110,38,142,0.08); }
+.tier-panel--fullpage .tier-skip:hover { background: rgba(110,38,142,0.14); transform: translateY(-2px); }
+.tier-panel--standard .tier-skip { color: var(--blue); background: rgba(94,168,255,0.1); }
+.tier-panel--standard .tier-skip:hover { background: rgba(94,168,255,0.18); transform: translateY(-2px); }
+#tierNextBtn {
+  display: inline-block; margin: 16px auto 0; padding: 12px 32px; border: none; border-radius: 40px; cursor: pointer;
+  font-family: var(--sans); font-size: 0.95rem; font-weight: 600; color: var(--dark);
+  background: linear-gradient(135deg, var(--gold), var(--coral)); box-shadow: 0 4px 16px rgba(255,107,107,0.2);
+  transition: transform 0.3s var(--spring), box-shadow 0.3s ease;
 }
-.pricing-card.pc-open .pc-body { max-height: 300px; padding: 0 24px 20px; }
-.pc-desc { font-size: 0.85rem; color: #888; margin-bottom: 14px; }
-.pc-terms { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
-.pc-term {
-  background: var(--cream); border-radius: 12px; padding: 14px 16px; text-align: center;
-  border: 2px solid transparent; transition: border-color 0.2s ease;
+#tierNextBtn:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 6px 24px rgba(255,107,107,0.3); }
+#tierSummary {
+  opacity: 0; max-height: 0; overflow: hidden; transition: opacity 0.6s ease, max-height 0.6s var(--ease-out-expo); margin-top: 0;
 }
-.pc-term--popular { border-color: var(--gold); position: relative; }
-.pc-term--popular::before {
-  content: 'Most popular'; position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
-  background: var(--gold); color: var(--dark); font-family: var(--sans); font-size: 0.65rem; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 0.08em; padding: 2px 10px; border-radius: 20px;
-}
-.pc-term--story { border-color: var(--teal); position: relative; }
-.pc-term--story::before {
-  content: '+ 1 story'; position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
-  background: var(--teal); color: #fff; font-family: var(--sans); font-size: 0.65rem; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 0.08em; padding: 2px 10px; border-radius: 20px;
-}
-.pc-term-length { display: block; font-size: 0.78rem; color: #999; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
-.pc-term-price { display: block; font-family: var(--display); font-size: 1.5rem; color: var(--dark); }
-.pc-term-per { font-size: 0.75rem; color: #aaa; }
-.pc-term-save { display: block; font-size: 0.7rem; color: var(--teal); font-weight: 700; margin-top: 4px; }
-.pricing-notes { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-top: 16px; }
-.pricing-note {
-  background: #fff; border-radius: 12px; padding: 16px 18px; font-size: 0.85rem; color: #555; line-height: 1.5;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-}
-.pricing-note strong { display: block; color: var(--dark); margin-bottom: 4px; font-size: 0.88rem; }
-.pricing-note--highlight { background: var(--lavender); border: 1px solid rgba(110,38,142,0.1); }
+#tierSummary.summary-visible { opacity: 1; max-height: 500px; margin-top: 20px; }
+.rate-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; background: #fff; border-radius: 14px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
+.rate-table th { background: var(--dark); color: #fff; padding: 10px 14px; font-weight: 600; text-align: center; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; }
+.rate-table td { padding: 10px 14px; text-align: center; border-bottom: 1px solid rgba(0,0,0,0.05); }
+.rate-table td:first-child { text-align: left; font-weight: 600; color: var(--dark); }
+.rate-table tr:last-child td { border-bottom: none; }
+.rate-table .popular-col { background: rgba(255,199,45,0.06); }
+.rate-table .popular-header { background: var(--gold); color: var(--dark); }
 
 /* SLIDE 7 — NEXT STEPS */
 .s8-diagonal {
@@ -398,7 +404,9 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
   .s3-infographic, .s3-pillars, .s7-staircase { grid-template-columns: 1fr; }
   .s2-timeline { flex-direction: column; gap: 20px; }
   .s4-chart { flex-wrap: wrap; }
-  .s10-grid, .s4-context, .pricing-notes { grid-template-columns: 1fr; }
+  .s10-grid, .s4-context { grid-template-columns: 1fr; }
+  .pricing-runway { flex-direction: column; }
+  .tier-panel.tier-visible { max-width: 100%; }
   .cover-pillars { flex-direction: column; gap: 16px; }
   .dot-nav { display: none; }
   .s7-step--1, .s7-step--2, .s7-step--3 { margin-top: 0; }
@@ -744,156 +752,95 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 <!-- ============================================================
      SLIDE 6: PRICING
      ============================================================ -->
-<section class="slide slide--cream" id="pricing" data-slide-index="5" data-theme="light">
+<section class="slide slide--cream" id="pricing" data-slide-index="5" data-theme="light" data-has-tier-reveal="true">
   <div class="orb" style="width:360px;height:360px;top:-120px;right:-120px;background:var(--gold);opacity:0.12;"></div>
   <div class="orb" style="width:320px;height:320px;bottom:-120px;left:-120px;background:var(--teal);opacity:0.08;"></div>
 
   <div class="slide-inner" style="justify-content:center;">
     <div class="section-eyebrow" data-reveal="up" data-delay="50">Investment</div>
-    <h2 class="section-title" data-reveal="up" data-delay="100" style="max-width:none;">Simple pricing. Longer commitments save more.</h2>
-    <p class="pricing-intro" data-reveal="up" data-delay="180">Every ad size, every term length, billed monthly. Pick the placement and runway that fit best — no upfront lump sum required.</p>
+    <h2 class="section-title" data-reveal="up" data-delay="100" style="max-width:none;">36-Month Partnership &mdash; Our Best Rate</h2>
+    <p style="text-align:center;font-size:0.82rem;color:#999;margin-top:4px;" data-reveal="up" data-delay="140">Billed monthly. No upfront lump sum. Shorter terms (12- and 24-month) available at adjusted rates.</p>
 
-    <div class="pricing-cards" data-reveal="up" data-delay="260">
-
-      <!-- BACK COVER -->
-      <div class="pricing-card" id="pc1" data-reveal="up" data-delay="280">
-        <div class="pc-header" onclick="togglePrice('pc1')">
-          <span class="pc-size">Back Cover</span>
-          <span class="pc-range">from $595/mo</span>
-          <svg class="pc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
-        <div class="pc-body">
-          <div class="pc-desc">9" &times; 7.25" — premium placement, first thing seen when picked up</div>
-          <div class="pc-terms">
-            <div class="pc-term pc-term--popular">
-              <span class="pc-term-length">36 months</span>
-              <span class="pc-term-price">$595</span>
-              <span class="pc-term-per">/ month</span>
-              <span class="pc-term-save">Save ~25%</span>
-            </div>
-            <div class="pc-term pc-term--story">
-              <span class="pc-term-length">24 months</span>
-              <span class="pc-term-price">$695</span>
-              <span class="pc-term-per">/ month</span>
-              <span class="pc-term-save">Save ~13%</span>
-            </div>
-            <div class="pc-term">
-              <span class="pc-term-length">12 months</span>
-              <span class="pc-term-price">$795</span>
-              <span class="pc-term-per">/ month</span>
-            </div>
+    <div class="pricing-runway" data-reveal="up" data-delay="200">
+      <div class="tier-panel tier-panel--premium" id="tier1">
+        <div class="tier-label">Premium Placement</div>
+        <div class="tier-cards">
+          <div class="tier-card">
+            <div class="tier-card-name">2-Page Spread</div>
+            <div class="tier-card-price">$795<span>/mo</span></div>
+            <div class="tier-card-desc">Maximum impact — grab attention with large images</div>
+            <span class="tier-term-badge">36 months</span>
+          </div>
+          <div class="tier-card">
+            <div class="tier-card-name">Back Cover</div>
+            <div class="tier-card-price">$765<span>/mo</span></div>
+            <div class="tier-card-desc">Most prominent real estate — first thing seen at the mailbox</div>
+            <span class="tier-term-badge">36 months</span>
           </div>
         </div>
+        <a class="tier-skip" href="#start">Ready? Let's go &rarr;</a>
       </div>
-
-      <!-- FULL PAGE -->
-      <div class="pricing-card" id="pc2" data-reveal="up" data-delay="340">
-        <div class="pc-header" onclick="togglePrice('pc2')">
-          <span class="pc-size">Full Page</span>
-          <span class="pc-range">from $395/mo</span>
-          <svg class="pc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
-        <div class="pc-body">
-          <div class="pc-desc">8.75" &times; 11.5" — maximum impact, full bleed</div>
-          <div class="pc-terms">
-            <div class="pc-term pc-term--popular">
-              <span class="pc-term-length">36 months</span>
-              <span class="pc-term-price">$395</span>
-              <span class="pc-term-per">/ month</span>
-              <span class="pc-term-save">Save ~34%</span>
-            </div>
-            <div class="pc-term pc-term--story">
-              <span class="pc-term-length">24 months</span>
-              <span class="pc-term-price">$495</span>
-              <span class="pc-term-per">/ month</span>
-              <span class="pc-term-save">Save ~17%</span>
-            </div>
-            <div class="pc-term">
-              <span class="pc-term-length">12 months</span>
-              <span class="pc-term-price">$595</span>
-              <span class="pc-term-per">/ month</span>
-            </div>
+      <div class="tier-panel tier-panel--fullpage" id="tier2">
+        <div class="tier-label">Full Page Options</div>
+        <div class="tier-cards">
+          <div class="tier-card">
+            <div class="tier-card-name">Inside Cover / Page 2-3</div>
+            <div class="tier-card-price">$675<span>/mo</span></div>
+            <div class="tier-card-desc">Premium full-page position</div>
+            <span class="tier-term-badge">36 months</span>
+          </div>
+          <div class="tier-card">
+            <div class="tier-card-name">Full Page Standard</div>
+            <div class="tier-card-price">$575<span>/mo</span></div>
+            <div class="tier-card-desc">Full-page body ad — maximum impact</div>
+            <span class="tier-term-badge">36 months</span>
           </div>
         </div>
+        <a class="tier-skip" href="#start">Ready? Let's go &rarr;</a>
       </div>
-
-      <!-- 1/2 PAGE -->
-      <div class="pricing-card" id="pc3" data-reveal="up" data-delay="400">
-        <div class="pc-header" onclick="togglePrice('pc3')">
-          <span class="pc-size">1/2 Page</span>
-          <span class="pc-range">from $295/mo</span>
-          <svg class="pc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
-        <div class="pc-body">
-          <div class="pc-desc">7.25" &times; 4.875" — dominant layout, hard to miss</div>
-          <div class="pc-terms">
-            <div class="pc-term pc-term--popular">
-              <span class="pc-term-length">36 months</span>
-              <span class="pc-term-price">$295</span>
-              <span class="pc-term-per">/ month</span>
-              <span class="pc-term-save">Save ~34%</span>
-            </div>
-            <div class="pc-term pc-term--story">
-              <span class="pc-term-length">24 months</span>
-              <span class="pc-term-price">$370</span>
-              <span class="pc-term-per">/ month</span>
-              <span class="pc-term-save">Save ~17%</span>
-            </div>
-            <div class="pc-term">
-              <span class="pc-term-length">12 months</span>
-              <span class="pc-term-price">$445</span>
-              <span class="pc-term-per">/ month</span>
-            </div>
+      <div class="tier-panel tier-panel--standard" id="tier3">
+        <div class="tier-label">Our Most Popular</div>
+        <div class="tier-cards">
+          <div class="tier-card">
+            <div class="tier-card-name">1/2-Page Standard</div>
+            <div class="tier-card-price">$330<span>/mo</span></div>
+            <div class="tier-card-desc">Available vertical or horizontal</div>
+            <span class="tier-term-badge">36 months</span>
+          </div>
+          <div class="tier-card">
+            <div class="tier-card-name">1/4-Page Sponsorship</div>
+            <div class="tier-card-price">$330<span>/mo</span></div>
+            <div class="tier-card-desc">Affordable, prominent placement</div>
+            <span class="tier-term-badge">36 months</span>
           </div>
         </div>
+        <a class="tier-skip" href="#start">Ready? Let's go &rarr;</a>
       </div>
-
-      <!-- 1/4 PAGE -->
-      <div class="pricing-card" id="pc4" data-reveal="up" data-delay="460">
-        <div class="pc-header" onclick="togglePrice('pc4')">
-          <span class="pc-size">1/4 Page</span>
-          <span class="pc-range">from $190/mo</span>
-          <svg class="pc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
-        <div class="pc-body">
-          <div class="pc-desc">3.5" &times; 4.875" — strong presence on the page</div>
-          <div class="pc-terms">
-            <div class="pc-term pc-term--popular">
-              <span class="pc-term-length">36 months</span>
-              <span class="pc-term-price">$190</span>
-              <span class="pc-term-per">/ month</span>
-              <span class="pc-term-save">Save ~36%</span>
-            </div>
-            <div class="pc-term pc-term--story">
-              <span class="pc-term-length">24 months</span>
-              <span class="pc-term-price">$240</span>
-              <span class="pc-term-per">/ month</span>
-              <span class="pc-term-save">Save ~19%</span>
-            </div>
-            <div class="pc-term">
-              <span class="pc-term-length">12 months</span>
-              <span class="pc-term-price">$295</span>
-              <span class="pc-term-per">/ month</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
 
-    <div class="pricing-notes" data-reveal="up" data-delay="360">
-      <div class="pricing-note">
-        <strong>Always billed monthly</strong>
-        No upfront lump sum. The commitment length lowers the monthly rate — you pay less per issue, not more up front.
-      </div>
-      <div class="pricing-note">
-        <strong>Every payment method</strong>
-        Credit card, ACH, e-check, or invoice. Whatever works for your business.
-      </div>
-      <div class="pricing-note pricing-note--highlight">
-        <strong>Included at every tier</strong>
-        Print placement, digital-edition exposure, directory listing, ad design support, and a feature story bonus at 24+ months.
-      </div>
+    <div style="text-align:center;">
+      <button id="tierNextBtn">Something more affordable? &rarr;</button>
+    </div>
+
+    <div id="tierSummary">
+      <table class="rate-table">
+        <thead>
+          <tr>
+            <th>Ad Size</th>
+            <th>12 months</th>
+            <th>24 months</th>
+            <th class="popular-header">36 months</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>2-Page Spread</td><td>$995</td><td>$895</td><td class="popular-col"><strong>$795</strong></td></tr>
+          <tr><td>Back Cover</td><td>$955</td><td>$860</td><td class="popular-col"><strong>$765</strong></td></tr>
+          <tr><td>Inside Cover / Pg 2-3</td><td>$845</td><td>$760</td><td class="popular-col"><strong>$675</strong></td></tr>
+          <tr><td>Full Page Standard</td><td>$720</td><td>$645</td><td class="popular-col"><strong>$575</strong></td></tr>
+          <tr><td>1/2-Page Standard</td><td>$415</td><td>$370</td><td class="popular-col"><strong>$330</strong></td></tr>
+          <tr><td>1/4-Page Sponsorship</td><td>$415</td><td>$370</td><td class="popular-col"><strong>$330</strong></td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
@@ -960,8 +907,9 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 
     <div class="cta-hidden" id="ctaReveal">
       <div class="cta-links">
-        <a class="s10-cta" href="https://portal.n2pub.com/credit_card_capture" target="_blank" rel="noopener">Ready today? Set up billing</a>
-        <a class="s10-cta s10-cta--secondary" href="https://portal.n2pub.com/contract" target="_blank" rel="noopener">Review the contract</a>
+        <a class="s10-cta" href="https://portal.n2pub.com/credit_card_capture" target="_blank" rel="noopener">Set Up Billing</a>
+        <a class="s10-cta" href="https://portal.n2pub.com/agreement_builders" target="_blank" rel="noopener" style="background:linear-gradient(135deg, var(--teal), var(--blue));box-shadow:0 8px 30px rgba(18,214,160,0.3);">Build Agreement</a>
+        <a class="s10-cta s10-cta--secondary" href="https://pubmanager.n2pub.com/flipbooks/publications/uniquely-you-mideastern-ohio-oh/current" target="_blank" rel="noopener" style="font-size:0.85rem;padding:10px 24px;">Preview the publication</a>
       </div>
       <div class="s10-cta-sub" style="text-align:center;margin-top:10px;font-size:0.8rem;color:rgba(255,247,241,0.4);">Both links open the Compass Portal securely</div>
     </div>
@@ -971,46 +919,6 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 
   <div class="s8-rainbow"></div>
 </section>
-`,
-  extraScripts: `
-  /* ---- Pricing accordion ---- */
-  window.togglePrice = function(id) {
-    var el = document.getElementById(id);
-    if (!el) return;
-    el.classList.toggle('pc-open');
-  };
-
-  /* ---- Decision accordion ---- */
-  var openedSteps = {};
-  window.toggleStep = function(id) {
-    var el = document.getElementById(id);
-    if (!el) return;
-    el.classList.toggle('open');
-    openedSteps[id] = el.classList.contains('open');
-
-    // Show CTA links after any 2 steps have been opened
-    var totalOpened = Object.keys(openedSteps).length;
-    var ctaReveal = document.getElementById('ctaReveal');
-    if (totalOpened >= 2 && ctaReveal) {
-      ctaReveal.classList.add('cta-visible');
-    }
-  };
-
-  /* ---- Bar chart animation ---- */
-  var s4Chart = document.getElementById('s4Chart');
-  if (s4Chart) {
-    var barObserver = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting && !s4Chart.dataset.animated) {
-          s4Chart.dataset.animated = 'true';
-          s4Chart.querySelectorAll('.s4-bar-fill').forEach(function(bar, i) {
-            setTimeout(function() { bar.style.height = bar.dataset.height; }, i * 180);
-          });
-        }
-      });
-    }, { threshold: 0.25 });
-    barObserver.observe(s4Chart);
-  }
 `,
 };
 

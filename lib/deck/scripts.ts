@@ -4,6 +4,7 @@ export const DECK_SCRIPTS = `
   'use strict';
   document.body.classList.add('js-ready');
 
+  /* ---- Reveal observer ---- */
   var revealObserver = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) {
@@ -27,6 +28,7 @@ export const DECK_SCRIPTS = `
   }, 100);
 
   function revealSlide(slide) {
+    if (!slide) return;
     slide.querySelectorAll('[data-reveal]:not(.visible)').forEach(function(el) {
       var delay = parseInt(el.dataset.delay || '0', 10);
       setTimeout(function() { el.classList.add('visible'); }, delay);
@@ -39,6 +41,7 @@ export const DECK_SCRIPTS = `
   document.querySelectorAll('.slide').forEach(function(s) { slideRevealObserver.observe(s); });
   revealSlide(document.querySelector('.slide'));
 
+  /* ---- Slide & dot navigation ---- */
   var slides = document.querySelectorAll('.slide');
   var dots = document.querySelectorAll('.dot-nav a');
   var dotNav = document.getElementById('dotNav');
@@ -59,7 +62,7 @@ export const DECK_SCRIPTS = `
   slides.forEach(function(slide) { slideObserver.observe(slide); });
 
   function updateDots(activeIdx) { dots.forEach(function(dot, i) { dot.classList.toggle('active', i === activeIdx); }); }
-  function updateDotTheme(theme) { dotNav.classList.toggle('on-dark', theme === 'dark'); }
+  function updateDotTheme(theme) { if (dotNav) dotNav.classList.toggle('on-dark', theme === 'dark'); }
 
   dots.forEach(function(dot) {
     dot.addEventListener('click', function(e) {
@@ -69,18 +72,108 @@ export const DECK_SCRIPTS = `
     });
   });
 
+  /* ---- Pricing accordion (legacy decks) ---- */
+  window.togglePrice = function(id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.classList.toggle('pc-open');
+  };
+
+  /* ---- Decision accordion + CTA reveal ---- */
+  var openedSteps = 0;
+  window.toggleStep = function(id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    var wasOpen = el.classList.contains('open');
+    el.classList.toggle('open');
+    if (!wasOpen) {
+      openedSteps++;
+      if (openedSteps >= 2) {
+        var cta = document.getElementById('ctaReveal');
+        if (cta) cta.classList.add('cta-visible');
+      }
+    }
+  };
+
+  /* ---- Pricing tier reveal (new horizontal reveal) ---- */
+  var tierPanels = document.querySelectorAll('.tier-panel');
+  var tierBtn = document.getElementById('tierNextBtn');
+  var tierSummary = document.getElementById('tierSummary');
+  var tierIndex = 0;
+  var tierLabels = ['Something more affordable?', 'Our most popular options', 'See all rates'];
+
+  if (tierPanels.length > 0) {
+    tierPanels[0].classList.add('tier-visible');
+  }
+
+  function revealNextTier() {
+    tierIndex++;
+    if (tierIndex < tierPanels.length) {
+      tierPanels[tierIndex].classList.add('tier-visible');
+    }
+    if (tierBtn) {
+      if (tierIndex < tierLabels.length) {
+        tierBtn.innerHTML = tierLabels[tierIndex] + ' &rarr;';
+      }
+      if (tierIndex >= tierPanels.length) {
+        tierBtn.style.display = 'none';
+        if (tierSummary) tierSummary.classList.add('summary-visible');
+      }
+    }
+  }
+
+  function hideLastTier() {
+    if (tierIndex <= 0) return;
+    tierPanels[tierIndex].classList.remove('tier-visible');
+    tierIndex--;
+    if (tierBtn) {
+      tierBtn.style.display = '';
+      if (tierIndex < tierLabels.length) {
+        tierBtn.innerHTML = tierLabels[tierIndex] + ' &rarr;';
+      }
+    }
+    if (tierSummary) tierSummary.classList.remove('summary-visible');
+  }
+
+  if (tierBtn) {
+    tierBtn.addEventListener('click', function(e) { e.preventDefault(); revealNextTier(); });
+  }
+
+  /* ---- Keyboard navigation ---- */
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ') {
+    var currentSlideEl = slides[currentSlide];
+    var hasTierReveal = currentSlideEl && currentSlideEl.dataset.hasTierReveal === 'true';
+    var hiddenTiers = hasTierReveal ? currentSlideEl.querySelectorAll('.tier-panel:not(.tier-visible)') : [];
+    var visibleTiers = hasTierReveal ? currentSlideEl.querySelectorAll('.tier-panel.tier-visible') : [];
+
+    if (e.key === 'ArrowDown' || e.key === ' ') {
       e.preventDefault();
       var next = Math.min(currentSlide + 1, slides.length - 1);
       slides[next].scrollIntoView({ behavior: 'smooth' });
-    } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+    } else if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      if (hasTierReveal && hiddenTiers.length > 0) {
+        revealNextTier();
+      } else {
+        var next = Math.min(currentSlide + 1, slides.length - 1);
+        slides[next].scrollIntoView({ behavior: 'smooth' });
+      }
+    } else if (e.key === 'ArrowUp') {
       e.preventDefault();
       var prev = Math.max(currentSlide - 1, 0);
       slides[prev].scrollIntoView({ behavior: 'smooth' });
+    } else if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      if (hasTierReveal && visibleTiers.length > 1) {
+        hideLastTier();
+      } else {
+        var prev = Math.max(currentSlide - 1, 0);
+        slides[prev].scrollIntoView({ behavior: 'smooth' });
+      }
     }
   });
 
+  /* ---- Timeline animation ---- */
   var s2Timeline = document.getElementById('s2Timeline');
   if (s2Timeline) {
     var s2Observer = new IntersectionObserver(function(entries) {
@@ -89,6 +182,7 @@ export const DECK_SCRIPTS = `
     s2Observer.observe(s2Timeline);
   }
 
+  /* ---- Chart animation ---- */
   var s4Chart = document.getElementById('s4Chart');
   if (s4Chart) {
     var s4Observer = new IntersectionObserver(function(entries) {
@@ -104,6 +198,7 @@ export const DECK_SCRIPTS = `
     s4Observer.observe(s4Chart);
   }
 
+  /* ---- Lottie support ---- */
   if (typeof lottie !== 'undefined') {
     document.querySelectorAll('.lottie-anim').forEach(function(el) {
       var src = el.dataset.src;

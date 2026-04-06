@@ -1,12 +1,12 @@
 import type { DeckData } from "@/lib/deck/types";
 
 const data: DeckData = {
-  title: "FYZICAL × Uniquely You! — Partnership Conversation",
+  title: "Uniquely You! — Partnership Conversation",
   navClass: "dot-nav on-dark",
   navItems: [
     { href: "#cover", label: "Cover" },
-    { href: "#why", label: "The Opportunity" },
-    { href: "#what", label: "Publication" },
+    { href: "#opportunity", label: "Opportunity" },
+    { href: "#publication", label: "Publication" },
     { href: "#credibility", label: "Credibility" },
     { href: "#partnership", label: "Partnership" },
     { href: "#pricing", label: "Pricing" },
@@ -74,7 +74,6 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
   max-width: 1200px; width: 100%; height: 100%; position: relative; z-index: 2;
   display: flex; flex-direction: column; justify-content: center; gap: 14px;
 }
-.slide::after { content: ''; position: absolute; inset: -50%; width: 200%; height: 200%; opacity: 0.04; pointer-events: none; z-index: 3; mix-blend-mode: multiply; }
 
 .orb { position: absolute; border-radius: 50%; pointer-events: none; z-index: 1; filter: blur(80px); }
 
@@ -108,14 +107,11 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
   letter-spacing: 0.02em; line-height: 1; box-shadow: 0 4px 20px rgba(255,107,107,0.35); position: relative;
 }
 .uy-mark::after { content: ''; position: absolute; inset: -3px; border-radius: 17px; background: linear-gradient(135deg, var(--coral), var(--gold)); z-index: -1; opacity: 0.5; }
-.logo-divider { width: 2px; height: 40px; background: rgba(255,255,255,0.15); border-radius: 1px; }
-.partner-logotype { font-family: var(--sans); font-size: 1.2rem; font-weight: 600; color: rgba(255,247,241,0.85); letter-spacing: 0.06em; text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
-.partner-icon { width: 22px; height: 22px; flex-shrink: 0; }
+.partner-logotype { font-family: var(--sans); font-size: 1.1rem; font-weight: 600; color: rgba(255,247,241,0.85); letter-spacing: 0.06em; text-transform: uppercase; }
 .cover-title { font-size: clamp(2.8rem, 5.5vw, 4.8rem); line-height: 1.05; color: #fff; margin-bottom: 8px; }
 .cover-title .line-1 { display: block; color: rgba(255,247,241,0.6); }
 .cover-title .line-2 { display: block; background: linear-gradient(90deg, var(--teal), var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 .cover-title .line-cross { display: block; font-family: var(--sans); font-weight: 300; font-size: clamp(1rem, 2vw, 1.6rem); color: rgba(255,247,241,0.4); letter-spacing: 0.3em; text-transform: uppercase; margin: 8px 0; }
-.cover-title .line-uy { display: block; color: var(--coral); }
 .text-reveal-mask { overflow: hidden; display: block; }
 .text-reveal-inner { display: block; transform: translateY(110%); animation: textSlideUp 0.9s var(--ease-out-expo) 0.8s forwards; }
 @keyframes textSlideUp { to { transform: translateY(0); } }
@@ -140,57 +136,33 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 .section-title { font-size: clamp(1.8rem, 3vw, 2.5rem); color: var(--dark); max-width: 700px; line-height: 1.15; }
 .section-subtitle { font-size: 1.05rem; color: #666; max-width: 640px; line-height: 1.6; }
 
-/* SLIDE 2 — WHY */
-.s2-quote {
-  font-family: var(--display); font-size: clamp(1.3rem, 2.2vw, 1.6rem); line-height: 1.3;
-  color: var(--dark); text-align: center; max-width: 900px; margin: 0 auto 8px; position: relative;
-}
-.s2-quote::before {
-  content: ''; display: block; width: 48px; height: 36px; margin: 0 auto 10px; background: var(--purple-sec); opacity: 0.12;
-  -webkit-mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 80 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 40V20C0 9 9 0 20 0h10v10H20C15 10 10 15 10 20v5h20v20H0zm45 0V20C45 9 54 0 65 0h10v10H65C60 10 55 15 55 20v5h20v20H45z'/%3E%3C/svg%3E");
-  mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 80 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 40V20C0 9 9 0 20 0h10v10H20C15 10 10 15 10 20v5h20v20H0zm45 0V20C45 9 54 0 65 0h10v10H65C60 10 55 15 55 20v5h20v20H45z'/%3E%3C/svg%3E");
-  -webkit-mask-size: contain; mask-size: contain; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; -webkit-mask-position: center; mask-position: center;
-}
-.s2-quote-em { color: var(--purple-sec); font-style: italic; font-family: var(--sans); font-weight: 500; }
-.s2-author { text-align: center; font-weight: 600; color: var(--purple-sec); font-size: 0.95rem; margin-bottom: 16px; }
-.s2-timeline { display: flex; align-items: flex-start; position: relative; padding: 0 20px; }
-.s2-timeline::before {
-  content: ''; position: absolute; top: 28px; left: 60px; right: 60px; height: 3px;
-  background: linear-gradient(90deg, var(--coral), var(--teal), var(--gold)); border-radius: 99px; z-index: 0;
-  clip-path: inset(0 100% 0 0); transition: clip-path 1.2s var(--ease-out-expo);
-}
-.s2-timeline.line-drawn::before { clip-path: inset(0 0% 0 0); }
-.s2-tl-item { flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; position: relative; z-index: 1; }
-.s2-tl-dot { width: 56px; height: 56px; border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
-.s2-tl-dot svg { width: 26px; height: 26px; }
-.s2-tl-dot--coral { background: #fff; border: 2px solid rgba(255,107,107,0.3); }
-.s2-tl-dot--teal { background: #fff; border: 2px solid rgba(18,214,160,0.3); }
-.s2-tl-dot--gold { background: #fff; border: 2px solid rgba(255,199,45,0.3); }
-.s2-tl-title { font-family: var(--display); font-size: 1.2rem; color: var(--dark); margin-bottom: 6px; }
-.s2-tl-desc { font-size: 0.9rem; color: #666; line-height: 1.5; max-width: 260px; }
+/* SLIDE 2 — ABOUT US / OPPORTUNITY */
+.key-phrase { font-family: var(--display); font-size: clamp(1.2rem, 2vw, 1.5rem); color: var(--dark); line-height: 1.35; max-width: 800px; text-align: center; margin: 0 auto 12px; }
+.key-phrase em { color: var(--coral); font-style: normal; }
+.stat-row { display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; margin: 8px 0; }
+.stat-card { background: #fff; border-radius: 16px; padding: 20px 28px; text-align: center; box-shadow: 0 2px 12px rgba(0,0,0,0.04); flex: 1; min-width: 160px; max-width: 220px; }
+.stat-card-number { font-family: var(--display); font-size: 2.2rem; line-height: 1; margin-bottom: 4px; }
+.stat-card-label { font-size: 0.85rem; color: #666; line-height: 1.4; }
+.origin-story { font-size: 0.95rem; color: #555; line-height: 1.7; max-width: 700px; text-align: center; margin: 0 auto; font-style: italic; }
 
-/* SLIDE 3 — WHAT UY BRINGS */
-.s3-infographic { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-bottom: 20px; }
-.s3-viz { display: flex; flex-direction: column; align-items: center; text-align: center; }
-.s3-viz-mark { width: 160px; height: 160px; position: relative; margin-bottom: 16px; }
-.s3-viz-mark svg { width: 100%; height: 100%; }
-.donut-wrap { position: relative; }
-.donut-center-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); text-align: center; }
-.donut-kicker { display: block; font-size: 0.9rem; color: #999; font-weight: 500; }
-.donut-value { display: block; font-family: var(--display); font-size: 3rem; color: var(--coral); line-height: 1; }
-.s3-hero-number { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-family: var(--display); font-size: 3.5rem; line-height: 1; }
-.s3-icon-badge { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); }
-.s3-viz-label { font-family: var(--display); font-size: 0.85rem; color: var(--dark); margin-bottom: 4px; }
-.s3-viz-desc { font-size: 0.9rem; color: #666; line-height: 1.5; max-width: 220px; }
-.s3-pillars { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
-.s3-pillar { background: #fff; border-radius: 16px; padding: 28px; box-shadow: 0 2px 12px rgba(0,0,0,0.04); border-top: 4px solid transparent; }
-.s3-pillar--coral { border-top-color: var(--coral); }
-.s3-pillar--teal { border-top-color: var(--teal); }
-.s3-pillar--gold { border-top-color: var(--gold); }
-.s3-pillar-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
-.s3-pillar-icon svg { width: 22px; height: 22px; }
-.s3-pillar h3 { font-size: 1.1rem; color: var(--dark); margin-bottom: 8px; }
-.s3-pillar p { font-size: 0.9rem; color: #666; line-height: 1.6; }
+/* SLIDE 3 — WHY IT WORKS */
+.reasons-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.reason-card { background: #fff; border-radius: 20px; padding: 32px; box-shadow: 0 2px 16px rgba(0,0,0,0.04); }
+.reason-card--coral { border-top: 4px solid var(--coral); }
+.reason-card--teal { border-top: 4px solid var(--teal); }
+.reason-number { font-family: var(--display); font-size: 0.75rem; color: var(--purple-sec); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 8px; }
+.reason-title { font-family: var(--display); font-size: 1.3rem; color: var(--dark); margin-bottom: 10px; }
+.reason-body { font-size: 0.92rem; color: #555; line-height: 1.65; margin-bottom: 10px; }
+.reason-highlight { font-weight: 600; color: var(--dark); font-size: 0.88rem; padding: 10px 14px; border-radius: 10px; line-height: 1.5; }
+.reason-highlight--coral { background: rgba(255,107,107,0.08); }
+.reason-highlight--teal { background: rgba(18,214,160,0.08); }
+.pub-preview-link {
+  display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; padding: 10px 20px;
+  background: var(--dark); color: #fff; font-family: var(--sans); font-size: 0.85rem; font-weight: 600;
+  text-decoration: none; border-radius: 10px; transition: transform 0.3s var(--spring), background 0.3s ease;
+}
+.pub-preview-link:hover { transform: translateY(-2px); background: var(--dark-mid); }
+.pub-preview-link svg { width: 16px; height: 16px; flex-shrink: 0; }
 
 /* SLIDE 4 — CREDIBILITY */
 .s4-chart { display: flex; gap: 28px; justify-content: center; align-items: flex-end; margin-bottom: 20px; }
@@ -206,28 +178,27 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 .s4-context-card h3 { font-size: 1.1rem; color: var(--dark); margin-bottom: 8px; }
 .s4-context-card p { font-size: 0.92rem; color: #555; line-height: 1.6; max-width: 44ch; }
 
-/* SLIDE 5 — PARTNERSHIP */
-.s7-staircase { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 16px; }
-.s7-step {
+/* SLIDE 5 — PARTNERSHIP OPTIONS */
+.partner-features { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-bottom: 16px; }
+.partner-feature {
+  background: #fff; border-radius: 16px; padding: 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.04);
   display: flex; flex-direction: column; align-items: center; text-align: center;
-  padding: 22px 18px; background: #fff; border-radius: 16px; box-shadow: 0 4px 20px rgba(44,11,90,0.06);
-  position: relative;
 }
-.s7-step--1 { border-top: 3px solid var(--coral); margin-top: 24px; }
-.s7-step--2 { border-top: 4px solid var(--teal); margin-top: 10px; }
-.s7-step--3 { border-top: 5px solid var(--gold); margin-top: -4px; }
-.s7-level-label {
-  position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
-  background: var(--dark); color: #fff; font-family: var(--sans); font-size: 0.7rem; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 0.1em; padding: 3px 12px; border-radius: 20px;
+.partner-feature-icon { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
+.partner-feature-icon svg { width: 24px; height: 24px; }
+.partner-feature h3 { font-size: 1rem; color: var(--dark); margin-bottom: 6px; }
+.partner-feature p { font-size: 0.85rem; color: #666; line-height: 1.5; }
+.design-callout { display: flex; gap: 20px; justify-content: center; }
+.design-option { background: #fff; border-radius: 14px; padding: 18px 24px; flex: 1; max-width: 340px; box-shadow: 0 2px 8px rgba(0,0,0,0.03); }
+.design-option--highlight { border: 2px solid var(--gold); position: relative; }
+.design-option--highlight::before {
+  content: 'Most popular'; position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+  background: var(--gold); color: var(--dark); font-family: var(--sans); font-size: 0.65rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.08em; padding: 2px 10px; border-radius: 20px;
 }
-.s7-step-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; margin-top: 8px; }
-.s7-step-icon svg { width: 22px; height: 22px; }
-.s7-step h3 { font-size: 1.15rem; color: var(--dark); margin-bottom: 6px; }
-.s7-step p { font-size: 0.88rem; color: #666; line-height: 1.5; max-width: 260px; margin-bottom: 10px; }
-.s7-step-items { list-style: none; text-align: left; font-size: 0.85rem; color: #555; line-height: 1.7; }
-.s7-step-items li { padding-left: 18px; position: relative; }
-.s7-step-items li::before { content: '\\2713'; position: absolute; left: 0; color: var(--teal); font-weight: 700; }
+.design-option h4 { font-size: 0.95rem; color: var(--dark); margin-bottom: 4px; }
+.design-option p { font-size: 0.85rem; color: #666; line-height: 1.5; }
+.design-option .price-tag { font-family: var(--display); font-size: 1.4rem; color: var(--purple-sec); margin-top: 6px; }
 
 /* SLIDE 6 — PRICING REVEAL */
 .pricing-runway { display: flex; gap: 16px; align-items: stretch; min-height: 260px; }
@@ -266,6 +237,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 .tier-panel--premium .tier-term-badge { background: rgba(255,199,45,0.15); color: var(--gold); }
 .tier-panel--fullpage .tier-term-badge { background: rgba(110,38,142,0.08); color: var(--purple-sec); }
 .tier-panel--standard .tier-term-badge { background: rgba(94,168,255,0.1); color: var(--blue); }
+
 .tier-skip {
   display: inline-block; align-self: center; margin-top: auto; padding: 8px 20px; border-radius: 30px;
   font-family: var(--sans); font-size: 0.8rem; font-weight: 600; text-decoration: none;
@@ -277,6 +249,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 .tier-panel--fullpage .tier-skip:hover { background: rgba(110,38,142,0.14); transform: translateY(-2px); }
 .tier-panel--standard .tier-skip { color: var(--blue); background: rgba(94,168,255,0.1); }
 .tier-panel--standard .tier-skip:hover { background: rgba(94,168,255,0.18); transform: translateY(-2px); }
+
 #tierNextBtn {
   display: inline-block; margin: 16px auto 0; padding: 12px 32px; border: none; border-radius: 40px; cursor: pointer;
   font-family: var(--sans); font-size: 0.95rem; font-weight: 600; color: var(--dark);
@@ -284,6 +257,11 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
   transition: transform 0.3s var(--spring), box-shadow 0.3s ease;
 }
 #tierNextBtn:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 6px 24px rgba(255,107,107,0.3); }
+
+.pricing-term-note { text-align: center; font-size: 0.82rem; color: #999; margin-top: 8px; line-height: 1.5; }
+.pricing-term-note strong { color: var(--dark); }
+
+/* PRICING SUMMARY GRID */
 #tierSummary {
   opacity: 0; max-height: 0; overflow: hidden; transition: opacity 0.6s ease, max-height 0.6s var(--ease-out-expo); margin-top: 0;
 }
@@ -295,6 +273,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 .rate-table tr:last-child td { border-bottom: none; }
 .rate-table .popular-col { background: rgba(255,199,45,0.06); }
 .rate-table .popular-header { background: var(--gold); color: var(--dark); }
+.rate-table .story-badge { display: inline-block; font-size: 0.6rem; background: var(--teal); color: #fff; padding: 1px 6px; border-radius: 8px; margin-left: 4px; vertical-align: middle; }
 
 /* SLIDE 7 — NEXT STEPS */
 .s8-diagonal {
@@ -303,32 +282,8 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
   pointer-events: none; z-index: 0;
 }
 .s8-title { font-size: clamp(2rem, 3.5vw, 3rem); color: #fff; line-height: 1.1; }
-.s8-rainbow {
-  position: absolute; bottom: 0; left: 0; width: 100%; height: 4px;
-  background: linear-gradient(90deg, #12D6A0, #FFC72D, #FF6B6B, #5EA8FF);
-}
-.s10-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-bottom: 16px; }
-.s10-card {
-  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 28px;
-}
-.s10-card-label { font-family: var(--display); font-size: 1.1rem; color: #fff; margin-bottom: 16px; }
-.s10-list { list-style: none; }
-.s10-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; color: rgba(255,247,241,0.8); font-size: 0.95rem; line-height: 1.5; }
-.s10-num {
-  flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: rgba(255,255,255,0.08);
-  display: flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 0.8rem; color: var(--gold);
-}
-.s10-cta-wrap { text-align: center; margin-top: 8px; }
-.s10-cta {
-  display: inline-block; padding: 14px 40px; border-radius: 60px; font-family: var(--display); font-size: 1.1rem;
-  color: var(--dark); background: linear-gradient(135deg, var(--gold), var(--coral)); text-decoration: none;
-  box-shadow: 0 8px 30px rgba(255,107,107,0.3); transition: transform 0.3s var(--spring), box-shadow 0.3s ease;
-}
-.s10-cta:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 12px 40px rgba(255,107,107,0.4); }
-.s10-cta-sub { font-size: 0.8rem; color: rgba(255,247,241,0.4); margin-top: 8px; }
-.s10-contact { text-align: center; font-size: 0.85rem; color: rgba(255,247,241,0.5); margin-top: 10px; }
+.s8-rainbow { position: absolute; bottom: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, #12D6A0, #FFC72D, #FF6B6B, #5EA8FF); }
 
-/* DECISION ACCORDION */
 .decision-accordion { display: flex; flex-direction: column; gap: 0; margin-top: 16px; }
 .decision-step {
   background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px;
@@ -346,9 +301,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 }
 .decision-step.open .decision-step-num { background: var(--gold); color: var(--dark); }
 .decision-step-title { font-family: var(--display); font-size: 1rem; color: #fff; flex: 1; }
-.decision-step-arrow {
-  width: 20px; height: 20px; transition: transform 0.3s ease; color: rgba(255,247,241,0.4);
-}
+.decision-step-arrow { width: 20px; height: 20px; transition: transform 0.3s ease; color: rgba(255,247,241,0.4); }
 .decision-step.open .decision-step-arrow { transform: rotate(180deg); color: var(--gold); }
 .decision-step-body {
   max-height: 0; overflow: hidden; transition: max-height 0.5s ease, padding 0.3s ease;
@@ -356,20 +309,21 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 }
 .decision-step.open .decision-step-body { max-height: 200px; padding: 0 22px 18px; }
 
-.cta-links {
-  display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 20px;
+.cta-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
+.s10-cta {
+  display: inline-block; padding: 14px 36px; border-radius: 60px; font-family: var(--display); font-size: 1rem;
+  color: var(--dark); background: linear-gradient(135deg, var(--gold), var(--coral)); text-decoration: none;
+  box-shadow: 0 8px 30px rgba(255,107,107,0.3); transition: transform 0.3s var(--spring), box-shadow 0.3s ease;
 }
-.cta-links .s10-cta { font-size: 0.95rem; padding: 12px 32px; }
-.cta-links .s10-cta--secondary {
-  background: rgba(255,255,255,0.08); color: #fff; border: 1px solid rgba(255,255,255,0.2);
-  box-shadow: none;
+.s10-cta:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 12px 40px rgba(255,107,107,0.4); }
+.s10-cta--secondary {
+  background: rgba(255,255,255,0.08); color: #fff; border: 1px solid rgba(255,255,255,0.2); box-shadow: none;
 }
-.cta-links .s10-cta--secondary:hover {
-  background: rgba(255,255,255,0.14); transform: translateY(-3px) scale(1.03);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-}
+.s10-cta--secondary:hover { background: rgba(255,255,255,0.14); transform: translateY(-3px) scale(1.03); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
 .cta-hidden { opacity: 0; max-height: 0; overflow: hidden; transition: opacity 0.6s ease, max-height 0.5s ease; pointer-events: none; }
 .cta-hidden.cta-visible { opacity: 1; max-height: 200px; pointer-events: auto; }
+
+.s10-contact { text-align: center; font-size: 0.85rem; color: rgba(255,247,241,0.5); margin-top: 10px; }
 
 /* PORTRAIT WARNING */
 #portrait-warning {
@@ -378,25 +332,23 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 }
 .pw-title { font-family: var(--display); font-size: 1.4rem; color: #fff; margin-bottom: 12px; }
 .pw-body { font-size: 1rem; color: rgba(255,247,241,0.6); max-width: 280px; line-height: 1.6; }
-@media (max-width: 768px) and (orientation: portrait) {
-  #portrait-warning { display: flex; }
-}
+@media (max-width: 768px) and (orientation: portrait) { #portrait-warning { display: flex; } }
 
 /* RESPONSIVE */
 @media (max-width: 900px) {
   .slide { padding: 24px 28px; }
-  .s3-infographic, .s3-pillars, .s7-staircase { grid-template-columns: 1fr; }
-  .s2-timeline { flex-direction: column; gap: 20px; }
+  .reasons-grid, .partner-features, .s4-context { grid-template-columns: 1fr; }
   .s4-chart { flex-wrap: wrap; }
-  .s10-grid, .s4-context, .pricing-notes { grid-template-columns: 1fr; }
+  .stat-row { flex-direction: column; align-items: center; }
   .cover-pillars { flex-direction: column; gap: 16px; }
   .dot-nav { display: none; }
-  .s7-step--1, .s7-step--2, .s7-step--3 { margin-top: 0; }
   .pricing-runway { flex-direction: column; }
   .tier-panel.tier-visible { max-width: 100%; }
-  .rate-table { font-size: 0.85rem; }
+  .design-callout { flex-direction: column; align-items: center; }
+  .rate-table { font-size: 0.75rem; }
 }
 `,
+
   slidesHtml: `
 <!-- ============================================================
      SLIDE 1: COVER
@@ -404,279 +356,170 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 <section class="slide slide--dark" id="cover" data-slide-index="0" data-theme="dark">
   <div class="orb" style="width:500px;height:500px;top:-150px;right:-100px;background:var(--coral);opacity:0.08;animation:floatDrift 12s ease-in-out infinite;"></div>
   <div class="orb" style="width:350px;height:350px;bottom:-100px;left:-80px;background:var(--teal);opacity:0.06;animation:floatDrift 15s ease-in-out infinite 3s;"></div>
-  <div class="orb" style="width:200px;height:200px;top:30%;left:60%;background:var(--gold);opacity:0.05;animation:floatDrift 10s ease-in-out infinite 1s;"></div>
-
-  <svg class="float-shape" style="top:15%;right:8%;width:80px;height:80px;animation:floatDrift 16s ease-in-out infinite 2s;" viewBox="0 0 80 80" fill="none">
-    <polygon points="40,5 75,65 5,65" stroke="rgba(255,199,45,0.3)" stroke-width="1.5"/>
-  </svg>
-  <svg class="float-shape" style="bottom:25%;left:5%;width:60px;height:60px;animation:floatDrift 13s ease-in-out infinite 4s;" viewBox="0 0 60 60" fill="none">
-    <circle cx="30" cy="30" r="25" stroke="rgba(18,214,160,0.25)" stroke-width="1.5"/>
-  </svg>
 
   <div class="slide-inner">
     <div class="cover-gradient-strip" data-reveal="fade" data-delay="0"></div>
 
     <div class="cover-logos" data-reveal="up" data-delay="100">
       <span class="uy-mark">UY!</span>
-      <span class="logo-divider"></span>
-      <span class="partner-logotype">
-        <svg class="partner-icon" viewBox="0 0 24 24" fill="none" stroke="rgba(18,214,160,0.8)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M18 20V10M12 20V4M6 20v-6"/>
-        </svg>
-        FYZICAL Therapy &amp; Balance Centers
-      </span>
+      <span class="partner-logotype" style="margin-left:12px;">A Magazine for the Disability Community</span>
     </div>
 
     <h1 class="cover-title">
-      <span class="line-1" data-reveal="up" data-delay="200">FYZICAL</span>
-      <span class="line-2" data-reveal="up" data-delay="300">Therapy &amp; Balance</span>
-      <span class="line-cross" data-reveal="fade" data-delay="500">- - - partnership with - - -</span>
-      <span class="line-uy" data-reveal="up" data-delay="600">Uniquely You!</span>
+      <span class="line-1" data-reveal="up" data-delay="200">Partnership</span>
+      <span class="line-2" data-reveal="up" data-delay="300">Conversation</span>
+      <span class="line-cross" data-reveal="fade" data-delay="500">- - - Uniquely You! Raleigh Metro - - -</span>
     </h1>
 
     <p class="cover-subtitle">
       <span class="text-reveal-mask">
-        <span class="text-reveal-inner">The families who need balance therapy, vestibular rehab, and neurological PT are in our readership every month. A consistent presence in the disability community's own magazine means they find you before the fall, not after.</span>
+        <span class="text-reveal-inner">Celebrating the disability community through stories, connection, and local resources. Celebrate &middot; Connect &middot; Impact</span>
       </span>
     </p>
 
     <div class="cover-pillars" data-reveal="up" data-delay="900">
       <div class="cover-pillar">
         <div class="cover-pillar-icon cover-pillar-icon--coral">
-          <svg viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z"/>
-          </svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z"/></svg>
         </div>
-        <span class="cover-pillar-label cover-pillar-label--coral">Visibility</span>
+        <span class="cover-pillar-label cover-pillar-label--coral">Celebrate</span>
       </div>
       <div class="cover-pillar">
         <div class="cover-pillar-icon cover-pillar-icon--teal">
-          <svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
-          </svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
         </div>
-        <span class="cover-pillar-label cover-pillar-label--teal">Referrals</span>
+        <span class="cover-pillar-label cover-pillar-label--teal">Connect</span>
       </div>
       <div class="cover-pillar">
         <div class="cover-pillar-icon cover-pillar-icon--gold">
-          <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
-            <polyline points="17 6 23 6 23 12"/>
-          </svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
         </div>
-        <span class="cover-pillar-label cover-pillar-label--gold">Patient Volume</span>
+        <span class="cover-pillar-label cover-pillar-label--gold">Impact</span>
       </div>
     </div>
 
     <div class="cover-footer" data-reveal="fade" data-delay="1100">
-      <span>Prepared for FYZICAL Therapy &amp; Balance Centers &nbsp;|&nbsp; April 2026</span>
-      <span>Will Sigmon, Area Director &middot; Uniquely You! Raleigh Metro</span>
+      <span>Uniquely You! Raleigh Metro</span>
+      <span>Will Sigmon, Area Director</span>
     </div>
   </div>
 </section>
 
 
 <!-- ============================================================
-     SLIDE 2: THE OPPORTUNITY
+     SLIDE 2: THE OPPORTUNITY — ABOUT UY
      ============================================================ -->
-<section class="slide slide--cream" id="why" data-slide-index="1" data-theme="light">
-  <div class="slide-inner">
+<section class="slide slide--cream" id="opportunity" data-slide-index="1" data-theme="light">
+  <div class="slide-inner" style="align-items:center; text-align:center;">
     <div class="section-eyebrow" data-reveal="up" data-delay="0">The Opportunity</div>
-    <h2 class="section-title" data-reveal="up" data-delay="100" style="text-align:center;margin-left:auto;margin-right:auto;">Falls are the #1 injury for people with disabilities. You prevent them.</h2>
-    <p class="section-subtitle" data-reveal="up" data-delay="200" style="text-align:center;margin-left:auto;margin-right:auto;">Families navigating mobility challenges, neurological conditions, and aging-related balance issues are actively looking for providers they can trust. They're in our readership every month.</p>
 
-    <div class="s2-quote" data-reveal="scale" data-delay="300">
-      "Physical therapy isn't just rehab after something goes wrong. <span class="s2-quote-em">For the disability community, it's the difference between independence and dependence — and the families who know that are looking for providers who understand their world.</span>"
-    </div>
-    <p class="s2-author" data-reveal="fade" data-delay="500">-- On why specialized PT visibility matters</p>
+    <p class="key-phrase" data-reveal="up" data-delay="100">
+      We help businesses reach their ideal clients while <em>Celebrating</em> the disability community, <em>Connecting</em> families, and having an <em>Impact</em> by providing key resources.
+    </p>
 
-    <div class="s2-timeline" id="s2Timeline">
-      <div class="s2-tl-item" data-reveal="up" data-delay="600">
-        <div class="s2-tl-dot s2-tl-dot--coral">
-          <svg viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-            <circle cx="9" cy="7" r="4"/>
-            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-          </svg>
-        </div>
-        <div class="s2-tl-title">Underserved demand</div>
-        <div class="s2-tl-desc">Families with disabilities need balance and vestibular therapy but struggle to find providers who specialize in their needs. You're already the expert — they just need to find you.</div>
+    <div class="stat-row" data-reveal="up" data-delay="250">
+      <div class="stat-card">
+        <div class="stat-card-number" style="color:var(--coral);">1 in 4</div>
+        <div class="stat-card-label">U.S. adults live with some type of disability</div>
       </div>
-
-      <div class="s2-tl-item" data-reveal="up" data-delay="800">
-        <div class="s2-tl-dot s2-tl-dot--teal">
-          <svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/>
-            <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
-          </svg>
-        </div>
-        <div class="s2-tl-title">Right geography</div>
-        <div class="s2-tl-desc">10,000+ households across Wake, Durham, Orange, Johnston, and Chatham counties. Families already navigating therapies, adaptive equipment, and mobility decisions every month.</div>
+      <div class="stat-card">
+        <div class="stat-card-number" style="color:var(--teal);">1 in 31</div>
+        <div class="stat-card-label">Children have autism</div>
       </div>
-
-      <div class="s2-tl-item" data-reveal="up" data-delay="1000">
-        <div class="s2-tl-dot s2-tl-dot--gold">
-          <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
-            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
-          </svg>
-        </div>
-        <div class="s2-tl-title">Referral ecosystem</div>
-        <div class="s2-tl-desc">We're building a network of OTs, neurologists, adaptive equipment providers, and home health agencies. FYZICAL becomes the PT anchor in that referral chain.</div>
+      <div class="stat-card">
+        <div class="stat-card-number" style="color:var(--gold);">8+</div>
+        <div class="stat-card-label">States and growing nationwide</div>
       </div>
     </div>
+
+    <p class="origin-story" data-reveal="fade" data-delay="400">
+      Uniquely You was created about five years ago when one of our publishers, inspired by her son with autism, brought the idea to N2's founders. Because we focus on bringing communities together, she received approval and started the first publication in Indiana.
+    </p>
   </div>
 </section>
 
 
 <!-- ============================================================
-     SLIDE 3: WHAT UY BRINGS
+     SLIDE 3: WHY IT WORKS — DIFFERENT APPROACH + RIGHT CONTENT
      ============================================================ -->
-<section class="slide slide--cream" id="what" data-slide-index="2" data-theme="light">
+<section class="slide slide--cream" id="publication" data-slide-index="2" data-theme="light">
   <div class="slide-inner">
-    <div class="section-eyebrow" data-reveal="up" data-delay="0">What UY! Brings</div>
-    <h2 class="section-title" data-reveal="up" data-delay="100">A trusted publication, deeply embedded</h2>
-    <p class="section-subtitle" data-reveal="up" data-delay="200">In the disability community across the Triangle.</p>
+    <div class="section-eyebrow" data-reveal="up" data-delay="0">Why It Works</div>
+    <h2 class="section-title" data-reveal="up" data-delay="100">Not better. Just different.</h2>
 
-    <div class="s3-infographic">
-      <div class="s3-viz" data-reveal="scale" data-delay="300">
-        <div class="s3-viz-mark donut-wrap" id="donutWrap">
-          <svg viewBox="0 0 160 160" aria-hidden="true">
-            <circle cx="80" cy="80" r="65" fill="none" stroke="#e8e0f0" stroke-width="18"/>
-            <circle class="donut-ring" id="donutRing" cx="80" cy="80" r="65" fill="none" stroke="var(--coral)" stroke-width="18" stroke-linecap="round" stroke-dasharray="408" stroke-dashoffset="306" transform="rotate(-90 80 80)"/>
-          </svg>
-          <div class="donut-center-text" id="donutText" aria-label="1 in 4">
-            <span class="donut-kicker">1 in</span>
-            <span class="donut-value">4</span>
-          </div>
-        </div>
-        <div class="s3-viz-label">Prevalence</div>
-        <div class="s3-viz-desc">U.S. adults live with a disability</div>
+    <div class="reasons-grid" data-reveal="up" data-delay="200">
+      <div class="reason-card reason-card--coral">
+        <div class="reason-number">Reason #1</div>
+        <div class="reason-title">A Different Approach to Reach Your Audience</div>
+        <div class="reason-body">Marketing only works when it's seen. Marketing is only valuable when it's seen by the right people. Different sources reach different people in different ways.</div>
+        <div class="reason-highlight reason-highlight--coral">Our product sits on countertops and coffee tables and is constantly used and read by a hard-to-reach community.</div>
       </div>
-
-      <div class="s3-viz" data-reveal="scale" data-delay="450">
-        <div class="s3-viz-mark">
-          <svg viewBox="0 0 160 160" aria-hidden="true">
-            <circle cx="80" cy="80" r="65" fill="none" stroke="#d8f6ec" stroke-width="18"/>
-            <circle cx="80" cy="80" r="65" fill="none" stroke="var(--teal)" stroke-width="18" stroke-linecap="round" stroke-dasharray="408" stroke-dashoffset="0" transform="rotate(-90 80 80)"/>
-          </svg>
-          <div class="s3-icon-badge" aria-hidden="true">
-            <svg width="66" height="66" viewBox="0 0 66 66" fill="none">
-              <rect x="10" y="12" width="46" height="42" rx="11" fill="#fff" stroke="rgba(18,214,160,0.32)" stroke-width="2"/>
-              <rect x="10" y="12" width="46" height="12" rx="11" fill="rgba(18,214,160,0.16)"/>
-              <line x1="22" y1="8" x2="22" y2="19" stroke="var(--teal)" stroke-width="2.4" stroke-linecap="round"/>
-              <line x1="44" y1="8" x2="44" y2="19" stroke="var(--teal)" stroke-width="2.4" stroke-linecap="round"/>
-              <line x1="19" y1="30" x2="47" y2="30" stroke="rgba(18,214,160,0.25)" stroke-width="2" stroke-linecap="round"/>
-              <circle cx="24" cy="39" r="2.4" fill="var(--teal)" opacity="0.45"/>
-              <circle cx="33" cy="39" r="2.4" fill="var(--teal)" opacity="0.9"/>
-              <circle cx="42" cy="39" r="2.4" fill="var(--teal)" opacity="0.45"/>
-              <rect x="24" y="45" width="18" height="4" rx="2" fill="var(--teal)" opacity="0.22"/>
-            </svg>
-          </div>
-        </div>
-        <div class="s3-viz-label">Frequency</div>
-        <div class="s3-viz-desc">Free monthly print + digital</div>
-      </div>
-
-      <div class="s3-viz" data-reveal="scale" data-delay="600">
-        <div class="s3-viz-mark">
-          <svg viewBox="0 0 160 160" aria-hidden="true">
-            <circle cx="80" cy="80" r="65" fill="none" stroke="#d4eee8" stroke-width="18"/>
-            <circle cx="80" cy="80" r="65" fill="none" stroke="var(--gold)" stroke-width="18" stroke-linecap="round" stroke-dasharray="408" stroke-dashoffset="0" transform="rotate(-90 80 80)"/>
-          </svg>
-          <div class="s3-hero-number" style="color:var(--gold);">5</div>
-        </div>
-        <div class="s3-viz-label">Coverage</div>
-        <div class="s3-viz-desc">Counties across RDU</div>
+      <div class="reason-card reason-card--teal">
+        <div class="reason-number">Reason #2</div>
+        <div class="reason-title">The Right Content</div>
+        <div class="reason-body">Reader-generated content, similar to social media. Inspiring articles and key resources our readers care about. The right people are targeted for word of mouth.</div>
+        <div class="reason-highlight reason-highlight--teal">We are like the Facebook of print, but trusted. Our content comes directly from our readers, so our partners know it's getting read.</div>
       </div>
     </div>
 
-    <div class="s3-pillars">
-      <div class="s3-pillar s3-pillar--coral" data-reveal="up" data-delay="700">
-        <div class="s3-pillar-icon" style="background:rgba(255,107,107,0.1);">
-          <svg viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/>
-          </svg>
-        </div>
-        <h3>Family Spotlight Stories</h3>
-        <p>Real families in the Triangle navigating disability with courage. Profiles that celebrate their journey and connect them to the community.</p>
-      </div>
-      <div class="s3-pillar s3-pillar--teal" data-reveal="up" data-delay="850">
-        <div class="s3-pillar-icon" style="background:rgba(18,214,160,0.1);">
-          <svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/>
-            <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
-          </svg>
-        </div>
-        <h3>Resource Directory</h3>
-        <p>Every issue includes a curated directory of local providers, clinics, and services. Your listing lives alongside the resources families are already using.</p>
-      </div>
-      <div class="s3-pillar s3-pillar--gold" data-reveal="up" data-delay="1000">
-        <div class="s3-pillar-icon" style="background:rgba(255,199,45,0.1);">
-          <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
-            <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
-            <line x1="12" y1="2" x2="12" y2="4"/>
-          </svg>
-        </div>
-        <h3>Advocacy &amp; Awareness</h3>
-        <p>Policy updates, accessibility news, and employer spotlights. Content that moves the needle on inclusion across the Raleigh metro.</p>
-      </div>
+    <div style="text-align:center;margin-top:12px;" data-reveal="up" data-delay="350">
+      <a class="pub-preview-link" href="https://pubmanager.n2pub.com/flipbooks/publications/uniquely-you-mideastern-ohio-oh/current" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        Preview a recent issue
+      </a>
     </div>
   </div>
 </section>
 
 
 <!-- ============================================================
-     SLIDE 4: CREDIBILITY
+     SLIDE 4: CREDIBILITY — N2 COMPANY
      ============================================================ -->
 <section class="slide slide--cream" id="credibility" data-slide-index="3" data-theme="light">
   <div class="slide-inner">
     <div class="section-eyebrow" data-reveal="up" data-delay="0">Credibility</div>
-    <h2 class="section-title" data-reveal="up" data-delay="100">Why this publication has credibility</h2>
-    <p class="section-subtitle" data-reveal="up" data-delay="200">Part of a 36-market national network with real reach and real results.</p>
+    <h2 class="section-title" data-reveal="up" data-delay="100">Part of a magazine company that's been around more than 20 years</h2>
+    <p class="section-subtitle" data-reveal="up" data-delay="200">Two businessmen, frustrated that their direct mail was being thrown out, started creating magazines written by the community for the community.</p>
 
     <div class="s4-chart" id="s4Chart">
       <div class="s4-bar-col" data-reveal="up" data-delay="300">
         <div class="s4-bar-value" style="color:var(--coral);">800+</div>
         <div class="s4-bar-track" style="height:120px;background:rgba(255,107,107,0.08);">
-          <div class="s4-bar-fill" style="background:linear-gradient(to top,var(--coral),rgba(255,107,107,0.9));position:absolute;bottom:0;width:100%;height:108px;"></div>
+          <div class="s4-bar-fill" style="background:linear-gradient(to top,var(--coral),rgba(255,107,107,0.9));height:108px;"></div>
         </div>
-        <div class="s4-bar-label">Publications nationwide</div>
+        <div class="s4-bar-label">Publications in print nationwide</div>
       </div>
       <div class="s4-bar-col" data-reveal="up" data-delay="450">
         <div class="s4-bar-value" style="color:var(--teal);">$163M</div>
         <div class="s4-bar-track" style="height:120px;background:rgba(18,214,160,0.08);">
-          <div class="s4-bar-fill" style="background:linear-gradient(to top,var(--teal),rgba(18,214,160,0.9));position:absolute;bottom:0;width:100%;height:96px;"></div>
+          <div class="s4-bar-fill" style="background:linear-gradient(to top,var(--teal),rgba(18,214,160,0.9));height:96px;"></div>
         </div>
-        <div class="s4-bar-label">Annual spending power reached</div>
+        <div class="s4-bar-label">Annual revenue</div>
       </div>
       <div class="s4-bar-col" data-reveal="up" data-delay="600">
         <div class="s4-bar-value" style="color:var(--gold);">$30M+</div>
         <div class="s4-bar-track" style="height:120px;background:rgba(255,199,45,0.08);">
-          <div class="s4-bar-fill" style="background:linear-gradient(to top,var(--gold),rgba(255,199,45,0.9));position:absolute;bottom:0;width:100%;height:72px;"></div>
+          <div class="s4-bar-fill" style="background:linear-gradient(to top,var(--gold),rgba(255,199,45,0.9));height:72px;"></div>
         </div>
         <div class="s4-bar-label">N2GIVES — donated to fight human trafficking</div>
       </div>
       <div class="s4-bar-col" data-reveal="up" data-delay="750">
         <div class="s4-bar-value" style="color:var(--purple-sec);">30K+</div>
         <div class="s4-bar-track" style="height:120px;background:rgba(110,38,142,0.06);">
-          <div class="s4-bar-fill" style="background:linear-gradient(to top,var(--purple-sec),rgba(110,38,142,0.85));position:absolute;bottom:0;width:100%;height:84px;"></div>
+          <div class="s4-bar-fill" style="background:linear-gradient(to top,var(--purple-sec),rgba(110,38,142,0.85));height:84px;"></div>
         </div>
-        <div class="s4-bar-label">Local businesses served</div>
+        <div class="s4-bar-label">Local businesses we help reach their ideal clients</div>
       </div>
     </div>
 
     <div class="s4-context">
       <div class="s4-context-card s4-context-card--quote" data-reveal="left" data-delay="900">
-        <h3>Proven infrastructure</h3>
-        <p>Inc. Magazine: Named one of the fastest-growing private companies in the U.S. for eight years in a row. N2 has 20+ years of operational infrastructure, editorial standards, and a proven advertising model refined across 36 cities.</p>
+        <h3>Inc. Magazine recognized</h3>
+        <p>Named one of the fastest-growing private companies in the U.S. for eight years in a row. We've seen success in every economic climate because we solve a real problem businesses have.</p>
       </div>
       <div class="s4-context-card s4-context-card--aside" data-reveal="right" data-delay="1000">
-        <h3>Why PT &amp; Balance is Tier 1</h3>
-        <p>Physical therapy and balance services are among our highest-priority advertiser categories. Every family navigating a disability encounters PT at some point — the providers who are already visible in trusted community channels get the referral first.</p>
+        <h3>Niche publications, selective audiences</h3>
+        <p>We produce niche publications for selective audiences — affluent neighborhood publications, REALTOR publications, new mover publications, and publications for families with disabilities.</p>
       </div>
     </div>
   </div>
@@ -684,62 +527,48 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 
 
 <!-- ============================================================
-     SLIDE 5: PARTNERSHIP
+     SLIDE 5: PARTNERSHIP OPTIONS
      ============================================================ -->
 <section class="slide slide--cream" id="partnership" data-slide-index="4" data-theme="light">
   <div class="slide-inner">
-    <div class="section-eyebrow" data-reveal="up" data-delay="0">Partnership</div>
-    <h2 class="section-title" data-reveal="up" data-delay="100">What a strong partnership looks like</h2>
-    <p class="section-subtitle" data-reveal="up" data-delay="200">Three tiers of engagement — each one reinforces the next.</p>
+    <div class="section-eyebrow" data-reveal="up" data-delay="0">Partnership Options</div>
+    <h2 class="section-title" data-reveal="up" data-delay="100">What's included</h2>
+    <p class="section-subtitle" data-reveal="up" data-delay="150">Multi-month exposure for long-term relationship-building.</p>
 
-    <div class="s7-staircase">
-      <div class="s7-step s7-step--1" data-reveal="up" data-delay="400">
-        <div class="s7-level-label">Foundation</div>
-        <div class="s7-step-icon" style="background:rgba(255,107,107,0.1);">
-          <svg viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/>
-            <path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/>
-          </svg>
+    <div class="partner-features" data-reveal="up" data-delay="250">
+      <div class="partner-feature">
+        <div class="partner-feature-icon" style="background:rgba(255,107,107,0.1);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/></svg>
         </div>
-        <h3>Be Present</h3>
-        <p>Consistent, professionally designed ad in every issue — we design it for you.</p>
-        <ul class="s7-step-items">
-          <li>Print ad updated monthly if you want</li>
-          <li>Digital edition with clickable link</li>
-          <li>Logo in the provider directory</li>
-        </ul>
+        <h3>Print + Digital Ad</h3>
+        <p>Professionally designed ad in every issue, plus the digital edition with clickable links.</p>
       </div>
-
-      <div class="s7-step s7-step--2" data-reveal="up" data-delay="600">
-        <div class="s7-level-label">Engagement</div>
-        <div class="s7-step-icon" style="background:rgba(18,214,160,0.1);">
-          <svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z"/>
-          </svg>
+      <div class="partner-feature">
+        <div class="partner-feature-icon" style="background:rgba(18,214,160,0.1);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/></svg>
         </div>
-        <h3>Be Useful</h3>
-        <p>Value-first content that helps families understand PT and balance therapy before they ever call.</p>
-        <ul class="s7-step-items">
-          <li>Fall prevention checklists for families</li>
-          <li>Vestibular therapy explainer guides</li>
-          <li>PT milestone trackers for parents</li>
-        </ul>
+        <h3>Featured Articles</h3>
+        <p>Stories that highlight your business and help establish what makes you different. Included at 24+ month terms.</p>
       </div>
-
-      <div class="s7-step s7-step--3" data-reveal="up" data-delay="800">
-        <div class="s7-level-label">Legacy</div>
-        <div class="s7-step-icon" style="background:rgba(255,199,45,0.1);">
-          <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 3q1 4 4 6.5t3 5.5a1 1 0 0 1-14 0 5 5 0 0 1 1-3 1 1 0 0 0 5 0c0-2-1.5-3-1.5-5q0-2 2.5-4"/>
-          </svg>
+      <div class="partner-feature">
+        <div class="partner-feature-icon" style="background:rgba(255,199,45,0.1);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
         </div>
-        <h3>Be Remembered</h3>
-        <p>Feature stories that put real patients and families front and center — professionally photographed, editorially written, the kind of content people keep.</p>
-        <ul class="s7-step-items">
-          <li>Two feature stories per year</li>
-          <li>Professional photography included</li>
-          <li>Social media amplification</li>
-        </ul>
+        <h3>Community Connection</h3>
+        <p>Unique ads relevant to the disability community. Build brand as a trusted community partner with word-of-mouth referrals.</p>
+      </div>
+    </div>
+
+    <div class="design-callout" data-reveal="up" data-delay="400">
+      <div class="design-option">
+        <h4>Use your own designer</h4>
+        <p>Provide your own ad creative. One-time fee to change your ad each month.</p>
+        <div class="price-tag">$199</div>
+      </div>
+      <div class="design-option design-option--highlight">
+        <h4>We design it for you</h4>
+        <p>Our team handles everything. You review proofs before print. Keep all designs.</p>
+        <div class="price-tag">$499</div>
       </div>
     </div>
   </div>
@@ -747,7 +576,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 
 
 <!-- ============================================================
-     SLIDE 6: PRICING
+     SLIDE 6: PRICING — HORIZONTAL TIER REVEAL
      ============================================================ -->
 <section class="slide slide--cream" id="pricing" data-slide-index="5" data-theme="light" data-has-tier-reveal="true">
   <div class="orb" style="width:360px;height:360px;top:-120px;right:-120px;background:var(--gold);opacity:0.12;"></div>
@@ -756,77 +585,85 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
   <div class="slide-inner" style="justify-content:center;">
     <div class="section-eyebrow" data-reveal="up" data-delay="50">Investment</div>
     <h2 class="section-title" data-reveal="up" data-delay="100" style="max-width:none;">36-Month Partnership &mdash; Our Best Rate</h2>
-    <p style="text-align:center;font-size:0.82rem;color:#999;margin-top:4px;" data-reveal="up" data-delay="140">Billed monthly. No upfront lump sum. Shorter terms (12- and 24-month) available at adjusted rates.</p>
+    <p class="pricing-term-note" data-reveal="up" data-delay="140">Billed monthly. No upfront lump sum. Shorter terms (12- and 24-month) available at adjusted rates.</p>
 
     <div class="pricing-runway" data-reveal="up" data-delay="200">
+
+      <!-- TIER 1: PREMIUM -->
       <div class="tier-panel tier-panel--premium" id="tier1">
         <div class="tier-label">Premium Placement</div>
         <div class="tier-cards">
           <div class="tier-card">
             <div class="tier-card-name">2-Page Spread</div>
             <div class="tier-card-price">$795<span>/mo</span></div>
-            <div class="tier-card-desc">Maximum impact — grab attention with large images</div>
+            <div class="tier-card-desc">Maximum impact &mdash; grab attention with large images or before/after showcases</div>
             <span class="tier-term-badge">36 months</span>
           </div>
           <div class="tier-card">
             <div class="tier-card-name">Back Cover</div>
             <div class="tier-card-price">$765<span>/mo</span></div>
-            <div class="tier-card-desc">Most prominent real estate — first thing seen at the mailbox</div>
+            <div class="tier-card-desc">Most prominent real estate &mdash; first thing a reader sees at the mailbox</div>
             <span class="tier-term-badge">36 months</span>
           </div>
         </div>
         <a class="tier-skip" href="#start">Ready? Let's go &rarr;</a>
       </div>
+
+      <!-- TIER 2: FULL PAGE -->
       <div class="tier-panel tier-panel--fullpage" id="tier2">
         <div class="tier-label">Full Page Options</div>
         <div class="tier-cards">
           <div class="tier-card">
             <div class="tier-card-name">Inside Cover / Page 2-3</div>
             <div class="tier-card-price">$675<span>/mo</span></div>
-            <div class="tier-card-desc">Premium full-page position</div>
+            <div class="tier-card-desc">Premium full-page position &mdash; inside front cover or early pages</div>
             <span class="tier-term-badge">36 months</span>
           </div>
           <div class="tier-card">
             <div class="tier-card-name">Full Page Standard</div>
             <div class="tier-card-price">$575<span>/mo</span></div>
-            <div class="tier-card-desc">Full-page body ad — maximum impact</div>
+            <div class="tier-card-desc">Full-page body ad &mdash; maximum impact at a standard position</div>
             <span class="tier-term-badge">36 months</span>
           </div>
         </div>
         <a class="tier-skip" href="#start">Ready? Let's go &rarr;</a>
       </div>
+
+      <!-- TIER 3: STANDARD -->
       <div class="tier-panel tier-panel--standard" id="tier3">
         <div class="tier-label">Our Most Popular</div>
         <div class="tier-cards">
           <div class="tier-card">
             <div class="tier-card-name">1/2-Page Standard</div>
             <div class="tier-card-price">$330<span>/mo</span></div>
-            <div class="tier-card-desc">Available vertical or horizontal</div>
+            <div class="tier-card-desc">Available vertical or horizontal &mdash; versatile and hard to miss</div>
             <span class="tier-term-badge">36 months</span>
           </div>
           <div class="tier-card">
             <div class="tier-card-name">1/4-Page Sponsorship</div>
             <div class="tier-card-price">$330<span>/mo</span></div>
-            <div class="tier-card-desc">Affordable, prominent placement</div>
+            <div class="tier-card-desc">Affordable, prominent &mdash; our most popular fixed placement</div>
             <span class="tier-term-badge">36 months</span>
           </div>
         </div>
         <a class="tier-skip" href="#start">Ready? Let's go &rarr;</a>
       </div>
+
     </div>
 
     <div style="text-align:center;">
       <button id="tierNextBtn">Something more affordable? &rarr;</button>
     </div>
 
+    <!-- SUMMARY GRID (revealed after all tiers shown) -->
     <div id="tierSummary">
       <table class="rate-table">
         <thead>
           <tr>
             <th>Ad Size</th>
             <th>12 months</th>
-            <th>24 months</th>
-            <th class="popular-header">36 months</th>
+            <th>24 months <span class="story-badge">+1 story</span></th>
+            <th class="popular-header">36 months <span class="story-badge">+2 stories</span></th>
           </tr>
         </thead>
         <tbody>
@@ -864,7 +701,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
           <svg class="decision-step-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
         <div class="decision-step-body">
-          1/4, 1/2, full page, or back cover — paired with a 12, 24, or 36-month commitment. Longer terms unlock lower monthly rates and feature story bonuses. We'll find the fit that makes sense for your goals and budget.
+          1/4, 1/2, full page, 2-page spread, or back cover &mdash; paired with a 12, 24, or 36-month commitment. Longer terms unlock lower monthly rates and featured story bonuses.
         </div>
       </div>
 
@@ -875,18 +712,18 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
           <svg class="decision-step-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
         <div class="decision-step-body">
-          Who handles the billing at your location? We'll set up monthly invoicing through our portal — credit card, ACH, e-check, or invoice. Whatever works for your organization.
+          Who handles billing? We'll set up monthly invoicing through our portal &mdash; credit card, ACH, e-check, or invoice. Whatever works for your organization.
         </div>
       </div>
 
       <div class="decision-step" id="step3">
         <div class="decision-step-header" onclick="toggleStep('step3')">
           <span class="decision-step-num">3</span>
-          <span class="decision-step-title">Story angle + primary CTA</span>
+          <span class="decision-step-title">Ad design + story angle</span>
           <svg class="decision-step-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
         <div class="decision-step-body">
-          What should families do when they see your ad? Call for a free screening? Visit your website? We'll design the ad around a clear call-to-action. If you're on a 24+ month term, we'll also plan your first feature story angle.
+          Would you like us to take care of the ad design for you? We'll also plan your first feature story angle for 24+ month terms.
         </div>
       </div>
 
@@ -897,7 +734,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
           <svg class="decision-step-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
         <div class="decision-step-body">
-          We'll confirm your start date and kick off the creative brief. Our design team handles everything — you'll review a proof before it goes to print. Typical turnaround is 2 weeks from brief to proof.
+          We'll confirm your start date and kick off the creative brief. Our design team handles everything &mdash; you review a proof before it goes to print.
         </div>
       </div>
     </div>
@@ -906,9 +743,11 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
       <div class="cta-links">
         <a class="s10-cta" href="https://portal.n2pub.com/credit_card_capture" target="_blank" rel="noopener">Set Up Billing</a>
         <a class="s10-cta" href="https://portal.n2pub.com/agreement_builders" target="_blank" rel="noopener" style="background:linear-gradient(135deg, var(--teal), var(--blue));box-shadow:0 8px 30px rgba(18,214,160,0.3);">Build Agreement</a>
+      </div>
+      <div class="cta-links" style="margin-top:10px;">
         <a class="s10-cta s10-cta--secondary" href="https://pubmanager.n2pub.com/flipbooks/publications/uniquely-you-mideastern-ohio-oh/current" target="_blank" rel="noopener" style="font-size:0.85rem;padding:10px 24px;">Preview the publication</a>
       </div>
-      <div class="s10-cta-sub" style="text-align:center;margin-top:10px;font-size:0.8rem;color:rgba(255,247,241,0.4);">Both links open the Compass Portal securely</div>
+      <div style="text-align:center;margin-top:8px;font-size:0.8rem;color:rgba(255,247,241,0.4);">All links open securely via Compass Portal</div>
     </div>
 
     <div class="s10-contact" data-reveal="fade" data-delay="440">Will Sigmon &middot; Area Director &middot; will.sigmon@n2co.com</div>

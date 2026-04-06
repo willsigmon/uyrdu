@@ -7,6 +7,7 @@ const DECK_SLUG_PATTERN = /^[a-z0-9-]+$/;
 
 const DECK_MODULES: Record<string, () => Promise<{ default: DeckData }>> = {
   alyssa: () => import("@/data/decks/alyssa"),
+  demo: () => import("@/data/decks/demo"),
   fci: () => import("@/data/decks/fci"),
   flooringhub: () => import("@/data/decks/flooringhub"),
   fyzical: () => import("@/data/decks/fyzical"),

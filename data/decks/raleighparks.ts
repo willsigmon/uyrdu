@@ -202,7 +202,6 @@ h1, h2, h3, h4 {
 .cover-aside,
 .s4-context-card,
 .s7-step,
-.s9-plan,
 .s10-card {
   -webkit-backdrop-filter: none !important;
   backdrop-filter: none !important;
@@ -1101,155 +1100,72 @@ h1, h2, h3, h4 {
 }
 
 
-.s9-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 22px;
-  align-items: stretch;
+/* SLIDE 6 — PRICING REVEAL */
+.pricing-runway { display: flex; gap: 16px; align-items: stretch; min-height: 260px; }
+.tier-panel {
+  flex: 0; min-width: 0; max-width: 0; opacity: 0; overflow: hidden; border-radius: 20px;
+  padding: 0; display: flex; flex-direction: column; gap: 16px;
+  transition: flex 0.6s var(--ease-out-expo), max-width 0.6s var(--ease-out-expo),
+              opacity 0.5s ease 0.1s, padding 0.4s ease;
 }
-.s9-plan {
-  position: relative;
-  background: #fff;
-  border: 1px solid rgba(44,11,90,0.08);
-  border-radius: 28px;
-  padding: 24px;
-  box-shadow: 0 18px 40px rgba(44,11,90,0.08);
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+.tier-panel.tier-visible { flex: 1; max-width: 100%; opacity: 1; padding: 28px; }
+.tier-panel--premium { background: linear-gradient(135deg, #3d1275, #2c0b5a); color: #fff; }
+.tier-panel--fullpage { background: linear-gradient(135deg, #fff8e1, #fff3cd); color: var(--body); border: 1px solid rgba(255,199,45,0.25); }
+.tier-panel--standard { background: linear-gradient(135deg, #e8f4fd, #d1e9f8); color: var(--body); border: 1px solid rgba(94,168,255,0.2); }
+.tier-label { font-family: var(--display); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 4px; }
+.tier-panel--premium .tier-label { color: rgba(255,247,241,0.5); }
+.tier-panel--fullpage .tier-label { color: var(--purple-sec); }
+.tier-panel--standard .tier-label { color: var(--blue); }
+.tier-cards { display: flex; gap: 14px; flex: 1; }
+.tier-card {
+  flex: 1; border-radius: 14px; padding: 22px 18px; text-align: center; display: flex; flex-direction: column; justify-content: center;
 }
-.s9-plan--featured {
-  border-color: rgba(18,214,160,0.32);
-  box-shadow: 0 26px 54px rgba(18,214,160,0.14);
-  transform: translateY(-10px);
+.tier-panel--premium .tier-card { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); }
+.tier-panel--fullpage .tier-card { background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+.tier-panel--standard .tier-card { background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+.tier-card-name { font-family: var(--display); font-size: 1.05rem; margin-bottom: 4px; }
+.tier-panel--premium .tier-card-name { color: #fff; }
+.tier-card-price { font-family: var(--display); font-size: 2rem; line-height: 1; margin: 6px 0; }
+.tier-panel--premium .tier-card-price { color: var(--gold); }
+.tier-panel--fullpage .tier-card-price { color: var(--purple-sec); }
+.tier-panel--standard .tier-card-price { color: var(--blue); }
+.tier-card-price span { font-size: 0.85rem; font-family: var(--sans); font-weight: 500; opacity: 0.7; }
+.tier-card-desc { font-size: 0.8rem; line-height: 1.45; margin-top: 6px; }
+.tier-panel--premium .tier-card-desc { color: rgba(255,247,241,0.6); }
+.tier-panel--fullpage .tier-card-desc, .tier-panel--standard .tier-card-desc { color: #888; }
+.tier-term-badge { display: inline-block; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 3px 10px; border-radius: 20px; margin-top: 8px; }
+.tier-panel--premium .tier-term-badge { background: rgba(255,199,45,0.15); color: var(--gold); }
+.tier-panel--fullpage .tier-term-badge { background: rgba(110,38,142,0.08); color: var(--purple-sec); }
+.tier-panel--standard .tier-term-badge { background: rgba(94,168,255,0.1); color: var(--blue); }
+.tier-skip {
+  display: inline-block; align-self: center; margin-top: auto; padding: 8px 20px; border-radius: 30px;
+  font-family: var(--sans); font-size: 0.8rem; font-weight: 600; text-decoration: none;
+  transition: transform 0.3s var(--spring), background 0.3s ease;
 }
-.s9-plan--featured::before {
-  content: 'Best value';
-  position: absolute;
-  top: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: linear-gradient(135deg, var(--teal), var(--gold));
-  color: #fff;
-  font-family: var(--sans);
-  font-size: 0.58rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  padding: 3px 14px;
-  border-radius: 10px;
-  white-space: nowrap;
-  z-index: 2;
+.tier-panel--premium .tier-skip { color: var(--gold); background: rgba(255,199,45,0.12); }
+.tier-panel--premium .tier-skip:hover { background: rgba(255,199,45,0.22); transform: translateY(-2px); }
+.tier-panel--fullpage .tier-skip { color: var(--purple-sec); background: rgba(110,38,142,0.08); }
+.tier-panel--fullpage .tier-skip:hover { background: rgba(110,38,142,0.14); transform: translateY(-2px); }
+.tier-panel--standard .tier-skip { color: var(--blue); background: rgba(94,168,255,0.1); }
+.tier-panel--standard .tier-skip:hover { background: rgba(94,168,255,0.18); transform: translateY(-2px); }
+#tierNextBtn {
+  display: inline-block; margin: 16px auto 0; padding: 12px 32px; border: none; border-radius: 40px; cursor: pointer;
+  font-family: var(--sans); font-size: 0.95rem; font-weight: 600; color: var(--dark);
+  background: linear-gradient(135deg, var(--gold), var(--coral)); box-shadow: 0 4px 16px rgba(255,107,107,0.2);
+  transition: transform 0.3s var(--spring), box-shadow 0.3s ease;
 }
-.s9-plan-top {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 12px;
+#tierNextBtn:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 6px 24px rgba(255,107,107,0.3); }
+#tierSummary {
+  opacity: 0; max-height: 0; overflow: hidden; transition: opacity 0.6s ease, max-height 0.6s var(--ease-out-expo); margin-top: 0;
 }
-.s9-plan-kicker {
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #7d7392;
-}
-.s9-plan-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 7px 10px;
-  border-radius: 999px;
-  background: rgba(44,11,90,0.06);
-  color: var(--dark);
-  font-size: 0.75rem;
-  font-weight: 700;
-}
-.s9-plan--featured .s9-plan-badge {
-  background: rgba(18,214,160,0.12);
-  color: #0d8d6c;
-}
-.s9-bar {
-  height: 188px;
-  display: flex;
-  align-items: flex-end;
-}
-.s9-bar-fill {
-  width: 100%;
-  border-radius: 24px 24px 14px 14px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-end;
-  padding: 14px 16px;
-  color: #fff;
-  font-family: var(--display);
-  font-size: 1.4rem;
-  letter-spacing: -0.03em;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.3);
-}
-.s9-rate {
-  font-family: var(--display);
-  color: var(--dark);
-  font-size: 2rem;
-  line-height: 1;
-}
-.s9-rate span {
-  font-family: var(--sans);
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #6d6580;
-  margin-left: 4px;
-}
-.s9-total {
-  font-size: 0.78rem;
-  color: #aaa;
-  font-weight: 500;
-}
-.s9-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 4px;
-}
-.s9-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  color: var(--dark);
-  line-height: 1.5;
-  font-size: 0.95rem;
-}
-.s9-list li::before {
-  content: '•';
-  color: var(--teal);
-  font-weight: 900;
-}
-.s9-note {
-  margin-top: 26px;
-  padding: 18px 22px;
-  border-radius: 18px;
-  background: rgba(44,11,90,0.04);
-  border: 1px solid rgba(44,11,90,0.08);
-  color: #5c5571;
-  line-height: 1.65;
-}
-.s9-save-tag {
-  display: inline-block;
-  background: var(--teal);
-  color: #fff;
-  font-family: var(--sans);
-  font-size: 0.62rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 2px 8px;
-  border-radius: 20px;
-  margin-top: 2px;
-}
-.s9-save-tag--gold {
-  background: linear-gradient(135deg, var(--teal), var(--gold));
-}
+#tierSummary.summary-visible { opacity: 1; max-height: 500px; margin-top: 20px; }
+.rate-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; background: #fff; border-radius: 14px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
+.rate-table th { background: var(--dark); color: #fff; padding: 10px 14px; font-weight: 600; text-align: center; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; }
+.rate-table td { padding: 10px 14px; text-align: center; border-bottom: 1px solid rgba(0,0,0,0.05); }
+.rate-table td:first-child { text-align: left; font-weight: 600; color: var(--dark); }
+.rate-table tr:last-child td { border-bottom: none; }
+.rate-table .popular-col { background: rgba(255,199,45,0.06); }
+.rate-table .popular-header { background: var(--gold); color: var(--dark); }
 
 .s10-grid {
   display: grid;
@@ -1418,7 +1334,9 @@ h1, h2, h3, h4 {
   .s4-chart { grid-template-columns: repeat(2, 1fr); }
   .s7-staircase { grid-template-columns: 1fr; gap: 16px; }
   .s7-step--1, .s7-step--2, .s7-step--3 { max-width: 400px; margin: 0 auto; width: 100%; }
-  .s9-grid, .s10-grid { grid-template-columns: 1fr; }
+  .s10-grid { grid-template-columns: 1fr; }
+  .pricing-runway { flex-direction: column; }
+  .tier-panel.tier-visible { max-width: 100%; }
 }
 
 @media (max-width: 768px) {
@@ -1437,7 +1355,6 @@ h1, h2, h3, h4 {
   .dot-nav { right: 12px; }
   .s7-step { min-height: auto; }
   .s10-card { padding: 24px 22px; }
-  .s9-plan--featured { transform: none; }
 }
 
 @media (max-width: 500px) {
@@ -1900,66 +1817,95 @@ h1, h2, h3, h4 {
      SLIDE 6: PRICING
 
      ============================================================ -->
-<section class="slide slide--cream" id="pricing" data-slide-index="5" data-theme="light">
+<section class="slide slide--cream" id="pricing" data-slide-index="5" data-theme="light" data-has-tier-reveal="true">
   <div class="orb" style="width:360px;height:360px;top:-120px;right:-120px;background:var(--gold);opacity:0.12;"></div>
   <div class="orb" style="width:320px;height:320px;bottom:-120px;left:-120px;background:var(--teal);opacity:0.08;"></div>
 
   <div class="slide-inner" style="justify-content:center;">
     <div class="section-eyebrow" data-reveal="up" data-delay="50">Investment</div>
-    <h2 class="section-title" data-reveal="up" data-delay="100" style="max-width:none;">Simple pricing. Longer commitments save more.</h2>
-    <p class="section-subtitle" data-reveal="up" data-delay="180" style="max-width:820px;">Three paths, all billed monthly. Pick the fit and runway that make sense — no upfront lump sum required.</p>
+    <h2 class="section-title" data-reveal="up" data-delay="100" style="max-width:none;">36-Month Partnership &mdash; Our Best Rate</h2>
+    <p style="text-align:center;font-size:0.82rem;color:#999;margin-top:4px;" data-reveal="up" data-delay="140">Billed monthly. No upfront lump sum. Shorter terms (12- and 24-month) available at adjusted rates.</p>
 
-    <div class="s9-grid">
-      <div class="s9-plan" data-reveal="up" data-delay="260">
-        <div class="s9-plan-top">
-          <div class="s9-plan-kicker">Recommended pilot</div>
-          <div class="s9-plan-badge">12 issues</div>
+    <div class="pricing-runway" data-reveal="up" data-delay="200">
+      <div class="tier-panel tier-panel--premium" id="tier1">
+        <div class="tier-label">Premium Placement</div>
+        <div class="tier-cards">
+          <div class="tier-card">
+            <div class="tier-card-name">2-Page Spread</div>
+            <div class="tier-card-price">$795<span>/mo</span></div>
+            <div class="tier-card-desc">Maximum impact — grab attention with large images</div>
+            <span class="tier-term-badge">36 months</span>
+          </div>
+          <div class="tier-card">
+            <div class="tier-card-name">Back Cover</div>
+            <div class="tier-card-price">$765<span>/mo</span></div>
+            <div class="tier-card-desc">Most prominent real estate — first thing seen at the mailbox</div>
+            <span class="tier-term-badge">36 months</span>
+          </div>
         </div>
-        <div class="s9-bar"><div class="s9-bar-fill" style="height:80px;background:linear-gradient(180deg, rgba(255,107,107,0.88) 0%, var(--coral) 100%);">12</div></div>
-        <div class="s9-rate">$450<span>/month</span></div>
-        <div class="s9-total">$5,400 total</div>
-        <ul class="s9-list">
-          <li>Full year of consistent exposure</li>
-          <li>Builds brand recognition over time</li>
-          <li>Simple entry point for public-sector review</li>
-        </ul>
+        <a class="tier-skip" href="#start">Ready? Let's go &rarr;</a>
       </div>
-
-      <div class="s9-plan" data-reveal="up" data-delay="340">
-        <div class="s9-plan-top">
-          <div class="s9-plan-kicker">Seasonal consistency</div>
-          <div class="s9-plan-badge">24 issues</div>
-          <span class="s9-save-tag">Save ~10%</span>
+      <div class="tier-panel tier-panel--fullpage" id="tier2">
+        <div class="tier-label">Full Page Options</div>
+        <div class="tier-cards">
+          <div class="tier-card">
+            <div class="tier-card-name">Inside Cover / Page 2-3</div>
+            <div class="tier-card-price">$675<span>/mo</span></div>
+            <div class="tier-card-desc">Premium full-page position</div>
+            <span class="tier-term-badge">36 months</span>
+          </div>
+          <div class="tier-card">
+            <div class="tier-card-name">Full Page Standard</div>
+            <div class="tier-card-price">$575<span>/mo</span></div>
+            <div class="tier-card-desc">Full-page body ad — maximum impact</div>
+            <span class="tier-term-badge">36 months</span>
+          </div>
         </div>
-        <div class="s9-bar"><div class="s9-bar-fill" style="height:112px;background:linear-gradient(180deg, rgba(18,214,160,0.88) 0%, var(--teal) 100%);">24</div></div>
-        <div class="s9-rate">$405<span>/month</span></div>
-        <div class="s9-total">$9,720 total</div>
-        <ul class="s9-list">
-          <li>Two years of consistent community presence</li>
-          <li>One feature story on the business</li>
-          <li>~10% monthly rate savings</li>
-        </ul>
+        <a class="tier-skip" href="#start">Ready? Let's go &rarr;</a>
       </div>
-
-      <div class="s9-plan s9-plan--featured" data-reveal="up" data-delay="420">
-        <div class="s9-plan-top">
-          <div class="s9-plan-kicker">Most popular</div>
-          <div class="s9-plan-badge">36 issues</div>
-          <span class="s9-save-tag s9-save-tag--gold">Save 20%</span>
+      <div class="tier-panel tier-panel--standard" id="tier3">
+        <div class="tier-label">Our Most Popular</div>
+        <div class="tier-cards">
+          <div class="tier-card">
+            <div class="tier-card-name">1/2-Page Standard</div>
+            <div class="tier-card-price">$330<span>/mo</span></div>
+            <div class="tier-card-desc">Available vertical or horizontal</div>
+            <span class="tier-term-badge">36 months</span>
+          </div>
+          <div class="tier-card">
+            <div class="tier-card-name">1/4-Page Sponsorship</div>
+            <div class="tier-card-price">$330<span>/mo</span></div>
+            <div class="tier-card-desc">Affordable, prominent placement</div>
+            <span class="tier-term-badge">36 months</span>
+          </div>
         </div>
-        <div class="s9-bar"><div class="s9-bar-fill" style="height:180px;background:linear-gradient(180deg, rgba(255,199,45,0.92) 0%, var(--gold) 100%);">36</div></div>
-        <div class="s9-rate">$360<span>/month</span></div>
-        <div class="s9-total">$12,960 total</div>
-        <ul class="s9-list">
-          <li>Standard long-term rate of $360 per month</li>
-          <li>Two feature stories per year</li>
-          <li>Deepest long-term awareness footprint</li>
-        </ul>
+        <a class="tier-skip" href="#start">Ready? Let's go &rarr;</a>
       </div>
     </div>
 
-    <div class="s9-note" data-reveal="up" data-delay="520">
-      <strong>Always billed monthly.</strong> No upfront lump sum. Credit card, ACH, e-check via Stripe, or invoice routing for city purchasing. Your rate is locked for the full term. Ad design included at no extra cost. The 36-issue path includes two feature stories each year.
+    <div style="text-align:center;">
+      <button id="tierNextBtn">Something more affordable? &rarr;</button>
+    </div>
+
+    <div id="tierSummary">
+      <table class="rate-table">
+        <thead>
+          <tr>
+            <th>Ad Size</th>
+            <th>12 months</th>
+            <th>24 months</th>
+            <th class="popular-header">36 months</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>2-Page Spread</td><td>$995</td><td>$895</td><td class="popular-col"><strong>$795</strong></td></tr>
+          <tr><td>Back Cover</td><td>$955</td><td>$860</td><td class="popular-col"><strong>$765</strong></td></tr>
+          <tr><td>Inside Cover / Pg 2-3</td><td>$845</td><td>$760</td><td class="popular-col"><strong>$675</strong></td></tr>
+          <tr><td>Full Page Standard</td><td>$720</td><td>$645</td><td class="popular-col"><strong>$575</strong></td></tr>
+          <tr><td>1/2-Page Standard</td><td>$415</td><td>$370</td><td class="popular-col"><strong>$330</strong></td></tr>
+          <tr><td>1/4-Page Sponsorship</td><td>$415</td><td>$370</td><td class="popular-col"><strong>$330</strong></td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
@@ -2004,8 +1950,13 @@ h1, h2, h3, h4 {
 
     <div class="s10-note" data-reveal="scale" data-delay="420">The deck keeps pricing, approval path, and launch timing in one place.</div>
     <div class="s10-cta-wrap" data-reveal="scale" data-delay="460">
-      <a class="s10-cta" href="https://portal.n2pub.com/credit_card_capture" target="_blank" rel="noopener">Ready to get started?</a>
-      <div class="s10-cta-sub">Opens Compass Portal authorization</div>
+      <div class="cta-links">
+        <a class="s10-cta" href="https://portal.n2pub.com/credit_card_capture" target="_blank" rel="noopener">Set Up Billing</a>
+        <a class="s10-cta" href="https://portal.n2pub.com/agreement_builders" target="_blank" rel="noopener" style="background:linear-gradient(135deg, var(--teal), var(--blue));box-shadow:0 8px 30px rgba(18,214,160,0.3);">Build Agreement</a>
+      </div>
+      <div class="cta-links" style="margin-top:10px;">
+        <a class="s10-cta s10-cta--secondary" href="https://pubmanager.n2pub.com/flipbooks/publications/uniquely-you-mideastern-ohio-oh/current" target="_blank" rel="noopener" style="font-size:0.85rem;padding:10px 24px;">Preview the publication</a>
+      </div>
     </div>
     <div class="s10-contact" data-reveal="fade" data-delay="500">Will Sigmon · Area Director · will.sigmon@n2co.com</div>
   </div>
