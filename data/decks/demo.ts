@@ -691,7 +691,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
           <div class="tier-card">
             <div class="tier-card-name">1/4-Page Sponsorship</div>
             <div class="tier-card-price">$330<span>/mo</span></div>
-            <div class="tier-card-desc">Affordable, prominent &mdash; our most popular fixed placement</div>
+            <div class="tier-card-desc">Prominent, fixed placement &mdash; our most popular option</div>
             <span class="tier-term-badge">36 months</span>
           </div>
         </div>
@@ -705,7 +705,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
           <div class="tier-card">
             <div class="tier-card-name">1/3 Page</div>
             <div class="tier-card-price">$255<span>/mo</span></div>
-            <div class="tier-card-desc">Full-width ad &mdash; sharp, professional look at an affordable rate</div>
+            <div class="tier-card-desc">Full-width ad &mdash; sharp, professional look that stands out</div>
             <span class="tier-term-badge">36 months</span>
           </div>
           <div class="tier-card">
