@@ -296,6 +296,26 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 .bp-view.active { display: grid; }
 
 
+
+/* DROP-DOWN PROGRESSIVE REVEAL */
+.bp-tab.bp-hidden { display: none; }
+.bp-tab.bp-hidden.bp-revealed { display: inline-block; animation: tabReveal 0.4s var(--spring) forwards; }
+@keyframes tabReveal { from { opacity: 0; transform: translateY(8px) scale(0.9); } to { opacity: 1; transform: none; } }
+.bp-dropdown-btn {
+  font-family: var(--sans); font-size: 0.78rem; font-weight: 600; padding: 8px 22px;
+  border-radius: 10px; border: 1.5px dashed rgba(44,11,90,0.2); background: transparent;
+  color: var(--dark); cursor: pointer; transition: all 0.25s ease; letter-spacing: 0.02em;
+  opacity: 0.7;
+}
+.bp-dropdown-btn:hover { border-color: var(--dark); opacity: 1; background: rgba(44,11,90,0.03); }
+.bp-detail-ask {
+  font-family: var(--sans); font-size: 0.82rem; font-weight: 600; color: var(--dark);
+  text-align: center; margin-top: 6px; padding: 10px; border-radius: 10px;
+  background: rgba(255,199,45,0.08); border: 1px solid rgba(255,199,45,0.15);
+  line-height: 1.4;
+}
+.bp-detail-ask em { font-style: italic; color: var(--purple-sec); }
+
 /* COMBINED BLUEPRINT + DETAIL */
 .bp-combined { display: flex; gap: 24px; align-items: flex-start; justify-content: center; width: 100%; }
 .bp-detail { flex: 1; min-width: 260px; max-width: 340px; }
@@ -737,9 +757,10 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 
     <div class="bp-tab-row" data-reveal="up" data-delay="180">
       <button class="bp-tab active" data-bp="premium">Premium</button>
-      <button class="bp-tab" data-bp="fullpage">Full Page</button>
-      <button class="bp-tab" data-bp="popular">Popular</button>
-      <button class="bp-tab" data-bp="entry">Entry</button>
+      <button class="bp-tab bp-hidden" data-bp="fullpage">Full Page</button>
+      <button class="bp-tab bp-hidden" data-bp="popular">Popular</button>
+      <button class="bp-tab bp-hidden" data-bp="entry">Entry</button>
+          <button class="bp-dropdown-btn" id="bpDropdown">Other placement options &rarr;</button>
     </div>
 
     <div class="bp-combined" data-reveal="up" data-delay="220">
@@ -836,6 +857,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
               <div class="bp-detail-desc">Most prominent real estate &mdash; first thing a reader sees at the mailbox</div>
             </div>
           </div>
+          <div class="bp-detail-ask"><em>"Do you like the idea of being on one of these premium options?"</em></div>
           <a class="bp-detail-cta" href="#start">Ready? Let\&#39;s go &rarr;</a>
         </div>
         <div class="bp-detail-panel" id="modalFullpage">
@@ -852,6 +874,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
               <div class="bp-detail-desc">Full-page body ad &mdash; maximum impact at a standard position</div>
             </div>
           </div>
+          <div class="bp-detail-ask"><em>"How does something like this sound?"</em></div>
           <a class="bp-detail-cta" href="#start">Ready? Let\&#39;s go &rarr;</a>
         </div>
         <div class="bp-detail-panel" id="modalPopular">
@@ -868,6 +891,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
               <div class="bp-detail-desc">Prominent, fixed placement &mdash; our most popular option</div>
             </div>
           </div>
+          <div class="bp-detail-ask"><em>"Do you like the half page or the sponsorship better?"</em></div>
           <a class="bp-detail-cta" href="#start">Ready? Let\&#39;s go &rarr;</a>
         </div>
         <div class="bp-detail-panel" id="modalEntry">
@@ -884,6 +908,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
               <div class="bp-detail-desc">Our entry point &mdash; a great way to get started and build community presence</div>
             </div>
           </div>
+          <div class="bp-detail-ask"><em>"Which one do you feel most comfortable starting with?"</em></div>
           <a class="bp-detail-cta" href="#start">Ready? Let\&#39;s go &rarr;</a>
         </div>
       </div>
@@ -1004,7 +1029,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
         2: '<strong>WHY IT WORKS</strong> &mdash; Core phrase: <em>"Marketing only works when it\\'s seen &mdash; and only valuable when it\\'s seen by the right people."</em> Let this land, then ask: <em>"Tell me about your current marketing &mdash; what\\'s working for you right now?"</em> Listen. Connect their answer to what makes UY different.',
         3: '<strong>CREDIBILITY</strong> &mdash; Reinforce that N2 has 800+ publications, $163M in revenue, and 20+ years of track record. Key phrase: <em>"Magazines written by the community, for the community."</em> Transition: <em>"Based on what you\\'ve seen so far, does this potentially make sense for your company?"</em> Gauge interest before moving on.',
         4: '<strong>PARTNERSHIP OPTIONS</strong> &mdash; Now walk through the publication. <em>"We would never put a business on the front cover &mdash; this audience deserves to shine."</em> Show the sponsor spotlight, featured stories, and ad placements. Emphasize that readers opt in &mdash; you can\\'t buy this audience. End with design options, then: <em>"Would you like us to take care of the ad design for you?"</em>',
-        5: '<strong>INVESTMENT</strong> &mdash; Start at the two-page spread ($795). Describe it fully. Ask: <em>"Do you like the idea of being on one of those options?"</em> If no, move to the next tier. Ask for the sale 5&ndash;7 times through the drop-down. Whatever you spend the most time describing is what you\\'ll sell &mdash; keep premium descriptions rich and brief on smaller sizes.',
+        5: '<strong>INVESTMENT</strong> &mdash; Start at premium. Describe the two-page spread and back cover richly. <em>"Do you like the idea of being on one of these premium options?"</em> If no, click to reveal the next tier. Ask for the sale at EACH level before dropping down. Spend MORE time on premium, less on each subsequent tier. You\\'ll sell whatever you describe the most. Click the dropdown button to reveal options one at a time.',
         6: '<strong>NEXT STEPS</strong> &mdash; Once they say yes to a size, pivot smoothly &mdash; no re-asking, no hesitation. <em>"Great &mdash; you\\'ll land in our resource directory. What category fits best?"</em> Then ad design, then credit card: <em>"This just holds your reservation &mdash; nothing is charged until we\\'re ready to go."</em> Close with: <em>"You\\'re locked in. You\\'re ready to roll."</em>'
       };
       var bar = document.createElement('div');
@@ -1034,8 +1059,15 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 
     (function() {
       var tabs = document.querySelectorAll('.bp-tab');
+      var tierOrder = ['premium', 'fullpage', 'popular', 'entry'];
       var viewMap = { premium: 'bpPremium', fullpage: 'bpFullpage', popular: 'bpPopular', entry: 'bpEntry' };
       var modalMap = { premium: 'modalPremium', fullpage: 'modalFullpage', popular: 'modalPopular', entry: 'modalEntry' };
+      var dropBtn = document.getElementById('bpDropdown');
+      var rateBtn = document.getElementById('bpShowRates');
+      var summary = document.getElementById('tierSummary');
+      var revealIdx = 0;
+      var btnLabels = ['Other placement options \u2192', 'More options \u2192', 'Entry options \u2192', 'See all rates \u2192'];
+
       function switchTo(key) {
         tabs.forEach(function(t) { t.classList.remove('active'); });
         document.querySelectorAll('.bp-tab[data-bp="' + key + '"]').forEach(function(t) { t.classList.add('active'); });
@@ -1046,18 +1078,37 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
         var m = document.getElementById(modalMap[key]);
         if (m) m.classList.add('active');
       }
+
       tabs.forEach(function(tab) {
         tab.addEventListener('click', function() { switchTo(tab.dataset.bp); });
       });
+
       document.querySelectorAll('.bp-zone[data-modal]').forEach(function(zone) {
         zone.addEventListener('click', function() {
           var mid = zone.dataset.modal;
           for (var k in modalMap) { if (modalMap[k] === mid) { switchTo(k); break; } }
         });
       });
-      var rateBtn = document.getElementById('bpShowRates');
-      var summary = document.getElementById('tierSummary');
+
+      if (dropBtn) {
+        dropBtn.addEventListener('click', function() {
+          revealIdx++;
+          if (revealIdx < tierOrder.length) {
+            var nextKey = tierOrder[revealIdx];
+            var nextTab = document.querySelector('.bp-tab[data-bp="' + nextKey + '"]');
+            if (nextTab) { nextTab.classList.add('bp-revealed'); }
+            switchTo(nextKey);
+            dropBtn.textContent = btnLabels[revealIdx] || 'See all rates \u2192';
+          } else {
+            if (summary) summary.classList.toggle('summary-visible');
+            dropBtn.style.display = 'none';
+            if (rateBtn) rateBtn.style.display = '';
+          }
+        });
+      }
+
       if (rateBtn && summary) {
+        rateBtn.style.display = 'none';
         rateBtn.addEventListener('click', function() {
           summary.classList.toggle('summary-visible');
           rateBtn.textContent = summary.classList.contains('summary-visible') ? 'Hide rates' : 'See all rates \u2192';
