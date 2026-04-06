@@ -453,7 +453,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
     </div>
 
     <p class="origin-story" data-reveal="fade" data-delay="400">
-      Uniquely You was created about five years ago when one of our publishers, inspired by her son with autism, brought the idea to N2's founders. Because we focus on bringing communities together, she received approval and started the first publication in Indiana.
+      Uniquely You was created about five years ago when one of our publishers, inspired by her son with autism, brought the idea to N2's founders. Because we believe in magazines written by the community, for the community, she received approval and started the first publication in Indiana. Every reader opts in to receive the magazine &mdash; you simply can't buy a list to reach this audience.
     </p>
   </div>
 </section>
@@ -472,12 +472,12 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
         <div class="reason-number">Reason #1</div>
         <div class="reason-title">A Different Approach to Reach Your Audience</div>
         <div class="reason-body">Marketing only works when it's seen. Marketing is only valuable when it's seen by the right people. Different sources reach different people in different ways.</div>
-        <div class="reason-highlight reason-highlight--coral">Our product sits on countertops and coffee tables and is constantly used and read by a hard-to-reach community.</div>
+        <div class="reason-highlight reason-highlight--coral">Our product sits on countertops and coffee tables, seen by the right eyes &mdash; a hard-to-reach community that actually reads it.</div>
       </div>
       <div class="reason-card reason-card--teal">
         <div class="reason-number">Reason #2</div>
         <div class="reason-title">The Right Content</div>
-        <div class="reason-body">Reader-generated content, similar to social media. Inspiring articles and key resources our readers care about. The right people are targeted for word of mouth.</div>
+        <div class="reason-body">Reader-generated content, similar to social media. Inspiring articles and key resources our readers care about. Your name is seen every month by the people you want word-of-mouth referrals from.</div>
         <div class="reason-highlight reason-highlight--teal">We are like the Facebook of print, but trusted. Our content comes directly from our readers, so our partners know it's getting read.</div>
       </div>
     </div>
@@ -499,7 +499,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
   <div class="slide-inner">
     <div class="section-eyebrow" data-reveal="up" data-delay="0">Credibility</div>
     <h2 class="section-title" data-reveal="up" data-delay="100">Part of a magazine company that's been around more than 20 years</h2>
-    <p class="section-subtitle" data-reveal="up" data-delay="200">Two businessmen, frustrated that their direct mail was being thrown out, started creating magazines written by the community for the community.</p>
+    <p class="section-subtitle" data-reveal="up" data-delay="200">Two businessmen, frustrated that their direct mail was being thrown out, started creating magazines by the community, for the community &mdash; and it worked.</p>
 
     <div class="s4-chart" id="s4Chart">
       <div class="s4-bar-col" data-reveal="up" data-delay="300">
@@ -539,7 +539,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
       </div>
       <div class="s4-context-card s4-context-card--aside" data-reveal="right" data-delay="1000">
         <h3>Niche publications, selective audiences</h3>
-        <p>We produce niche publications for selective audiences — affluent neighborhood publications, REALTOR publications, new mover publications, and publications for families with disabilities.</p>
+        <p>We produce niche publications for selective, opt-in audiences &mdash; affluent neighborhood publications, REALTOR publications, new mover publications, and publications for families with disabilities.</p>
       </div>
     </div>
   </div>
@@ -553,7 +553,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
   <div class="slide-inner">
     <div class="section-eyebrow" data-reveal="up" data-delay="0">Partnership Options</div>
     <h2 class="section-title" data-reveal="up" data-delay="100">What's included</h2>
-    <p class="section-subtitle" data-reveal="up" data-delay="150">Multi-month exposure for long-term relationship-building.</p>
+    <p class="section-subtitle" data-reveal="up" data-delay="150">This is relationship marketing. Many partners stay for 36+ issues because real relationships take time to build.</p>
 
     <div class="partner-features" data-reveal="up" data-delay="250">
       <div class="partner-feature">
@@ -568,14 +568,14 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
           <svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/></svg>
         </div>
         <h3>Featured Articles</h3>
-        <p>Stories that highlight your business and help establish what makes you different. Included at 24+ month terms.</p>
+        <p>The front cover is for the community &mdash; your story appears inside, where readers are already engaged. Included at 24+ month terms.</p>
       </div>
       <div class="partner-feature">
         <div class="partner-feature-icon" style="background:rgba(255,199,45,0.1);">
           <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
         </div>
         <h3>Community Connection</h3>
-        <p>Unique ads relevant to the disability community. Build brand as a trusted community partner with word-of-mouth referrals.</p>
+        <p>Readers opt in &mdash; you can't buy a list to reach this audience. Build trust as a community partner through word-of-mouth referrals.</p>
       </div>
     </div>
 
@@ -605,7 +605,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
   <div class="slide-inner" style="justify-content:center;">
     <div class="section-eyebrow" data-reveal="up" data-delay="50">Investment</div>
     <h2 class="section-title" data-reveal="up" data-delay="100" style="max-width:none;">36-Month Partnership &mdash; Our Best Rate</h2>
-    <p class="pricing-term-note" data-reveal="up" data-delay="140">Billed monthly. No upfront lump sum. Shorter terms (12- and 24-month) available at adjusted rates.</p>
+    <p class="pricing-term-note" data-reveal="up" data-delay="140">Billed monthly. No upfront lump sum. Our average partner spends <strong>under $450/month</strong>. Shorter terms (12- and 24-month) available at adjusted rates.</p>
 
     <div class="pricing-runway" data-reveal="up" data-delay="200">
 
@@ -721,7 +721,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
           <svg class="decision-step-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
         <div class="decision-step-body">
-          1/4, 1/2, full page, 2-page spread, or back cover &mdash; paired with a 12, 24, or 36-month commitment. Longer terms unlock lower monthly rates and featured story bonuses.
+          1/4, 1/2, full page, 2-page spread, or back cover &mdash; paired with a 12, 24, or 36-month commitment. Longer terms unlock lower monthly rates and featured story bonuses. It's a simple decision either way &mdash; no budget committee needed.
         </div>
       </div>
 
