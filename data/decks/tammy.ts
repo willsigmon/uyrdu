@@ -204,10 +204,18 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 .s4-hub-icon svg { width: 24px; height: 24px; }
 .s4-hub-card h3 { font-size: 1.1rem; color: var(--dark); margin-bottom: 8px; }
 .s4-hub-card p { font-size: 0.9rem; color: #666; line-height: 1.6; }
+.s4-hub-card { transition: transform 0.3s var(--spring), box-shadow 0.3s ease; }
+.s4-hub-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,0,0,0.08); }
 .s4-url-badge {
-  display: inline-flex; align-items: center; gap: 8px; background: var(--dark); color: var(--gold);
-  font-family: var(--display); font-size: 1.3rem; padding: 12px 28px; border-radius: 14px;
-  box-shadow: 0 4px 20px rgba(44,11,90,0.2); margin: 0 auto;
+  display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, #2c0b5a, #3d1275); color: var(--gold);
+  font-family: var(--display); font-size: 1.5rem; padding: 14px 36px; border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(44,11,90,0.25), 0 0 40px rgba(110,38,142,0.1); margin: 0 auto;
+  position: relative; letter-spacing: 0.02em;
+}
+.s4-url-badge::after {
+  content: ''; position: absolute; inset: -2px; border-radius: 18px; z-index: -1;
+  background: linear-gradient(135deg, var(--teal), var(--gold), var(--coral));
+  opacity: 0.3; filter: blur(4px);
 }
 .s4-url-badge svg { width: 20px; height: 20px; }
 
@@ -321,6 +329,9 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 .s10-cta-sub { font-size: 0.78rem; color: rgba(255,247,241,0.4); margin-top: 8px; }
 .s10-contact { text-align: center; font-size: 0.85rem; color: rgba(255,247,241,0.35); margin-top: 12px; }
 
+.cover-lottie{position:absolute;right:5%;top:50%;transform:translateY(-50%);width:280px;height:280px;opacity:0.15;pointer-events:none;z-index:0}
+@media(max-width:768px){.cover-lottie{display:none}}
+
 /* RESPONSIVE */
 @media (max-width: 900px) {
   .slide { padding: 28px 24px; }
@@ -414,13 +425,15 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
       <span>Will Sigmon, Area Director</span>
     </div>
   </div>
+
+  <div class="cover-lottie lottie-anim" data-src="https://assets-v2.lottiefiles.com/a/46ef1528-a41b-11ee-a79c-6b92c18b54d9/7il9RR8XbU.json" aria-hidden="true"></div>
 </section>
 
 
 <!-- SLIDE 2: WHY TAMMY -->
 <section class="slide slide--cream" id="why" data-slide-index="1" data-theme="light">
   <div class="slide-inner">
-    <div class="section-eyebrow" data-reveal="up" data-delay="0">Why Tammy Ayers</div>
+    <div class="section-eyebrow" data-reveal="up" data-delay="0" style="text-align:center;">Why Tammy Ayers</div>
     <h2 class="section-title" data-reveal="up" data-delay="100" style="text-align:center;margin-left:auto;margin-right:auto;">You're already doing the work</h2>
     <p class="section-subtitle" data-reveal="up" data-delay="200" style="text-align:center;margin-left:auto;margin-right:auto;">The best partnerships start with people who show up before anyone asks.</p>
 
@@ -567,8 +580,10 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 
 <!-- SLIDE 4: RESOURCES — uyrdu.com -->
 <section class="slide slide--cream" id="resources" data-slide-index="3" data-theme="light">
+  <div class="orb" style="width:300px;height:300px;top:-100px;left:-80px;background:var(--teal);opacity:0.06;"></div>
+  <div class="orb" style="width:250px;height:250px;bottom:-80px;right:-60px;background:var(--gold);opacity:0.05;"></div>
   <div class="slide-inner">
-    <div class="section-eyebrow" data-reveal="up" data-delay="0">Digital Resource Hub</div>
+    <div class="section-eyebrow" data-reveal="up" data-delay="0" style="text-align:center;">Digital Resource Hub</div>
     <h2 class="section-title" data-reveal="up" data-delay="100" style="max-width:none;text-align:center;margin-left:auto;margin-right:auto;">Everything in one place</h2>
     <p class="section-subtitle" data-reveal="up" data-delay="200" style="text-align:center;margin-left:auto;margin-right:auto;">The website makes it easy to share stories, find resources, and connect families to what matters.</p>
 
