@@ -171,10 +171,10 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 .stat-card:nth-child(3)::before { background: linear-gradient(135deg, var(--gold), var(--coral), var(--gold)); background-size: 200% 200%; animation: gradientShift 3s ease infinite 1s; }
 .stat-card:nth-child(3)::after { background: radial-gradient(circle, rgba(255,199,45,0.06) 0%, transparent 70%); }
 @keyframes gradientShift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
-.stat-card-number { font-family: var(--display); font-size: 2.4rem; line-height: 1; margin-bottom: 6px; background-clip: text; -webkit-background-clip: text; }
-.stat-card:nth-child(1) .stat-card-number { background: linear-gradient(135deg, var(--coral), #ff8e53); -webkit-text-fill-color: transparent; }
-.stat-card:nth-child(2) .stat-card-number { background: linear-gradient(135deg, var(--teal), #0ea5e9); -webkit-text-fill-color: transparent; }
-.stat-card:nth-child(3) .stat-card-number { background: linear-gradient(135deg, var(--gold), var(--coral)); -webkit-text-fill-color: transparent; }
+.stat-card-number { font-family: var(--display); font-size: 2.4rem; line-height: 1; margin-bottom: 6px; }
+.stat-card:nth-child(1) .stat-card-number { background: linear-gradient(135deg, var(--coral), #ff8e53); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.stat-card:nth-child(2) .stat-card-number { background: linear-gradient(135deg, var(--teal), #0ea5e9); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.stat-card:nth-child(3) .stat-card-number { background: linear-gradient(135deg, var(--gold), var(--coral)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
 .stat-card-label { font-size: 0.82rem; color: #666; line-height: 1.4; }
 .origin-story { font-size: 0.95rem; color: #555; line-height: 1.7; max-width: 700px; text-align: center; margin: 0 auto; font-style: italic; }
 
