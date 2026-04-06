@@ -524,30 +524,22 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 .s8-title { font-size: clamp(2rem, 3.5vw, 3rem); color: #fff; line-height: 1.1; }
 .s8-rainbow { position: absolute; bottom: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, #12D6A0, #FFC72D, #FF6B6B, #5EA8FF); }
 
-.decision-accordion { display: flex; flex-direction: column; gap: 0; margin-top: 24px; }
+.decision-steps { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 16px; }
 .decision-step {
-  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px;
-  margin-bottom: 8px; overflow: hidden; transition: all 0.4s ease;
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px; padding: 20px 22px; transition: transform 0.3s var(--spring), border-color 0.3s ease;
 }
-.decision-step-header {
-  display: flex; align-items: center; gap: 14px; padding: 16px 22px; cursor: pointer;
-  user-select: none; transition: background 0.3s ease;
-}
-.decision-step-header:hover { background: rgba(255,255,255,0.04); }
+.decision-step:hover { transform: translateY(-3px); border-color: rgba(255,199,45,0.2); }
+.decision-step-header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
 .decision-step-num {
-  flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.08);
-  display: flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 0.85rem; color: var(--gold);
-  transition: background 0.3s ease, color 0.3s ease;
+  width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-family: var(--sans); font-weight: 800; font-size: 0.85rem; flex-shrink: 0;
+  background: var(--gold); color: var(--dark);
 }
-.decision-step.open .decision-step-num { background: var(--gold); color: var(--dark); }
-.decision-step-title { font-family: var(--display); font-size: 1rem; color: #fff; flex: 1; }
-.decision-step-arrow { width: 20px; height: 20px; transition: transform 0.3s ease; color: rgba(255,247,241,0.4); }
-.decision-step.open .decision-step-arrow { transform: rotate(180deg); color: var(--gold); }
+.decision-step-title { font-family: var(--display); font-size: 0.9rem; color: #fff; }
 .decision-step-body {
-  max-height: 0; overflow: hidden; transition: max-height 0.5s ease, padding 0.3s ease;
-  padding: 0 22px; color: rgba(255,247,241,0.7); font-size: 0.95rem; line-height: 1.6;
+  font-size: 0.82rem; color: rgba(255,247,241,0.55); line-height: 1.5; padding-left: 44px;
 }
-.decision-step.open .decision-step-body { max-height: 200px; padding: 0 22px 18px; }
 
 .cta-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
 .s10-cta {
@@ -1053,51 +1045,36 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
   <div class="slide-inner" style="display:flex;flex-direction:column;justify-content:center;">
     <div class="section-eyebrow" data-reveal="up" data-delay="50" style="color:rgba(255,247,241,0.58);">Next steps</div>
     <h2 class="s8-title" data-reveal="up" data-delay="100" style="margin-bottom:8px;">Here's how we move forward</h2>
-    <p class="section-subtitle" data-reveal="up" data-delay="180" style="color:rgba(255,247,241,0.74);max-width:900px;margin-bottom:16px;">Walk through each step at your pace. Click to open.</p>
+    <p class="section-subtitle" data-reveal="up" data-delay="180" style="color:rgba(255,247,241,0.74);max-width:900px;margin-bottom:16px;">Four simple steps from handshake to print.</p>
 
-    <div class="decision-accordion" data-reveal="up" data-delay="260">
-      <div class="decision-step" id="step1">
-        <div class="decision-step-header" onclick="toggleStep('step1')">
+    <div class="decision-steps" data-reveal="up" data-delay="260">
+      <div class="decision-step" data-reveal="up" data-delay="280">
+        <div class="decision-step-header">
           <span class="decision-step-num">1</span>
           <span class="decision-step-title">Pick your ad size and term</span>
-          <svg class="decision-step-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
-        <div class="decision-step-body">
-          1/4, 1/2, full page, 2-page spread, or back cover &mdash; paired with a 12, 24, or 36-month commitment. Longer terms unlock lower monthly rates and featured story bonuses. It's a simple decision either way &mdash; no budget committee needed.
-        </div>
+        <div class="decision-step-body">Paired with a 12, 24, or 36-month commitment. Longer terms unlock lower rates and featured story bonuses.</div>
       </div>
-
-      <div class="decision-step" id="step2">
-        <div class="decision-step-header" onclick="toggleStep('step2')">
+      <div class="decision-step" data-reveal="up" data-delay="380">
+        <div class="decision-step-header">
           <span class="decision-step-num">2</span>
           <span class="decision-step-title">Confirm billing contact</span>
-          <svg class="decision-step-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
-        <div class="decision-step-body">
-          Who handles billing? We'll set up monthly invoicing through our portal &mdash; credit card, ACH, e-check, or invoice. Whatever works for your organization.
-        </div>
+        <div class="decision-step-body">Monthly invoicing through our portal &mdash; credit card, ACH, e-check, or invoice. Whatever works.</div>
       </div>
-
-      <div class="decision-step" id="step3">
-        <div class="decision-step-header" onclick="toggleStep('step3')">
+      <div class="decision-step" data-reveal="up" data-delay="480">
+        <div class="decision-step-header">
           <span class="decision-step-num">3</span>
           <span class="decision-step-title">Ad design + story angle</span>
-          <svg class="decision-step-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
-        <div class="decision-step-body">
-          Would you like us to take care of the ad design for you? We'll also plan your first feature story angle for 24+ month terms.
-        </div>
+        <div class="decision-step-body">We handle the ad design. For 24+ month terms, we plan your first featured story angle too.</div>
       </div>
-
-      <div class="decision-step" id="step4">
-        <div class="decision-step-header" onclick="toggleStep('step4')">
+      <div class="decision-step" data-reveal="up" data-delay="580">
+        <div class="decision-step-header">
           <span class="decision-step-num">4</span>
           <span class="decision-step-title">First issue + creative brief</span>
-          <svg class="decision-step-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
         </div>
-        <div class="decision-step-body">
-          We'll confirm your start date and kick off the creative brief. Our design team handles everything &mdash; you review a proof before it goes to print.
-        </div>
+        <div class="decision-step-body">We confirm your start date and kick off the creative brief. You review a proof before print.</div>
       </div>
     </div>
 
