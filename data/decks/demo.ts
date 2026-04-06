@@ -143,6 +143,40 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 .section-title { font-size: clamp(1.8rem, 3vw, 2.5rem); color: var(--dark); max-width: 700px; line-height: 1.15; margin-bottom: 4px; text-wrap: balance; }
 .section-subtitle { font-size: 1.05rem; color: #666; max-width: 640px; line-height: 1.6; }
 
+
+/* OPPORTUNITY SLIDE ENHANCEMENTS */
+.stat-card-icon {
+  width: 48px; height: 48px; border-radius: 14px; margin: 0 auto 12px;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.stat-card-icon::after {
+  content: ''; position: absolute; inset: 0; border-radius: 14px;
+  background: inherit; filter: blur(8px); opacity: 0.4; z-index: 0;
+}
+.stat-card-icon svg { width: 24px; height: 24px; position: relative; z-index: 1; }
+.stat-card-icon--coral { background: linear-gradient(135deg, var(--coral), #ff8e53); }
+.stat-card-icon--teal { background: linear-gradient(135deg, var(--teal), #0ea5e9); }
+.stat-card-icon--gold { background: linear-gradient(135deg, var(--gold), var(--coral)); }
+.key-phrase em {
+  position: relative; font-style: normal; font-weight: 700;
+}
+.key-phrase em::after {
+  content: ''; position: absolute; left: -2px; right: -2px; bottom: -2px; height: 3px;
+  border-radius: 2px; opacity: 0.5;
+}
+.key-phrase em:nth-of-type(1) { color: var(--coral); }
+.key-phrase em:nth-of-type(1)::after { background: var(--coral); animation: pulseUnderline 2.5s ease-in-out infinite; }
+.key-phrase em:nth-of-type(2) { color: var(--teal); }
+.key-phrase em:nth-of-type(2)::after { background: var(--teal); animation: pulseUnderline 2.5s ease-in-out infinite 0.8s; }
+.key-phrase em:nth-of-type(3) { color: var(--gold); }
+.key-phrase em:nth-of-type(3)::after { background: var(--gold); animation: pulseUnderline 2.5s ease-in-out infinite 1.6s; }
+@keyframes pulseUnderline { 0%, 100% { opacity: 0.3; transform: scaleX(0.8); } 50% { opacity: 0.7; transform: scaleX(1); } }
+.origin-story {
+  position: relative; padding: 20px 32px; border-radius: 16px;
+  background: linear-gradient(135deg, rgba(44,11,90,0.02), rgba(255,199,45,0.03));
+  border-left: 3px solid var(--gold); max-width: 800px;
+}
 /* SLIDE 2 — ABOUT US / OPPORTUNITY */
 .key-phrase { font-family: var(--display); font-size: clamp(1.2rem, 2vw, 1.5rem); color: var(--dark); line-height: 1.35; max-width: 800px; text-align: center; margin: 0 auto 12px; }
 .key-phrase em { color: var(--coral); font-style: normal; }
@@ -608,6 +642,8 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
      SLIDE 2: THE OPPORTUNITY — ABOUT UY
      ============================================================ -->
 <section class="slide slide--cream" id="opportunity" data-slide-index="1" data-theme="light">
+  <div class="orb" style="width:400px;height:400px;top:-150px;right:-120px;background:var(--coral);opacity:0.05;animation:floatDrift 14s ease-in-out infinite;"></div>
+  <div class="orb" style="width:300px;height:300px;bottom:-100px;left:-80px;background:var(--teal);opacity:0.04;animation:floatDrift 16s ease-in-out infinite 4s;"></div>
   <div class="slide-inner" style="align-items:center; text-align:center;">
     <div class="section-eyebrow" data-reveal="up" data-delay="0">The Opportunity</div>
 
@@ -615,16 +651,25 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
       We help businesses reach their ideal clients while <em>Celebrating</em> the disability community, <em>Connecting</em> families, and having an <em>Impact</em> by providing key resources.
     </p>
 
-    <div class="stat-row" data-reveal="up" data-delay="250">
-      <div class="stat-card">
+    <div class="stat-row">
+      <div class="stat-card" data-reveal="up" data-delay="200">
+        <div class="stat-card-icon stat-card-icon--coral">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
         <div class="stat-card-number" style="color:var(--coral);">1 in 4</div>
         <div class="stat-card-label">U.S. adults live with some type of disability</div>
       </div>
-      <div class="stat-card">
+      <div class="stat-card" data-reveal="up" data-delay="350">
+        <div class="stat-card-icon stat-card-icon--teal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z"/></svg>
+        </div>
         <div class="stat-card-number" style="color:var(--teal);">1 in 31</div>
         <div class="stat-card-label">Children have autism</div>
       </div>
-      <div class="stat-card">
+      <div class="stat-card" data-reveal="up" data-delay="500">
+        <div class="stat-card-icon stat-card-icon--gold">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
         <div class="stat-card-number" style="color:var(--gold);">8+</div>
         <div class="stat-card-label">States and growing nationwide</div>
       </div>
