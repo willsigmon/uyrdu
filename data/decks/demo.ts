@@ -841,19 +841,21 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
       bar.className = 'presenter-bar';
       document.body.appendChild(bar);
       var on = false;
+      var currentIdx = 0;
+      function updateBar() { bar.innerHTML = notes[currentIdx] || ''; }
       document.addEventListener('keydown', function(e) {
         if (e.key === 'p' || e.key === 'P') {
           on = !on;
           bar.classList.toggle('active', on);
-          if (on && !bar.innerHTML) bar.innerHTML = notes[0] || '';
+          if (on) updateBar();
         }
       });
       document.querySelectorAll('.slide').forEach(function(s) {
         new IntersectionObserver(function(entries) {
           entries.forEach(function(entry) {
             if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
-              var idx = parseInt(entry.target.dataset.slideIndex);
-              if (notes[idx]) bar.innerHTML = notes[idx];
+              currentIdx = parseInt(entry.target.dataset.slideIndex);
+              if (on) updateBar();
             }
           });
         }, { threshold: 0.5 }).observe(s);
