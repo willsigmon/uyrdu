@@ -224,7 +224,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 .design-option .price-tag { font-family: var(--display); font-size: 1.4rem; color: var(--purple-sec); margin-top: 6px; }
 
 /* SLIDE 6 — PRICING REVEAL */
-.pricing-runway { display: flex; gap: 16px; align-items: stretch; min-height: 260px; }
+.pricing-runway { display: flex; flex-wrap: wrap; gap: 16px; align-items: stretch; min-height: 260px; }
 .tier-panel {
   flex: 0; min-width: 0; max-width: 0; opacity: 0; overflow: hidden; border-radius: 20px;
   padding: 0; display: flex; flex-direction: column; gap: 16px;
@@ -232,7 +232,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
   transition: flex 0.6s var(--ease-out-expo), max-width 0.6s var(--ease-out-expo),
               opacity 0.5s ease 0.15s, padding 0.4s ease;
 }
-.tier-panel.tier-visible { flex: 1; max-width: 100%; opacity: 1; padding: 28px; }
+.tier-panel.tier-visible { flex: 1 1 calc(50% - 10px); min-width: 280px; max-width: 100%; opacity: 1; padding: 24px; }
 .tier-panel--premium { background: linear-gradient(135deg, #3d1275, #2c0b5a); color: #fff; }
 .tier-panel--fullpage { background: linear-gradient(135deg, #fff8e1, #fff3cd); color: var(--body); border: 1px solid rgba(255,199,45,0.25); }
 .tier-panel--standard { background: linear-gradient(135deg, #e8f4fd, #d1e9f8); color: var(--body); border: 1px solid rgba(94,168,255,0.2); }
@@ -242,14 +242,14 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 .tier-panel--standard .tier-label { color: var(--blue); }
 .tier-cards { display: flex; gap: 14px; flex: 1; }
 .tier-card {
-  flex: 1; border-radius: 14px; padding: 22px 18px; text-align: center; display: flex; flex-direction: column; justify-content: center;
+  flex: 1; border-radius: 14px; padding: 16px 14px; text-align: center; display: flex; flex-direction: column; justify-content: center;
 }
 .tier-panel--premium .tier-card { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); }
 .tier-panel--fullpage .tier-card { background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
 .tier-panel--standard .tier-card { background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
-.tier-card-name { font-family: var(--display); font-size: 1.05rem; margin-bottom: 4px; }
+.tier-card-name { font-family: var(--display); font-size: 0.9rem; margin-bottom: 4px; }
 .tier-panel--premium .tier-card-name { color: #fff; }
-.tier-card-price { font-family: var(--display); font-size: 2rem; line-height: 1; margin: 6px 0; }
+.tier-card-price { font-family: var(--display); font-size: 1.6rem; line-height: 1; margin: 6px 0; }
 .tier-panel--premium .tier-card-price { color: var(--gold); }
 .tier-panel--fullpage .tier-card-price { color: var(--purple-sec); }
 .tier-panel--standard .tier-card-price { color: var(--blue); }
