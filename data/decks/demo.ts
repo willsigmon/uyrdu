@@ -4,13 +4,13 @@ const data: DeckData = {
   title: "Uniquely You! — Partnership Conversation",
   navClass: "dot-nav on-dark",
   navItems: [
-    { href: "#cover", label: "Cover" },
-    { href: "#opportunity", label: "Opportunity" },
-    { href: "#publication", label: "Publication" },
-    { href: "#credibility", label: "Credibility" },
-    { href: "#partnership", label: "Partnership" },
-    { href: "#pricing", label: "Pricing" },
-    { href: "#start", label: "Next Steps" },
+    { href: "#cover", label: "Intro + rapport" },
+    { href: "#opportunity", label: "The why" },
+    { href: "#publication", label: "Not better, different" },
+    { href: "#credibility", label: "Ask: current marketing?" },
+    { href: "#partnership", label: "Show publication here" },
+    { href: "#pricing", label: "Drop-down: ask 5-7x" },
+    { href: "#start", label: "Close: size > directory > design > card" },
   ],
   css: `
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -357,6 +357,18 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 .cta-hidden.cta-visible { opacity: 1; max-height: 200px; pointer-events: auto; }
 
 .s10-contact { text-align: center; font-size: 0.85rem; color: rgba(255,247,241,0.5); margin-top: 10px; }
+
+
+/* PRESENTER MODE — toggle with P key */
+.presenter-bar {
+  display: none; position: fixed; bottom: 0; left: 0; width: 100%;
+  background: rgba(44,11,90,0.95); color: rgba(255,247,241,0.9);
+  font-family: var(--sans); font-size: 0.82rem; line-height: 1.5;
+  padding: 10px 24px; z-index: 9999; backdrop-filter: blur(10px);
+  border-top: 2px solid var(--gold); transition: opacity 0.3s ease;
+}
+.presenter-bar.active { display: block; }
+.presenter-bar strong { color: var(--gold); }
 
 /* PORTRAIT WARNING */
 #portrait-warning {
