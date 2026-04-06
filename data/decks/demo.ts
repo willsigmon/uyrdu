@@ -825,6 +825,48 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
   <div class="s8-rainbow"></div>
 </section>
 `,
+
+  extraScripts: `
+    (function() {
+      var notes = {
+        0: '<strong>COVER:</strong> Build rapport. "I have a few slides... if it is a good fit, we will go over pricing. If not, no big deal. Sound good?"',
+        1: '<strong>OPPORTUNITY:</strong> Key phrase: Celebrating, Connecting, Impact. Pause on stats.',
+        2: '<strong>WHY IT WORKS:</strong> "Marketing only works when seen by the RIGHT people." Ask: "Tell me about your current marketing."',
+        3: '<strong>CREDIBILITY:</strong> "By the community, for the community." Ask: "Does this potentially make sense for your company?"',
+        4: '<strong>PARTNERSHIP:</strong> Walk through publication NOW. "Front cover is for the community." Then show ad options.',
+        5: '<strong>DROP-DOWN:</strong> Start premium. Ask 5-7 times. Emphasize premium = sell premium. Brief on smaller.',
+        6: '<strong>CLOSE:</strong> Yes then: directory category, ad design, credit card. "Holds your reservation."'
+      };
+      var bar = document.createElement('div');
+      bar.className = 'presenter-bar';
+      document.body.appendChild(bar);
+      var on = false;
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'p' || e.key === 'P') {
+          on = !on;
+          bar.classList.toggle('active', on);
+          if (on && !bar.innerHTML) bar.innerHTML = notes[0] || '';
+        }
+      });
+      document.querySelectorAll('.slide').forEach(function(s) {
+        new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+              var idx = parseInt(entry.target.dataset.slideIndex);
+              if (notes[idx]) bar.innerHTML = notes[idx];
+            }
+          });
+        }, { threshold: 0.5 }).observe(s);
+      });
+    })();
+    (function() {
+      var btn = document.getElementById('tierNextBtn');
+      if (!btn) return;
+      var nl = ['More options \u2192', 'Entry options \u2192', 'Compare all rates \u2192'];
+      var c = 0;
+      btn.addEventListener('click', function() { c++; if (c < nl.length) btn.innerHTML = nl[c]; });
+    })();
+  `,
 };
 
 export default data;
