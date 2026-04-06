@@ -618,13 +618,13 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
   <div class="slide-inner" style="justify-content:center;">
     <div class="section-eyebrow" data-reveal="up" data-delay="50">Investment</div>
     <h2 class="section-title" data-reveal="up" data-delay="100" style="max-width:none;">36-Month Partnership &mdash; Our Best Rate</h2>
-    <p class="pricing-term-note" data-reveal="up" data-delay="140">Billed monthly. No upfront lump sum. Our average partner spends <strong>under $450/month</strong>. Shorter terms (12- and 24-month) available at adjusted rates.</p>
+    <p class="pricing-term-note" data-reveal="up" data-delay="140">Billed monthly. No upfront lump sum. Our average partner spends <strong>under $450/month</strong>. 24-month terms include a featured story. 36-month terms include two stories plus a two-page sponsor spotlight.</p>
 
     <div class="pricing-runway" data-reveal="up" data-delay="200">
 
       <!-- TIER 1: PREMIUM -->
       <div class="tier-panel tier-panel--premium" id="tier1">
-        <div class="tier-label">Premium Placement</div>
+        <div class="tier-label">Premium Placement <span style="font-family:var(--sans);font-size:0.6rem;background:rgba(255,199,45,0.2);color:var(--gold);padding:2px 8px;border-radius:10px;margin-left:8px;letter-spacing:0.04em;">+2 stories + spotlight</span></div>
         <div class="tier-cards">
           <div class="tier-card">
             <div class="tier-card-name">2-Page Spread</div>
@@ -644,7 +644,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 
       <!-- TIER 2: FULL PAGE -->
       <div class="tier-panel tier-panel--fullpage" id="tier2">
-        <div class="tier-label">Full Page Options</div>
+        <div class="tier-label">Full Page Options <span style="font-family:var(--sans);font-size:0.6rem;background:rgba(110,38,142,0.12);color:var(--purple-sec);padding:2px 8px;border-radius:10px;margin-left:8px;letter-spacing:0.04em;">+2 stories + spotlight</span></div>
         <div class="tier-cards">
           <div class="tier-card">
             <div class="tier-card-name">Inside Cover / Page 2-3</div>
@@ -664,7 +664,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 
       <!-- TIER 3: STANDARD -->
       <div class="tier-panel tier-panel--standard" id="tier3">
-        <div class="tier-label">Our Most Popular</div>
+        <div class="tier-label">Our Most Popular <span style="font-family:var(--sans);font-size:0.6rem;background:rgba(94,168,255,0.15);color:var(--blue);padding:2px 8px;border-radius:10px;margin-left:8px;letter-spacing:0.04em;">+2 stories + spotlight</span></div>
         <div class="tier-cards">
           <div class="tier-card">
             <div class="tier-card-name">1/2-Page Standard</div>
@@ -684,7 +684,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 
       <!-- TIER 4: ENTRY -->
       <div class="tier-panel tier-panel--entry" id="tier4">
-        <div class="tier-label">Entry Options</div>
+        <div class="tier-label">Entry Options <span style="font-family:var(--sans);font-size:0.6rem;background:rgba(18,214,160,0.15);color:var(--teal);padding:2px 8px;border-radius:10px;margin-left:8px;letter-spacing:0.04em;">+2 stories + spotlight</span></div>
         <div class="tier-cards">
           <div class="tier-card">
             <div class="tier-card-name">1/3 Page</div>
@@ -705,7 +705,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
     </div>
 
     <div style="text-align:center;">
-      <button id="tierNextBtn">Something more affordable? &rarr;</button>
+      <button id="tierNextBtn">Other placement options &rarr;</button>
     </div>
 
     <!-- SUMMARY GRID (revealed after all tiers shown) -->
