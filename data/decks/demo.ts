@@ -120,9 +120,9 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 .cover-pillar { display: flex; align-items: center; gap: 12px; }
 .cover-pillar-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; }
 .cover-pillar-icon svg { width: 22px; height: 22px; }
-.cover-pillar-icon--coral { background: rgba(255,107,107,0.15); }
-.cover-pillar-icon--teal { background: rgba(18,214,160,0.15); }
-.cover-pillar-icon--gold { background: rgba(255,199,45,0.15); }
+.cover-pillar-icon--coral { background: linear-gradient(135deg, rgba(255,107,107,0.2), rgba(255,142,83,0.15)); box-shadow: 0 0 20px rgba(255,107,107,0.15); }
+.cover-pillar-icon--teal { background: linear-gradient(135deg, rgba(18,214,160,0.2), rgba(14,165,233,0.15)); box-shadow: 0 0 20px rgba(18,214,160,0.15); }
+.cover-pillar-icon--gold { background: linear-gradient(135deg, rgba(255,199,45,0.2), rgba(255,107,107,0.1)); box-shadow: 0 0 20px rgba(255,199,45,0.15); }
 .cover-pillar-label { font-weight: 600; font-size: 0.95rem; letter-spacing: 0.04em; }
 .cover-pillar-label--coral { color: var(--coral); }
 .cover-pillar-label--teal { color: var(--teal); }
@@ -214,9 +214,19 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 
 /* SLIDE 3 — WHY IT WORKS */
 .reasons-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
-.reason-card { background: #fff; border-radius: 20px; padding: 32px; box-shadow: 0 2px 16px rgba(0,0,0,0.04); }
-.reason-card--coral { border-top: 4px solid var(--coral); }
-.reason-card--teal { border-top: 4px solid var(--teal); }
+.reason-card {
+  position: relative; background: #fff; border-radius: 20px; padding: 32px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.04); overflow: hidden;
+  transition: transform 0.35s var(--spring), box-shadow 0.35s ease;
+}
+.reason-card::before {
+  content: ''; position: absolute; inset: 0; border-radius: 20px; padding: 2px;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude; -webkit-mask-composite: xor; z-index: 0;
+}
+.reason-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,0,0,0.08); }
+.reason-card--coral::before { background: linear-gradient(135deg, var(--coral), var(--gold), var(--coral)); background-size: 200% 200%; animation: gradientShift 4s ease infinite; }
+.reason-card--teal::before { background: linear-gradient(135deg, var(--teal), var(--blue), var(--teal)); background-size: 200% 200%; animation: gradientShift 4s ease infinite 1s; }
 .reason-number { font-family: var(--display); font-size: 0.75rem; color: var(--purple-sec); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 8px; }
 .reason-title { font-family: var(--display); font-size: 1.3rem; color: var(--dark); margin-bottom: 10px; }
 .reason-body { font-size: 0.92rem; color: #555; line-height: 1.65; margin-bottom: 10px; }
@@ -255,10 +265,20 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 /* SLIDE 5 — PARTNERSHIP OPTIONS */
 .partner-features { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; margin-bottom: 16px; }
 .partner-feature {
-  background: #fff; border-radius: 16px; padding: 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-  display: flex; flex-direction: column; align-items: center; text-align: center;
+  position: relative; background: #fff; border-radius: 16px; padding: 24px; text-align: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04); overflow: hidden;
+  transition: transform 0.3s var(--spring), box-shadow 0.3s ease;
 }
-.partner-feature-icon { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
+.partner-feature:hover { transform: translateY(-4px); box-shadow: 0 6px 24px rgba(0,0,0,0.08); }
+.partner-feature-icon {
+  width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 12px; position: relative;
+}
+.partner-feature-icon::after {
+  content: ''; position: absolute; inset: 0; border-radius: 14px; background: inherit;
+  filter: blur(10px); opacity: 0.35; z-index: 0;
+}
+.partner-feature-icon svg { position: relative; z-index: 1; }
 .partner-feature-icon svg { width: 24px; height: 24px; }
 .partner-feature h3 { font-size: 1rem; color: var(--dark); margin-bottom: 6px; }
 .partner-feature { border-bottom: 3px solid transparent; }
