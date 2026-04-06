@@ -181,7 +181,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 .s4-bar-track { width: 100%; border-radius: 12px; position: relative; overflow: hidden; }
 .s4-bar-fill { border-radius: 12px; position: absolute; bottom: 0; width: 100%; transform: scaleY(0); transform-origin: bottom; transition: transform 0.8s var(--ease-out-expo); }
 .s4-bar-fill.animate { transform: scaleY(1); }
-.s4-bar-label { font-size: 0.85rem; color: #666; text-align: center; line-height: 1.4; }
+.s4-bar-label { font-size: 0.8rem; color: #666; text-align: center; line-height: 1.35; min-height: 2.7em; display: flex; align-items: flex-start; justify-content: center; }
 .s4-context { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
 .s4-context-card { padding: 22px 24px; border-radius: 14px; }
 .s4-context-card--quote { background: var(--lavender); border-left: 4px solid var(--purple-sec); }
@@ -644,29 +644,29 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
     <div class="s4-chart" id="s4Chart">
       <div class="s4-bar-col" data-reveal="up" data-delay="300">
         <div class="s4-bar-value" style="color:var(--coral);">800+</div>
-        <div class="s4-bar-track" style="height:120px;background:rgba(255,107,107,0.08);">
-          <div class="s4-bar-fill" style="background:linear-gradient(to top,var(--coral),rgba(255,107,107,0.9));height:108px;"></div>
+        <div class="s4-bar-track" style="height:60px;background:rgba(255,107,107,0.08);">
+          <div class="s4-bar-fill" style="background:linear-gradient(to top,var(--coral),rgba(255,107,107,0.9));height:60px;"></div>
         </div>
         <div class="s4-bar-label">Publications in print nationwide</div>
       </div>
       <div class="s4-bar-col" data-reveal="up" data-delay="450">
         <div class="s4-bar-value" style="color:var(--teal);">$163M</div>
-        <div class="s4-bar-track" style="height:120px;background:rgba(18,214,160,0.08);">
-          <div class="s4-bar-fill" style="background:linear-gradient(to top,var(--teal),rgba(18,214,160,0.9));height:96px;"></div>
+        <div class="s4-bar-track" style="height:80px;background:rgba(18,214,160,0.08);">
+          <div class="s4-bar-fill" style="background:linear-gradient(to top,var(--teal),rgba(18,214,160,0.9));height:80px;"></div>
         </div>
         <div class="s4-bar-label">Annual revenue</div>
       </div>
       <div class="s4-bar-col" data-reveal="up" data-delay="600">
         <div class="s4-bar-value" style="color:var(--gold);">$30M+</div>
-        <div class="s4-bar-track" style="height:120px;background:rgba(255,199,45,0.08);">
-          <div class="s4-bar-fill" style="background:linear-gradient(to top,var(--gold),rgba(255,199,45,0.9));height:72px;"></div>
+        <div class="s4-bar-track" style="height:100px;background:rgba(255,199,45,0.08);">
+          <div class="s4-bar-fill" style="background:linear-gradient(to top,var(--gold),rgba(255,199,45,0.9));height:100px;"></div>
         </div>
         <div class="s4-bar-label">N2GIVES — donated to fight human trafficking</div>
       </div>
       <div class="s4-bar-col" data-reveal="up" data-delay="750">
         <div class="s4-bar-value" style="color:var(--purple-sec);">30K+</div>
         <div class="s4-bar-track" style="height:120px;background:rgba(110,38,142,0.06);">
-          <div class="s4-bar-fill" style="background:linear-gradient(to top,var(--purple-sec),rgba(110,38,142,0.85));height:84px;"></div>
+          <div class="s4-bar-fill" style="background:linear-gradient(to top,var(--purple-sec),rgba(110,38,142,0.85));height:120px;"></div>
         </div>
         <div class="s4-bar-label">Local businesses we help reach their ideal clients</div>
       </div>
