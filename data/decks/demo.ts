@@ -658,7 +658,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 
       <!-- TIER 2: FULL PAGE -->
       <div class="tier-panel tier-panel--fullpage" id="tier2">
-        <div class="tier-label">Full Page Options <span style="font-family:var(--sans);font-size:0.6rem;background:rgba(110,38,142,0.12);color:var(--purple-sec);padding:2px 8px;border-radius:10px;margin-left:8px;letter-spacing:0.04em;">+2 stories + spotlight</span></div>
+        <div class="tier-label">Full Page Options <span style="font-family:var(--sans);font-size:0.6rem;background:rgba(110,38,142,0.12);color:var(--purple-sec);padding:2px 8px;border-radius:10px;margin-left:8px;letter-spacing:0.04em;">+1 featured story</span></div>
         <div class="tier-cards">
           <div class="tier-card">
             <div class="tier-card-name">Inside Cover / Page 2-3</div>
@@ -678,7 +678,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 
       <!-- TIER 3: STANDARD -->
       <div class="tier-panel tier-panel--standard" id="tier3">
-        <div class="tier-label">Our Most Popular <span style="font-family:var(--sans);font-size:0.6rem;background:rgba(94,168,255,0.15);color:var(--blue);padding:2px 8px;border-radius:10px;margin-left:8px;letter-spacing:0.04em;">+2 stories + spotlight</span></div>
+        <div class="tier-label">Our Most Popular <span style="font-family:var(--sans);font-size:0.6rem;background:rgba(94,168,255,0.15);color:var(--blue);padding:2px 8px;border-radius:10px;margin-left:8px;letter-spacing:0.04em;">+1 featured story</span></div>
         <div class="tier-cards">
           <div class="tier-card">
             <div class="tier-card-name">1/2-Page Standard</div>
@@ -698,7 +698,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 
       <!-- TIER 4: ENTRY -->
       <div class="tier-panel tier-panel--entry" id="tier4">
-        <div class="tier-label">Entry Options <span style="font-family:var(--sans);font-size:0.6rem;background:rgba(18,214,160,0.15);color:var(--teal);padding:2px 8px;border-radius:10px;margin-left:8px;letter-spacing:0.04em;">+2 stories + spotlight</span></div>
+        <div class="tier-label">Entry Options</div>
         <div class="tier-cards">
           <div class="tier-card">
             <div class="tier-card-name">1/3 Page</div>
