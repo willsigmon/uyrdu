@@ -272,7 +272,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 .bp-zone--inside { left: 4%; top: 4%; width: 92%; height: 92%; border-color: var(--purple-sec); background: rgba(110,38,142,0.06); color: var(--purple-sec); }
 .bp-zone--fullpage { left: 4%; top: 4%; width: 92%; height: 92%; border-color: var(--purple-sec); background: rgba(110,38,142,0.06); color: var(--purple-sec); }
 .bp-zone--half { left: 4%; bottom: 4%; width: 92%; height: 44%; border-color: var(--blue); background: rgba(94,168,255,0.08); color: var(--blue); }
-.bp-zone--quarter-sponsor { left: 50%; top: 4%; width: 44%; height: 44%; transform: translateX(-50%); border-color: var(--blue); background: rgba(94,168,255,0.08); color: var(--blue); }
+.bp-zone--quarter-sponsor { left: 8%; top: 8%; width: 84%; height: 40%; border-color: var(--blue); background: rgba(94,168,255,0.08); color: var(--blue); }
 .bp-zone--third { left: 4%; bottom: 4%; width: 92%; height: 30%; border-color: var(--teal); background: rgba(18,214,160,0.08); color: var(--teal); }
 .bp-zone--quarter { left: 4%; bottom: 4%; width: 44%; height: 30%; border-color: var(--teal); background: rgba(18,214,160,0.08); color: var(--teal); }
 .bp-zone-label { display: flex; flex-direction: column; align-items: center; gap: 2px; }
@@ -846,7 +846,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
           </div>
           <div class="bp-page" style="position:relative;">
             <div class="bp-zone bp-zone--quarter-sponsor" data-modal="modalPopular">
-              <div class="bp-zone-label" style="font-size:0.55rem;"><span>1/4-Page Sponsorship</span><span class="bp-zone-price">$330/mo</span></div>
+              <div class="bp-zone-label"><span>1/4-Page Sponsorship</span><span class="bp-zone-price">$330/mo</span></div>
             </div>
             <div style="position:absolute;top:4%;right:4%;width:48%;height:92%;border:1px dashed rgba(44,11,90,0.08);border-radius:3px;display:flex;align-items:center;justify-content:center;font-family:var(--sans);font-size:0.55rem;color:rgba(44,11,90,0.2);text-transform:uppercase;letter-spacing:0.1em;">Issue Preview</div>
             <span class="bp-page-label">Near Contents Page</span>
