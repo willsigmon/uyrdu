@@ -16,6 +16,7 @@ const DECK_MODULES: Record<string, () => Promise<{ default: DeckData }>> = {
   made4me: () => import("@/data/decks/made4me"),
   modernapotheca: () => import("@/data/decks/modernapotheca"),
   raleighparks: () => import("@/data/decks/raleighparks"),
+  ramz: () => import("@/data/decks/ramz"),
   lorraine: () => import("@/data/decks/lorraine"),
   shelley: () => import("@/data/decks/shelley"),
   tammy: () => import("@/data/decks/tammy"),
