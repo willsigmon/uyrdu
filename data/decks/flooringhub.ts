@@ -267,10 +267,12 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 .tier-panel--premium { background: linear-gradient(135deg, #3d1275, #2c0b5a); color: #fff; }
 .tier-panel--fullpage { background: linear-gradient(135deg, #fff8e1, #fff3cd); color: var(--body); border: 1px solid rgba(255,199,45,0.25); }
 .tier-panel--standard { background: linear-gradient(135deg, #e8f4fd, #d1e9f8); color: var(--body); border: 1px solid rgba(94,168,255,0.2); }
+.tier-panel--entry { background: linear-gradient(135deg, #e8f8f0, #d1f0e3); color: var(--body); border: 1px solid rgba(18,214,160,0.2); }
 .tier-label { font-family: var(--display); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 4px; }
 .tier-panel--premium .tier-label { color: rgba(255,247,241,0.5); }
 .tier-panel--fullpage .tier-label { color: var(--purple-sec); }
 .tier-panel--standard .tier-label { color: var(--blue); }
+.tier-panel--entry .tier-label { color: var(--teal); }
 .tier-cards { display: flex; gap: 14px; flex: 1; }
 .tier-card {
   flex: 1; border-radius: 14px; padding: 22px 18px; text-align: center; display: flex; flex-direction: column; justify-content: center;
@@ -278,20 +280,23 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 .tier-panel--premium .tier-card { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); }
 .tier-panel--fullpage .tier-card { background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
 .tier-panel--standard .tier-card { background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+.tier-panel--entry .tier-card { background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
 .tier-card-name { font-family: var(--display); font-size: 1.05rem; margin-bottom: 4px; }
 .tier-panel--premium .tier-card-name { color: #fff; }
 .tier-card-price { font-family: var(--display); font-size: 2rem; line-height: 1; margin: 6px 0; }
 .tier-panel--premium .tier-card-price { color: var(--gold); }
 .tier-panel--fullpage .tier-card-price { color: var(--purple-sec); }
 .tier-panel--standard .tier-card-price { color: var(--blue); }
+.tier-panel--entry .tier-card-price { color: var(--teal); }
 .tier-card-price span { font-size: 0.85rem; font-family: var(--sans); font-weight: 500; opacity: 0.7; }
 .tier-card-desc { font-size: 0.8rem; line-height: 1.45; margin-top: 6px; }
 .tier-panel--premium .tier-card-desc { color: rgba(255,247,241,0.6); }
-.tier-panel--fullpage .tier-card-desc, .tier-panel--standard .tier-card-desc { color: #888; }
+.tier-panel--fullpage .tier-card-desc, .tier-panel--standard .tier-card-desc, .tier-panel--entry .tier-card-desc { color: #888; }
 .tier-term-badge { display: inline-block; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 3px 10px; border-radius: 20px; margin-top: 8px; }
 .tier-panel--premium .tier-term-badge { background: rgba(255,199,45,0.15); color: var(--gold); }
 .tier-panel--fullpage .tier-term-badge { background: rgba(110,38,142,0.08); color: var(--purple-sec); }
 .tier-panel--standard .tier-term-badge { background: rgba(94,168,255,0.1); color: var(--blue); }
+.tier-panel--entry .tier-term-badge { background: rgba(18,214,160,0.1); color: var(--teal); }
 .tier-skip {
   display: inline-block; align-self: center; margin-top: auto; padding: 8px 20px; border-radius: 30px;
   font-family: var(--sans); font-size: 0.8rem; font-weight: 600; text-decoration: none;
@@ -303,6 +308,8 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 .tier-panel--fullpage .tier-skip:hover { background: rgba(110,38,142,0.14); transform: translateY(-2px); }
 .tier-panel--standard .tier-skip { color: var(--blue); background: rgba(94,168,255,0.1); }
 .tier-panel--standard .tier-skip:hover { background: rgba(94,168,255,0.18); transform: translateY(-2px); }
+.tier-panel--entry .tier-skip { color: var(--teal); background: rgba(18,214,160,0.1); }
+.tier-panel--entry .tier-skip:hover { background: rgba(18,214,160,0.18); transform: translateY(-2px); }
 #tierNextBtn {
   display: inline-block; margin: 16px auto 0; padding: 12px 32px; border: none; border-radius: 40px; cursor: pointer;
   font-family: var(--sans); font-size: 0.95rem; font-weight: 600; color: var(--dark);
@@ -387,16 +394,12 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 }
 .cta-hidden { opacity: 1; max-height: 200px; pointer-events: auto; }
 
-/* PORTRAIT WARNING */
-#portrait-warning {
-  display: none; position: fixed; inset: 0; z-index: 10000; background: var(--dark);
-  flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px;
+#portrait-warning { display: none !important; }
+.scroll-hint {
+  position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%); z-index: 5;
+  opacity: 0.18; animation: hintBounce 2.4s ease-in-out infinite;
 }
-.pw-title { font-family: var(--display); font-size: 1.4rem; color: #fff; margin-bottom: 12px; }
-.pw-body { font-size: 1rem; color: rgba(255,247,241,0.6); max-width: 280px; line-height: 1.6; }
-@media (max-width: 768px) and (orientation: portrait) {
-  #portrait-warning { display: flex; }
-}
+@keyframes hintBounce { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(6px); } }
 
 /* RESPONSIVE */
 @media (max-width: 900px) {
@@ -487,6 +490,11 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
       <span>Prepared for Tom, Flooring HUB &nbsp;|&nbsp; April 2026</span>
       <span>Will Sigmon, Area Director &middot; Uniquely You! Raleigh Metro</span>
     </div>
+  </div>
+  <div class="scroll-hint" data-reveal="fade" data-delay="1400">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(255,247,241,0.6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="6 9 12 15 18 9"/>
+    </svg>
   </div>
 </section>
 
@@ -816,6 +824,24 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
         </div>
         <a class="tier-skip" href="#start">Ready? Let's go &rarr;</a>
       </div>
+      <div class="tier-panel tier-panel--entry" id="tier4">
+        <div class="tier-label">Entry Options</div>
+        <div class="tier-cards">
+          <div class="tier-card">
+            <div class="tier-card-name">1/3 Page</div>
+            <div class="tier-card-price">$255<span>/mo</span></div>
+            <div class="tier-card-desc">Full-width ad &mdash; sharp, professional look</div>
+            <span class="tier-term-badge">36 months</span>
+          </div>
+          <div class="tier-card">
+            <div class="tier-card-name">1/4 Page</div>
+            <div class="tier-card-price">$190<span>/mo</span></div>
+            <div class="tier-card-desc">Our entry point &mdash; a great way to get started</div>
+            <span class="tier-term-badge">36 months</span>
+          </div>
+        </div>
+        <a class="tier-skip" href="#start">Ready? Let's go &rarr;</a>
+      </div>
     </div>
 
     <div style="text-align:center;">
@@ -839,6 +865,8 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
           <tr><td>Full Page Standard</td><td>$720</td><td>$645</td><td class="popular-col"><strong>$575</strong></td></tr>
           <tr><td>1/2-Page Standard</td><td>$415</td><td>$370</td><td class="popular-col"><strong>$330</strong></td></tr>
           <tr><td>1/4-Page Sponsorship</td><td>$415</td><td>$370</td><td class="popular-col"><strong>$330</strong></td></tr>
+          <tr><td>1/3 Page</td><td>$320</td><td>$285</td><td class="popular-col"><strong>$255</strong></td></tr>
+          <tr><td>1/4 Page</td><td>$240</td><td>$215</td><td class="popular-col"><strong>$190</strong></td></tr>
         </tbody>
       </table>
     </div>
@@ -856,62 +884,36 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 
   <div class="slide-inner" style="display:flex;flex-direction:column;justify-content:center;">
     <div class="section-eyebrow" data-reveal="up" data-delay="50" style="color:rgba(255,247,241,0.58);">Next steps</div>
-    <h2 class="s8-title" data-reveal="up" data-delay="100" style="margin-bottom:8px;">Tom, here's how we'd get started</h2>
-    <p class="section-subtitle" data-reveal="up" data-delay="180" style="color:rgba(255,247,241,0.74);max-width:900px;margin-bottom:16px;">If this feels like a fit, we can walk through it right now. If you need to think on it, no pressure — I'll send you this deck to review.</p>
+    <h2 class="s8-title" data-reveal="up" data-delay="100" style="margin-bottom:8px;">Let's make it happen</h2>
+    <p class="section-subtitle" data-reveal="up" data-delay="180" style="color:rgba(255,247,241,0.74);max-width:840px;margin-bottom:20px;">Here's what the path forward looks like &mdash; whether we kick things off now or take a beat to think it over.</p>
 
-    <div class="decision-accordion" data-reveal="up" data-delay="260">
-      <div class="decision-step" id="step1">
-        <div class="decision-step-header">
-          <span class="decision-step-num">1</span>
-          <span class="decision-step-title">Pick your ad size and term</span>
-
-        </div>
-        <div class="decision-step-body">
-          1/4, 1/2, full page, or back cover — paired with a 12, 24, or 36-month commitment. Longer terms unlock lower monthly rates and feature story bonuses. We'll find the fit that makes sense for your goals and budget.
-        </div>
+    <div class="s10-grid" data-reveal="up" data-delay="260">
+      <div class="s10-card">
+        <div class="s10-card-label">Ready to move forward</div>
+        <ul class="s10-list">
+          <li class="s10-item"><span class="s10-num">1</span><span>Pick the size and term that feels right</span></li>
+          <li class="s10-item"><span class="s10-num">2</span><span>Handle the logistics</span></li>
+          <li class="s10-item"><span class="s10-num">3</span><span>Lock in the launch issue</span></li>
+          <li class="s10-item"><span class="s10-num">4</span><span>Creative kickoff &mdash; we design your ad for you</span></li>
+        </ul>
       </div>
 
-      <div class="decision-step" id="step2">
-        <div class="decision-step-header">
-          <span class="decision-step-num">2</span>
-          <span class="decision-step-title">Confirm billing details</span>
-
-        </div>
-        <div class="decision-step-body">
-          We'll set up monthly invoicing through our portal — credit card, ACH, e-check, or invoice. Whatever works for your business. No upfront lump sum.
-        </div>
-      </div>
-
-      <div class="decision-step" id="step3">
-        <div class="decision-step-header">
-          <span class="decision-step-num">3</span>
-          <span class="decision-step-title">Story angle + primary CTA</span>
-
-        </div>
-        <div class="decision-step-body">
-          What should families do when they see your ad? Call for a consultation? Visit your website? We'll design the ad around a clear call-to-action. If you're on a 24+ month term, we'll also plan your first feature story angle — maybe the accessibility side of flooring, or a project walkthrough.
-        </div>
-      </div>
-
-      <div class="decision-step" id="step4">
-        <div class="decision-step-header">
-          <span class="decision-step-num">4</span>
-          <span class="decision-step-title">First issue + creative brief</span>
-
-        </div>
-        <div class="decision-step-body">
-          We'll confirm your start date and kick off the creative brief. Our design team handles everything — you'll review a proof before it goes to print. Typical turnaround is 2 weeks from brief to proof.
-        </div>
+      <div class="s10-card">
+        <div class="s10-card-label">Want to think it over</div>
+        <ul class="s10-list">
+          <li class="s10-item"><span class="s10-num">1</span><span>Totally fine &mdash; no pressure at all</span></li>
+          <li class="s10-item"><span class="s10-num">2</span><span>We'll schedule a quick follow-up</span></li>
+          <li class="s10-item"><span class="s10-num">3</span><span>Everything stays the same &mdash; no rush pricing</span></li>
+          <li class="s10-item"><span class="s10-num">4</span><span>Creative starts whenever you're ready</span></li>
+        </ul>
       </div>
     </div>
 
-    <div class="cta-hidden" id="ctaReveal">
-      <div class="cta-links">
-        <a class="s10-cta" href="https://portal.n2pub.com/credit_card_capture" target="_blank" rel="noopener">Set Up Billing</a>
-        <a class="s10-cta" href="https://portal.n2pub.com/agreement_builders" target="_blank" rel="noopener" style="background:linear-gradient(135deg, var(--teal), var(--blue));box-shadow:0 8px 30px rgba(18,214,160,0.3);">Build Agreement</a>
-        <a class="s10-cta s10-cta--secondary" href="https://pubmanager.n2pub.com/flipbooks/publications/uniquely-you-mideastern-ohio-oh/current" target="_blank" rel="noopener" style="font-size:0.85rem;padding:10px 24px;">Preview the publication</a>
-      </div>
-      <div class="s10-cta-sub" style="text-align:center;margin-top:10px;font-size:0.8rem;color:rgba(255,247,241,0.4);">Both links open the Compass Portal securely</div>
+    <div class="s10-cta-wrap" data-reveal="scale" data-delay="380" style="margin-top:20px;">
+      <a class="s10-cta" href="https://portal.n2pub.com/credit_card_capture" target="_blank" rel="noopener">Set Up Billing</a>
+      <a class="s10-cta" href="https://portal.n2pub.com/agreement_builders" target="_blank" rel="noopener" style="background:linear-gradient(135deg, var(--teal), var(--blue));box-shadow:0 8px 30px rgba(18,214,160,0.3);">Build Agreement</a>
+      <a class="s10-cta s10-cta--secondary" href="https://pubmanager.n2pub.com/flipbooks/publications/uniquely-you-mideastern-ohio-oh/current" target="_blank" rel="noopener" style="font-size:0.85rem;padding:10px 24px;">Preview the publication</a>
+      <div class="s10-cta-sub">Opens the partner portal</div>
     </div>
 
     <div class="s10-contact" data-reveal="fade" data-delay="440">Will Sigmon &middot; Area Director &middot; will.sigmon@n2co.com</div>
@@ -920,6 +922,52 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
   <div class="s8-rainbow"></div>
 </section>
 `,
+  extraScripts: `
+  /* Override tier reveal for 4-panel layout */
+  (function() {
+    var panels = document.querySelectorAll('.tier-panel');
+    var btn = document.getElementById('tierNextBtn');
+    var summary = document.getElementById('tierSummary');
+    if (panels.length < 4 || !btn) return;
+
+    var labels = ['Something more affordable?', 'Our most popular options', 'Even more affordable?', 'See all rates'];
+    var idx = 0;
+
+    var newBtn = btn.cloneNode(true);
+    btn.parentNode.replaceChild(newBtn, btn);
+
+    function reveal() {
+      idx++;
+      if (idx < panels.length) panels[idx].classList.add('tier-visible');
+      if (idx < labels.length) newBtn.textContent = labels[idx] + ' \\u2192';
+      if (idx >= panels.length) {
+        newBtn.style.display = 'none';
+        if (summary) summary.classList.add('summary-visible');
+      }
+    }
+
+    function unreveal() {
+      if (idx <= 0) return;
+      panels[idx].classList.remove('tier-visible');
+      idx--;
+      newBtn.style.display = '';
+      if (idx < labels.length) newBtn.textContent = labels[idx] + ' \\u2192';
+      if (summary) summary.classList.remove('summary-visible');
+    }
+
+    newBtn.addEventListener('click', function(e) { e.preventDefault(); reveal(); });
+
+    document.addEventListener('keydown', function(e) {
+      var slide = document.querySelector('.slide[data-has-tier-reveal="true"]');
+      if (!slide) return;
+      var rect = slide.getBoundingClientRect();
+      var visible = rect.top < window.innerHeight * 0.5 && rect.bottom > window.innerHeight * 0.5;
+      if (!visible) return;
+      if (e.key === 'ArrowRight' && idx < panels.length) { e.preventDefault(); e.stopPropagation(); reveal(); }
+      if (e.key === 'ArrowLeft' && idx > 0) { e.preventDefault(); e.stopPropagation(); unreveal(); }
+    }, true);
+  })();
+  `,
 };
 
 export default data;
