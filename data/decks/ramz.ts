@@ -1,7 +1,7 @@
 import type { DeckData } from "@/lib/deck/types";
 
 const data: DeckData = {
-  title: "Shanita Ramsey × Uniquely You! — Strategic Partnership",
+  title: "Shannida Ramsey × Uniquely You! — Strategic Partnership",
   navClass: "dot-nav on-dark",
   navItems: [
     { href: "#cover", label: "Cover" },
@@ -323,6 +323,14 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 .s10-cta-sub { font-size: 0.78rem; color: rgba(255,247,241,0.4); margin-top: 8px; }
 .s10-contact { text-align: center; font-size: 0.85rem; color: rgba(255,247,241,0.35); margin-top: 12px; }
 
+#portrait-warning {
+  display: none; position: fixed; inset: 0; z-index: 10000; background: var(--dark);
+  flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px;
+}
+.pw-title { font-family: var(--display); font-size: 1.4rem; color: #fff; margin-bottom: 12px; }
+.pw-body { font-size: 1rem; color: rgba(255,247,241,0.6); max-width: 280px; line-height: 1.6; }
+@media (max-width: 768px) and (orientation: portrait) { #portrait-warning { display: flex; } }
+
 /* RESPONSIVE */
 @media (max-width: 900px) {
   .slide { padding: 28px 24px; }
@@ -368,7 +376,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
     </div>
 
     <h1 class="cover-title">
-      <span class="line-1" data-reveal="up" data-delay="200">Shanita</span>
+      <span class="line-1" data-reveal="up" data-delay="200">Shannida</span>
       <span class="line-2" data-reveal="up" data-delay="300">Ramsey</span>
       <span class="line-cross" data-reveal="fade" data-delay="500">- - - partnership with - - -</span>
       <span class="line-uy" data-reveal="up" data-delay="600">Uniquely You!</span>
@@ -410,7 +418,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
     </div>
 
     <div class="cover-footer" data-reveal="fade" data-delay="1100">
-      <span>Prepared for Shanita Ramsey, Ram-Z Services &nbsp;|&nbsp; April 2026</span>
+      <span>Prepared for Shannida Ramsey, Ram-Z Services &nbsp;|&nbsp; April 2026</span>
       <span>Will Sigmon, Area Director</span>
     </div>
   </div>
