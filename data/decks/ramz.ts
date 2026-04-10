@@ -323,13 +323,12 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 .s10-cta-sub { font-size: 0.78rem; color: rgba(255,247,241,0.4); margin-top: 8px; }
 .s10-contact { text-align: center; font-size: 0.85rem; color: rgba(255,247,241,0.35); margin-top: 12px; }
 
-#portrait-warning {
-  display: none; position: fixed; inset: 0; z-index: 10000; background: var(--dark);
-  flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px;
+#portrait-warning { display: none !important; }
+.scroll-hint {
+  position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%); z-index: 5;
+  opacity: 0.18; animation: hintBounce 2.4s ease-in-out infinite;
 }
-.pw-title { font-family: var(--display); font-size: 1.4rem; color: #fff; margin-bottom: 12px; }
-.pw-body { font-size: 1rem; color: rgba(255,247,241,0.6); max-width: 280px; line-height: 1.6; }
-@media (max-width: 768px) and (orientation: portrait) { #portrait-warning { display: flex; } }
+@keyframes hintBounce { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(6px); } }
 
 /* RESPONSIVE */
 @media (max-width: 900px) {
@@ -421,6 +420,11 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
       <span>Prepared for Shannida Ramsey, Ram-Z Services &nbsp;|&nbsp; April 2026</span>
       <span>Will Sigmon, Area Director</span>
     </div>
+  </div>
+  <div class="scroll-hint" data-reveal="fade" data-delay="1400">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(255,247,241,0.6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="6 9 12 15 18 9"/>
+    </svg>
   </div>
 </section>
 
