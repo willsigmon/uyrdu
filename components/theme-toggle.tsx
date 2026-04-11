@@ -3,19 +3,26 @@
 import { useEffect, useState } from "react";
 
 export function ThemeToggle() {
-  const [dark, setDark] = useState(false);
+  const [dark, setDark] = useState(() => {
+    if (typeof window === "undefined") {
+      return false;
+    }
+
+    const stored = window.localStorage.getItem("theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    return stored === "dark" || (!stored && prefersDark);
+  });
 
   useEffect(() => {
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const stored = localStorage.getItem("theme");
-    const isDark = stored === "dark" || (!stored && prefersDark);
-    setDark(isDark);
-    document.documentElement.classList.toggle("dark", isDark);
-    // Prevent CSS prefers-color-scheme fallback from overriding explicit light choice
+    const stored = window.localStorage.getItem("theme");
+    document.documentElement.classList.toggle("dark", dark);
+
     if (stored === "light") {
       document.documentElement.classList.add("light-override");
+    } else {
+      document.documentElement.classList.remove("light-override");
     }
-  }, []);
+  }, [dark]);
 
   function toggle() {
     const next = !dark;
