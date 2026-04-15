@@ -100,7 +100,7 @@ export const DECK_SCRIPTS = `
   var tierBtn = document.getElementById('tierNextBtn');
   var tierSummary = document.getElementById('tierSummary');
   var tierIndex = 0;
-  var tierLabels = ['Something more affordable?', 'Our most popular options', 'See all rates'];
+  var tierLabels = ['See more options', 'More options', 'See all rates'];
 
   if (tierPanels.length > 0) {
     tierPanels[0].classList.add('tier-visible');
