@@ -19,6 +19,7 @@ const DECK_MODULES: Record<string, () => Promise<{ default: DeckData }>> = {
   raleighparks: () => import("@/data/decks/raleighparks"),
   ramz: () => import("@/data/decks/ramz"),
   "ramz-client": () => import("@/data/decks/ramz-client"),
+  bluecollie: () => import("@/data/decks/bluecollie"),
   chathamtrades: () => import("@/data/decks/chathamtrades"),
   lorraine: () => import("@/data/decks/lorraine"),
   shelley: () => import("@/data/decks/shelley"),
