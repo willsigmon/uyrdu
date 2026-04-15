@@ -215,14 +215,10 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 .s7-step-items li { font-size: 0.85rem; color: var(--body); padding-left: 16px; position: relative; line-height: 1.4; }
 .s7-step-items li::before { content: '\\2192'; position: absolute; left: 0; color: var(--teal); font-weight: 700; }
 
-.pricing-runway { display: flex; gap: 16px; align-items: stretch; min-height: 260px; }
+.pricing-runway { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .tier-panel {
-  flex: 0; min-width: 0; max-width: 0; opacity: 0; overflow: hidden; border-radius: 20px;
-  padding: 0; display: flex; flex-direction: column; gap: 16px;
-  transition: flex 0.6s var(--ease-out-expo), max-width 0.6s var(--ease-out-expo),
-              opacity 0.5s ease 0.1s, padding 0.4s ease;
+  border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 16px;
 }
-.tier-panel.tier-visible { flex: 1; max-width: 100%; opacity: 1; padding: 28px; }
 .tier-panel--premium { background: linear-gradient(135deg, #5A2D0C, #3C1E08); color: #fff; }
 .tier-panel--fullpage { background: linear-gradient(135deg, #fff8e1, #fff3cd); color: var(--body); border: 1px solid rgba(212,149,43,0.25); }
 .tier-panel--standard { background: linear-gradient(135deg, #e5f0eb, #d1e9de); color: var(--body); border: 1px solid rgba(91,140,111,0.2); }
@@ -269,17 +265,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
 .tier-panel--standard .tier-skip:hover { background: rgba(91,140,111,0.18); transform: translateY(-2px); }
 .tier-panel--entry .tier-skip { color: var(--teal); background: rgba(42,157,143,0.1); }
 .tier-panel--entry .tier-skip:hover { background: rgba(42,157,143,0.18); transform: translateY(-2px); }
-#tierNextBtn {
-  display: inline-block; margin: 16px auto 0; padding: 12px 32px; border: none; border-radius: 40px; cursor: pointer;
-  font-family: var(--sans); font-size: 0.95rem; font-weight: 600; color: #fff;
-  background: linear-gradient(135deg, var(--gold), var(--coral)); box-shadow: 0 4px 16px rgba(232,93,58,0.2);
-  transition: transform 0.3s var(--spring), box-shadow 0.3s ease;
-}
-#tierNextBtn:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 6px 24px rgba(232,93,58,0.3); }
-#tierSummary {
-  opacity: 0; max-height: 0; overflow: hidden; transition: opacity 0.6s ease, max-height 0.6s var(--ease-out-expo); margin-top: 0;
-}
-#tierSummary.summary-visible { opacity: 1; max-height: 500px; margin-top: 20px; }
+#tierSummary { margin-top: 20px; }
 .rate-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; background: #fff; border-radius: 14px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
 .rate-table th { background: var(--dark); color: #fff; padding: 10px 14px; font-weight: 600; text-align: center; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; }
 .rate-table td { padding: 10px 14px; text-align: center; border-bottom: 1px solid rgba(0,0,0,0.05); }
@@ -331,8 +317,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
   .cover-pillars { flex-direction: column; gap: 16px; }
   .dot-nav { display: none; }
   .s7-step--1, .s7-step--2, .s7-step--3 { margin-top: 0; }
-  .pricing-runway { flex-direction: column; }
-  .tier-panel.tier-visible { max-width: 100%; }
+  .pricing-runway { grid-template-columns: 1fr; }
   .rate-table { font-size: 0.85rem; }
 }
 `,
@@ -474,7 +459,6 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
       <div class="tier-panel tier-panel--standard" id="tier3"><div class="tier-label">Our Most Popular</div><div class="tier-cards"><div class="tier-card"><div class="tier-card-name">1/2-Page Standard</div><div class="tier-card-price">$330<span>/mo</span></div><div class="tier-card-desc">Available vertical or horizontal</div><span class="tier-term-badge">36 months</span></div><div class="tier-card"><div class="tier-card-name">1/4-Page Sponsorship</div><div class="tier-card-price">$330<span>/mo</span></div><div class="tier-card-desc">Affordable, prominent placement</div><span class="tier-term-badge">36 months</span></div></div><a class="tier-skip" href="#start">Ready? Let's go &rarr;</a></div>
       <div class="tier-panel tier-panel--entry" id="tier4"><div class="tier-label">Entry Options</div><div class="tier-cards"><div class="tier-card"><div class="tier-card-name">1/3 Page</div><div class="tier-card-price">$255<span>/mo</span></div><div class="tier-card-desc">Full-width ad &mdash; sharp, professional look</div><span class="tier-term-badge">36 months</span></div><div class="tier-card"><div class="tier-card-name">1/4 Page</div><div class="tier-card-price">$190<span>/mo</span></div><div class="tier-card-desc">Our entry point &mdash; a great way to get started</div><span class="tier-term-badge">36 months</span></div></div><a class="tier-skip" href="#start">Ready? Let's go &rarr;</a></div>
     </div>
-    <div style="text-align:center;"><button id="tierNextBtn">Something more affordable? &rarr;</button></div>
     <div id="tierSummary"><table class="rate-table"><thead><tr><th>Ad Size</th><th>12 months</th><th>24 months</th><th class="popular-header">36 months</th></tr></thead><tbody><tr><td>2-Page Spread</td><td>$995</td><td>$895</td><td class="popular-col"><strong>$795</strong></td></tr><tr><td>Back Cover</td><td>$955</td><td>$860</td><td class="popular-col"><strong>$765</strong></td></tr><tr><td>Inside Cover / Pg 2-3</td><td>$845</td><td>$760</td><td class="popular-col"><strong>$675</strong></td></tr><tr><td>Full Page Standard</td><td>$720</td><td>$645</td><td class="popular-col"><strong>$575</strong></td></tr><tr><td>1/2-Page Standard</td><td>$415</td><td>$370</td><td class="popular-col"><strong>$330</strong></td></tr><tr><td>1/4-Page Sponsorship</td><td>$415</td><td>$370</td><td class="popular-col"><strong>$330</strong></td></tr><tr><td>1/3 Page</td><td>$320</td><td>$285</td><td class="popular-col"><strong>$255</strong></td></tr><tr><td>1/4 Page</td><td>$240</td><td>$215</td><td class="popular-col"><strong>$190</strong></td></tr></tbody></table></div>
   </div>
 </section>
@@ -502,45 +486,7 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 400; letter-spacing: 
   <div class="s8-rainbow"></div>
 </section>
 `,
-  extraScripts: `
-  (function() {
-    var panels = document.querySelectorAll('.tier-panel');
-    var btn = document.getElementById('tierNextBtn');
-    var summary = document.getElementById('tierSummary');
-    if (panels.length < 4 || !btn) return;
-    var labels = ['Something more affordable?', 'Our most popular options', 'Even more affordable?', 'See all rates'];
-    var idx = 0;
-    var newBtn = btn.cloneNode(true);
-    btn.parentNode.replaceChild(newBtn, btn);
-    function reveal() {
-      idx++;
-      if (idx < panels.length) panels[idx].classList.add('tier-visible');
-      if (idx < labels.length) newBtn.textContent = labels[idx] + ' \\u2192';
-      if (idx >= panels.length) {
-        newBtn.style.display = 'none';
-        if (summary) summary.classList.add('summary-visible');
-      }
-    }
-    function unreveal() {
-      if (idx <= 0) return;
-      panels[idx].classList.remove('tier-visible');
-      idx--;
-      newBtn.style.display = '';
-      if (idx < labels.length) newBtn.textContent = labels[idx] + ' \\u2192';
-      if (summary) summary.classList.remove('summary-visible');
-    }
-    newBtn.addEventListener('click', function(e) { e.preventDefault(); reveal(); });
-    document.addEventListener('keydown', function(e) {
-      var slide = document.querySelector('.slide[data-has-tier-reveal="true"]');
-      if (!slide) return;
-      var rect = slide.getBoundingClientRect();
-      var visible = rect.top < window.innerHeight * 0.5 && rect.bottom > window.innerHeight * 0.5;
-      if (!visible) return;
-      if (e.key === 'ArrowRight' && idx < panels.length) { e.preventDefault(); e.stopPropagation(); reveal(); }
-      if (e.key === 'ArrowLeft' && idx > 0) { e.preventDefault(); e.stopPropagation(); unreveal(); }
-    }, true);
-  })();
-  `,
+  extraScripts: ``,
 };
 
 export default data;
