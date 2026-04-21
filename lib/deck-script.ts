@@ -171,6 +171,32 @@ body {
 main {
   max-width: 760px; margin: 0 auto; padding: 56px 28px 96px;
 }
+.bio {
+  display: flex; gap: 16px; align-items: flex-start;
+  padding: 16px 18px; margin: 0 0 32px;
+  border: 1px solid var(--rule); border-radius: 12px;
+  background: #fff;
+}
+.bio-mark {
+  flex-shrink: 0; width: 44px; height: 44px; border-radius: 10px;
+  background: linear-gradient(135deg, var(--accent), var(--gold));
+  color: #fff; font-family: var(--serif); font-weight: 600; font-size: 1.05rem;
+  display: flex; align-items: center; justify-content: center;
+  letter-spacing: 0.02em;
+}
+.bio-body { flex: 1; min-width: 0; }
+.bio-name {
+  font-family: var(--serif); font-weight: 600; font-size: 1.02rem;
+  color: var(--ink); line-height: 1.2;
+}
+.bio-role {
+  font-size: 0.78rem; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--accent-deep); margin-top: 2px;
+}
+.bio-desc {
+  font-size: 0.88rem; color: var(--muted); margin-top: 8px; line-height: 1.5;
+}
+.bio-desc em { color: var(--ink); font-style: italic; }
 .eyebrow {
   font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.16em;
   color: var(--accent-deep); margin-bottom: 14px;
@@ -229,6 +255,14 @@ tr:last-child td { border-bottom: none; }
 </head>
 <body>
 <main>
+  <div class="bio">
+    <div class="bio-mark" aria-hidden="true">WS</div>
+    <div class="bio-body">
+      <div class="bio-name">Will Sigmon</div>
+      <div class="bio-role">Area Director · Uniquely You!</div>
+      <div class="bio-desc">Publishes <em>Uniquely You!</em> — the Triangle&rsquo;s only magazine built for the disability community — and runs the Uyrdu partner network connecting mission-aligned North Carolina businesses to the families, leaders, and advocates who move work forward.</div>
+    </div>
+  </div>
   <div class="eyebrow">Pre-deck talk track</div>
   <h1>${escapeHtml(script.title)}</h1>
   ${sub}
