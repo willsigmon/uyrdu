@@ -27,6 +27,7 @@ const DECK_MODULES: Record<string, () => Promise<{ default: DeckData }>> = {
   thrive: () => import("@/data/decks/thrive"),
   wehaulraleigh: () => import("@/data/decks/wehaulraleigh"),
   cupcakesdamour: () => import("@/data/decks/cupcakesdamour"),
+  globalcitizen: () => import("@/data/decks/globalcitizen"),
 };
 
 export async function readDeckHtml(slug: string) {
