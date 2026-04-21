@@ -2,6 +2,12 @@ export type DeckScript = {
   title: string;
   subtitle?: string;
   body: string;
+  prospect?: {
+    name: string;
+    role?: string;
+    initials?: string;
+    bio: string;
+  };
 };
 
 const SCRIPT_SLUG_PATTERN = /^[a-z0-9-]+$/;
@@ -136,11 +142,33 @@ function renderMarkdown(md: string): string {
   return out.join("\n");
 }
 
+function renderProspectBio(p: NonNullable<DeckScript["prospect"]>): string {
+  const initials = p.initials
+    ? p.initials
+    : p.name
+        .split(/\s+/)
+        .map((w) => w[0])
+        .filter(Boolean)
+        .slice(0, 2)
+        .join("")
+        .toUpperCase();
+  const role = p.role ? `<div class="bio-role">${escapeHtml(p.role)}</div>` : "";
+  return `<div class="bio">
+    <div class="bio-mark" aria-hidden="true">${escapeHtml(initials)}</div>
+    <div class="bio-body">
+      <div class="bio-name">${escapeHtml(p.name)}</div>
+      ${role}
+      <div class="bio-desc">${renderInline(p.bio)}</div>
+    </div>
+  </div>`;
+}
+
 export function buildScriptHtml(script: DeckScript): string {
   const body = renderMarkdown(script.body);
   const sub = script.subtitle
     ? `<p class="sub">${escapeHtml(script.subtitle)}</p>`
     : "";
+  const bio = script.prospect ? renderProspectBio(script.prospect) : "";
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -255,15 +283,8 @@ tr:last-child td { border-bottom: none; }
 </head>
 <body>
 <main>
-  <div class="bio">
-    <div class="bio-mark" aria-hidden="true">WS</div>
-    <div class="bio-body">
-      <div class="bio-name">Will Sigmon</div>
-      <div class="bio-role">Area Director · Uniquely You!</div>
-      <div class="bio-desc">Publishes <em>Uniquely You!</em> — the Triangle&rsquo;s only magazine built for the disability community — and runs the Uyrdu partner network connecting mission-aligned North Carolina businesses to the families, leaders, and advocates who move work forward.</div>
-    </div>
-  </div>
-  <div class="eyebrow">Pre-deck talk track</div>
+  ${bio}
+  <div class="eyebrow">Pre-deck talk track · prospect dossier</div>
   <h1>${escapeHtml(script.title)}</h1>
   ${sub}
   ${body}

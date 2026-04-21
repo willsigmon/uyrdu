@@ -3,6 +3,11 @@ import type { DeckScript } from "@/lib/deck-script";
 const script: DeckScript = {
   title: "Rapport Script — Katherine L. Turner, Global Citizen LLC",
   subtitle: "Pre-deck talk track · internal use only",
+  prospect: {
+    name: "Katherine L. Turner, MPH",
+    role: "Founder & President · Global Citizen, LLC · Durham, NC",
+    bio: "Internationally recognized consultant, keynote speaker, and graduate instructor at UNC-Chapel Hill. Runs a boutique consultancy focused on equity-centered leadership, DEIB, and organizational transformation — with field experience across **50+ countries and 5 continents** (English, French, Dutch). Woman- and LGBTQ+-owned. Serves C-suite leaders, foundations, health organizations, universities, and international NGOs. Register is academic-meets-practitioner: crisp, credentialed, outcome-focused.",
+  },
   body: `
 ## The frame
 Setting: coffee or Zoom. ~10–15 minutes before the deck. **Goal: earn the right to show it.**
