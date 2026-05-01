@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jaime Jimenez × Consultive Insurance Solutions × Uniquely You! — Partnership Conversation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--cream:#fff7f1;--ink:#201033;--deep:#2c0b5a;--plum:#3d1275;--coral:#ff6b6b;--teal:#12d6a0;--gold:#ffc72d;--blue:#5ea8ff;--body:#34303d;--muted:#706a78;--card:#fff;--display:'Archivo Black',sans-serif;--sans:'Plus Jakarta Sans',system-ui,sans-serif;--spring:cubic-bezier(.34,1.56,.64,1)}
+html{scroll-behavior:smooth;scroll-snap-type:y mandatory;overflow-x:hidden}body{font-family:var(--sans);background:var(--cream);color:var(--body);overflow-x:hidden;-webkit-font-smoothing:antialiased}h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.03em}.rainbow-bar{position:fixed;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--teal),var(--gold),var(--coral),var(--blue),var(--teal));background-size:200% 100%;animation:shimmer 5s linear infinite;z-index:1000}@keyframes shimmer{to{background-position:-200% 0}}
+.dot-nav{position:fixed;right:24px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:14px;z-index:999}.dot-nav a{width:11px;height:11px;border-radius:999px;border:2px solid rgba(44,11,90,.28);background:transparent;transition:.25s;position:relative}.dot-nav a::after{content:attr(data-label);position:absolute;right:22px;top:50%;transform:translateY(-50%);background:var(--ink);color:white;border-radius:999px;padding:5px 11px;font-size:.72rem;font-weight:700;white-space:nowrap;opacity:0;pointer-events:none}.dot-nav a:hover::after{opacity:1}.dot-nav a.active{background:var(--ink);border-color:var(--ink);transform:scale(1.35)}.slide--dark~.dot-nav a,.dot-nav.on-dark a{border-color:rgba(255,255,255,.45)}
+.slide{height:100vh;min-height:100vh;scroll-snap-align:start;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:46px 72px}.slide--dark{background:radial-gradient(circle at 10% 10%,rgba(18,214,160,.16),transparent 30%),radial-gradient(circle at 82% 20%,rgba(255,199,45,.14),transparent 26%),linear-gradient(135deg,#1a0640 0%,var(--deep) 48%,#38106c 100%);color:white}.slide--cream{background:var(--cream)}.slide-inner{width:min(1180px,100%);height:100%;display:flex;flex-direction:column;justify-content:center;gap:22px;position:relative;z-index:2}.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:.78rem;font-weight:800;color:var(--coral)}.slide--dark .eyebrow{color:rgba(255,247,241,.66)}.title{font-size:clamp(2.2rem,5vw,5rem);line-height:1.02;color:var(--ink)}.slide--dark .title{color:white}.gradient-text{background:linear-gradient(90deg,var(--teal),var(--gold));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}.subtitle{font-size:clamp(1rem,1.55vw,1.2rem);line-height:1.7;color:var(--muted);max-width:780px}.slide--dark .subtitle{color:rgba(255,247,241,.76)}.logo-row{display:flex;align-items:center;gap:18px;flex-wrap:wrap}.uy-mark{display:inline-flex;background:var(--coral);color:#fff;border-radius:16px;padding:10px 20px;font-family:var(--display);font-size:1.65rem;box-shadow:0 8px 28px rgba(255,107,107,.28)}.partner-mark{text-transform:uppercase;letter-spacing:.08em;font-weight:800;color:rgba(255,247,241,.82)}.pillars{display:flex;gap:22px;flex-wrap:wrap}.pillar{display:flex;align-items:center;gap:11px;color:rgba(255,247,241,.86);font-weight:700}.icon{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.12)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.grid.two{grid-template-columns:repeat(2,1fr)}.card{background:var(--card);border-radius:22px;padding:28px;box-shadow:0 18px 50px rgba(44,11,90,.08);border:1px solid rgba(44,11,90,.06)}.card h3{font-size:1.2rem;color:var(--ink);margin-bottom:10px}.card p,.card li{font-size:.95rem;line-height:1.62;color:#615c69}.card ul{list-style:none;display:flex;flex-direction:column;gap:9px}.card li{padding-left:20px;position:relative}.card li::before{content:'→';position:absolute;left:0;color:var(--coral);font-weight:900}.stat{font-family:var(--display);font-size:3.15rem;line-height:1;color:var(--coral);margin-bottom:8px}.quote{font-family:var(--display);font-size:clamp(1.55rem,3vw,2.8rem);line-height:1.16;color:var(--ink);max-width:940px}.pricing{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.tier{background:#fff;border-radius:20px;padding:22px;border:1px solid rgba(44,11,90,.08);box-shadow:0 12px 36px rgba(44,11,90,.07)}.tier strong{display:block;font-family:var(--display);font-size:1.1rem;color:var(--ink);margin-bottom:8px}.price{font-family:var(--display);font-size:2rem;color:var(--coral);margin:10px 0}.price span{font-family:var(--sans);font-size:.9rem;color:var(--muted);font-weight:800}.note{font-size:.86rem;color:var(--muted);line-height:1.55}.cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:6px}.cta{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:13px 22px;background:linear-gradient(135deg,var(--coral),#ff8e53);color:#fff;text-decoration:none;font-weight:900;box-shadow:0 12px 30px rgba(255,107,107,.25)}.cta.secondary{background:white;color:var(--ink);box-shadow:0 12px 30px rgba(0,0,0,.12)}.footer-note{font-size:.86rem;color:rgba(255,247,241,.48);border-top:1px solid rgba(255,255,255,.1);padding-top:18px;margin-top:8px}.orb{position:absolute;border-radius:999px;filter:blur(80px);opacity:.16;pointer-events:none}.orb.a{width:340px;height:340px;background:var(--teal);top:-90px;right:8%}.orb.b{width:280px;height:280px;background:var(--gold);bottom:-120px;left:5%}
+[data-reveal]{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .75s var(--spring)}[data-reveal].visible{opacity:1;transform:none}.pricing-table{width:100%;border-collapse:collapse;overflow:hidden;border-radius:20px;background:#fff;box-shadow:0 14px 40px rgba(44,11,90,.08)}.pricing-table th,.pricing-table td{text-align:left;padding:14px 18px;border-bottom:1px solid rgba(44,11,90,.08);font-size:.92rem}.pricing-table th{background:var(--ink);color:white;text-transform:uppercase;letter-spacing:.08em;font-size:.72rem}.pricing-table tr:last-child td{border-bottom:0}.pricing-table td:last-child{font-weight:900;color:var(--coral)}#portrait-warning{display:none}@media (orientation:portrait) and (max-width:900px){#portrait-warning{position:fixed;inset:0;background:var(--ink);color:white;z-index:2000;display:flex;align-items:center;justify-content:center;text-align:center;padding:30px;flex-direction:column;gap:12px}.slide{filter:blur(2px)}}@media(max-width:900px){.slide{padding:34px 24px}.grid,.grid.two,.pricing{grid-template-columns:1fr}.dot-nav{display:none}.title{font-size:2.5rem}.slide{height:auto;min-height:100vh;scroll-snap-align:none}.pricing-table{font-size:.8rem}.pricing-table th,.pricing-table td{padding:10px}}
+</style>
+</head>
+<body>
+<div class="rainbow-bar"></div>
+<div id="portrait-warning"><h2>Rotate for the full deck</h2><p>This presentation is built for landscape or desktop viewing.</p></div>
+<nav class="dot-nav" id="dotNav">
+  <a href="#cover" data-slide="0" data-label="Cover" class="active"></a>
+  <a href="#why" data-slide="1" data-label="Why Jaime"></a>
+  <a href="#audience" data-slide="2" data-label="Audience"></a>
+  <a href="#fit" data-slide="3" data-label="Fit"></a>
+  <a href="#partnership" data-slide="4" data-label="Partnership"></a>
+  <a href="#pricing" data-slide="5" data-label="Pricing"></a>
+  <a href="#start" data-slide="6" data-label="Next steps"></a>
+</nav>
+
+<section class="slide slide--dark" id="cover" data-theme="dark">
+  <div class="orb a"></div><div class="orb b"></div>
+  <div class="slide-inner">
+    <div class="logo-row" data-reveal><span class="uy-mark">UY!</span><span class="partner-mark">Consultive Insurance Solutions</span></div>
+    <h1 class="title" data-reveal><span style="display:block;color:rgba(255,247,241,.62)">Jaime Jimenez</span><span class="gradient-text">× Uniquely You!</span></h1>
+    <p class="subtitle" data-reveal>A Wake Forest-centered partnership conversation for showing up with trust, guidance, and local relevance in front of the Triangle readers already thinking about family, care, stability, and the future.</p>
+    <div class="pillars" data-reveal>
+      <div class="pillar"><span class="icon">🏡</span>Wake Forest local</div>
+      <div class="pillar"><span class="icon">🛡️</span>Insurance guidance</div>
+      <div class="pillar"><span class="icon">🤝</span>Community trust</div>
+    </div>
+    <div class="footer-note">Prepared for Jaime Jimenez · Consultive Insurance Solutions · Wake Forest, NC</div>
+  </div>
+</section>
+
+<section class="slide slide--cream" id="why" data-theme="light">
+  <div class="slide-inner">
+    <div class="eyebrow" data-reveal>Why this conversation</div>
+    <h2 class="quote" data-reveal>Insurance is personal before it is transactional. That makes trust, familiarity, and repeated local presence matter.</h2>
+    <div class="grid" data-reveal>
+      <div class="card"><div class="stat">01</div><h3>High-trust category</h3><p>Readers do not pick an insurance relationship from one impression. They remember who consistently shows up as helpful, steady, and approachable.</p></div>
+      <div class="card"><div class="stat">02</div><h3>Local context wins</h3><p>Wake Forest and Triangle families respond to people who understand the place, not just the product category.</p></div>
+      <div class="card"><div class="stat">03</div><h3>Education beats ads</h3><p>The strongest fit is not a hard sell. It is plain-language guidance that helps people make more confident decisions.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide slide--cream" id="audience" data-theme="light">
+  <div class="slide-inner">
+    <div class="eyebrow" data-reveal>The UY! audience</div>
+    <h2 class="title" data-reveal>Readers who care about people, planning, and who they can trust.</h2>
+    <p class="subtitle" data-reveal>Uniquely You! reaches a relationship-driven community across the Raleigh-Durham area: families, caregivers, veterans, advocates, professionals, and neighbors who value practical help from credible local people.</p>
+    <div class="grid" data-reveal>
+      <div class="card"><h3>Family protectors</h3><p>Parents and caregivers thinking about coverage, continuity, and how to protect the people who depend on them.</p></div>
+      <div class="card"><h3>Community connectors</h3><p>People who refer trusted professionals when a friend, parent, client, or colleague needs a recommendation.</p></div>
+      <div class="card"><h3>Local decision makers</h3><p>Business owners and professionals who prefer relationships over cold, generic marketing.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide slide--cream" id="fit" data-theme="light">
+  <div class="slide-inner">
+    <div class="eyebrow" data-reveal>Why Jaime fits</div>
+    <h2 class="title" data-reveal>Consultive Insurance Solutions can show up as a helpful local guide, not just another logo.</h2>
+    <div class="grid two" data-reveal>
+      <div class="card"><h3>The angle</h3><ul><li>Simple explainers around life changes, family coverage, and planning moments</li><li>Local presence anchored in Wake Forest and the greater Triangle</li><li>Helpful reminders timed to seasons, milestones, and open questions</li></ul></div>
+      <div class="card"><h3>The difference</h3><ul><li>Print gives repeated credibility and keepsake value</li><li>Digital gives clickable follow-through and contact path</li><li>Feature-style content lets Jaime teach before asking for trust</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide slide--cream" id="partnership" data-theme="light">
+  <div class="slide-inner">
+    <div class="eyebrow" data-reveal>Partnership shape</div>
+    <h2 class="title" data-reveal>Three ways to make the partnership useful.</h2>
+    <div class="grid" data-reveal>
+      <div class="card"><h3>Be visible</h3><p>A recurring print and digital placement that keeps Jaime and Consultive Insurance Solutions in front of readers before a need becomes urgent.</p></div>
+      <div class="card"><h3>Be helpful</h3><p>Short educational content around common insurance questions, planning moments, and how families can avoid confusion.</p></div>
+      <div class="card"><h3>Be remembered</h3><p>A human-centered profile or spotlight that gives readers a reason to remember the person behind the guidance.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide slide--cream" id="pricing" data-theme="light">
+  <div class="slide-inner">
+    <div class="eyebrow" data-reveal>Investment</div>
+    <h2 class="title" data-reveal>Start with the right size and term.</h2>
+    <p class="subtitle" data-reveal>36-month pricing shown as the best monthly rate. Shorter 12- and 24-month terms are available at adjusted rates.</p>
+    <div class="pricing" data-reveal>
+      <div class="tier"><strong>2-Page Spread</strong><p class="note">Editorial-scale presence</p><div class="price">$795<span>/mo</span></div></div>
+      <div class="tier"><strong>Full Page</strong><p class="note">Premium story + CTA</p><div class="price">$575<span>/mo</span></div></div>
+      <div class="tier"><strong>1/2 Page</strong><p class="note">Strong monthly presence</p><div class="price">$330<span>/mo</span></div></div>
+      <div class="tier"><strong>1/4 Page</strong><p class="note">Clean entry point</p><div class="price">$190<span>/mo</span></div></div>
+    </div>
+    <table class="pricing-table" data-reveal>
+      <thead><tr><th>Ad Size</th><th>12 months</th><th>24 months</th><th>36 months</th></tr></thead>
+      <tbody>
+        <tr><td>2-Page Spread</td><td>$995</td><td>$895</td><td>$795</td></tr>
+        <tr><td>Back Cover</td><td>$955</td><td>$860</td><td>$765</td></tr>
+        <tr><td>Inside Cover / Pg 2-3</td><td>$845</td><td>$760</td><td>$675</td></tr>
+        <tr><td>Full Page Standard</td><td>$720</td><td>$645</td><td>$575</td></tr>
+        <tr><td>1/2-Page Standard</td><td>$415</td><td>$370</td><td>$330</td></tr>
+        <tr><td>1/4-Page Standard</td><td>$240</td><td>$215</td><td>$190</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="slide slide--dark" id="start" data-theme="dark">
+  <div class="orb a"></div><div class="orb b"></div>
+  <div class="slide-inner">
+    <div class="eyebrow" data-reveal>Next steps</div>
+    <h2 class="title" data-reveal>Let’s turn local trust into a consistent presence.</h2>
+    <p class="subtitle" data-reveal>If this feels aligned, the next move is simple: choose the ad size, confirm term, and let the UY! team handle creative kickoff.</p>
+    <div class="grid two" data-reveal>
+      <div class="card"><h3>Ready to move forward</h3><ul><li>Pick placement and term</li><li>Confirm preferred contact path</li><li>Choose first story or education angle</li><li>Start creative design</li></ul></div>
+      <div class="card"><h3>Want to think it over</h3><ul><li>No pressure</li><li>Send this deck for review</li><li>Schedule a short follow-up</li><li>Keep the conversation practical</li></ul></div>
+    </div>
+    <div class="cta-row" data-reveal>
+      <a class="cta" href="https://portal.n2pub.com/credit_card_capture" target="_blank" rel="noopener">Set Up Billing</a>
+      <a class="cta secondary" href="https://portal.n2pub.com/agreement_builders" target="_blank" rel="noopener">Build Agreement</a>
+    </div>
+    <div class="footer-note">Will Sigmon · Area Director · will.sigmon@n2co.com</div>
+  </div>
+</section>
+
+<script>
+(function(){
+  const slides=[...document.querySelectorAll('.slide')];
+  const nav=[...document.querySelectorAll('#dotNav a')];
+  const reveal=[...document.querySelectorAll('[data-reveal]')];
+  const revealObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add('visible')})},{threshold:.18});
+  reveal.forEach(el=>revealObserver.observe(el));
+  const slideObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(!entry.isIntersecting)return;const idx=slides.indexOf(entry.target);nav.forEach((a,i)=>a.classList.toggle('active',i===idx));document.getElementById('dotNav').classList.toggle('on-dark',entry.target.dataset.theme==='dark')})},{threshold:.52});
+  slides.forEach(slide=>slideObserver.observe(slide));
+  document.addEventListener('keydown',e=>{if(!['ArrowDown','ArrowRight','ArrowUp','ArrowLeft'].includes(e.key))return;const current=slides.findIndex(s=>{const r=s.getBoundingClientRect();return r.top<=innerHeight*.5&&r.bottom>=innerHeight*.5});const next=(e.key==='ArrowDown'||e.key==='ArrowRight')?Math.min(slides.length-1,current+1):Math.max(0,current-1);slides[next]?.scrollIntoView({behavior:'smooth'});});
+})();
+</script>
+</body>
+</html>
