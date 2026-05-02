@@ -1,5 +1,6 @@
 import { createHash } from "node:crypto";
 import { NextResponse } from "next/server";
+import { sendReferralNotification } from "@/lib/notify-referral";
 
 const RATE_LIMIT_WINDOW = 60_000;
 const MAX_REQUESTS = 5;
@@ -353,6 +354,22 @@ export async function POST(request: Request) {
     await supabaseFetch("recommendation_submission_entries", {
       method: "POST",
       body: JSON.stringify(entryRows),
+    });
+
+    // Fire-and-forget email notification — never block the response
+    void sendReferralNotification({
+      submissionId: submission.id,
+      submitter_name: payload.submitter_name,
+      submitter_email: payload.submitter_email,
+      submitter_phone: payload.submitter_phone,
+      relationship_to_community: payload.relationship_to_community,
+      notes: payload.notes,
+      entries: entryRows.map((row) => ({
+        service_label: String(row.service_label ?? ""),
+        business_name: String(row.business_name ?? ""),
+        contact_name: (row.contact_name as string | null) ?? null,
+        contact_number: (row.contact_number as string | null) ?? null,
+      })),
     });
 
     return NextResponse.json({ ok: true, submissionId: submission.id });
