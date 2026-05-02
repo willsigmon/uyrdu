@@ -4,7 +4,7 @@ export const URLS = {
   subscribe:
     "https://docs.google.com/forms/d/e/1FAIpQLSeN2iwnRxln-1J6yIbN3_wlYqg133j2ITOige94Yw24e2bYsA/viewform",
   calendar: "https://calendar.app.google/oTFXRmKDFUDPcvmj6",
-  nominate: "https://uyraleighmetro.vercel.app/refer",
+  nominate: "https://uyrdu.com/refer",
   email: "mailto:will.sigmon@n2co.com",
   n2: "https://n2co.com/salute-and-uniquely-you/",
   national: "https://www.uniquelyyoumag.com",

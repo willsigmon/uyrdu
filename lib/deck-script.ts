@@ -16,6 +16,8 @@ const SCRIPT_MODULES: Record<string, () => Promise<{ default: DeckScript }>> = {
   globalcitizen: () => import("@/data/deck-scripts/globalcitizen"),
   gotchacovered: () => import("@/data/deck-scripts/gotchacovered"),
   inspiredinsights: () => import("@/data/deck-scripts/inspiredinsights"),
+  landy: () => import("@/data/deck-scripts/landy"),
+  mercalis: () => import("@/data/deck-scripts/mercalis"),
 };
 
 export async function readDeckScript(slug: string): Promise<DeckScript | null> {
