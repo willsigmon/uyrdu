@@ -31,7 +31,9 @@ const DECK_MODULES: Record<string, () => Promise<{ default: DeckData }>> = {
   cupcakesdamour: () => import("@/data/decks/cupcakesdamour"),
   globalcitizen: () => import("@/data/decks/globalcitizen"),
   gotchacovered: () => import("@/data/decks/gotchacovered"),
+  "benefit-therapy-services": () => import("@/data/decks/benefittherapyservices"),
   inspiredinsights: () => import("@/data/decks/inspiredinsights"),
+  "spacelift-raleigh": () => import("@/data/decks/spaceliftraleigh"),
 };
 
 export async function readDeckHtml(slug: string) {

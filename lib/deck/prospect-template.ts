@@ -1,0 +1,442 @@
+import type { DeckData, DeckNavItem } from "./types";
+
+type Tone = "accent" | "secondary" | "warm" | "deep";
+type Icon =
+  | "bridge"
+  | "calendar"
+  | "compass"
+  | "heart"
+  | "home"
+  | "map"
+  | "megaphone"
+  | "people"
+  | "shield"
+  | "spark"
+  | "story";
+
+interface ThemeConfig {
+  readonly paper: string;
+  readonly dark: string;
+  readonly darkMid: string;
+  readonly body: string;
+  readonly muted: string;
+  readonly accent: string;
+  readonly accentDeep: string;
+  readonly secondary: string;
+  readonly secondaryDeep: string;
+  readonly warm: string;
+  readonly warmDeep: string;
+}
+
+interface DeckCard {
+  readonly title: string;
+  readonly body: string;
+  readonly icon: Icon;
+  readonly tone: Tone;
+}
+
+interface TimelineItem extends DeckCard {
+  readonly kicker?: string;
+}
+
+interface PartnershipLevel {
+  readonly label: string;
+  readonly title: string;
+  readonly body: string;
+  readonly icon: Icon;
+  readonly tone: Tone;
+  readonly bullets: readonly string[];
+}
+
+interface ProspectDeckConfig {
+  readonly title: string;
+  readonly partnerName: string;
+  readonly partnerLabel: string;
+  readonly prospectName: string;
+  readonly prospectRole: string;
+  readonly theme: ThemeConfig;
+  readonly cover: {
+    readonly lineOne: string;
+    readonly lineTwo: string;
+    readonly lineThree: string;
+    readonly subtitle: string;
+    readonly pillars: readonly DeckCard[];
+    readonly footerLeft: string;
+    readonly footerRight: string;
+  };
+  readonly opportunity: {
+    readonly heading: string;
+    readonly quoteBefore: string;
+    readonly quoteEmphasis: string;
+    readonly quoteAfter: string;
+    readonly attribution: string;
+    readonly timeline: readonly TimelineItem[];
+  };
+  readonly platform: {
+    readonly heading: string;
+    readonly subtitle: string;
+    readonly cards: readonly DeckCard[];
+  };
+  readonly benefits: {
+    readonly heading: string;
+    readonly cards: readonly DeckCard[];
+  };
+  readonly partnership: {
+    readonly heading: string;
+    readonly subtitle: string;
+    readonly levels: readonly PartnershipLevel[];
+  };
+  readonly pricing: {
+    readonly heading: string;
+    readonly subtitle: string;
+    readonly premiumNote: string;
+    readonly fullPageNote: string;
+    readonly standardNote: string;
+    readonly entryNote: string;
+  };
+  readonly start: {
+    readonly heading: string;
+    readonly subtitle: string;
+    readonly steps: readonly string[];
+  };
+}
+
+const NAV_ITEMS: readonly DeckNavItem[] = [
+  { href: "#cover", label: "Cover" },
+  { href: "#why", label: "Opportunity" },
+  { href: "#what", label: "Publication" },
+  { href: "#synergy", label: "Benefits" },
+  { href: "#partnership", label: "Partnership" },
+  { href: "#pricing", label: "Pricing" },
+  { href: "#start", label: "Next Steps" },
+];
+
+const PRICE_ROWS = [
+  ["2-Page Spread", "$995", "$895", "$795"],
+  ["Back Cover", "$955", "$860", "$765"],
+  ["Inside Cover / Pg 2-3", "$845", "$760", "$675"],
+  ["Full Page Standard", "$720", "$645", "$575"],
+  ["1/2-Page Standard", "$415", "$370", "$330"],
+  ["1/4-Page Premium Sponsorship", "$415", "$370", "$330"],
+  ["1/3-Page Standard", "$320", "$285", "$255"],
+  ["1/4-Page Standard", "$240", "$215", "$190"],
+] as const;
+
+function escapeHtml(value: string): string {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function iconSvg(icon: Icon): string {
+  const attrs = 'viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"';
+  const paths: Record<Icon, string> = {
+    bridge: '<path d="M5 19V9a7 7 0 0 1 14 0v10"/><path d="M3 19h18"/><path d="M8 19v-6"/><path d="M16 19v-6"/><path d="M9 9h6"/>',
+    calendar: '<rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/><path d="M8 15h3"/><path d="M13 15h3"/>',
+    compass: '<circle cx="12" cy="12" r="10"/><path d="m16 8-2.3 5.7L8 16l2.3-5.7L16 8Z"/>',
+    heart: '<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/>',
+    home: '<path d="m3 10 9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/>',
+    map: '<path d="M9 18 3 21V6l6-3 6 3 6-3v15l-6 3-6-3Z"/><path d="M9 3v15"/><path d="M15 6v15"/>',
+    megaphone: '<path d="m3 11 18-5v12L3 13v-2Z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/>',
+    people: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9"/><path d="M16 3.1a4 4 0 0 1 0 7.8"/>',
+    shield: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/>',
+    spark: '<path d="M12 2 14.5 9.5 22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5L12 2Z"/>',
+    story: '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/><path d="M9 7h7"/><path d="M9 11h5"/>',
+  };
+
+  return `<svg ${attrs}>${paths[icon]}</svg>`;
+}
+
+function renderCard(card: DeckCard, className: string): string {
+  return `<article class="${className} tone-${card.tone}" data-reveal="up">
+    <div class="card-mark">${iconSvg(card.icon)}</div>
+    <h3>${escapeHtml(card.title)}</h3>
+    <p>${escapeHtml(card.body)}</p>
+  </article>`;
+}
+
+function renderTimeline(items: readonly TimelineItem[]): string {
+  return `<div class="s2-timeline" id="s2Timeline">
+    ${items
+      .map(
+        (item, index) => `<div class="s2-tl-item tone-${item.tone}" data-reveal="up" data-delay="${600 + index * 160}">
+          <div class="s2-tl-dot">${iconSvg(item.icon)}</div>
+          ${item.kicker ? `<div class="mini-kicker">${escapeHtml(item.kicker)}</div>` : ""}
+          <div class="s2-tl-title">${escapeHtml(item.title)}</div>
+          <div class="s2-tl-desc">${escapeHtml(item.body)}</div>
+        </div>`
+      )
+      .join("")}
+  </div>`;
+}
+
+function renderPartnershipLevels(levels: readonly PartnershipLevel[]): string {
+  return `<div class="s7-staircase">
+    ${levels
+      .map(
+        (level, index) => `<article class="s7-step s7-step--${index + 1} tone-${level.tone}" data-reveal="up" data-delay="${380 + index * 180}">
+          <div class="s7-level-label">${escapeHtml(level.label)}</div>
+          <div class="s7-step-icon">${iconSvg(level.icon)}</div>
+          <h3>${escapeHtml(level.title)}</h3>
+          <p>${escapeHtml(level.body)}</p>
+          <ul class="s7-step-items">${level.bullets.map((bullet) => `<li>${escapeHtml(bullet)}</li>`).join("")}</ul>
+        </article>`
+      )
+      .join("")}
+  </div>`;
+}
+
+function renderPricing(config: ProspectDeckConfig["pricing"]): string {
+  const rows = PRICE_ROWS.map(
+    ([name, oneYear, twoYear, threeYear]) =>
+      `<tr><td>${name}</td><td>${oneYear}</td><td>${twoYear}</td><td class="popular-col"><strong>${threeYear}</strong></td></tr>`
+  ).join("");
+
+  return `<section class="slide slide--paper" id="pricing" data-slide-index="5" data-theme="light" data-has-tier-reveal="true">
+    <div class="slide-inner">
+      <div class="section-eyebrow" data-reveal="up">Partnership menu</div>
+      <h2 class="section-title" data-reveal="up" data-delay="100" style="max-width:none;">${escapeHtml(config.heading)}</h2>
+      <p class="section-subtitle" data-reveal="up" data-delay="180">${escapeHtml(config.subtitle)}</p>
+      <div class="pricing-runway" data-reveal="up" data-delay="300">
+        <div class="tier-panel tier-panel--premium" id="tier1"><div class="tier-label">Premium Placement</div><div class="tier-cards"><div class="tier-card"><div class="tier-card-name">2-Page Spread</div><div class="tier-card-price">$795<span>/mo</span></div><div class="tier-card-desc">${escapeHtml(config.premiumNote)}</div><span class="tier-term-badge">36 months</span></div><div class="tier-card"><div class="tier-card-name">Back Cover</div><div class="tier-card-price">$765<span>/mo</span></div><div class="tier-card-desc">Mailbox-first visibility for a category-of-one local story</div><span class="tier-term-badge">36 months</span></div></div><a class="tier-skip" href="#start">Ready? Let's go &rarr;</a></div>
+        <div class="tier-panel tier-panel--fullpage" id="tier2"><div class="tier-label">Full Page Options</div><div class="tier-cards"><div class="tier-card"><div class="tier-card-name">Inside Cover / Page 2-3</div><div class="tier-card-price">$675<span>/mo</span></div><div class="tier-card-desc">${escapeHtml(config.fullPageNote)}</div><span class="tier-term-badge">36 months</span></div><div class="tier-card"><div class="tier-card-name">Full Page Standard</div><div class="tier-card-price">$575<span>/mo</span></div><div class="tier-card-desc">Strong monthly authority presence with room for useful education</div><span class="tier-term-badge">36 months</span></div></div><a class="tier-skip" href="#start">Ready? Let's go &rarr;</a></div>
+        <div class="tier-panel tier-panel--standard" id="tier3"><div class="tier-label">Our Most Popular</div><div class="tier-cards"><div class="tier-card"><div class="tier-card-name">1/2-Page Standard</div><div class="tier-card-price">$330<span>/mo</span></div><div class="tier-card-desc">${escapeHtml(config.standardNote)}</div><span class="tier-term-badge">36 months</span></div><div class="tier-card"><div class="tier-card-name">1/4-Page Premium Sponsorship</div><div class="tier-card-price">$330<span>/mo</span></div><div class="tier-card-desc">Affordable, prominent sponsorship in the issue</div><span class="tier-term-badge">36 months</span></div></div><a class="tier-skip" href="#start">Ready? Let's go &rarr;</a></div>
+        <div class="tier-panel tier-panel--entry" id="tier4"><div class="tier-label">Entry Options</div><div class="tier-cards"><div class="tier-card"><div class="tier-card-name">1/3-Page Standard</div><div class="tier-card-price">$255<span>/mo</span></div><div class="tier-card-desc">${escapeHtml(config.entryNote)}</div><span class="tier-term-badge">36 months</span></div><div class="tier-card"><div class="tier-card-name">1/4-Page Standard</div><div class="tier-card-price">$190<span>/mo</span></div><div class="tier-card-desc">Clean entry point with professional creative handled for you</div><span class="tier-term-badge">36 months</span></div></div><a class="tier-skip" href="#start">Ready? Let's go &rarr;</a></div>
+      </div>
+      <div style="text-align:center;"><button id="tierNextBtn">See more options &rarr;</button></div>
+      <div id="tierSummary"><table class="rate-table"><thead><tr><th>Ad Size</th><th>12 months</th><th>24 months</th><th class="popular-header">36 months</th></tr></thead><tbody>${rows}</tbody></table></div>
+    </div>
+  </section>`;
+}
+
+function buildCss(theme: ThemeConfig): string {
+  return `
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --paper: ${theme.paper}; --dark: ${theme.dark}; --dark-mid: ${theme.darkMid}; --body: ${theme.body}; --muted: ${theme.muted};
+  --accent: ${theme.accent}; --accent-deep: ${theme.accentDeep}; --secondary: ${theme.secondary}; --secondary-deep: ${theme.secondaryDeep}; --warm: ${theme.warm}; --warm-deep: ${theme.warmDeep};
+  --accent-soft: color-mix(in srgb, var(--accent) 14%, white); --secondary-soft: color-mix(in srgb, var(--secondary) 16%, white); --warm-soft: color-mix(in srgb, var(--warm) 18%, white); --deep-soft: color-mix(in srgb, var(--dark-mid) 12%, white);
+  --rule: rgba(10, 27, 45, 0.12); --spring: cubic-bezier(0.34, 1.56, 0.64, 1); --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --display: 'Fraunces', 'Playfair Display', Georgia, serif; --sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+html { scroll-snap-type: y mandatory; scroll-behavior: smooth; overflow-x: hidden; }
+body { font-family: var(--sans); color: var(--body); background: var(--paper); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+h1, h2, h3 { font-family: var(--display); font-weight: 600; letter-spacing: -0.018em; }
+.rainbow-bar { position: fixed; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, var(--accent), var(--secondary), var(--warm), var(--accent)); background-size: 200% 100%; animation: shimmer 7s linear infinite; z-index: 1000; }
+@keyframes shimmer { to { background-position: -200% 0; } }
+.dot-nav { position: fixed; right: 24px; top: 50%; transform: translateY(-50%); z-index: 999; display: flex; flex-direction: column; gap: 14px; }
+.dot-nav a { width: 10px; height: 10px; border-radius: 50%; border: 2px solid rgba(12, 22, 41, 0.32); background: transparent; cursor: pointer; transition: all .25s ease; position: relative; display: block; text-decoration: none; }
+.dot-nav a::after { content: attr(data-label); position: absolute; right: 22px; top: 50%; transform: translateY(-50%); background: var(--dark); color: #fff; font-size: .75rem; font-weight: 700; padding: 4px 10px; border-radius: 6px; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity .2s ease; }
+.dot-nav a:hover::after { opacity: 1; }
+.dot-nav.on-dark a { border-color: rgba(255,255,255,.44); }
+.dot-nav.on-dark a::after { background: #fff; color: var(--dark); }
+.dot-nav a.active { background: var(--dark); border-color: var(--dark); transform: scale(1.4); }
+.dot-nav.on-dark a.active { background: #fff; border-color: #fff; }
+#portrait-warning { display: none; }
+.slide { width: 100vw; min-height: 100vh; height: 100vh; max-height: 100vh; scroll-snap-align: start; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; padding: 38px 64px; }
+.slide--dark { background: radial-gradient(circle at 20% 10%, color-mix(in srgb, var(--accent) 28%, transparent), transparent 34%), linear-gradient(135deg, #06101f 0%, var(--dark) 52%, var(--dark-mid) 100%); color: #fff; }
+.slide--paper { background: var(--paper); color: var(--body); }
+.slide-inner { max-width: 1180px; width: 100%; height: 100%; position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: center; gap: 16px; }
+.orb { position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none; opacity: .38; }
+.orb-a { width: 360px; height: 360px; background: var(--accent); top: -120px; right: -80px; }
+.orb-b { width: 280px; height: 280px; background: var(--warm); bottom: -120px; left: 8%; opacity: .2; }
+[data-reveal] { opacity: 0; will-change: opacity, transform; transition: opacity .7s ease, transform .8s var(--spring); transform: translateY(34px); }
+[data-reveal="scale"] { transform: scale(.9); }
+[data-reveal="fade"] { transform: none; }
+@keyframes forceReveal { to { opacity: 1; transform: none; } }
+[data-reveal] { animation: forceReveal 0s 1s forwards; }
+[data-reveal].visible { opacity: 1 !important; transform: none !important; }
+.tone-accent { --tone: var(--accent); --tone-soft: var(--accent-soft); }
+.tone-secondary { --tone: var(--secondary); --tone-soft: var(--secondary-soft); }
+.tone-warm { --tone: var(--warm); --tone-soft: var(--warm-soft); }
+.tone-deep { --tone: var(--dark-mid); --tone-soft: var(--deep-soft); }
+.cover-gradient-strip { width: 100%; height: 4px; border-radius: 99px; background: linear-gradient(90deg, var(--accent), var(--secondary), var(--warm), var(--accent)); background-size: 200% 100%; animation: shimmer 6s linear infinite; margin-bottom: 20px; }
+.cover-logos { display: flex; align-items: center; gap: 18px; margin-bottom: 16px; }
+.uy-mark { display: inline-flex; align-items: center; justify-content: center; background: var(--accent); color: #fff; font-family: var(--display); font-size: 1.65rem; font-weight: 700; padding: 10px 22px; border-radius: 14px; box-shadow: 0 12px 32px color-mix(in srgb, var(--accent) 35%, transparent); }
+.logo-divider { width: 2px; height: 42px; background: rgba(255,255,255,.14); border-radius: 99px; }
+.partner-logotype { color: rgba(255,255,255,.82); font-size: 1rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.cover-title { font-size: clamp(2.35rem, 4.9vw, 4.65rem); line-height: 1.03; color: #fff; max-width: 920px; }
+.cover-title span { display: block; }
+.cover-title .line-1 { color: rgba(255,255,255,.64); font-style: italic; font-weight: 400; }
+.cover-title .line-2 { color: #fff; }
+.cover-title .line-3 { color: var(--warm); }
+.cover-subtitle { font-size: clamp(1rem, 1.65vw, 1.18rem); color: rgba(255,255,255,.74); max-width: 720px; line-height: 1.65; margin-top: 8px; }
+.cover-pillar-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; max-width: 980px; margin-top: 18px; }
+.cover-pillar { border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.055); backdrop-filter: blur(12px); border-radius: 18px; padding: 18px; }
+.cover-pillar .card-mark { margin-bottom: 10px; background: rgba(255,255,255,.1); color: var(--warm); }
+.cover-pillar h3 { font-family: var(--sans); font-size: .95rem; color: #fff; margin-bottom: 4px; letter-spacing: 0; }
+.cover-pillar p { font-size: .86rem; color: rgba(255,255,255,.66); line-height: 1.55; }
+.cover-footer { display: flex; justify-content: space-between; gap: 20px; color: rgba(255,255,255,.42); font-size: .84rem; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.1); max-width: 980px; }
+.section-eyebrow { font-size: .76rem; font-weight: 800; text-transform: uppercase; letter-spacing: .15em; color: var(--accent-deep); }
+.section-title { font-size: clamp(1.9rem, 3.3vw, 2.7rem); line-height: 1.14; color: var(--dark); max-width: 820px; }
+.section-subtitle { font-size: 1.03rem; color: var(--muted); max-width: 760px; line-height: 1.62; }
+.s2-quote { font-family: var(--display); font-size: clamp(1.28rem, 2.35vw, 1.8rem); line-height: 1.34; color: var(--dark); text-align: center; max-width: 980px; margin: 0 auto 8px; font-style: italic; }
+.s2-quote-em { color: var(--accent-deep); font-weight: 700; font-style: normal; }
+.s2-author { text-align: center; color: var(--accent-deep); font-weight: 800; font-size: .88rem; letter-spacing: .04em; margin-bottom: 18px; }
+.s2-timeline { display: flex; align-items: flex-start; position: relative; padding: 0 16px; gap: 14px; }
+.s2-timeline::before { content: ''; position: absolute; top: 28px; left: 70px; right: 70px; height: 3px; background: linear-gradient(90deg, var(--accent), var(--secondary), var(--warm)); border-radius: 99px; z-index: 0; clip-path: inset(0 100% 0 0); transition: clip-path 1.1s var(--ease-out-expo); }
+.s2-timeline.line-drawn::before { clip-path: inset(0); }
+.s2-tl-item { flex: 1; text-align: center; position: relative; z-index: 1; }
+.s2-tl-dot, .card-mark, .s7-step-icon { width: 54px; height: 54px; border-radius: 16px; display: inline-flex; align-items: center; justify-content: center; background: var(--tone-soft); color: var(--tone); box-shadow: 0 8px 24px rgba(12,22,41,.07); }
+.s2-tl-dot svg, .card-mark svg, .s7-step-icon svg { width: 25px; height: 25px; }
+.mini-kicker { margin-top: 12px; font-size: .68rem; text-transform: uppercase; letter-spacing: .12em; color: var(--tone); font-weight: 800; }
+.s2-tl-title { font-family: var(--display); font-weight: 700; font-size: 1.18rem; color: var(--dark); margin: 7px 0 5px; }
+.s2-tl-desc { font-size: .9rem; color: var(--muted); line-height: 1.55; max-width: 285px; margin: 0 auto; }
+.s3-infographic { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 18px; }
+.s3-viz { text-align: center; }
+.s3-viz-mark { width: 154px; height: 154px; border-radius: 50%; border: 18px solid var(--tone-soft); color: var(--tone); display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; position: relative; }
+.s3-viz-mark strong { font-family: var(--display); font-size: 3.3rem; line-height: 1; color: var(--tone); }
+.s3-viz-mark span { font-weight: 800; font-size: .86rem; color: var(--muted); display: block; text-transform: uppercase; letter-spacing: .08em; }
+.s3-viz-label { font-family: var(--display); font-size: 1.14rem; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
+.s3-viz-desc { font-size: .9rem; color: var(--muted); line-height: 1.52; max-width: 225px; margin: 0 auto; }
+.card-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.platform-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.benefit-card, .platform-card, .s7-step { background: #fff; border: 1px solid var(--rule); border-radius: 18px; padding: 24px; box-shadow: 0 10px 34px rgba(12,22,41,.055); position: relative; overflow: hidden; }
+.benefit-card::before, .platform-card::before { content: ''; position: absolute; inset: 0 0 auto; height: 4px; background: linear-gradient(90deg, var(--tone), var(--warm)); }
+.benefit-card .card-mark, .platform-card .card-mark { margin-bottom: 14px; }
+.benefit-card h3, .platform-card h3 { font-family: var(--display); color: var(--dark); font-size: 1.12rem; margin-bottom: 8px; }
+.benefit-card p, .platform-card p, .s7-step p { color: var(--muted); font-size: .9rem; line-height: 1.58; }
+.s7-staircase { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; align-items: flex-start; }
+.s7-step--1 { margin-top: 58px; } .s7-step--2 { margin-top: 29px; }
+.s7-level-label { font-size: .7rem; font-weight: 900; text-transform: uppercase; letter-spacing: .14em; color: var(--tone); margin-bottom: 14px; }
+.s7-step-icon { margin-bottom: 14px; }
+.s7-step h3 { color: var(--dark); font-size: 1.18rem; margin-bottom: 8px; }
+.s7-step-items { list-style: none; display: flex; flex-direction: column; gap: 7px; margin-top: 14px; }
+.s7-step-items li { font-size: .84rem; color: var(--body); line-height: 1.44; padding-left: 17px; position: relative; }
+.s7-step-items li::before { content: '→'; position: absolute; left: 0; color: var(--tone); font-weight: 900; }
+.pricing-runway { display: flex; gap: 15px; align-items: stretch; min-height: 255px; }
+.tier-panel { flex: 0; min-width: 0; max-width: 0; opacity: 0; overflow: hidden; border-radius: 20px; padding: 0; display: flex; flex-direction: column; gap: 16px; transition: flex .6s var(--ease-out-expo), max-width .6s var(--ease-out-expo), opacity .5s ease .1s, padding .4s ease; }
+.tier-panel.tier-visible { flex: 1; max-width: 100%; opacity: 1; padding: 24px; }
+.tier-panel--premium { background: linear-gradient(135deg, var(--dark-mid), var(--dark)); color: #fff; }
+.tier-panel--fullpage { background: linear-gradient(135deg, color-mix(in srgb, var(--warm) 22%, white), #fff7e5); color: var(--body); border: 1px solid color-mix(in srgb, var(--warm) 32%, transparent); }
+.tier-panel--standard { background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 14%, white), #fff); color: var(--body); border: 1px solid color-mix(in srgb, var(--accent) 28%, transparent); }
+.tier-panel--entry { background: linear-gradient(135deg, color-mix(in srgb, var(--secondary) 16%, white), #fff); color: var(--body); border: 1px solid color-mix(in srgb, var(--secondary) 28%, transparent); }
+.tier-label { font-family: var(--display); font-weight: 700; font-size: .75rem; text-transform: uppercase; letter-spacing: .14em; margin-bottom: 2px; }
+.tier-cards { display: flex; gap: 13px; flex: 1; }
+.tier-card { flex: 1; border-radius: 15px; padding: 20px 17px; text-align: center; display: flex; flex-direction: column; justify-content: center; background: rgba(255,255,255,.76); box-shadow: 0 2px 9px rgba(12,22,41,.05); }
+.tier-panel--premium .tier-card { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12); }
+.tier-card-name { font-family: var(--display); font-weight: 700; font-size: 1rem; margin-bottom: 4px; }
+.tier-card-price { font-family: var(--display); font-weight: 800; font-size: 2rem; line-height: 1; margin: 6px 0; color: var(--accent-deep); }
+.tier-panel--premium .tier-card-price { color: var(--warm); }
+.tier-card-price span { font-size: .82rem; font-family: var(--sans); font-weight: 600; opacity: .7; }
+.tier-card-desc { font-size: .79rem; line-height: 1.48; color: var(--muted); margin-top: 4px; }
+.tier-panel--premium .tier-card-desc { color: rgba(255,255,255,.66); }
+.tier-term-badge { display: inline-block; align-self: center; font-size: .63rem; font-weight: 900; text-transform: uppercase; letter-spacing: .1em; padding: 3px 10px; border-radius: 99px; margin-top: 8px; background: color-mix(in srgb, var(--accent) 13%, white); color: var(--accent-deep); }
+.tier-skip { display: inline-block; align-self: center; margin-top: auto; padding: 8px 18px; border-radius: 30px; font-size: .8rem; font-weight: 800; text-decoration: none; color: inherit; border: 1px solid currentColor; opacity: .74; transition: all .2s ease; }
+.tier-skip:hover { opacity: 1; transform: translateY(-2px); }
+#tierNextBtn { margin: 12px auto 0; background: var(--dark); color: #fff; border: 0; border-radius: 99px; padding: 11px 22px; font-family: var(--sans); font-weight: 900; cursor: pointer; transition: transform .2s var(--spring), box-shadow .2s ease; }
+#tierNextBtn:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(12,22,41,.18); }
+#tierSummary { max-height: 0; overflow: hidden; opacity: 0; transition: max-height .6s ease, opacity .4s ease; }
+#tierSummary.summary-visible { max-height: 520px; opacity: 1; }
+.rate-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 14px; overflow: hidden; box-shadow: 0 8px 28px rgba(12,22,41,.07); font-size: .82rem; }
+.rate-table th, .rate-table td { padding: 9px 13px; text-align: left; border-bottom: 1px solid var(--rule); }
+.rate-table th { background: var(--dark); color: #fff; font-weight: 800; }
+.rate-table .popular-header, .rate-table .popular-col { background: var(--accent-soft); color: var(--accent-deep); }
+.s8-diagonal { position: absolute; top: -80px; right: -200px; width: 620px; height: 620px; background: rgba(255,255,255,.025); transform: rotate(35deg); border-radius: 62px; pointer-events: none; }
+.s8-title { color: #fff; font-size: clamp(1.9rem, 3.2vw, 2.7rem); line-height: 1.14; max-width: 850px; }
+.next-card { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); border-radius: 20px; padding: 24px; max-width: 920px; }
+.next-card p { color: rgba(255,255,255,.74); line-height: 1.62; font-size: 1rem; margin-bottom: 14px; }
+.next-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; list-style: none; }
+.next-steps li { background: rgba(255,255,255,.08); border-radius: 14px; padding: 15px; color: rgba(255,255,255,.84); font-size: .9rem; line-height: 1.45; }
+.s8-rainbow { position: absolute; bottom: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, var(--accent), var(--secondary), var(--warm), var(--accent)); background-size: 200% 100%; animation: shimmer 7s linear infinite; }
+@media (max-width: 900px) {
+  html { scroll-snap-type: none; }
+  .slide { height: auto; min-height: 100vh; max-height: none; padding: 40px 24px; }
+  .dot-nav { display: none; }
+  .cover-pillar-row, .s3-infographic, .platform-grid, .card-grid, .s7-staircase, .next-steps { grid-template-columns: 1fr; }
+  .s2-timeline { flex-direction: column; gap: 24px; }
+  .s2-timeline::before { display: none; }
+  .s7-step--1, .s7-step--2 { margin-top: 0; }
+  .pricing-runway, .tier-cards, .cover-footer { flex-direction: column; }
+  .tier-panel, .tier-panel.tier-visible { max-width: none; opacity: 1; flex: 1; padding: 22px; }
+  #tierNextBtn { display: none; }
+  #tierSummary { max-height: none; opacity: 1; }
+}
+@media (orientation: portrait) and (min-width: 700px) {
+  #portrait-warning { position: fixed; inset: 0; z-index: 2000; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 32px; background: var(--dark); color: #fff; }
+  .pw-title { font-family: var(--display); font-size: 1.8rem; margin-bottom: 8px; }
+  .pw-body { color: rgba(255,255,255,.68); }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; scroll-behavior: auto !important; } }
+`;
+}
+
+function renderSlides(config: ProspectDeckConfig): string {
+  return `
+<section class="slide slide--dark" id="cover" data-slide-index="0" data-theme="dark">
+  <div class="orb orb-a"></div><div class="orb orb-b"></div>
+  <div class="slide-inner">
+    <div class="cover-gradient-strip"></div>
+    <div class="cover-logos" data-reveal="up">
+      <div class="uy-mark">UY!</div><div class="logo-divider"></div><div class="partner-logotype">${escapeHtml(config.partnerLabel)}</div>
+    </div>
+    <h1 class="cover-title" data-reveal="up" data-delay="120"><span class="line-1">${escapeHtml(config.cover.lineOne)}</span><span class="line-2">${escapeHtml(config.cover.lineTwo)}</span><span class="line-3">${escapeHtml(config.cover.lineThree)}</span></h1>
+    <p class="cover-subtitle" data-reveal="up" data-delay="220">${escapeHtml(config.cover.subtitle)}</p>
+    <div class="cover-pillar-row">${config.cover.pillars.map((card, index) => `<div class="cover-pillar tone-${card.tone}" data-reveal="up" data-delay="${330 + index * 110}"><div class="card-mark">${iconSvg(card.icon)}</div><h3>${escapeHtml(card.title)}</h3><p>${escapeHtml(card.body)}</p></div>`).join("")}</div>
+    <div class="cover-footer" data-reveal="fade" data-delay="720"><span>${escapeHtml(config.cover.footerLeft)}</span><span>${escapeHtml(config.cover.footerRight)}</span></div>
+  </div>
+</section>
+<section class="slide slide--paper" id="why" data-slide-index="1" data-theme="light">
+  <div class="slide-inner">
+    <div class="section-eyebrow" data-reveal="up" style="text-align:center;">Why this audience</div>
+    <h2 class="section-title" data-reveal="up" data-delay="100" style="text-align:center;margin-left:auto;margin-right:auto;">${escapeHtml(config.opportunity.heading)}</h2>
+    <div class="s2-quote" data-reveal="scale" data-delay="280">&ldquo;${escapeHtml(config.opportunity.quoteBefore)} <span class="s2-quote-em">${escapeHtml(config.opportunity.quoteEmphasis)}</span> ${escapeHtml(config.opportunity.quoteAfter)}&rdquo;</div>
+    <p class="s2-author" data-reveal="fade" data-delay="430">-- ${escapeHtml(config.opportunity.attribution)}</p>
+    ${renderTimeline(config.opportunity.timeline)}
+  </div>
+</section>
+<section class="slide slide--paper" id="what" data-slide-index="2" data-theme="light">
+  <div class="slide-inner">
+    <div class="section-eyebrow" data-reveal="up">The publication</div>
+    <h2 class="section-title" data-reveal="up" data-delay="100">${escapeHtml(config.platform.heading)}</h2>
+    <p class="section-subtitle" data-reveal="up" data-delay="180">${escapeHtml(config.platform.subtitle)}</p>
+    <div class="s3-infographic">
+      <div class="s3-viz tone-accent" data-reveal="scale" data-delay="300"><div class="s3-viz-mark"><div><span>1 in</span><strong>4</strong></div></div><div class="s3-viz-label">Prevalence</div><div class="s3-viz-desc">U.S. adults live with a disability</div></div>
+      <div class="s3-viz tone-secondary" data-reveal="scale" data-delay="430"><div class="s3-viz-mark"><div><span>Every</span><strong>mo</strong></div></div><div class="s3-viz-label">Frequency</div><div class="s3-viz-desc">Free monthly print publication</div></div>
+      <div class="s3-viz tone-warm" data-reveal="scale" data-delay="560"><div class="s3-viz-mark"><div><span>RDU</span><strong>5</strong></div></div><div class="s3-viz-label">Coverage</div><div class="s3-viz-desc">Counties across the Triangle</div></div>
+    </div>
+    <div class="platform-grid">${config.platform.cards.map((card, index) => renderCard(card, "platform-card").replace('data-reveal="up"', `data-reveal="up" data-delay="${680 + index * 120}"`)).join("")}</div>
+  </div>
+</section>
+<section class="slide slide--paper" id="synergy" data-slide-index="3" data-theme="light">
+  <div class="slide-inner">
+    <div class="section-eyebrow" data-reveal="up" style="text-align:center;">Partner value</div>
+    <h2 class="section-title" data-reveal="up" data-delay="100" style="max-width:none;text-align:center;margin-left:auto;margin-right:auto;">${escapeHtml(config.benefits.heading)}</h2>
+    <div class="card-grid">${config.benefits.cards.map((card, index) => renderCard(card, "benefit-card").replace('data-reveal="up"', `data-reveal="up" data-delay="${300 + index * 110}"`)).join("")}</div>
+  </div>
+</section>
+<section class="slide slide--paper" id="partnership" data-slide-index="4" data-theme="light">
+  <div class="slide-inner">
+    <div class="section-eyebrow" data-reveal="up">The offer stack</div>
+    <h2 class="section-title" data-reveal="up" data-delay="100">${escapeHtml(config.partnership.heading)}</h2>
+    <p class="section-subtitle" data-reveal="up" data-delay="180">${escapeHtml(config.partnership.subtitle)}</p>
+    ${renderPartnershipLevels(config.partnership.levels)}
+  </div>
+</section>
+${renderPricing(config.pricing)}
+<section class="slide slide--dark" id="start" data-slide-index="6" data-theme="dark">
+  <div class="s8-diagonal"></div><div class="orb orb-a"></div>
+  <div class="slide-inner">
+    <div class="section-eyebrow" data-reveal="up" style="color:rgba(255,255,255,.62);">Next steps</div>
+    <h2 class="s8-title" data-reveal="up" data-delay="100">${escapeHtml(config.start.heading)}</h2>
+    <div class="next-card" data-reveal="up" data-delay="240">
+      <p>${escapeHtml(config.start.subtitle)}</p>
+      <ul class="next-steps">${config.start.steps.map((step) => `<li>${escapeHtml(step)}</li>`).join("")}</ul>
+    </div>
+  </div>
+  <div class="s8-rainbow"></div>
+</section>`;
+}
+
+export function createProspectDeck(config: ProspectDeckConfig): DeckData {
+  return {
+    title: config.title,
+    navClass: "dot-nav on-dark",
+    navItems: NAV_ITEMS,
+    css: buildCss(config.theme),
+    slidesHtml: renderSlides(config),
+  };
+}

@@ -13,11 +13,13 @@ export type DeckScript = {
 const SCRIPT_SLUG_PATTERN = /^[a-z0-9-]+$/;
 
 const SCRIPT_MODULES: Record<string, () => Promise<{ default: DeckScript }>> = {
+  "benefit-therapy-services": () => import("@/data/deck-scripts/benefittherapyservices"),
   globalcitizen: () => import("@/data/deck-scripts/globalcitizen"),
   gotchacovered: () => import("@/data/deck-scripts/gotchacovered"),
   inspiredinsights: () => import("@/data/deck-scripts/inspiredinsights"),
   landy: () => import("@/data/deck-scripts/landy"),
   mercalis: () => import("@/data/deck-scripts/mercalis"),
+  "spacelift-raleigh": () => import("@/data/deck-scripts/spaceliftraleigh"),
 };
 
 export async function readDeckScript(slug: string): Promise<DeckScript | null> {
