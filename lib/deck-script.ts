@@ -290,7 +290,7 @@ tr:last-child td { border-bottom: none; }
 <body>
 <main>
   ${bio}
-  <div class="eyebrow">Pre-deck talk track · prospect dossier</div>
+  <div class="eyebrow">Meeting talk track · prospect dossier</div>
   <h1>${escapeHtml(script.title)}</h1>
   ${sub}
   ${body}

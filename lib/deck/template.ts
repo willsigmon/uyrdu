@@ -9,7 +9,7 @@ const PORTRAIT_WARNING = `
     <path d="M8 32l4-4 4 4" stroke="var(--teal)" stroke-width="2.5"/>
   </svg>
   <div class="pw-title">Rotate for the full experience</div>
-  <p class="pw-body">This pitch deck is built for landscape or desktop viewing.</p>
+  <p class="pw-body">This partnership guide is easiest to review on a wider screen.</p>
 </div>`;
 
 function buildNav(data: DeckData): string {

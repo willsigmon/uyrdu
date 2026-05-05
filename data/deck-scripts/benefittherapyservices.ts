@@ -2,7 +2,7 @@ import type { DeckScript } from "@/lib/deck-script";
 
 const script: DeckScript = {
   title: "Rapport Script — Elizabeth Linde, Benefit Therapy Services",
-  subtitle: "Pre-deck talk track · internal use only",
+  subtitle: "Pre-meeting talk track · internal use only",
   prospect: {
     name: "Elizabeth Linde",
     role: "Marketing and Referral Coordinator · Benefit Therapy Services",
@@ -10,7 +10,7 @@ const script: DeckScript = {
   },
   body: `
 ## The frame
-Setting: coffee, phone, or Zoom. ~10–15 minutes before the deck. **Goal: understand referral priorities before showing the partnership.**
+Setting: coffee, phone, or Zoom. ~10–15 minutes before the partnership guide. **Goal: understand referral priorities before showing the partnership guide.**
 
 ---
 
@@ -52,27 +52,27 @@ Pick two or three.
 **Q4 — Partner audience:**
 > “Who influences the best referrals for you — parents, pediatricians, schools, care coordinators, nonprofits, or another group?”
 
-**Signals → deck slide to emphasize:**
+**Signals → guide section to emphasize:**
 
 | She says… | Lean into |
 |---|---|
 | “Families don’t know where to start” | Therapy explainer series / Authority tier |
 | “We want more referral partners” | Referral partner visibility / Directory |
 | “Feeding or OT is misunderstood” | Service-line storytelling |
-| “We serve adults too” | Platform slide / caregiver audience |
+| “We serve adults too” | Publication section / caregiver audience |
 | “We need steady awareness” | 36-month monthly presence |
 
 ---
 
-## 4. Bridge to deck (1 min)
+## 4. Bridge to the partnership guide (1 min)
 
 > “What you just said about [repeat her phrase] is why I thought Benefit could be a strong fit. I don’t see this as a normal ad. I see it as a referral-trust channel — useful education families keep, plus a clean path back to your intake team. Can I show you the shape?”
 
-Wait for yes. Then open the deck.
+Wait for yes. Then open the guide.
 
 ---
 
-## 5. During the deck — anchors
+## 5. During the guide — anchors
 
 - **Cover:** “This is built around family-centered therapy, not generic healthcare advertising.”
 - **Opportunity:** “A family making this decision needs trust and plain language before they need a sales message.”

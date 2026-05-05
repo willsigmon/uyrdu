@@ -2,7 +2,7 @@ import type { DeckScript } from "@/lib/deck-script";
 
 const script: DeckScript = {
   title: "Rapport Script — Susan Henson, SpaceLift Raleigh",
-  subtitle: "Pre-deck talk track · internal use only",
+  subtitle: "Pre-meeting talk track · internal use only",
   prospect: {
     name: "Susan Henson",
     role: "Founder & Principal Organizer · SpaceLift Organizing",
@@ -10,7 +10,7 @@ const script: DeckScript = {
   },
   body: `
 ## The frame
-Setting: coffee, phone, or Zoom. ~10–15 minutes before the deck. **Goal: learn which SpaceLift transformation story will sell trust fastest.**
+Setting: coffee, phone, or Zoom. ~10–15 minutes before the partnership guide. **Goal: learn which SpaceLift transformation story will sell trust fastest.**
 
 ---
 
@@ -51,7 +51,7 @@ Pick two or three.
 **Q4 — Offer:**
 > “What’s the easiest first win you can deliver in one session?”
 
-**Signals → deck slide to emphasize:**
+**Signals → guide section to emphasize:**
 
 | She says… | Lean into |
 |---|---|
@@ -63,17 +63,17 @@ Pick two or three.
 
 ---
 
-## 4. Bridge to deck (1 min)
+## 4. Bridge to the partnership guide (1 min)
 
 > “What you just said about [repeat her phrase] is why this feels different from a standard home-services ad. The story is not bins and labels. It’s relief, dignity, and a home that feels lighter. Can I show you how UY! could carry that story?”
 
-Wait for yes. Then open the deck.
+Wait for yes. Then open the guide.
 
 ---
 
-## 5. During the deck — anchors
+## 5. During the guide — anchors
 
-- **Cover:** “This deck is about families in transition — the people most likely to need calm, hands-on help.”
+- **Cover:** “This guide is about families in transition — the people most likely to need calm, hands-on help.”
 - **Opportunity:** “The emotional barrier is the sale. If we lower shame, the consult feels safer.”
 - **Publication:** “Before/after proof works beautifully in print, especially when the story is human.”
 - **Benefits:** Slow down on *Category creation* and *Trust before consult*.
