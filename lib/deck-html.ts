@@ -32,6 +32,10 @@ const DECK_MODULES: Record<string, () => Promise<{ default: DeckData }>> = {
   globalcitizen: () => import("@/data/decks/globalcitizen"),
   gotchacovered: () => import("@/data/decks/gotchacovered"),
   "benefit-therapy-services": () => import("@/data/decks/benefittherapyservices"),
+  cortica: () => import("@/data/decks/cortica"),
+  "cortica-cary": () => import("@/data/decks/cortica"),
+  hands: () => import("@/data/decks/handscenterforautism"),
+  "hands-center-for-autism": () => import("@/data/decks/handscenterforautism"),
   inspiredinsights: () => import("@/data/decks/inspiredinsights"),
   "spacelift-raleigh": () => import("@/data/decks/spaceliftraleigh"),
 };

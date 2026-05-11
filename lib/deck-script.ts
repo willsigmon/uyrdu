@@ -14,8 +14,12 @@ const SCRIPT_SLUG_PATTERN = /^[a-z0-9-]+$/;
 
 const SCRIPT_MODULES: Record<string, () => Promise<{ default: DeckScript }>> = {
   "benefit-therapy-services": () => import("@/data/deck-scripts/benefittherapyservices"),
+  cortica: () => import("@/data/deck-scripts/cortica"),
+  "cortica-cary": () => import("@/data/deck-scripts/cortica"),
   globalcitizen: () => import("@/data/deck-scripts/globalcitizen"),
   gotchacovered: () => import("@/data/deck-scripts/gotchacovered"),
+  hands: () => import("@/data/deck-scripts/handscenterforautism"),
+  "hands-center-for-autism": () => import("@/data/deck-scripts/handscenterforautism"),
   inspiredinsights: () => import("@/data/deck-scripts/inspiredinsights"),
   landy: () => import("@/data/deck-scripts/landy"),
   mercalis: () => import("@/data/deck-scripts/mercalis"),
