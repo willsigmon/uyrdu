@@ -112,12 +112,11 @@ export const DECK_SCRIPTS = `
       tierPanels[tierIndex].classList.add('tier-visible');
     }
     if (tierBtn) {
-      if (tierIndex < tierLabels.length) {
-        tierBtn.innerHTML = tierLabels[tierIndex] + ' &rarr;';
-      }
-      if (tierIndex >= tierPanels.length) {
+      if (tierIndex >= tierPanels.length - 1) {
         tierBtn.style.display = 'none';
         if (tierSummary) tierSummary.classList.add('summary-visible');
+      } else if (tierIndex < tierLabels.length) {
+        tierBtn.innerHTML = tierLabels[tierIndex] + ' &rarr;';
       }
     }
   }
