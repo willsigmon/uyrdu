@@ -410,11 +410,11 @@ h1, h2, h3 { font-family: var(--display); font-weight: 600; letter-spacing: -0.0
 #tierNextBtn { margin: 12px auto 0; background: linear-gradient(135deg, var(--dark), var(--dark-mid)); color: #fff; border: 0; border-radius: 99px; padding: 11px 22px; font-family: var(--sans); font-weight: 900; cursor: pointer; transition: transform .2s var(--spring), box-shadow .2s ease; }
 #tierNextBtn:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(12,22,41,.18); }
 #tierSummary { max-height: 0; overflow: hidden; opacity: 0; transition: max-height .6s ease, opacity .4s ease; }
-#tierSummary.summary-visible { max-height: clamp(114px, 13.5svh, 188px); opacity: 1; margin-top: 10px; }
-.rate-table-shell { max-height: clamp(104px, 12.5svh, 178px); overflow: auto; border-radius: 14px; background: #fff; box-shadow: 0 8px 28px rgba(12,22,41,.07); }
+#tierSummary.summary-visible { max-height: 720px; opacity: 1; margin-top: 12px; }
+.rate-table-shell { overflow: visible; border-radius: 14px; background: #fff; box-shadow: 0 8px 28px rgba(12,22,41,.07); }
 .rate-table { width: 100%; border-collapse: collapse; background: #fff; font-size: .82rem; }
 .rate-table th, .rate-table td { padding: 9px 13px; text-align: left; border-bottom: 1px solid var(--rule); }
-.rate-table th { background: var(--dark); color: #fff; font-weight: 800; position: sticky; top: 0; z-index: 1; }
+.rate-table th { background: var(--dark); color: #fff; font-weight: 800; }
 .rate-table .popular-header, .rate-table .popular-col { background: var(--accent-soft); color: var(--accent-deep); }
 .s8-diagonal { position: absolute; top: -80px; right: -200px; width: 620px; height: 620px; background: rgba(255,255,255,.025); transform: rotate(35deg); border-radius: 62px; pointer-events: none; }
 #start .slide-inner { gap: clamp(14px, 2vw, 22px); }
@@ -447,8 +447,8 @@ h1, h2, h3 { font-family: var(--display); font-weight: 600; letter-spacing: -0.0
   #pricing .section-title { font-size: clamp(2.1rem, 3.5vw, 3rem); }
   #pricing .section-subtitle { font-size: .98rem; line-height: 1.45; }
   #pricing .pricing-runway { min-height: 260px; }
-  #pricing #tierSummary.summary-visible { max-height: 114px; }
-  #pricing .rate-table-shell { max-height: 104px; }
+  #pricing .rate-table { font-size: .76rem; }
+  #pricing .rate-table th, #pricing .rate-table td { padding: 6px 11px; }
 }
 @media (max-width: 900px) {
   html { scroll-snap-type: none; }
