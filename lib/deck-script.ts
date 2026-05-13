@@ -13,10 +13,21 @@ export type DeckScript = {
 const SCRIPT_SLUG_PATTERN = /^[a-z0-9-]+$/;
 
 const SCRIPT_MODULES: Record<string, () => Promise<{ default: DeckScript }>> = {
+  "becoming-rentable": () => import("@/data/deck-scripts/becomingrentable"),
+  becomingrentable: () => import("@/data/deck-scripts/becomingrentable"),
+  "lorraine-woodward": () => import("@/data/deck-scripts/becomingrentable"),
   "benefit-therapy-services": () => import("@/data/deck-scripts/benefittherapyservices"),
+  cortica: () => import("@/data/deck-scripts/cortica"),
+  "cortica-cary": () => import("@/data/deck-scripts/cortica"),
   globalcitizen: () => import("@/data/deck-scripts/globalcitizen"),
   gotchacovered: () => import("@/data/deck-scripts/gotchacovered"),
+  hands: () => import("@/data/deck-scripts/handscenterforautism"),
+  "hands-center-for-autism": () => import("@/data/deck-scripts/handscenterforautism"),
   inspiredinsights: () => import("@/data/deck-scripts/inspiredinsights"),
+  "integrity-ink": () => import("@/data/deck-scripts/integrityink"),
+  integrityink: () => import("@/data/deck-scripts/integrityink"),
+  "integrity-ink-notary": () => import("@/data/deck-scripts/integrityink"),
+  "jessica-booker": () => import("@/data/deck-scripts/integrityink"),
   landy: () => import("@/data/deck-scripts/landy"),
   mercalis: () => import("@/data/deck-scripts/mercalis"),
   "spacelift-raleigh": () => import("@/data/deck-scripts/spaceliftraleigh"),
